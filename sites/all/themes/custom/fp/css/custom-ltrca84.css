@@ -46,7 +46,7 @@ body::-webkit-scrollbar-thumb {
     top: 0;
     width: 18px;
     height: 18px;
-    border: 1px solid #00b18f;
+    border: 1px solid #2E8345;
     border-radius: 0%;
     background: #fff;
 }
@@ -57,7 +57,7 @@ body::-webkit-scrollbar-thumb {
     content: '';
     width: 12px;
     height: 12px;
-    background: #00b18f;
+    background: #2E8345;
     position: absolute;
     top: 3px;
     right: 3px;
@@ -117,7 +117,7 @@ border:none;
 
 a.droppable-browse-button.button {
 
-    color: #00b18f;
+    color: #2E8345;
 }
 
 .edit-submit--2 { 
@@ -192,7 +192,7 @@ width: 100%;
     top: 0;
     width: 18px;
     height: 18px;
-    border: 1px solid #00b18f;
+    border: 1px solid #2E8345;
     border-radius: 0%;
     background: #fff;
     right: 0
@@ -205,7 +205,7 @@ width: 100%;
     content: '';
     width: 12px;
     height: 12px;
-    background: #00b18f;
+    background: #2E8345;
     position: absolute;
     top: 3px;
     left: auto;
@@ -282,7 +282,7 @@ div#node-84280 {
 
 div#node-84280 h2 a {
     letter-spacing: 3px;
-    color: #00b18f;
+    color: #2E8345;
     font-size: 34px;
     font-family: myFont-heavy;
     margin-bottom: 30px;

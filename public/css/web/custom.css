@@ -1,0 +1,44 @@
+/*====================================================
+=================== Navbar ===========================
+====================================================*/
+
+
+/*====================================================
+=================== Footer ===========================
+====================================================*/
+
+.footer-main .scial-fot a {
+    margin-left: 0px
+}
+
+.footer-main .scial-fot a.tube-icon {
+    transform: translateY(-3px);
+}
+
+.footer-main .scial-fot a.tube-icon:hover {
+    transform: translateY(-5px);
+}
+
+.footer-main .form-text {
+    padding: 7px;
+    border-radius: 2px;
+}
+
+#edit-newsletter-submit:hover {
+    transition: all ease-in-out 0.3s;
+    border: 1px solid #fff;
+}
+
+input::-webkit-input-placeholder {
+    /* Edge */
+    color: #fff;
+}
+
+input:-ms-input-placeholder {
+    /* Internet Explorer */
+    color: #fff;
+}
+
+input::placeholder {
+    color: #fff;
+}

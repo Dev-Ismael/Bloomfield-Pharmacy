@@ -1,63 +1,33 @@
+(function($) {
     $(document).ready(function() {
 
 
+        /*========================================================================
+        =================== Service ==============================================
+        =========================================================================*/
+        $(".service-item button").on("click", function() {
 
-        // function myFunction() {
+            var btnTxt = $(this).text();
+            $(this).siblings('p').find('span#more').toggleClass("d-none");
+            $(this).siblings('p').find('span#dots').toggleClass("d-none");
 
-        // alert("goood");
+            if (btnTxt == "Read more") {
+                $(this).text("Read less");
+            } else {
+                $(this).text("Read more");
+            }
 
-        // }
-
-
-        // function myFunction() {
-        //     var dots = document.getElementById("dots");
-        //     var moreText = document.getElementById("more");
-        //     var btnText = document.getElementById("myBtn");
-
-        //     if (dots.style.display === "none") {
-        //         dots.style.display = "inline";
-        //         btnText.innerHTML = Drupal.t('Read more');
-        //         moreText.style.display = "none";
-        //     } else {
-        //         dots.style.display = "none";
-        //         btnText.innerHTML = Drupal.t('Read less');
-        //         moreText.style.display = "inline";
-        //     }
-        // }
-
-        // function myFunction2() {
-        //     var dots = document.getElementById("dots2");
-        //     var moreText = document.getElementById("more2");
-        //     var btnText = document.getElementById("myBtn2");
-
-        //     if (dots.style.display === "none") {
-        //         dots.style.display = "inline";
-        //         btnText.innerHTML = Drupal.t('Read more');
-        //         moreText.style.display = "none";
-        //     } else {
-        //         dots.style.display = "none";
-        //         btnText.innerHTML = Drupal.t('Read less');
-        //         moreText.style.display = "inline";
-        //     }
-        // }
+        });
 
 
-        // function myFunction3() {
-        //     var dots = document.getElementById("dots3");
-        //     var moreText = document.getElementById("more3");
-        //     var btnText = document.getElementById("myBtn3");
 
-        //     if (dots.style.display === "none") {
-        //         dots.style.display = "inline";
-        //         btnText.innerHTML = Drupal.t('Read more');
-        //         moreText.style.display = "none";
-        //     } else {
-        //         dots.style.display = "none";
-        //         btnText.innerHTML = Drupal.t('Read less');
-        //         moreText.style.display = "inline";
-        //     }
-        // }
 
 
 
     });
+
+
+
+
+
+}(jQuery));

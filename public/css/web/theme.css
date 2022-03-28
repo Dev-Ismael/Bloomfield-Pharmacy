@@ -27143,10 +27143,6 @@ button#myBtn3 {
     margin-top: 15px;
 }
 
-#more #more2 #more3 {
-    display: none;
-}
-
 div#node-84280 {
     text-align: center;
     padding-bottom: 50px;
@@ -27167,12 +27163,6 @@ div#node-84280 h2 a {
     font-size: 24px;
     margin-bottom: 20px;
     margin-top: 20px;
-}
-
-#more3,
-#more2,
-#more {
-    display: none;
 }
 
 

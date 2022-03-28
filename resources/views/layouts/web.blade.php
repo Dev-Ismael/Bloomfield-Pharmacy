@@ -37,7 +37,7 @@
 
 
 
-
+        <!------------------------ NAVBAR -------------------->
         <div class="container-fluid head-main green-bg green-bg">
             <div class="container remove-padding header-main-cont">
 
@@ -69,39 +69,37 @@
                         <li><a href="node/430435.html">  Order a
                                 Prescription</a></li>
 
+                            <li>
+                                <div class="col-xs-12 remove-padding search-main visible-xs">
 
+
+
+                                    <form action="" method="post" id="search-block-form"
+                                        accept-charset="UTF-8">
+                                        <div>
+        
+        
+                                            <input type="text" id="edit-search-block-form--2" name="search_block_form"
+                                                class="form-control" value="" placeholder="Search Products" size="15"
+                                                maxlength="128" />
+                                            <button class="btn icon-search" id="edit-submit--2" type="submit" />
+                                            <input type="hidden" name="form_build_id"
+                                                value="form-pVD6Ingwo5dkVKP4xGH_gZUl2WxIndgoQincWHFPVZc" />
+                                            <input type="hidden" name="form_id" value="search_block_form" />
+        
+        
+                                        </div>
+                                    </form>
+        
+                                </div>
+                            </li>
 
                     </ul>
-
-                    <div class="col-xs-12">
-                        <div class="col-xs-12 remove-padding search-main visible-xs">
-
-
-
-                            <form action="https://www.fouda.com/" method="post" id="search-block-form"
-                                accept-charset="UTF-8">
-                                <div>
-
-
-                                    <input type="text" id="edit-search-block-form--2" name="search_block_form"
-                                        class="form-control" value="" placeholder="Search Products" size="15"
-                                        maxlength="128" />
-                                    <button class="btn icon-search" id="edit-submit--2" type="submit" />
-                                    <input type="hidden" name="form_build_id"
-                                        value="form-pVD6Ingwo5dkVKP4xGH_gZUl2WxIndgoQincWHFPVZc" />
-                                    <input type="hidden" name="form_id" value="search_block_form" />
-
-
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row">
                     <!-- end mobile menu  -->
-                    <div class="col-md-2 col-sm-2 col-xs-4 logo-main">
+                    <div class="col-2 logo-main">
 
 
                         <a href="index.html"><img class="logo-white hidden-xs" src="/images/logo-white.png"></a>
@@ -110,7 +108,8 @@
 
                     </div>
 
-                    <div class="col-md-4 col-sm-4 menu-cont hidden-xs">
+
+                    <div class="col-4 menu-cont hidden-xs">
 
                         <ul class="menu-main">
                             <li class="shop-btn"><a href="#" class="shop">Shop</a>
@@ -708,10 +707,10 @@
                     </div>
 
 
-                    <div class="col-md-4 col-sm-4 remove-padding search-main hidden-xs">
+                    <div class="col-4 remove-padding search-main hidden-xs">
 
 
-                        <form action="https://www.fouda.com/" method="post" id="search-block-form"
+                        <form action="" method="post" id="search-block-form"
                             accept-charset="UTF-8">
                             <div>
 
@@ -730,7 +729,8 @@
 
                     </div>
 
-                    <div class="col-md-2 col-sm-2 head-icon-main">
+
+                    <div class="col-2 head-icon-main">
                         <ul>
 
 
@@ -755,6 +755,122 @@
 
 
 
+
+
+
+
+        <!----------------- SIDBAR LOGIN/SIGUP  --------------->
+        <div id="hide-side-bar" class="hide-side-bar">
+            <button class="click-me">x</button>
+            <div class="col-xs-12  log-side-bar">
+                <a href="#" class="login-btn" data-toggle="modal" data-target="#login">log in</a>
+                <a href="#" class="singup-btn" data-toggle="modal" data-target="#register">Sign Up</a>
+            </div>
+            <div class="col-xs-12 pro-icons-main disable-icons">
+                <a href="#" class="orders-icon">My Orders</a>
+                <a href="#" class="wishlist-icon">My Wishlist</a>
+                <a href="#" class="subscribed-icon">My Subscribed Orders</a>
+                <a href="#" class="indicator-icon">My Health Indicator</a>
+                <a href="#" class="prescriptions-icon">My Prescriptions</a>
+                <a href="#" class="addresses-icon">My Saved Addresses</a>
+                <a href="#" class="articles-icon remove-border">My Saved Articles</a>
+            </div>
+        </div>
+    
+
+
+
+
+
+
+
+        <!----------------- SIDBAR LOGIN FORM --------------->
+        <div id="login" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="modal-body">
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-main">
+                            <h2>HAVE AN ACCOUNT</h2>
+                            <p>Please log in to proceed to checkout</p>
+                            <div class="col-xs-12 lgo-input-main">
+                                <form action="https://www.fouda.com/" method="post" id="user-login" accept-charset="UTF-8">
+                                    <div>
+                                        <div class="form-item form-type-textfield form-item-name">
+                                            <label class="element-invisible" for="edit-name">Softic Code <span class="form-required" title="This field is required.">*</span></label>
+                                            <input placeholder="Username" type="text" id="edit-name" name="name" value="" size="60" maxlength="60" class="form-text required" />
+                                        </div>
+                                        <div class="form-item form-type-password form-item-pass">
+                                            <label class="element-invisible" for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+                                            <input placeholder="Password" type="password" id="edit-pass" name="pass" size="60" maxlength="128" class="form-text required" />
+                                        </div>
+                                        <input type="hidden" name="form_build_id" value="form-_lv_jwBtK0k2wcGJULAS4K4nlewy8LrQhUCKoMdD82w" />
+                                        <input type="hidden" name="form_id" value="user_login" />
+                                        <div class="login-forgot"><a href="user/password.html">Request new password</a></div>
+                                        <div class="form-actions form-wrapper" id="edit-actions--26"><input type="submit" id="edit-submit" name="op" value="Log in" class="form-submit" /></div>
+    
+                                        <!-- THEME DEBUG -->
+                                        <!-- CALL: theme('hybridauth_widget') -->
+                                        <!-- BEGIN OUTPUT from 'sites/all/modules/contrib/hybridauth/templates/hybridauth_widget.tpl.php' -->
+                                        <div class="hybridauth-widget-wrapper">
+                                            <div class="item-list">
+                                                <h3>Or log in with...</h3>
+                                                <ul class="hybridauth-widget">
+                                                    <li class="first last">
+                                                        <a href="user248c.html?destination=user&amp;destination_error=user" title="Facebook" class="hybridauth-widget-provider hybridauth-onclick-popup" rel="nofollow" data-hybridauth-provider="Facebook" data-hybridauth-url="/hybridauth/window/Facebook?destination=user&amp;destination_error=user"
+                                                            data-ajax="false" data-hybridauth-width="800" data-hybridauth-height="500">
+    
+                                                            <!-- THEME DEBUG -->
+                                                            <!-- CALL: theme('hybridauth_provider_icon') -->
+                                                            <!-- BEGIN OUTPUT from 'sites/all/modules/contrib/hybridauth/templates/hybridauth_provider_icon.tpl.php' -->
+                                                            <span class="hybridauth-icon facebook hybridauth-icon-hybridauth-48 hybridauth-facebook hybridauth-facebook-hybridauth-48" title="Facebook"><span class="element-invisible">Login with Facebook</span></span>
+    
+                                                            <!-- END OUTPUT from 'sites/all/modules/contrib/hybridauth/templates/hybridauth_provider_icon.tpl.php' -->
+    
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+    
+                                        <!-- END OUTPUT from 'sites/all/modules/contrib/hybridauth/templates/hybridauth_widget.tpl.php' -->
+    
+                                        <input type="submit" id="edit-submit-google" name="op" value="" class="form-submit" /></div>
+                                </form>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6 col-sm-6 col-xs-12 link-main-reg">
+                            <h2>NO ACCOUNT YET?!</h2>
+                            <p>Create an account in order to checkout</p>
+                            <a href="#" data-toggle="modal" data-target="#register" data-dismiss="modal">CREATE AN ACCOUNT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         @yield('content')
 
 
@@ -768,21 +884,19 @@
 
 
                 <ul class="fot-links col-sm-6 col-xs-12">
-                    <li class="first leaf col-md-4 col-sm-6 col-xs-12"><span class="nolink"
-                            tabindex="0">HOTLINE | 19395</span></li>
-                    <li class="leaf col-md-4 col-sm-6 col-xs-12"><a href="contact.html">CONTACT US</a></li>
-                    <li class="leaf col-md-4 col-sm-6 col-xs-12"><a href="branchs.html">Branchs</a></li>
-                    <li class="leaf col-md-4 col-sm-6 col-xs-12"><a href="content/shipping-delivary.html">SHIPPING
+                    
+                    <li class="leaf "><a href="contact.html">CONTACT US</a></li>
+                    <li class="leaf "><a href="content/shipping-delivary.html">SHIPPING
                             &amp; DELIVERY</a></li>
-                    <li class="leaf col-md-4 col-sm-6 col-xs-12"><a href="content/returns-exchange-policy.html">RETURNS
+                    <li class="leaf"><a href="content/returns-exchange-policy.html">RETURNS
                             &amp; EXCHANGE</a></li>
-                    <li class="leaf col-md-4 col-sm-6 col-xs-12"><a href="content/privacy-policy.html">PRIVACY
+                    <li class="leaf"><a href="content/privacy-policy.html">PRIVACY
                             POLICY</a></li>
                 </ul>
                 <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-2 news-letter-main">
                     <div class="prefix">Subscribe now for news letter and get notified
                         with the latest offers and featured products</div>
-                    <form action="https://www.fouda.com/" method="post" id="newsletter-subscribe-form"
+                    <form action="" method="post" id="newsletter-subscribe-form"
                         accept-charset="UTF-8">
                         <div>
                             <div class="form-item form-type-textfield form-item-email">
@@ -846,6 +960,7 @@
                 
             </div>
         </div>
+        
         <div class="scrollup">
             <a href="#"></a>
         </div>
@@ -857,6 +972,7 @@
 
     <!-- Scripts  (include Bootstrap & jquery)   -->
     <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}" ></script>
     <script src="{{ asset('js/web/file.js') }}" ></script>
 
 </body>

@@ -20069,7 +20069,6 @@ only screen and (min-resolution: 144dpi) {
 }
 
 @font-face {
-    font-family: myFont-Heavy;
     src: url(/fonts/Nexa-Heavy.otf);
 }
 
@@ -20225,7 +20224,7 @@ input:focus {
 .white-bg {
     background-color: #fff;
     transition: all 0.3s ease;
-    box-shadow: 0px 2px 2px 0px rgba(226, 220, 220, 0.35);
+    box-shadow: 0px 0px 36px 0px #0003;
 }
 
 .head-main {
@@ -20537,6 +20536,7 @@ a.cart-main span {
 .shop-icons-child div {
     cursor: pointer;
     color: #adadad;
+    transition: all 0.3s ease-in-out;
 }
 
 .shop-icons-child div {
@@ -20547,61 +20547,51 @@ a.cart-main span {
 .icon-down-1:hover,
 .icon-down-1.current {
     color: #06ab84;
-    font-family: myFont-Heavy;
 }
 
 .icon-down-2:hover,
 .icon-down-2.current {
     color: #ee5741;
-    font-family: myFont-Heavy;
 }
 
 .icon-down-3:hover,
 .icon-down-3.current {
     color: #fcac2a;
-    font-family: myFont-Heavy;
 }
 
 .icon-down-4:hover,
 .icon-down-4.current {
     color: #78cbcf;
-    font-family: myFont-Heavy;
 }
 
 .icon-down-5:hover,
 .icon-down-5.current {
     color: #ed3841;
-    font-family: myFont-Heavy;
 }
 
 .icon-down-6:hover,
 .icon-down-6.current {
     color: #7d59a3;
-    font-family: myFont-Heavy;
 }
 
 .icon-down-7:hover,
 .icon-down-7.current {
     color: #f7a5ae;
-    font-family: myFont-Heavy;
 }
 
 .icon-down-8:hover,
 .icon-down-8.current {
     color: #81c143;
-    font-family: myFont-Heavy;
 }
 
 .icon-down-9:hover,
 .icon-down-9.current {
     color: #f37026;
-    font-family: myFont-Heavy;
 }
 
 .icon-down-10:hover,
 .icon-down-10.current {
     color: #2ebed8;
-    font-family: myFont-Heavy;
 }
 
 .tabs-main .col-xs-12 {
@@ -20609,7 +20599,6 @@ a.cart-main span {
     transition: all 0.3s ease;
     padding-top: 40px;
     border-top: 1px solid #ededed;
-    margin-top: 40px;
 }
 
 .tabs-main .col-xs-12.current {
@@ -20620,7 +20609,6 @@ a.cart-main span {
 .tabs-main .col-xs-12 h2 {
     font-size: 14px;
     text-transform: uppercase;
-    font-family: myFont-Heavy;
 }
 
 .tabs-main .col-xs-12 .line-title {
@@ -20978,7 +20966,6 @@ a.sing-out-btn {
     background-color: #fff;
     color: #adadad;
     border-radius: 30px;
-    font-family: myFont-Heavy;
     height: 50px;
     text-decoration: none;
     text-align: center;
@@ -20999,7 +20986,6 @@ a.sing-out-btn:hover {
 .cart-title h1 {
     text-transform: uppercase;
     font-size: 18px;
-    font-family: myFont-Heavy;
     color: #777777;
     margin-top: 15px;
     letter-spacing: 3px;
@@ -21078,7 +21064,6 @@ a.sing-out-btn:hover {
 
 .item-side-det p.qty-side-cart span {
     color: #767676;
-    font-family: myFont-Heavy;
 }
 
 .sub-total-side {
@@ -21090,13 +21075,11 @@ a.sing-out-btn:hover {
 }
 
 .sub-total-side .price-total-main p {
-    font-family: myFont-Heavy;
     float: left;
     color: #767676;
 }
 
 .sub-total-side .price-total-main h2 {
-    font-family: myFont-Heavy;
     float: right;
     color: #f1563f;
     font-size: 14px;
@@ -21123,7 +21106,6 @@ a.sing-out-btn:hover {
     text-decoration: none;
     text-transform: uppercase;
     border-radius: 30px;
-    font-family: myFont-Heavy;
 }
 
 .side-sub-total-link a.checkout {
@@ -21749,7 +21731,6 @@ button.close {
     font-size: 85px;
     letter-spacing: 10px;
     color: #fff;
-    font-family: myFont-heavy;
     text-transform: uppercase;
     line-height: 120px;
 }
@@ -21817,7 +21798,6 @@ button.close {
     letter-spacing: 3px;
     color: var(--green-color);
     font-size: 34px;
-    font-family: myFont-heavy;
     margin-bottom: 40px;
 }
 
@@ -22059,7 +22039,6 @@ button.close {
     color: #fff;
     font-size: 32px;
     letter-spacing: 5px;
-    font-family: myFont-heavy;
 }
 
 .order-you-main h2 {
@@ -22724,7 +22703,6 @@ select {
 
 .fillter-side-main h3 {
     font-size: 16px;
-    font-family: myFont-heavy;
     color: #7b7b7b;
     text-align: left;
     text-transform: uppercase;
@@ -22992,7 +22970,6 @@ input[type=number]::-webkit-outer-spin-button {
 .personal-info h2 {
     font-size: 18px;
     color: var(--green-color);
-    font-family: myFont-heavy;
     margin-bottom: 30px;
     margin-left: 15px;
 }
@@ -23214,7 +23191,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .cards-main h2 {
     font-size: 20px;
-    font-family: myFont-heavy;
     margin-left: 15px;
     color: #767676;
 }
@@ -23385,7 +23361,6 @@ a.add-new-card-btn:hover {
 .order-items-main h2 {
     color: var(--green-color);
     font-size: 18px;
-    font-family: myFont-heavy;
     margin-bottom: 30px;
     margin-left: 15px;
 }
@@ -23470,7 +23445,6 @@ a.add-new-card-btn:hover {
     font-size: 34px;
     letter-spacing: 3px;
     color: #fff;
-    font-family: myFont-heavy;
     margin-bottom: 20px;
 }
 
@@ -23720,7 +23694,6 @@ a.sub-order-link::before {
     font-size: 34px;
     letter-spacing: 3px;
     color: #fff;
-    font-family: myFont-heavy;
     margin-bottom: 50px;
 }
 
@@ -25793,7 +25766,6 @@ a.cancel-btn-o {
         font-size: 75px;
         letter-spacing: 0px;
         color: #fff;
-        font-family: myFont-heavy;
         text-transform: uppercase;
         line-height: 100px;
     }
@@ -26242,7 +26214,7 @@ a.cancel-btn-o {
         height: 30px !important;
         width: auto;
         margin-top: 0 !important;
-        margin-left: 50px;
+        margin-left: 20px;
     }
     .logo-main {
         width: 25%;
@@ -26467,6 +26439,9 @@ a.cancel-btn-o {
         padding: 15px;
         border-bottom: 1px solid #eee;
     }
+    .menu-main-mob ul li:last-of-type {
+        border-bottom: none;
+    }
     .menu-main-mob ul li a {
         color: #fff;
         display: block;
@@ -26495,7 +26470,7 @@ a.cancel-btn-o {
         font-family: "nabhan";
         margin-left: 5px;
         float: right;
-        background: #20c1a2;
+        background: #174523;
         border-radius: 50%;
         width: 20px;
         height: 20px;
@@ -27152,7 +27127,6 @@ div#node-84280 h2 a {
     letter-spacing: 3px;
     color: #2E8345;
     font-size: 34px;
-    font-family: myFont-heavy;
     margin-bottom: 30px;
     display: inline-block;
     text-decoration: none;
@@ -27571,13 +27545,11 @@ div.error {
 }
 
 .t_price .subtotal-title {
-    font-family: myFont-Heavy;
     float: left;
     color: #767676;
 }
 
 .t_price .uc-price {
-    font-family: myFont-Heavy;
     float: right;
     color: #f1563f !important;
     font-size: 14px;
@@ -27742,7 +27714,6 @@ select:after {
 .uc-cart-checkout-form span.fieldset-legend {
     font-size: 18px;
     color: var(--green-color);
-    font-family: myFont-heavy;
     margin-bottom: 30px;
     margin-left: 15px;
     line-height: 40px;
@@ -29112,6 +29083,9 @@ label[for="edit-panes-payment-payment-method-payment-ubercart-3"]
     border: 1px solid #ddd;
     padding: 15px;
 }
+
+
+/*# sourceMappingURL=file.css.map */
 
 
 /*# sourceMappingURL=file.css.map */

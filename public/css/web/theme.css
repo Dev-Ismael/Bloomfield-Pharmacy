@@ -20254,7 +20254,7 @@ input:focus {
 }
 
 .logo-main a img {
-    height: 60px;
+    height: 40px;
 }
 
 .menu-main {
@@ -20721,11 +20721,11 @@ a.other-mega-link {
 }
 
 .icon-down-8::before {
-    content: "\e906";
+    content: "\e901";
 }
 
 .icon-down-9::before {
-    content: "\e906";
+    content: "\e901";
 }
 
 .icon-down-10::before {
@@ -21164,9 +21164,15 @@ a.sing-out-btn:hover {
 
 .foot-bg {
     position: absolute;
-    left: 0;
-    bottom: -15px;
     height: 265px;
+    bottom: 0px;
+    left: 0px;
+}
+
+@media (max-width: 767.98px) {
+    .foot-bg {
+        height: 150px;
+    }
 }
 
 .fot-links a {
@@ -21826,7 +21832,7 @@ button.close {
 }
 
 .service-item p {
-    font-size: 16px;
+    font-size: 14px;
     color: #767676;
 }
 
@@ -22005,11 +22011,11 @@ button.close {
 }
 
 .categories-main .categories-child a.child-8 .category-main::before {
-    content: "\e906";
+    content: "\e901";
 }
 
 .categories-main .categories-child a.child-9 .category-main::before {
-    content: "\e906";
+    content: "\e901";
 }
 
 .categories-main .categories-child a.child-10 .category-main::before {
@@ -22607,7 +22613,7 @@ select {
 }
 
 .category-title-7::before {
-    content: "\e906";
+    content: "\e901";
 }
 
 .category-title-8::before {
@@ -26233,10 +26239,10 @@ a.cancel-btn-o {
         font-size: 35px;
     }
     .logo-main a img {
-        height: 40px !important;
+        height: 30px !important;
         width: auto;
         margin-top: 0 !important;
-        margin-left: 40px;
+        margin-left: 50px;
     }
     .logo-main {
         width: 25%;
@@ -26416,7 +26422,7 @@ a.cancel-btn-o {
         content: "\e903";
     }
     .mob-shop-drop-dowm a.shop2::before {
-        content: "\e906";
+        content: "\e901";
     }
     .mob-shop-drop-dowm a.shop3::before {
         content: "\e902";
@@ -26431,7 +26437,7 @@ a.cancel-btn-o {
         content: "\e905";
     }
     .mob-shop-drop-dowm a.shop7::before {
-        content: "\e906";
+        content: "\e901";
     }
     .mob-shop-drop-dowm a.shop8::before {
         content: "\e900";
@@ -28865,7 +28871,7 @@ text.highcharts-credits {
 #title-19214::before,
 #title-19215::before,
 #title-19216::before {
-    content: "\e906";
+    content: "\e901";
 }
 
 .category-title-9::before,
@@ -28900,7 +28906,7 @@ text.highcharts-credits {
 #title-19196::before,
 #title-19198::before,
 #title-19197::before {
-    content: "\e906";
+    content: "\e901";
 }
 
 .category-title-10::before,

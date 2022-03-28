@@ -14,7 +14,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!------- Theme Color meta ------->
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#2a8e82">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
@@ -22,16 +22,11 @@
     <!------- FontAwesome  ------->
     <script src="https://kit.fontawesome.com/bc98e6aa51.js" crossorigin="anonymous"></script>
 
-
-    <!-- Scripts  (include Bootstrap & jquery)   -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles  (include Bootstrap)   -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">  {{-- Include Bootstrap --}}
     <link href="{{ asset('css/web/theme.css') }}" rel="stylesheet">
     <link href="{{ asset('css/web/custom.css') }}" rel="stylesheet">
 
@@ -63,15 +58,15 @@
                                     href="fp/taxonomy/term/18676.html" class="shop4">Hair Care</a> <a
                                     href="fp/taxonomy/term/18674.html" class="shop5">Beaut</a> <a
                                     href="fp/taxonomy/term/18679.html" class="shop6">Perfumes / Deodorants</a>
-                                <a href="fp/taxonomy/term/18678.html" class="shop7">Mother / Baby Care</a> <a
+                                <a  href="fp/taxonomy/term/18678.html" class="shop7">Mother / Baby Care</a> <a
                                     href="fp/taxonomy/term/18680.html" class="shop8">General Use</a> <a
                                     href="fp/taxonomy/term/18677.html" class="shop9">Body / Personal Care</a>
                                 <a href="fp/taxonomy/term/18672.html" class="shop10">Supplements / Vitamines</a>
                             </div>
                         </li>
 
-                        <li><a href="content/about-us.html"> <i class="fa-solid fa-circle-info"></i> About Us</a></li>
-                        <li><a href="node/430435.html"> <i class="fa-solid fa-file-medical"></i> Order a
+                        <li><a href="content/about-us.html"> About Us</a></li>
+                        <li><a href="node/430435.html">  Order a
                                 Prescription</a></li>
 
 
@@ -109,9 +104,10 @@
                     <div class="col-md-2 col-sm-2 col-xs-4 logo-main">
 
 
-                        <a href="index.html"><img class="logo-white hidden-xs" src="/images/web/logo-white.png"></a>
-                        <a href="index.html"><img class="logo hidden-xs" src="/images/web/logo.png"></a>
-                        <a href="index.html"><img class="visible-xs" src="/images/web/mob-logo.png"></a>
+                        <a href="index.html"><img class="logo-white hidden-xs" src="/images/logo-white.png"></a>
+                        <a href="index.html"><img class="logo hidden-xs" src="/images/logo.png"></a>
+                        <a href="index.html"><img class="visible-xs" src="/images/logo-min.png"></a>
+
                     </div>
 
                     <div class="col-md-4 col-sm-4 menu-cont hidden-xs">
@@ -702,9 +698,9 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="node/430435.html"> <i class="fa-solid fa-file-medical"></i> Order a
+                            <li><a href="node/430435.html"> Order a
                                     Prescription</a></li>
-                            <li><a href="content/about-us.html"> <i class="fa-solid fa-circle-info"></i> About Us</a>
+                            <li><a href="content/about-us.html"> About Us</a>
                             </li>
                         </ul>
 
@@ -767,7 +763,7 @@
 
 
         <div class="container-fluid footer-main">
-            <img src="/images/web/foot-bg.png" class="foot-bg">
+            <img src="{{ asset('images/footer.png') }}" class="foot-bg">
             <div class="container remove-padding">
 
 
@@ -807,8 +803,8 @@
                 <div class="clearfix"></div>
 
 
-                <div class="col-md-4 col-xs-12 remove-padding text-left foot-foda-logo">
-                    <img src="/images/web/logo-white.png">
+                <div class="col-md-4 col-xs-12 remove-padding text-left-md foot-foda-logo">
+                    <img src="/images/logo-white.png">
 
                 </div>
 
@@ -843,7 +839,7 @@
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        Bloomfield Pharmacy
+                        {{ config('app.name') }}
                     </p>
 
                 </div>
@@ -855,6 +851,14 @@
         </div>
 
     </div>
+
+
+    
+
+    <!-- Scripts  (include Bootstrap & jquery)   -->
+    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/web/file.js') }}" ></script>
+
 </body>
 
 </html>

@@ -20353,10 +20353,10 @@ a.shop:after {
 }
 
 .head-icon-main {
-    text-align: right;
+    /* text-align: right;
     width: 23%;
     margin-top: 8px;
-    padding-right: 0;
+    padding-right: 0; */
 }
 
 .head-icon-main ul {
@@ -21325,7 +21325,7 @@ a.sing-out-btn:hover {
     font-size: 35px;
     text-align: center;
     position: absolute;
-    left: 15px;
+    left: 14px;
     top: 2px;
     transform: rotate(180deg);
 }
@@ -22024,7 +22024,6 @@ button.close {
     opacity: 0.3;
     top: 0;
     object-fit: cover;
-    border-radius: 10px;
 }
 
 .order-you-main p {
@@ -25721,7 +25720,7 @@ a.cancel-btn-o {
         font-size: 11px;
     }
     .head-icon-main {
-        width: 26%;
+        /* width: 26%; */
     }
     .review-main .all-btn {
         margin-right: 120px;
@@ -25942,17 +25941,17 @@ a.cancel-btn-o {
         font-size: 14px;
     }
     .head-icon-main select {
-        height: 30px;
+        /* height: 30px; */
     }
     .lan-main:after {
         margin-left: -28px;
         margin-top: 4px;
     }
-    .head-icon-main {
+    /* .head-icon-main {
         width: 26%;
         padding-left: 5px;
         padding-right: 5px;
-    }
+    } */
     a.profile-main:before,
     a.cart-main:before {
         font-size: 14px;
@@ -25961,7 +25960,6 @@ a.cancel-btn-o {
         display: block;
         color: #fff;
         text-decoration: none;
-        font-size: 10px;
     }
     .shop-icons-child div::before {
         font-size: 30px;
@@ -26213,7 +26211,7 @@ a.cancel-btn-o {
         height: 30px !important;
         width: auto;
         margin-top: 0 !important;
-        margin-left: 20px;
+        margin-left: 35%;
     }
     .logo-main {
         width: 25%;
@@ -26222,11 +26220,11 @@ a.cancel-btn-o {
         padding-top: 10px;
         padding-bottom: 10px;
     }
-    .head-icon-main {
+    /* .head-icon-main {
         width: 64%;
         float: right;
         padding-right: 10px;
-    }
+    } */
     .white-bg {
         background-color: var(--green-color) !important;
     }
@@ -26269,7 +26267,7 @@ a.cancel-btn-o {
         transition: 0.1s -webkit-transform linear;
         transition: 0.1s transform linear;
         transition: 0.1s transform linear, 0.1s -webkit-transform linear;
-        position: fixed;
+        position: absolute;
         background: 0;
         float: left;
         margin: 0;
@@ -26279,9 +26277,6 @@ a.cancel-btn-o {
         outline: 0;
         padding: 0;
         border: 0;
-        z-index: 11;
-        top: 10px;
-        left: 0px;
         z-index: 999999999999999;
     }
     .bar,
@@ -29082,6 +29077,9 @@ label[for="edit-panes-payment-payment-method-payment-ubercart-3"]
     border: 1px solid #ddd;
     padding: 15px;
 }
+
+
+/*# sourceMappingURL=file.css.map */
 
 
 /*# sourceMappingURL=file.css.map */

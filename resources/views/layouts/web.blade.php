@@ -26,8 +26,17 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">  {{-- Include Bootstrap --}}
+
+
+
+    <!------- App.css Style  ( Include Bootstrap )------->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">  
+    <!------------------- Theme Style ------------------->
     <link href="{{ asset('css/web/theme.css') }}" rel="stylesheet">
+    <!------- Owl Carousel Style  ------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> 
+    <!----------------- Custom Style  ------------------>
     <link href="{{ asset('css/web/custom.css') }}" rel="stylesheet">
 
 </head>
@@ -970,9 +979,12 @@
 
     
 
-    <!-- Scripts  (include Bootstrap & jquery)   -->
+    <!---------------- Scripts ----------------------->
+    <!------ App.js (include Bootstrap & jquery) ----->
     <script src="{{ asset('js/app.js') }}" ></script>
-    <script src="{{ asset('js/owl.carousel.min.js') }}" ></script>
+    <!---------------- Owl Carousel -------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!---------------- File.Js -------------------->
     <script src="{{ asset('js/web/file.js') }}" ></script>
 
 </body>

@@ -7,11 +7,20 @@
 
 
     <!---------------------- Header ----------------------------->
-
-    <div id="home-header" >
-        <div class="slider_1" style="background-image: url('/images/web/slider1.jpg')"></div>
+    <div class="header owl-carousel owl-theme">
+        <div class="slide slide-1">
+            <div class="slide-content">
+            </div>
+        </div>
+        <div class="slide slide-2">
+            <div class="slide-content">
+            </div>
+        </div>
+        <div class="slide slide-3">
+            <div class="slide-content">
+            </div>
+        </div>
     </div>
-
 
 
 

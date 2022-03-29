@@ -25967,9 +25967,6 @@ a.cancel-btn-o {
     .shop-icons-child p {
         font-size: 12px;
     }
-    .shop-down {
-        padding-right: 15px;
-    }
     .fot-links {
         padding: 0;
     }
@@ -26415,10 +26412,10 @@ a.cancel-btn-o {
         content: "\e903";
     }
     .menu-main-mob ul {
+        height: auto;
         margin-top: 20px;
-        overflow: auto;
+        overflow: hidden;
         padding-bottom: 15px;
-        height: calc(100vh - 230px);
     }
     .menu-main-mob ul::-webkit-scrollbar {
         width: 5px;
@@ -26516,8 +26513,8 @@ a.cancel-btn-o {
     }
     .scrollup a:after {
         font-size: 20px;
-        left: 12px;
-        top: 5px;
+        left: 11.5px;
+        top: 3px;
     }
     .slider-main .item img {
         height: 50%;

@@ -52,8 +52,6 @@
             <div class="container remove-padding header-main-cont">
 
                 <!-- mobile menu  -->
-
-
                 <div class="menu-main-mob visible-xs">
 
                     <div class="container">
@@ -109,10 +107,9 @@
                     </div>
 
                 </div>
-                <!-- end mobile menu  -->
+                <!-- navbar-content  -->
                 <div id="navbar-content">
                     <div class="container">
-
                         <div class="row">
                             <div class="col-md-2 col-xs-4 logo-main">
 
@@ -127,7 +124,6 @@
                                 <a href="index.html"><img class="visible-xs logo-min" src="/images/logo-min.png"></a>
 
                             </div>
-
 
                             <div class="col-md-4 col-xs-2 menu-cont ">
 
@@ -189,7 +185,7 @@
                                                 </div>
                                                 <div class="container remove-padding tabs-main">
                                                     <div class="col-xs-12 remove-padding current" id="tab-1">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/18864.html">
                                                                     <h2>BRAIN & NERVOUS SYSTEM</h2>
@@ -273,7 +269,7 @@
 
                                                     </div>
                                                     <div class="col-xs-12 remove-padding" id="tab-2">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/19018.html">
                                                                     <h2>Measuring & Testing Tools</h2>
@@ -331,7 +327,7 @@
 
                                                     </div>
                                                     <div class="col-xs-12 remove-padding" id="tab-3">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/19115.html">
                                                                     <h2>Eye Products</h2>
@@ -394,7 +390,7 @@
 
                                                     </div>
                                                     <div class="col-xs-12 remove-padding" id="tab-4">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/19132.html">
                                                                     <h2>Hair Washing</h2>
@@ -441,7 +437,7 @@
 
                                                     </div>
                                                     <div class="col-xs-12 remove-padding" id="tab-5">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/19097.html">
                                                                     <h2>Makeup</h2>
@@ -478,7 +474,7 @@
 
                                                     </div>
                                                     <div class="col-xs-12 remove-padding" id="tab-6">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/19206.html">
                                                                     <h2>Men</h2>
@@ -504,7 +500,7 @@
 
                                                     </div>
                                                     <div class="col-xs-12 remove-padding" id="tab-7">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/19199.html">
                                                                     <h2>Pregnancy</h2>
@@ -546,7 +542,7 @@
 
                                                     </div>
                                                     <div class="col-xs-12 remove-padding" id="tab-8">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/19210.html">
                                                                     <h2>Books & Magazines</h2>
@@ -588,7 +584,7 @@
 
                                                     </div>
                                                     <div class="col-xs-12 remove-padding" id="tab-9">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/19169.html">
                                                                     <h2>Body Shaping</h2>
@@ -667,7 +663,7 @@
 
                                                     </div>
                                                     <div class="col-xs-12 remove-padding" id="tab-10">
-                                                        <div class="col-md-12 col-sm-3">
+                                                        <div class="col-md-12 row">
                                                             <div class="col-md-4 col-sm-3">
                                                                 <a href="fp/taxonomy/term/18989.html">
                                                                     <h2>VITAMINS</h2>
@@ -726,7 +722,6 @@
 
                             </div>
 
-
                             <div class="col-md-4 col-xs-2 remove-padding search-main ">
 
 
@@ -748,7 +743,6 @@
 
                             </div>
 
-
                             <div class="col-md-2 col-xs-4 head-icon-main">
                                 <ul>
 
@@ -768,13 +762,9 @@
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
-
 
             </div>
         </div>

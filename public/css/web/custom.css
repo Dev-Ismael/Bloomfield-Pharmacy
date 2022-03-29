@@ -103,6 +103,15 @@ body::-webkit-scrollbar-thumb {
     background: #fff !important;
 }
 
+.owl-theme .owl-dots .owl-dot span {
+    background: #9d9d9d;
+    transition: all 0.5s ease-in-out;
+}
+
+.owl-theme .owl-dots .owl-dot .owl-dot.active {
+    background: #fff !important;
+}
+
 
 /*====================================================
 =================== Footer ===========================

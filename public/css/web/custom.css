@@ -339,6 +339,7 @@
     }
     
     .modal.show .modal-dialog {
+        overflow: hidden;
         max-width: 60% !important;
         transition: all 0.2s ease-in-out;
     }

@@ -814,8 +814,7 @@
                             <h2>HAVE AN ACCOUNT</h2>
                             <p>Please log in to proceed to checkout</p>
                             <div class="col-xs-12 lgo-input-main">
-                                <form  method="post" id="user-login"
-                                    accept-charset="UTF-8">
+                                <form method="post" id="user-login" accept-charset="UTF-8">
                                     <div>
                                         <div class="form-item form-type-textfield form-item-name">
                                             <label class="element-invisible" for="edit-name">Softic Code <span
@@ -831,7 +830,7 @@
                                             <input placeholder="Password" type="password" id="edit-pass" name="pass"
                                                 size="60" maxlength="128" class="form-text required" />
                                         </div>
-                                        
+
                                         <div class="form-actions form-wrapper" id="edit-actions--26"><input
                                                 type="submit" id="edit-submit" name="op" value="Log in"
                                                 class="form-submit" /></div>
@@ -869,6 +868,163 @@
 
 
 
+        <!----------------- SIDBAR SignUp FORM --------------->
+
+
+        <div class="modal" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    <div class="modal-body row">
+                        
+                        <div class="col-md-6 col-sm-12 link-main-reg">
+                            <h2>HAVE AN ACCOUNT!</h2>
+                            <p>Please log in to proceed to checkout</p>
+                            <a href="#" data-toggle="modal" data-target="#login" data-dismiss="modal">LOG IN &
+                                CHECKOUT</a>
+
+                        </div>
+
+
+                        <div class="col-md-6 col-sm-12 form-main form-main2">
+                            <h2>NO ACCOUNT YET</h2>
+                            <p>Create an account in order to checkout</p>
+                            <div class="col-xs-12 remove-padding other-way-login">
+                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                </div>
+                            </div>
+
+
+                            <form class="user-info-from-cookie ds-2col-stacked-fluid" enctype="multipart/form-data"
+                                action="#" method="post" id="user-register-form"
+                                accept-charset="UTF-8">
+                                <div>
+                                    <div class="ds-2col-stacked-fluid  ds-form clearfix">
+
+
+                                        <div class="group-header">
+                                            <div class="field-type-text field-name-field-mobile field-widget-text-textfield form-wrapper"
+                                                id="edit-field-mobile">
+                                                <div id="field-mobile-add-more-wrapper">
+                                                    <div
+                                                        class="form-item form-type-textfield form-item-field-mobile-und-0-value">
+                                                        <label for="edit-field-mobile-und-0-value">Mobile <span
+                                                                class="form-required"
+                                                                title="This field is required.">*</span></label>
+                                                        <input class="text-full form-text required" type="text"
+                                                            id="edit-field-mobile-und-0-value"
+                                                            name="field_mobile[und][0][value]" value="" size="60"
+                                                            maxlength="255" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="edit-account" class="form-wrapper">
+                                                <div class="form-item form-type-textfield form-item-name">
+                                                    <label for="edit-name--3">Username <span class="form-required"
+                                                            title="This field is required.">*</span></label>
+                                                    <input class="username form-text required" type="text"
+                                                        id="edit-name--3" name="name" value="" size="60"
+                                                        maxlength="60" />
+                                                   
+                                                </div>
+                                                <div class="form-item form-type-textfield form-item-mail">
+                                                    <label for="edit-mail">E-mail address <span class="form-required"
+                                                            title="This field is required.">*</span></label>
+                                                    <input type="text" id="edit-mail" name="mail" value="" size="60"
+                                                        maxlength="254" class="form-text required" />
+                                                    
+                                                </div>
+                                                <input type="hidden" name="timezone" value="Africa/Cairo" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="form-actions form-wrapper" id="edit-actions--28"><input type="submit"
+                                            id="edit-submit--3" name="op" value="Create new account"
+                                            class="form-submit" /></div>
+                                            <div class="hybridauth-widget-wrapper">
+                                                <div class="item-list">
+                                                    <h3>Or log in with...</h3>
+                                                    <ul class="hybridauth-widget">
+                                                        <li> <i class="fa-brands fa-google-plus"></i> </li>
+                                                        <li> <i class="fa-brands fa-facebook-square"></i> </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -892,7 +1048,7 @@
 
 
         <div class="container-fluid footer-main">
-            <img src="{{ asset('images/footer.png') }}" class="foot-bg">
+            <img src="{{ asset('images/transparent-logo.png') }}" class="foot-bg">
             <div class="container remove-padding">
 
 
@@ -972,6 +1128,27 @@
 
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

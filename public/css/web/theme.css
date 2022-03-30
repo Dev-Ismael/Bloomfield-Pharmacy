@@ -21478,9 +21478,10 @@ button.close {
     align-items: center;
     height: 640px;
     flex-flow: column;
-    background-image: url(../img/log-in-bg.png);
+    background-image: url('/images/transparent-logo.png');
     background-position: right bottom;
     background-repeat: no-repeat;
+    background-size: 350px;
 }
 
 .col-md-6.link-main-reg h2 {
@@ -21586,8 +21587,11 @@ button.close {
 }
 
 #register .col-md-6.link-main-reg {
-    background-image: url(../img/log-in-bg1.png) !important;
+    background: #2e8345;
+    background-image: url('/images/transparent-logo.png') !important;
     background-position: left bottom !important;
+    background-size: 350px;
+    background-repeat: no-repeat;
 }
 
 .other-way-login a {

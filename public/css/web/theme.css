@@ -22156,7 +22156,6 @@ button.close {
     overflow-wrap: break-word;
     color: var(--green-color);
     text-decoration: none;
-    height: 56px;
     overflow: hidden;
     padding-left: 15px;
     padding-right: 15px;
@@ -22171,7 +22170,6 @@ button.close {
     font-size: 14px;
     font-family: myFont-light;
     color: #767676;
-    margin-bottom: 20px;
     padding-left: 15px;
 }
 
@@ -22188,7 +22186,6 @@ button.close {
     font-family: myFont-light;
     color: #adadad;
     text-decoration: line-through;
-    margin-left: 10px;
 }
 
 .product-item span.des-off {
@@ -27503,7 +27500,6 @@ div.error {
 
 .product-item h5,
 .product-item p {
-    height: 15px;
     overflow: hidden;
 }
 
@@ -29003,10 +28999,6 @@ tr.review-button-row #edit-actions input {
 
 tr.review-button-row td {
     width: 50%;
-}
-
-.product-item a {
-    height: 52px;
 }
 
 

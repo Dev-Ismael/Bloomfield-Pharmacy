@@ -6,6 +6,7 @@
 
 
 
+
     <!---------------------- Header ----------------------------->
     <div class="header owl-carousel owl-theme">
         <div class="slide slide-1">
@@ -28,30 +29,35 @@
     <div id="block-block-23" class="container section product-slider text-center remove-padding block block-block">
 
         <!-- <div class="content"> -->
-        <div class="container services-main section text-center">
+        <div class="container services-main text-center">
             <p class="sub-title">our services</p>
             <h1 class="title">{{ config('app.name') }}</h1>
             <div class="row">
                 <div class="col-md-4 text-center service-item">
                     <img src="{{ asset('images/web/Deliver-logo.png') }}">
                     <h2>You Shop We Deliver</h2>
-                    <p>Now you can shop online, select all what you need from the pharmacy through our online store on web or on
-                        mobile app <span id="dots">...</span><span id="more" class="d-none"> and we will deliver it to
+                    <p>Now you can shop online, select all what you need from the pharmacy through our online store on web
+                        or on
+                        mobile app <span id="dots">...</span><span id="more" class="d-none"> and we will deliver it
+                            to
                             you directly from our
                             diffuse branches.<br>
-                            Select products through the Shop menu or access one of the categories and then add the products to
+                            Select products through the Shop menu or access one of the categories and then add the products
+                            to
                             the cart then follow the process.</span></p>
                     <button id="myBtn">Read more</button></p>
                 </div>
                 <div class="col-md-4 text-center service-item">
                     <img src="{{ asset('images/web/Health-logo.png') }}">
                     <h2>Health Indicator</h2>
-                    <p>Blood pressure, sugar, and weight… etc. results are important indicators on your health status and are
+                    <p>Blood pressure, sugar, and weight… etc. results are important indicators on your health status and
+                        are
                         necessary when pursuing chronic<span id="dots">...</span><span id="more" class="d-none">
                             treatment or go to a new
                             doctor or in cases of emergency or in diet programs!
                             Now you can track all your vital measurements and visualize their progress over specific time
-                            periods through your profile! <br> Go to one of our branches-measure-and we will record the result
+                            periods through your profile! <br> Go to one of our branches-measure-and we will record the
+                            result
                             on your profile.
                         </span> </p>
                     <button id="myBtn2">Read more</button></p>
@@ -85,7 +91,7 @@
 
 
         <!-- <div class="content"> -->
-        <div class="container section text-center">
+        <div class="container text-center">
             <p class="sub-title">Browse products by</p>
             <h1 class="title">OUR CATEGORIES</h1>
             <div class="categories-main">
@@ -213,6 +219,218 @@
 
 
 
+
+
+
+
+    <!---------------------- Latest Offers ----------------------------->
+    <div class="container section product-slider text-center  remove-padding block block-views pt-4 pb-4">
+        <p class="sub-title">DON'T MISS OUR</p>
+        <h1 class="title">Latest Offers</h1>
+
+
+        <div class="container">
+            <div class="row">
+
+
+                
+                <div class="col-md-3">
+                    <div class="col-xs-12 remove-padding product-item">
+                        <a href="/palmolive" class="item-img" tabindex="0">
+                            <img class="" typeof="foaf:Image"
+                                src="{{ asset('images/products/product.png') }}"
+                                width="220" height="220" alt="">
+                            <span class="off-span">UP TO 70 %</span>
+                        </a>
+                        <p>Mup (Medical Union Pharma)</p>
+                        <a href="/palmolive" tabindex="0">PALMOLIVE </a>
+                        <h5>14 tab</h5>
+                        <h3>105.00 EGP <span class="uc-price">150.00 EGP</span> </h3>
+                        <div class="clearfix"></div>
+                        <div class=" col-xs-12">
+                            <div class="col-xs-12 add-cart-main remove-padding">
+                                <div class="col-xs-7 remove-padding">
+                                    <form action="/" method="post" id="uc-catalog-buy-it-now-form-433705"
+                                        accept-charset="UTF-8" class="uc-out-stock-processed">
+                                        <div><input type="hidden" name="nid" value="433705" tabindex="0">
+                                            <input type="hidden" name="form_build_id"
+                                                value="form-Vl_mGtmanI-l3PZm-u2irB0jzZyIocyrCmUPZVrW_wI" tabindex="0">
+                                            <input type="hidden" name="form_id" value="uc_catalog_buy_it_now_form_433705"
+                                                tabindex="0">
+                                            <div class="form-actions form-wrapper" id="edit-actions--4"><input
+                                                    class="list-add-to-cart form-submit ajax-processed" type="submit"
+                                                    id="edit-submit-433705" name="op" value="Add to cart" tabindex="0"
+                                                    style="display: none;">
+                                                <div class="uc_out_of_stock_html">
+                                                    <div style="height: 35px;"><span style="color: red;"> <i class="fa-solid fa-square-xmark"></i> Out of stock</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-xs-5 remove-padding text-right">
+                                    <i class="fa-solid fa-heart"></i>
+                                    {{-- <i class="fa-solid fa-heart gray"></i> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3">
+                    <div class="col-xs-12 remove-padding product-item">
+                        <a href="/palmolive" class="item-img" tabindex="0">
+                            <img class="" typeof="foaf:Image"
+                                src="{{ asset('images/products/product.png') }}"
+                                width="220" height="220" alt="">
+                            <span class="off-span">UP TO 70 %</span>
+                        </a>
+                        <p>Mup (Medical Union Pharma)</p>
+                        <a href="/palmolive" tabindex="0">PALMOLIVE </a>
+                        <h5>14 tab</h5>
+                        <h3>105.00 EGP <span class="uc-price">150.00 EGP</span> </h3>
+                        <div class="clearfix"></div>
+                        <div class=" col-xs-12">
+                            <div class="col-xs-12 add-cart-main remove-padding">
+                                <div class="col-xs-7 remove-padding">
+                                    <form action="/" method="post" id="uc-catalog-buy-it-now-form-433705"
+                                        accept-charset="UTF-8" class="uc-out-stock-processed">
+                                        <div><input type="hidden" name="nid" value="433705" tabindex="0">
+                                            <input type="hidden" name="form_build_id"
+                                                value="form-Vl_mGtmanI-l3PZm-u2irB0jzZyIocyrCmUPZVrW_wI" tabindex="0">
+                                            <input type="hidden" name="form_id" value="uc_catalog_buy_it_now_form_433705"
+                                                tabindex="0">
+                                            <div class="form-actions form-wrapper" id="edit-actions--4"><input
+                                                    class="list-add-to-cart form-submit ajax-processed" type="submit"
+                                                    id="edit-submit-433705" name="op" value="Add to cart" tabindex="0"
+                                                    style="display: none;">
+                                                <div class="uc_out_of_stock_html">
+                                                    <div style="height: 35px;"><span style="color: red;"> <i class="fa-solid fa-square-xmark"></i> Out of stock</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-xs-5 remove-padding text-right">
+                                    <i class="fa-solid fa-heart"></i>
+                                    {{-- <i class="fa-solid fa-heart gray"></i> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3">
+                    <div class="col-xs-12 remove-padding product-item">
+                        <a href="/palmolive" class="item-img" tabindex="0">
+                            <img class="" typeof="foaf:Image"
+                                src="{{ asset('images/products/product.png') }}"
+                                width="220" height="220" alt="">
+                            <span class="off-span">UP TO 70 %</span>
+                        </a>
+                        <p>Mup (Medical Union Pharma)</p>
+                        <a href="/palmolive" tabindex="0">PALMOLIVE </a>
+                        <h5>14 tab</h5>
+                        <h3>105.00 EGP <span class="uc-price">150.00 EGP</span> </h3>
+                        <div class="clearfix"></div>
+                        <div class=" col-xs-12">
+                            <div class="col-xs-12 add-cart-main remove-padding">
+                                <div class="col-xs-7 remove-padding">
+                                    <form action="/" method="post" id="uc-catalog-buy-it-now-form-433705"
+                                        accept-charset="UTF-8" class="uc-out-stock-processed">
+                                        <div><input type="hidden" name="nid" value="433705" tabindex="0">
+                                            <input type="hidden" name="form_build_id"
+                                                value="form-Vl_mGtmanI-l3PZm-u2irB0jzZyIocyrCmUPZVrW_wI" tabindex="0">
+                                            <input type="hidden" name="form_id" value="uc_catalog_buy_it_now_form_433705"
+                                                tabindex="0">
+                                            <div class="form-actions form-wrapper" id="edit-actions--4"><input
+                                                    class="list-add-to-cart form-submit ajax-processed" type="submit"
+                                                    id="edit-submit-433705" name="op" value="Add to cart" tabindex="0"
+                                                    style="display: none;">
+                                                <div class="uc_out_of_stock_html">
+                                                    <div style="height: 35px;"><span style="color: red;"> <i class="fa-solid fa-square-xmark"></i> Out of stock</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-xs-5 remove-padding text-right">
+                                    <i class="fa-solid fa-heart"></i>
+                                    {{-- <i class="fa-solid fa-heart gray"></i> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-3">
+                    <div class="col-xs-12 remove-padding product-item">
+                        <a href="/palmolive" class="item-img" tabindex="0">
+                            <img class="" typeof="foaf:Image"
+                                src="{{ asset('images/products/product.png') }}"
+                                width="220" height="220" alt="">
+                            <span class="off-span">UP TO 70 %</span>
+                        </a>
+                        <p>Mup (Medical Union Pharma)</p>
+                        <a href="/palmolive" tabindex="0">PALMOLIVE </a>
+                        <h5>14 tab</h5>
+                        <h3>105.00 EGP <span class="uc-price">150.00 EGP</span> </h3>
+                        <div class="clearfix"></div>
+                        <div class=" col-xs-12">
+                            <div class="col-xs-12 add-cart-main remove-padding">
+                                <div class="col-xs-7 remove-padding">
+                                    <form action="/" method="post" id="uc-catalog-buy-it-now-form-433705"
+                                        accept-charset="UTF-8" class="uc-out-stock-processed">
+                                        <div><input type="hidden" name="nid" value="433705" tabindex="0">
+                                            <input type="hidden" name="form_build_id"
+                                                value="form-Vl_mGtmanI-l3PZm-u2irB0jzZyIocyrCmUPZVrW_wI" tabindex="0">
+                                            <input type="hidden" name="form_id" value="uc_catalog_buy_it_now_form_433705"
+                                                tabindex="0">
+                                            <div class="form-actions form-wrapper" id="edit-actions--4"><input
+                                                    class="list-add-to-cart form-submit ajax-processed" type="submit"
+                                                    id="edit-submit-433705" name="op" value="Add to cart" tabindex="0"
+                                                    style="display: none;">
+                                                <div class="uc_out_of_stock_html">
+                                                    <div style="height: 35px;"><span style="color: red;"> <i class="fa-solid fa-square-xmark"></i> Out of stock</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-xs-5 remove-padding text-right">
+                                    <i class="fa-solid fa-heart"></i>
+                                    {{-- <i class="fa-solid fa-heart gray"></i> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <a href="/" class="all-btn">view all</a>
+
+
+
+
+
+    </div>
 
 
 

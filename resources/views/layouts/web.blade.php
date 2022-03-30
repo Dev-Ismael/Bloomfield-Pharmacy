@@ -111,7 +111,7 @@
                 <div id="navbar-content">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-2 col-xs-4 logo-main">
+                            <div class="col-md-3 col-xs-4 logo-main">
 
 
                                 <button class="js-menu menu visible-xs" type="button">
@@ -722,7 +722,7 @@
 
                             </div>
 
-                            <div class="col-md-4 col-xs-2 remove-padding search-main ">
+                            <div class="col-md-3 col-xs-2 remove-padding search-main ">
 
 
                                 <form action="" method="post" id="search-block-form" accept-charset="UTF-8">

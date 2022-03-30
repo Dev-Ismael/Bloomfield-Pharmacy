@@ -28,7 +28,7 @@
     <div id="block-block-23" class="container section product-slider text-center remove-padding block block-block">
 
         <!-- <div class="content"> -->
-        <div class="container remove-padding services-main section text-center">
+        <div class="container services-main section text-center">
             <p class="sub-title">our services</p>
             <h1 class="title">{{ config('app.name') }}</h1>
             <div class="row">

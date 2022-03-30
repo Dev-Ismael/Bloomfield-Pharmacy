@@ -1075,7 +1075,6 @@
                             <div id="subscribe"><input type="submit" id="edit-newsletter-submit" name="op"
                                     value="Subscribe" class="form-submit" /></div><input type="hidden"
                                 name="form_build_id" value="form-qZwpcf_oELo9IJ_N7wkeTtXzl2ywU8l4KP3h18RFZoo" />
-                            <input type="hidden" name="form_id" value="newsletter_subscribe_form" />
                         </div>
                     </form>
                     <div class="suffix"></div>

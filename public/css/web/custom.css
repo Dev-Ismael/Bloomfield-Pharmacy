@@ -453,8 +453,8 @@
     }
     
     .footer-main .form-text {
-        padding: 7px;
-        border-radius: 2px;
+        padding: 7px 10px;
+        border-radius: 15px;
     }
     
     #edit-newsletter-submit:hover {
@@ -474,4 +474,8 @@
     
     input::placeholder {
         color: #fff;
+    }
+    
+    .form-submit {
+        border: 1px solid #fff;
     }

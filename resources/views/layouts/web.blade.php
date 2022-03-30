@@ -802,17 +802,19 @@
 
 
         <!----------------- SIDBAR LOGIN FORM --------------->
-        <div id="login" class="modal fade" role="dialog">
+        <div class="modal" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <div class="modal-body">
-                        <div class="col-md-6 col-sm-6 col-xs-12 form-main">
+                    <div class="modal-body row">
+                        <div class="col-md-6 col-sm-12 form-main">
                             <h2>HAVE AN ACCOUNT</h2>
                             <p>Please log in to proceed to checkout</p>
                             <div class="col-xs-12 lgo-input-main">
-                                <form action="https://www.fouda.com/" method="post" id="user-login"
+                                <form  method="post" id="user-login"
                                     accept-charset="UTF-8">
                                     <div>
                                         <div class="form-item form-type-textfield form-item-name">
@@ -829,48 +831,20 @@
                                             <input placeholder="Password" type="password" id="edit-pass" name="pass"
                                                 size="60" maxlength="128" class="form-text required" />
                                         </div>
-                                        <input type="hidden" name="form_build_id"
-                                            value="form-_lv_jwBtK0k2wcGJULAS4K4nlewy8LrQhUCKoMdD82w" />
-                                        <input type="hidden" name="form_id" value="user_login" />
-                                        <div class="login-forgot"><a href="user/password.html">Request new
-                                                password</a></div>
+                                        
                                         <div class="form-actions form-wrapper" id="edit-actions--26"><input
                                                 type="submit" id="edit-submit" name="op" value="Log in"
                                                 class="form-submit" /></div>
-
-                                        <!-- THEME DEBUG -->
-                                        <!-- CALL: theme('hybridauth_widget') -->
-                                        <!-- BEGIN OUTPUT from 'sites/all/modules/contrib/hybridauth/templates/hybridauth_widget.tpl.php' -->
                                         <div class="hybridauth-widget-wrapper">
                                             <div class="item-list">
                                                 <h3>Or log in with...</h3>
                                                 <ul class="hybridauth-widget">
-                                                    <li class="first last">
-                                                        <a href="user248c.html?destination=user&amp;destination_error=user"
-                                                            title="Facebook"
-                                                            class="hybridauth-widget-provider hybridauth-onclick-popup"
-                                                            rel="nofollow" data-hybridauth-provider="Facebook"
-                                                            data-hybridauth-url="/hybridauth/window/Facebook?destination=user&amp;destination_error=user"
-                                                            data-ajax="false" data-hybridauth-width="800"
-                                                            data-hybridauth-height="500">
-
-                                                            <!-- THEME DEBUG -->
-                                                            <!-- CALL: theme('hybridauth_provider_icon') -->
-                                                            <!-- BEGIN OUTPUT from 'sites/all/modules/contrib/hybridauth/templates/hybridauth_provider_icon.tpl.php' -->
-                                                            <span
-                                                                class="hybridauth-icon facebook hybridauth-icon-hybridauth-48 hybridauth-facebook hybridauth-facebook-hybridauth-48"
-                                                                title="Facebook"><span class="element-invisible">Login
-                                                                    with Facebook</span></span>
-
-                                                            <!-- END OUTPUT from 'sites/all/modules/contrib/hybridauth/templates/hybridauth_provider_icon.tpl.php' -->
-
-                                                        </a>
-                                                    </li>
+                                                    <li> <i class="fa-brands fa-google-plus"></i> </li>
+                                                    <li> <i class="fa-brands fa-facebook-square"></i> </li>
                                                 </ul>
                                             </div>
                                         </div>
 
-                                        <!-- END OUTPUT from 'sites/all/modules/contrib/hybridauth/templates/hybridauth_widget.tpl.php' -->
 
                                         <input type="submit" id="edit-submit-google" name="op" value=""
                                             class="form-submit" />
@@ -879,7 +853,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-12 link-main-reg">
+                        <div class="col-md-6 col-xs-12 link-main-reg">
                             <h2>NO ACCOUNT YET?!</h2>
                             <p>Create an account in order to checkout</p>
                             <a href="#" data-toggle="modal" data-target="#register" data-dismiss="modal">CREATE AN
@@ -998,6 +972,27 @@
 
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="scrollup">
             <a href="#"></a>

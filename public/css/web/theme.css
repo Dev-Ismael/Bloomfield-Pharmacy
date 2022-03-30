@@ -21357,7 +21357,6 @@ a.sing-out-btn:hover {
 }
 
 #login a {
-    float: right;
     color: var(--green-color);
     display: inline-block;
     text-decoration: none;
@@ -21494,7 +21493,7 @@ button.close {
 }
 
 .col-md-6.link-main-reg a {
-    width: 300px;
+    width: 75%;
     background-color: #fff;
     height: 45px;
     line-height: 45px;

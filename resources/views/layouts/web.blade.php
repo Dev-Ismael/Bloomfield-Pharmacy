@@ -121,7 +121,7 @@
 
                                 <a href="index.html"><img class="logo-white hidden-xs" src="/images/logo-white.png"></a>
                                 <a href="index.html"><img class="logo hidden-xs" src="/images/logo.png"></a>
-                                <a href="index.html"><img class="visible-xs logo-min" src="/images/logo-min.png"></a>
+                                <a href="index.html"><img class="visible-xs logo-min" src="/images/logo-white.png"></a>
 
                             </div>
 

@@ -1050,7 +1050,7 @@
 
                 <ul class="fot-links col-sm-6 col-xs-12">
 
-                    <li class="leaf "><a href="contact.html">CONTACT US</a></li>
+                    <li class="leaf "><a href="{{ route('contact') }}">CONTACT US</a></li>
                     <li class="leaf "><a href="content/shipping-delivary.html">SHIPPING
                             &amp; DELIVERY</a></li>
                     <li class="leaf"><a href="content/returns-exchange-policy.html">RETURNS

@@ -21,3 +21,5 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\Web\HomeController::class, 'index'])->name('home');
 // About Us                           
 Route::get('/about', [App\Http\Controllers\Web\AboutController::class, 'index'])->name('about');
+// Contact Us                           
+Route::get('/contact', [App\Http\Controllers\Web\ContactController::class, 'index'])->name('contact');

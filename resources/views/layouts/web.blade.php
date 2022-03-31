@@ -117,6 +117,7 @@
 
 
                                 <a href="{{ route('home') }}"><img class="logo-white hidden-xs" src="/images/logo-white.png"></a>
+                                <a href="{{ route('home') }}"><img class="logo hidden-xs" src="/images/logo.png"></a>
                                 <a href="{{ route('home') }}"><img class="visible-xs logo-min" src="/images/logo-white.png"></a>
 
                             </div>

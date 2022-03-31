@@ -31,7 +31,7 @@
         <!-- <div class="content"> -->
         <div class="container services-main text-center">
             <p class="sub-title">our services</p>
-            <h1 class="title">{{ config('app.name') }}</h1>
+            <h1 class="title text-bloder">{{ config('app.name') }}</h1>
             <div class="row">
                 <div class="col-md-4 text-center service-item">
                     <img src="{{ asset('images/web/Deliver-logo.png') }}">
@@ -93,7 +93,7 @@
         <!-- <div class="content"> -->
         <div class="container text-center">
             <p class="sub-title">Browse products by</p>
-            <h1 class="title">OUR CATEGORIES</h1>
+            <h1 class="title text-bloder">OUR CATEGORIES</h1>
             <div class="categories-main">
                 <div class="categories-child">
                     <a href="fp/taxonomy/term/18671.html" class="child-1">
@@ -226,7 +226,7 @@
     <!---------------------- Latest Offers ----------------------------->
     <div class="container section product-slider text-center  remove-padding block block-views pt-4 pb-4">
         <p class="sub-title">DON'T MISS OUR</p>
-        <h1 class="title">Latest Offers</h1>
+        <h1 class="title text-bloder">Latest Offers</h1>
 
 
         <div class="container">
@@ -237,7 +237,7 @@
                 <div class="col-md-3">
                     <div class="col-xs-12 remove-padding product-item">
                         <a href="/palmolive" class="item-img" tabindex="0">
-                            <img class="" 
+                            <img  
                                 src="{{ asset('images/products/product.png') }}"
                                 width="220" height="220" alt="">
                             <span class="off-span">UP TO 70 %</span>
@@ -279,7 +279,7 @@
                 <div class="col-md-3">
                     <div class="col-xs-12 remove-padding product-item">
                         <a href="/palmolive" class="item-img" tabindex="0">
-                            <img class="" 
+                            <img  
                                 src="{{ asset('images/products/product.png') }}"
                                 width="220" height="220" alt="">
                             <span class="off-span">UP TO 70 %</span>
@@ -321,7 +321,7 @@
                 <div class="col-md-3">
                     <div class="col-xs-12 remove-padding product-item">
                         <a href="/palmolive" class="item-img" tabindex="0">
-                            <img class="" 
+                            <img  
                                 src="{{ asset('images/products/product.png') }}"
                                 width="220" height="220" alt="">
                             <span class="off-span">UP TO 70 %</span>
@@ -363,7 +363,7 @@
                 <div class="col-md-3">
                     <div class="col-xs-12 remove-padding product-item">
                         <a href="/palmolive" class="item-img" tabindex="0">
-                            <img class="" 
+                            <img  
                                 src="{{ asset('images/products/product.png') }}"
                                 width="220" height="220" alt="">
                             <span class="off-span">UP TO 70 %</span>

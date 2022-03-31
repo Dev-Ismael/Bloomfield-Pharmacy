@@ -3127,7 +3127,6 @@ html.js .uc_out_of_stock_throbbing.uc_oos_throbbing {
     border: none;
     width: 175px;
     height: 40px;
-    background-image: url("sign-in-with-google.png");
 }
 
 .hybridauth-widget-wrapper ul.hybridauth-widget {
@@ -11009,9 +11008,6 @@ button.close {
 }
 
 
-/*# sourceMappingURL=bootstrap.css.map */
-
-
 /*!
  * Bootstrap v3.3.4 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -18854,9 +18850,6 @@ button.close {
         display: none !important;
     }
 }
-
-
-/*# sourceMappingURL=bootstrap.css.map */
 
 .glass-case * {
     -webkit-box-sizing: border-box !important;
@@ -28018,7 +28011,6 @@ input[id*=edit-submit-google] {
     width: 175px;
     height: 40px;
     background-color: #fff;
-    background-image: url(img/social/sign-in-with-google.png);
     box-shadow: none;
     border-radius: 0;
     color: #000;
@@ -28027,7 +28019,6 @@ input[id*=edit-submit-google] {
 #edit-submit-google:hover,
 input[id*=edit-submit-google]:hover {
     background-color: #fff;
-    background-image: url(img/social/sign-in-with-google.png);
     color: #000;
 }
 
@@ -29069,12 +29060,3 @@ label[for="edit-panes-payment-payment-method-payment-ubercart-3"]
     border: 1px solid #ddd;
     padding: 15px;
 }
-
-
-/*# sourceMappingURL=file.css.map */
-
-
-/*# sourceMappingURL=file.css.map */
-
-
-/*# sourceMappingURL=file.css.map */

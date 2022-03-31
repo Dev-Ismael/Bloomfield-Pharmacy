@@ -237,7 +237,7 @@
                 <div class="col-md-3">
                     <div class="col-xs-12 remove-padding product-item">
                         <a href="/palmolive" class="item-img" tabindex="0">
-                            <img class="" typeof="foaf:Image"
+                            <img class="" 
                                 src="{{ asset('images/products/product.png') }}"
                                 width="220" height="220" alt="">
                             <span class="off-span">UP TO 70 %</span>
@@ -250,16 +250,12 @@
                         <div class=" col-xs-12">
                             <div class="col-xs-12 add-cart-main remove-padding">
                                 <div class="col-xs-7 remove-padding">
-                                    <form action="/" method="post" id="uc-catalog-buy-it-now-form-433705"
-                                        accept-charset="UTF-8" class="uc-out-stock-processed">
-                                        <div><input type="hidden" name="nid" value="433705" tabindex="0">
-                                            <input type="hidden" name="form_build_id"
-                                                value="form-Vl_mGtmanI-l3PZm-u2irB0jzZyIocyrCmUPZVrW_wI" tabindex="0">
-                                            <input type="hidden" name="form_id" value="uc_catalog_buy_it_now_form_433705"
-                                                tabindex="0">
+                                    <form action="/" method="post" 
+                                        class="uc-out-stock-processed">
+                                        <div>
                                             <div class="form-actions form-wrapper" id="edit-actions--4"><input
                                                     class="list-add-to-cart form-submit ajax-processed" type="submit"
-                                                    id="edit-submit-433705" name="op" value="Add to cart" tabindex="0"
+                                                     name="op" value="Add to cart" tabindex="0"
                                                     style="display: none;">
                                                 <div class="uc_out_of_stock_html">
                                                     <div style="height: 35px;"><span style="color: red;"> <i class="fa-solid fa-square-xmark"></i> Out of stock</span>
@@ -283,7 +279,7 @@
                 <div class="col-md-3">
                     <div class="col-xs-12 remove-padding product-item">
                         <a href="/palmolive" class="item-img" tabindex="0">
-                            <img class="" typeof="foaf:Image"
+                            <img class="" 
                                 src="{{ asset('images/products/product.png') }}"
                                 width="220" height="220" alt="">
                             <span class="off-span">UP TO 70 %</span>
@@ -296,16 +292,12 @@
                         <div class=" col-xs-12">
                             <div class="col-xs-12 add-cart-main remove-padding">
                                 <div class="col-xs-7 remove-padding">
-                                    <form action="/" method="post" id="uc-catalog-buy-it-now-form-433705"
-                                        accept-charset="UTF-8" class="uc-out-stock-processed">
-                                        <div><input type="hidden" name="nid" value="433705" tabindex="0">
-                                            <input type="hidden" name="form_build_id"
-                                                value="form-Vl_mGtmanI-l3PZm-u2irB0jzZyIocyrCmUPZVrW_wI" tabindex="0">
-                                            <input type="hidden" name="form_id" value="uc_catalog_buy_it_now_form_433705"
-                                                tabindex="0">
+                                    <form action="/" method="post" 
+                                        class="uc-out-stock-processed">
+                                        <div>
                                             <div class="form-actions form-wrapper" id="edit-actions--4"><input
                                                     class="list-add-to-cart form-submit ajax-processed" type="submit"
-                                                    id="edit-submit-433705" name="op" value="Add to cart" tabindex="0"
+                                                     name="op" value="Add to cart" tabindex="0"
                                                     style="display: none;">
                                                 <div class="uc_out_of_stock_html">
                                                     <div style="height: 35px;"><span style="color: red;"> <i class="fa-solid fa-square-xmark"></i> Out of stock</span>
@@ -329,7 +321,7 @@
                 <div class="col-md-3">
                     <div class="col-xs-12 remove-padding product-item">
                         <a href="/palmolive" class="item-img" tabindex="0">
-                            <img class="" typeof="foaf:Image"
+                            <img class="" 
                                 src="{{ asset('images/products/product.png') }}"
                                 width="220" height="220" alt="">
                             <span class="off-span">UP TO 70 %</span>
@@ -342,16 +334,12 @@
                         <div class=" col-xs-12">
                             <div class="col-xs-12 add-cart-main remove-padding">
                                 <div class="col-xs-7 remove-padding">
-                                    <form action="/" method="post" id="uc-catalog-buy-it-now-form-433705"
-                                        accept-charset="UTF-8" class="uc-out-stock-processed">
-                                        <div><input type="hidden" name="nid" value="433705" tabindex="0">
-                                            <input type="hidden" name="form_build_id"
-                                                value="form-Vl_mGtmanI-l3PZm-u2irB0jzZyIocyrCmUPZVrW_wI" tabindex="0">
-                                            <input type="hidden" name="form_id" value="uc_catalog_buy_it_now_form_433705"
-                                                tabindex="0">
+                                    <form action="/" method="post" 
+                                        class="uc-out-stock-processed">
+                                        <div>
                                             <div class="form-actions form-wrapper" id="edit-actions--4"><input
                                                     class="list-add-to-cart form-submit ajax-processed" type="submit"
-                                                    id="edit-submit-433705" name="op" value="Add to cart" tabindex="0"
+                                                     name="op" value="Add to cart" tabindex="0"
                                                     style="display: none;">
                                                 <div class="uc_out_of_stock_html">
                                                     <div style="height: 35px;"><span style="color: red;"> <i class="fa-solid fa-square-xmark"></i> Out of stock</span>
@@ -375,7 +363,7 @@
                 <div class="col-md-3">
                     <div class="col-xs-12 remove-padding product-item">
                         <a href="/palmolive" class="item-img" tabindex="0">
-                            <img class="" typeof="foaf:Image"
+                            <img class="" 
                                 src="{{ asset('images/products/product.png') }}"
                                 width="220" height="220" alt="">
                             <span class="off-span">UP TO 70 %</span>
@@ -388,16 +376,12 @@
                         <div class=" col-xs-12">
                             <div class="col-xs-12 add-cart-main remove-padding">
                                 <div class="col-xs-7 remove-padding">
-                                    <form action="/" method="post" id="uc-catalog-buy-it-now-form-433705"
-                                        accept-charset="UTF-8" class="uc-out-stock-processed">
-                                        <div><input type="hidden" name="nid" value="433705" tabindex="0">
-                                            <input type="hidden" name="form_build_id"
-                                                value="form-Vl_mGtmanI-l3PZm-u2irB0jzZyIocyrCmUPZVrW_wI" tabindex="0">
-                                            <input type="hidden" name="form_id" value="uc_catalog_buy_it_now_form_433705"
-                                                tabindex="0">
+                                    <form action="/" method="post" 
+                                        class="uc-out-stock-processed">
+                                        <div>
                                             <div class="form-actions form-wrapper" id="edit-actions--4"><input
                                                     class="list-add-to-cart form-submit ajax-processed" type="submit"
-                                                    id="edit-submit-433705" name="op" value="Add to cart" tabindex="0"
+                                                     name="op" value="Add to cart" tabindex="0"
                                                     style="display: none;">
                                                 <div class="uc_out_of_stock_html">
                                                     <div style="height: 35px;"><span style="color: red;"> <i class="fa-solid fa-square-xmark"></i> Out of stock</span>

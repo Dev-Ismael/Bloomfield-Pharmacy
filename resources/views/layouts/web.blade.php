@@ -84,17 +84,14 @@
 
 
 
-                                    <form action="" method="post" id="search-block-form" accept-charset="UTF-8">
+                                    <form action="" method="post" >
                                         <div>
 
 
-                                            <input type="text" id="edit-search-block-form--2" name="search_block_form"
+                                            <input type="text"  name="search_block_form"
                                                 class="form-control" value="" placeholder="Search Products" size="15"
                                                 maxlength="128" />
-                                            <button class="btn icon-search" id="edit-submit--2" type="submit" />
-                                            <input type="hidden" name="form_build_id"
-                                                value="form-pVD6Ingwo5dkVKP4xGH_gZUl2WxIndgoQincWHFPVZc" />
-                                            <input type="hidden" name="form_id" value="search_block_form" />
+                                            <button class="btn icon-search"  />
 
 
                                         </div>
@@ -725,17 +722,16 @@
                             <div class="col-md-3 col-xs-2 remove-padding search-main ">
 
 
-                                <form action="" method="post" id="search-block-form" accept-charset="UTF-8">
+                                <form action="" method="post" >
                                     <div>
 
 
-                                        <input type="text" id="edit-search-block-form--2" name="search_block_form"
+                                        <input type="text"  name="search_block_form"
                                             class="form-control" value="" placeholder="Search Products" size="15"
                                             maxlength="128" />
-                                        <button class="btn icon-search" id="edit-submit--2" type="submit" />
-                                        <input type="hidden" name="form_build_id"
-                                            value="form-pVD6Ingwo5dkVKP4xGH_gZUl2WxIndgoQincWHFPVZc" />
-                                        <input type="hidden" name="form_id" value="search_block_form" />
+                                        <button class="btn icon-search"  />
+                                        
+                                        
 
 
                                     </div>
@@ -939,7 +935,7 @@
                                                         maxlength="254" class="form-text required" />
                                                     
                                                 </div>
-                                                <input type="hidden" name="timezone" value="Africa/Cairo" />
+                                                
                                             </div>
                                         </div>
 
@@ -1073,8 +1069,7 @@
                             </div>
                             <div id="newsletter-error"></div>
                             <div id="subscribe"><input type="submit" id="edit-newsletter-submit" name="op"
-                                    value="Subscribe" class="form-submit" /></div><input type="hidden"
-                                name="form_build_id" value="form-qZwpcf_oELo9IJ_N7wkeTtXzl2ywU8l4KP3h18RFZoo" />
+                                    value="Subscribe" class="form-submit" /></div>
                         </div>
                     </form>
                     <div class="suffix"></div>

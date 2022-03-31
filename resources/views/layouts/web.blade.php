@@ -75,7 +75,7 @@
                                 </div>
                             </li>
 
-                            <li><a href="content/about-us.html"> About Us</a></li>
+                            <li><a href="{{ route("about") }}"> About Us</a></li>
                             <li><a href="node/430435.html"> Order a
                                     Prescription</a></li>
 
@@ -116,9 +116,8 @@
                                 </button>
 
 
-                                <a href="index.html"><img class="logo-white hidden-xs" src="/images/logo-white.png"></a>
-                                <a href="index.html"><img class="logo hidden-xs" src="/images/logo.png"></a>
-                                <a href="index.html"><img class="visible-xs logo-min" src="/images/logo-white.png"></a>
+                                <a href="{{ route('home') }}"><img class="logo-white hidden-xs" src="/images/logo-white.png"></a>
+                                <a href="{{ route('home') }}"><img class="visible-xs logo-min" src="/images/logo-white.png"></a>
 
                             </div>
 
@@ -712,7 +711,7 @@
                                     </li>
                                     <li><a href="node/430435.html"> Order a
                                             Prescription</a></li>
-                                    <li><a href="content/about-us.html"> About Us</a>
+                                    <li><a href="{{ route("about") }}"> About Us</a>
                                     </li>
                                 </ul>
 
@@ -1087,7 +1086,7 @@
                 <div class="col-md-4 offset-md-4 col-xs-12 remove-padding scial-fot">
 
 
-                    <a href="https://www.facebook.com/FoudaPharmacy/" class="face-icon"><svg role="img"
+                    <a href="" class="face-icon"><svg role="img"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="
                             border-radius: 5px;
                         ">

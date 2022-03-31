@@ -19,4 +19,5 @@ Auth::routes();
 
 // Home                           
 Route::get('/', [App\Http\Controllers\Web\HomeController::class, 'index'])->name('home');
-                                                                                                                                       
+// About Us                           
+Route::get('/about', [App\Http\Controllers\Web\AboutController::class, 'index'])->name('about');

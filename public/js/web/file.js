@@ -1,5 +1,15 @@
 (function($) {
     $(document).ready(function() {
+        
+        /*========================================================================
+        =================== Shipping & delivery ========================================
+        =========================================================================*/
+
+
+        $(".slide-side-fillter").click(function() {
+            $(this).siblings('.links-main-fillter-side').slideToggle("fast");
+            $(this).toggleClass('links-colapsed')
+        });
 
         /*========================================================================
         =================== Header ========================================
@@ -225,15 +235,6 @@
 
             }
         });
-
-        // side fillter toggle 
-
-        $(".slide-side-fillter").click(function() {
-            $(this).siblings('.links-main-fillter-side').slideToggle("fast");
-            $(this).toggleClass('links-colapsed')
-        });
-
-        // upload img profile
 
 
         function readURL(input) {

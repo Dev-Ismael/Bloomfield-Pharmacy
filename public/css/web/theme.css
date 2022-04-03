@@ -24615,54 +24615,16 @@ span.Status-green {
 
 
 /*contact us*/
-
-.contact-info .col-md-4.col-sm-4.col-xs-12 {
-    position: relative;
-    text-align: left;
+.contact-info > div{
+    text-align: center;
 }
 
 .contact-info p {
     color: #777;
-    padding-left: 30px;
     position: relative;
-    text-align: left;
-    margin-top: 5px;
+    display: inline;
 }
 
-.contact-info .address-p::before {
-    font-family: "icomoon";
-    color: var(--green-color);
-    margin-right: 15px;
-    content: "\e90d";
-    font-size: 26px;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: -5px;
-}
-
-.contact-info .phone-p::before {
-    background-image: url(../img/call-center.svg);
-    content: "";
-    width: 25px;
-    height: 28px;
-    position: absolute;
-    background-size: 25px;
-    left: 8px;
-    background-repeat: no-repeat;
-}
-
-.contact-info .email-p::before {
-    background-image: url(../img/mail.svg);
-    content: "";
-    width: 25px;
-    height: 20px;
-    position: absolute;
-    background-size: 25px;
-    left: 8px;
-    background-repeat: no-repeat;
-    top: 3px;
-}
 
 .contact-info .personal-info {
     margin-top: 50px;

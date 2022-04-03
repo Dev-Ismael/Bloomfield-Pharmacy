@@ -131,7 +131,6 @@
 
 
                 <div class="col-xs-12 col-md-3 col-sm-4">
-
                     <div class="col-xs-12 remove-padding side-links-sub fillter-side-main">
                         <h5>OTHER LINKS </h5>
                         <a href="{{ route("about") }}">About Us</a>
@@ -141,9 +140,6 @@
                         <a href="/content/returns-exchange-policy">Return &amp; Exchange</a>
                         <a href="/faq">FAQS</a>
                     </div>
-
-                    
-
                 </div>
 
 

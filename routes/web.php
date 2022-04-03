@@ -25,3 +25,5 @@ Route::get('/about', [App\Http\Controllers\Web\AboutController::class, 'index'])
 Route::get('/contact', [App\Http\Controllers\Web\ContactController::class, 'index'])->name('contact');
 // SHIPPING & DELIVERY                           
 Route::get('/shipping', [App\Http\Controllers\Web\ShippingController::class, 'index'])->name('shipping');
+// RETURNS & EXCHANGE                            
+Route::get('/returns', [App\Http\Controllers\Web\ReturnsController::class, 'index'])->name('returns');

@@ -997,7 +997,7 @@
                     <li class="leaf "><a href="{{ route('contact') }}">CONTACT US</a></li>
                     <li class="leaf "><a href="{{ route('shipping') }}">SHIPPING
                             &amp; DELIVERY</a></li>
-                    <li class="leaf"><a href="content/returns-exchange-policy.html">RETURNS
+                    <li class="leaf"><a href="{{ route("returns") }}">RETURNS
                             &amp; EXCHANGE</a></li>
                     <li class="leaf"><a href="content/privacy-policy.html">PRIVACY
                             POLICY</a></li>

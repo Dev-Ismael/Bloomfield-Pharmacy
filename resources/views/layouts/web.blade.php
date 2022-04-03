@@ -999,7 +999,7 @@
                             &amp; DELIVERY</a></li>
                     <li class="leaf"><a href="{{ route("returns") }}">RETURNS
                             &amp; EXCHANGE</a></li>
-                    <li class="leaf"><a href="content/privacy-policy.html">PRIVACY
+                    <li class="leaf"><a href="{{ route('privacy') }}">PRIVACY
                             POLICY</a></li>
                 </ul>
                 <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-2 news-letter-main">

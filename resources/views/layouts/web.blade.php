@@ -56,7 +56,29 @@
 
                     <div class="container">
                         <ul>
-                            <li><a href="#" class="mob-shop-link">shop</a>
+                            
+                            <li>
+                                <div class="col-xs-12 remove-padding search-main visible-xs">
+
+
+
+                                    <form action="" method="post" >
+                                        <div>
+
+
+                                            <input type="text"  name="search_block_form"
+                                                class="form-control" value="" placeholder="Search Products" size="15"
+                                                maxlength="128" />
+                                            <button class="btn icon-search"  />
+
+
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </li>
+                            
+                            <li><a href="#" class="mob-shop-link"> <i class="fa-solid fa-list-ul"></i> Shop </a>
                                 <div class="mob-shop-drop-dowm">
 
                                     <a href="fp/taxonomy/term/18671.html" class="shop1">Medications</a> <a
@@ -79,26 +101,6 @@
                             <li><a href="node/430435.html"> Order a
                                     Prescription</a></li>
 
-                            <li>
-                                <div class="col-xs-12 remove-padding search-main visible-xs">
-
-
-
-                                    <form action="" method="post" >
-                                        <div>
-
-
-                                            <input type="text"  name="search_block_form"
-                                                class="form-control" value="" placeholder="Search Products" size="15"
-                                                maxlength="128" />
-                                            <button class="btn icon-search"  />
-
-
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </li>
 
                         </ul>
                     </div>

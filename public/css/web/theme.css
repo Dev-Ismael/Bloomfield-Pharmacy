@@ -22175,7 +22175,8 @@ button.close {
 }
 
 .product-item h3 span {
-    font-size: 14px;
+    display: block;
+    font-size: 13px;
     font-family: myFont-light;
     color: #adadad;
     text-decoration: line-through;
@@ -26163,7 +26164,7 @@ a.cancel-btn-o {
         height: 30px !important;
         width: auto;
         margin-top: 0 !important;
-        margin-left: 35%;
+        margin-left: 45%;
     }
     .logo-main {
         width: 25%;
@@ -26392,7 +26393,7 @@ a.cancel-btn-o {
         color: #fff;
         display: block;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 18px;
     }
     .mobile-botto-links {
         text-align: center;

@@ -78,7 +78,7 @@
                                     deliver the shipment directly from the branches which spread within the range instead of
                                     shipping from a central distribution unit to all areas so that the distance of delivery
                                     is close, the cost of delivery calculated on the basis of the distance from the customer
-                                    address to the nearest branch and it is ranging from 5 EGP to 50 EGP according to the
+                                    address to the nearest branch and it is ranging from 5 <i class="fa-solid fa-dollar-sign"></i> to 50 <i class="fa-solid fa-dollar-sign"></i> according to the
                                     this distance.</li>
                                 <li>Second Range:<br>
                                     We selected the best companies working in this field; The shipping cost is calculated

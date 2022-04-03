@@ -245,7 +245,7 @@
                         <p>Mup (Medical Union Pharma)</p>
                         <a href="/palmolive" tabindex="0">PALMOLIVE </a>
                         <h5>14 tab</h5>
-                        <h3>105.00 EGP <span class="uc-price">150.00 EGP</span> </h3>
+                        <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
                         <div class="clearfix"></div>
                         <div class=" col-xs-12">
                             <div class="col-xs-12 add-cart-main remove-padding">
@@ -287,7 +287,7 @@
                         <p>Mup (Medical Union Pharma)</p>
                         <a href="/palmolive" tabindex="0">PALMOLIVE </a>
                         <h5>14 tab</h5>
-                        <h3>105.00 EGP <span class="uc-price">150.00 EGP</span> </h3>
+                        <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
                         <div class="clearfix"></div>
                         <div class=" col-xs-12">
                             <div class="col-xs-12 add-cart-main remove-padding">
@@ -329,7 +329,7 @@
                         <p>Mup (Medical Union Pharma)</p>
                         <a href="/palmolive" tabindex="0">PALMOLIVE </a>
                         <h5>14 tab</h5>
-                        <h3>105.00 EGP <span class="uc-price">150.00 EGP</span> </h3>
+                        <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
                         <div class="clearfix"></div>
                         <div class=" col-xs-12">
                             <div class="col-xs-12 add-cart-main remove-padding">
@@ -371,7 +371,7 @@
                         <p>Mup (Medical Union Pharma)</p>
                         <a href="/palmolive" tabindex="0">PALMOLIVE </a>
                         <h5>14 tab</h5>
-                        <h3>105.00 EGP <span class="uc-price">150.00 EGP</span> </h3>
+                        <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
                         <div class="clearfix"></div>
                         <div class=" col-xs-12">
                             <div class="col-xs-12 add-cart-main remove-padding">

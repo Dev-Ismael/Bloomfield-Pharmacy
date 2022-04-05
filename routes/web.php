@@ -31,3 +31,5 @@ Route::get('/returns', [App\Http\Controllers\Web\ReturnsController::class, 'inde
 Route::get('/privacy', [App\Http\Controllers\Web\PrivacyController::class, 'index'])->name('privacy');
 // Search                            
 Route::get('/search', [App\Http\Controllers\Web\SearchController::class, 'index'])->name('search');
+// Product                            
+Route::get('/product', [App\Http\Controllers\Web\ProductController::class, 'index'])->name('product');

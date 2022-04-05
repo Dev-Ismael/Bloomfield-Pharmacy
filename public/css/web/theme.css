@@ -20292,7 +20292,7 @@ a.shop:after {
 }
 
 .search-main input {
-    width: calc(100% - 30px);
+    width: 100%;
     border-radius: 40px;
     border: none;
     background-color: #fff;
@@ -20301,6 +20301,8 @@ a.shop:after {
     padding-right: 20px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
 }
 
 .search-main input::placeholder {
@@ -23951,7 +23953,6 @@ a.my-pre-btn {
 }
 
 .product-d h4 {
-    float: left;
     font-size: 16px;
     color: #f1563f;
     margin-right: 30px;
@@ -27005,7 +27006,7 @@ a.droppable-browse-button.button {
 }
 
 .search-main button {
-    width: 30px;
+    width: 46px;
     background-color: #fff;
     position: absolute;
     right: 1px;
@@ -27013,10 +27014,16 @@ a.droppable-browse-button.button {
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
     text-align: left;
-    padding: 0;
+    padding: 5px;
+    padding-left: 10px;
     top: 0;
+    border-left: 1px solid #01ad85;
 }
-
+@media (max-width: 991px) {
+    .search-main button {
+        padding-left: 13px
+    }
+}
 a:focus {
     outline: none;
     outline: none;

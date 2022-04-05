@@ -58,7 +58,7 @@
                         <ul>
                             
                             <li>
-                                <div class="col-xs-12 remove-padding search-main visible-xs">
+                                <div class="col-xs-12 search-main visible-xs">
 
 
 

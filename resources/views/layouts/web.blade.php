@@ -62,11 +62,11 @@
 
 
 
-                                    <form action="" method="post" >
+                                    <form action="{{ route("search") }}" >
                                         <div>
 
 
-                                            <input type="text"  name="search_block_form"
+                                            <input type="text"
                                                 class="form-control" value="" placeholder="Search Products" size="15"
                                                 maxlength="128" />
                                             <button class="btn icon-search"  />
@@ -724,12 +724,11 @@
                             <div class="col-md-4 col-xs-2 remove-padding search-main ">
 
 
-                                <form action="" method="post" >
+                                <form action="{{ route("search") }}" >
                                     <div>
 
 
-                                        <input type="text"  name="search_block_form"
-                                            class="form-control" value="" placeholder="Search Products" size="15"
+                                        <input type="text"class="form-control" value="" placeholder="Search Products" size="15"
                                             maxlength="128" />
                                         <button class="btn icon-search"  />
                                         

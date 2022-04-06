@@ -993,8 +993,14 @@ input::placeholder {
     overflow: hidden;
 }
 @media (max-width:768px){
-    #cart-page .product footer .price{
-        display: none;
+    #cart-page .product footer .full-price{
+        padding: 0 10px;
+    }
+    #cart-page .qt-plus, .qt-minus {
+        padding: 0px 10px;
+    }
+    #cart-page .qt {
+        width: 40px;
     }
 }
 @media (max-width:991px){

@@ -27,10 +27,8 @@
         
                                 <div class="content product-info">
                                     <h1> Newclav 642.9 Mg / 5 Ml 100 Ml suspension </h1>
-                                    <span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis
-                                        perspiciatis ea ad
-                                        omnis provident laborum dolore in atque.
-                                    </span>
+                                    <p>Mup (Medical Union Pharma)</p>
+                                    <p> 14 tab </p>
                                 </div>
                                 <div class="icon-close">
                                     <i class="fa-solid fa-xmark"></i>
@@ -53,84 +51,7 @@
         
         
         
-                            <article class="product">
-                                <header>
-                                    <a href="{{ route("product") }}" class="product-link">
-                                        <img src="{{ asset("images/products/product.png") }}"
-                                            class="img-fluid" alt="">
-        
-                                        <h3><i class="fa-solid fa-eye"></i> Show </h3>
-                                    </a>
-                                </header>
-        
-                                
-                                <div class="content product-info">
-                                    <h1> Newclav 642.9 Mg / 5 Ml 100 Ml suspension </h1>
-                                    <span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis
-                                        perspiciatis ea ad
-                                        omnis provident laborum dolore in atque.
-                                    </span>
-                                </div>
-                                <div class="icon-close">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
-        
-                                <footer class="content">
-        
-                                    <span class="qt-minus">-</span>
-                                    <span class="qt">1</span>
-                                    <span class="qt-plus">+</span>
-        
-                                    <h2 class="full-price">
-                                        30$
-                                    </h2>
-        
-                                    <h2 class="price">
-                                        30$
-                                    </h2>
-                                </footer>
-                            </article>
-        
-        
-        
-        
-                            <article class="product">
-                                <header>
-                                    <a href="{{ route("product") }}" class="product-link">
-                                        <img src="{{ asset("images/products/product.png") }}"
-                                            class="img-fluid" alt="">
-        
-                                        <h3><i class="fa-solid fa-eye"></i> Show </h3>
-                                    </a>
-                                </header>
-        
-                                
-                                <div class="content product-info">
-                                    <h1> Newclav 642.9 Mg / 5 Ml 100 Ml suspension </h1>
-                                    <span> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis
-                                        perspiciatis ea ad
-                                        omnis provident laborum dolore in atque.
-                                    </span>
-                                </div>
-                                <div class="icon-close">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </div>
-        
-                                <footer class="content">
-        
-                                    <span class="qt-minus">-</span>
-                                    <span class="qt">10</span>
-                                    <span class="qt-plus">+</span>
-        
-                                    <h2 class="full-price">
-                                        200$
-                                    </h2>
-        
-                                    <h2 class="price">
-                                        20$
-                                    </h2>
-                                </footer>
-                            </article>
+                            
         
         
         

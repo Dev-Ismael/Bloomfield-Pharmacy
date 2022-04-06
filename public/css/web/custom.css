@@ -620,7 +620,7 @@ input::placeholder {
 }
 
 /*====================================================
-============ Cart/Wishlist Page ======================
+============ Cart Page ===============================
 ====================================================*/
 #cart-page{
     margin-top: 100px;
@@ -803,9 +803,15 @@ input::placeholder {
     color: #2e8345;
     font-size: 20px;
     font-weight: 300;
+    margin: 10px 0
+
+
 }
-#cart-page .product-info *{
-    margin: 10px 0;
+#cart-page .product-info p{
+    color: #999;
+}
+#cart-page .product-info p.price{
+    color: red;
 }
 #cart-page .product footer.content {
     height: 50px;
@@ -998,3 +1004,6 @@ input::placeholder {
         padding: 10px 0;
     }
 }
+/*====================================================
+============ Wishlist Page ===========================
+====================================================*/

@@ -751,7 +751,7 @@
                                     </li>
                                     &nbsp;
                                     <li>
-                                        <a href="#" onclick="myModule_ajax_load()" class="cart-main text-center"
+                                        <a href="{{ route("cart") }}" class="cart-main text-center"
                                             id="cart-button">
                                             <p>Cart</p>
                                             <span> 0 </span>

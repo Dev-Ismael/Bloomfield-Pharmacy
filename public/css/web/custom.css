@@ -1041,3 +1041,39 @@ input::placeholder {
 .wishlist-products footer.content  button:hover{
     background-color: #1c502a;
 }
+/*====================================================
+============ Category Page ===========================
+====================================================*/
+
+#category-page .gategory-grids .category-branches{
+    margin-top: 15px;
+    padding: 0px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 36px 0px #0003;
+    position: relative;
+}
+#category-page .gategory-grids .category-branches a{
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #fff;
+    color: #2e8345;
+    padding: 15px 10px;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid #d1d1d1;
+}
+#category-page .gategory-grids .category-branches a:last-of-type{
+    border-bottom: none;
+
+}
+#category-page .gategory-grids .category-branches a:hover{
+    text-decoration: none;
+    background-color: #2e8345;
+    color: #fff;
+}
+#category-page .gategory-grids .category-branches a.active{
+    background-color: #2e8345;
+    color: #fff;
+}

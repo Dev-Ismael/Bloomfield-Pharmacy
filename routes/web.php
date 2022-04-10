@@ -37,3 +37,5 @@ Route::get('/product', [App\Http\Controllers\Web\ProductController::class, 'inde
 Route::get('/cart', [App\Http\Controllers\Web\CartController::class, 'index'])->name('cart');
 // wishlist                            
 Route::get('/wishlist', [App\Http\Controllers\Web\WishlistController::class, 'index'])->name('wishlist');
+// Category                            
+Route::get('/category', [App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');

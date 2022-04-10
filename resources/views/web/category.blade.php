@@ -1,40 +1,28 @@
 @extends('layouts.web')
 
 @section('content')
-    <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
-        <h1 class="title text-bloder"> <i class="fa-solid fa-magnifying-glass"></i> Search results... </h1>
+    <div id="category-page" class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
+        <h1 class="title text-bloder"> <i class="fa-solid fa-code-branch"></i> Category  </h1>
         <div class="container-fluid content remove-padding">
-            <div class="container ">
+            <div class="container">
 
 
 
-                <div class=" gategory-grids text-center remove-padding row">
+                <div class="gategory-grids remove-padding row">
                     <!-- filter -->
-                    <div class=" col-xs-12  col-md-3 col-sm-4">
-
-                        <div id="block-facetapi-apizx0dwq8pu7f530hjzuy2kolvt5gic"
-                            class="col-xs-12 fillter-side-main remove-padding block block-facetapi block--ajax_facets">
-
-                            <h3 class="slide-side-fillter">Filter by offer:</h3>
-                            <div class="col-xs-12 remove-padding links-main-fillter-side" style="display: block;">
-                                <div class="col-xs-12 remove-padding">
-
-                                </div>
-                            </div>
+                    <div class=" col-xs-12  col-md-3 col-sm-4 text-left">
+                        <div class="category-branches">
+                            <a href="#">Hello</a> 
+                            <a href="#" class="active">Hello</a> 
+                            <a href="#">Hello</a> 
+                            <a href="#">Hello</a> 
+                            <a href="#">Hello</a> 
+                            <a href="#">Hello</a> 
+                            <a href="#">Hello</a> 
+                            <a href="#">Hello</a> 
+                            <a href="#">Hello</a> 
+    
                         </div>
-
-                        <div id="block-facetapi-diajxwumnecbl7lunq01rqxh6lygbpte"
-                            class="col-xs-12 fillter-side-main remove-padding block block-facetapi block--ajax_facets">
-
-                            <h3 class="slide-side-fillter links-colapsed">Filter by product type:</h3>
-                            <div class="col-xs-12 remove-padding links-main-fillter-side" style="display: none;">
-                                <div class="col-xs-12 remove-padding">
-
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
                     <!-- End filter -->
                     <div class=" col-xs-12 col-md-9 col-sm-8">

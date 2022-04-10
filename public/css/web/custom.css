@@ -817,6 +817,7 @@ input::placeholder {
     height: 50px;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 #cart-page .product footer .price {
@@ -1010,6 +1011,33 @@ input::placeholder {
         padding: 10px 0;
     }
 }
+@media (max-width: 576px){
+    #cart-page .product footer .price{
+        padding: 0 10px; 
+    }
+}
 /*====================================================
 ============ Wishlist Page ===========================
 ====================================================*/
+.wishlist-products .content.product-info{
+    border-bottom: 0px;
+}
+.wishlist-products footer.content{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.wishlist-products footer.content button{
+    height: 40px;
+    background-color: #2e8345;
+    color: #fff;
+    border: 1px solid #2e8345;
+    font-size: 16px;
+    border-radius: 3px;
+    position: absolute;
+    right: 0px;
+
+}
+.wishlist-products footer.content  button:hover{
+    background-color: #1c502a;
+}

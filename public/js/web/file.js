@@ -2,7 +2,7 @@
     $(document).ready(function () {
 
         /*========================================================================
-        =================== Shipping & delivery ========================================
+        =================== Shipping & delivery ==================================
         =========================================================================*/
 
 
@@ -12,7 +12,7 @@
         });
 
         /*========================================================================
-        =================== Header ========================================
+        =================== Header owl-carousel ==================================
         =========================================================================*/
 
         $(".header.owl-carousel").owlCarousel({
@@ -193,13 +193,13 @@
             
             $(document).ready(function () {
             
-                $(".icon-close").click(function () {
+                $(".fa-xmark , button.add-cart").click(function () {
                     var el = $(this);
-                    el.parent().addClass("removed");
+                    el.parent().parent().addClass("removed");
                     window.setTimeout(
                         function () {
-                            el.parent().slideUp('fast', function () {
-                                el.parent().remove();
+                            el.parent().parent().slideUp('fast', function () {
+                                el.parent().parent().remove();
                                 if ($(".product").length == 0) {
                                     if (check) {
                                         // if product checkout successfully

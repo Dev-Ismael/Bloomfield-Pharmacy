@@ -151,7 +151,7 @@
                         <footer id="site-footer">
             
                                 <div class="text-left">
-                                    <h2 class="subtotal">Subtotal: <span>250</span>$</h2>
+                                    <h2 class="subtotal">Subtotal: <span>140</span>$</h2>
                                     <h3 class="tax">Taxes (5%): <span>7</span>$</h3>
                                     <h3 class="shipping">Shipping: <span>5.00</span>$</h3>
                                     <h4><i class="fa-solid fa-circle-check" style="color: #2e8345"></i> Cash on Delivery</h4>

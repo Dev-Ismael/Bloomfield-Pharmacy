@@ -32,7 +32,7 @@
                         <div class="row">
                             
                             
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-lg-4 col-md-6 product-container">
                                 <div class="col-xs-12">
                                     <div class="col-xs-12 remove-padding product-item">
                                         <a href="/palmolive" class="item-img" tabindex="0">
@@ -47,8 +47,6 @@
                                         <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
                                         <div class="col-xs-12 add-cart-main text-center">
                                             <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            &nbsp;
-                                            &nbsp;
                                             <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
                                         </div>
                                     </div>
@@ -56,7 +54,9 @@
                             </div>
                             
                             
-                            <div class="col-md-4 col-sm-6">
+                            
+                            
+                            <div class="col-lg-4 col-md-6 product-container">
                                 <div class="col-xs-12">
                                     <div class="col-xs-12 remove-padding product-item">
                                         <a href="/palmolive" class="item-img" tabindex="0">
@@ -71,8 +71,6 @@
                                         <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
                                         <div class="col-xs-12 add-cart-main text-center">
                                             <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            &nbsp;
-                                            &nbsp;
                                             <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
                                         </div>
                                     </div>
@@ -80,7 +78,9 @@
                             </div>
                             
                             
-                            <div class="col-md-4 col-sm-6">
+                            
+                            
+                            <div class="col-lg-4 col-md-6 product-container">
                                 <div class="col-xs-12">
                                     <div class="col-xs-12 remove-padding product-item">
                                         <a href="/palmolive" class="item-img" tabindex="0">
@@ -95,8 +95,6 @@
                                         <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
                                         <div class="col-xs-12 add-cart-main text-center">
                                             <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            &nbsp;
-                                            &nbsp;
                                             <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
                                         </div>
                                     </div>
@@ -104,7 +102,9 @@
                             </div>
                             
                             
-                            <div class="col-md-4 col-sm-6">
+                            
+                            
+                            <div class="col-lg-4 col-md-6 product-container">
                                 <div class="col-xs-12">
                                     <div class="col-xs-12 remove-padding product-item">
                                         <a href="/palmolive" class="item-img" tabindex="0">
@@ -119,8 +119,6 @@
                                         <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
                                         <div class="col-xs-12 add-cart-main text-center">
                                             <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            &nbsp;
-                                            &nbsp;
                                             <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
                                         </div>
                                     </div>
@@ -128,7 +126,9 @@
                             </div>
                             
                             
-                            <div class="col-md-4 col-sm-6">
+                            
+                            
+                            <div class="col-lg-4 col-md-6 product-container">
                                 <div class="col-xs-12">
                                     <div class="col-xs-12 remove-padding product-item">
                                         <a href="/palmolive" class="item-img" tabindex="0">
@@ -143,13 +143,14 @@
                                         <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
                                         <div class="col-xs-12 add-cart-main text-center">
                                             <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            &nbsp;
-                                            &nbsp;
                                             <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            
+                            
+                            
 
 
                         </div>

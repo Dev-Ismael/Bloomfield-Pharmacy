@@ -476,22 +476,30 @@ body::-webkit-scrollbar-thumb {
 /*====================================================
 =================== Product item =====================
 ====================================================*/
-
 .product-item button{
     transition: all 0.5s ease-out ;
     margin: 10px 0px;
     background-color: #2e8345;
     color: #fff;
     border: 1px solid #2e8345;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 3px;
-    padding: 7px 12px;
+    padding: 5px 8px;
 }
 .product-item button:hover{
     background-color: #fff;
     border: 1px solid #2e8345;
     color: #2e8345;
 }
+@media (max-width: 575.98px) { 
+    .product-container{
+        width: 60%;
+        margin-left: 20%;
+    }
+}
+
+
+
 /*====================================================
 =================== Footer ===========================
 ====================================================*/

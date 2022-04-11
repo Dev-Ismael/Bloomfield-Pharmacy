@@ -26,6 +26,36 @@
             autoplayHoverPause: true
         });
 
+        /*========================================================================
+        =================== Products owl-carousel ==================================
+        =========================================================================*/
+
+        $(".product-container.owl-carousel").owlCarousel({
+            items: 4,
+            loop: true,
+            nav: true,
+            dots: true,
+            margin:10,
+            autoplay: true,
+            autoplaySpeed: 1000,
+            smartSpeed: 1500,
+            autoplayHoverPause: true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                576:{
+                    items:2
+                },
+                768:{
+                    items:3
+                },
+                992:{
+                    items:4
+                }
+            }
+        });
+
 
 
         /*========================================================================

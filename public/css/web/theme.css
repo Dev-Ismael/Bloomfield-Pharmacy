@@ -20732,6 +20732,7 @@ a.other-mega-link {
 
 .hide-side-bar,
 .hide-side-bar1 {
+    box-shadow: 0px 0px 36px 0px #0003;
     background-color: #fff;
     position: fixed;
     top: 0;

@@ -33,8 +33,10 @@
         $(".product-container.owl-carousel").owlCarousel({
             items: 4,
             loop: true,
+            // dots: true,
             nav: true,
-            dots: true,
+            // navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+
             margin:10,
             autoplay: true,
             autoplaySpeed: 1000,

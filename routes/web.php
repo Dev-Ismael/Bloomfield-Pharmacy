@@ -39,3 +39,5 @@ Route::get('/cart', [App\Http\Controllers\Web\CartController::class, 'index'])->
 Route::get('/wishlist', [App\Http\Controllers\Web\WishlistController::class, 'index'])->name('wishlist');
 // Category                            
 Route::get('/category', [App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
+// Orders                            
+Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index'])->name('orders');

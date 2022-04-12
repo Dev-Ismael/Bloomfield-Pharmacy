@@ -472,24 +472,28 @@ body::-webkit-scrollbar-thumb {
         height: 35px;
     }
 }
+
 /*====================================================
 =================== Product Slider ===================
 ====================================================*/
-#home-page .product-slider .owl-nav button:nth-of-type(1){
+#home-page .product-slider .owl-nav button:nth-of-type(1) {
     left: -25px;
 }
-#home-page .product-slider .owl-nav button:nth-of-type(2){
+
+#home-page .product-slider .owl-nav button:nth-of-type(2) {
     right: -25px;
 }
-#home-page .product-slider .owl-nav button{
+
+#home-page .product-slider .owl-nav button {
     background-color: transparent !important;
     color: #2e8345 !important;
 }
+
 /*====================================================
 =================== Product item =====================
 ====================================================*/
-.product-item button{
-    transition: all 0.5s ease-out ;
+.product-item button {
+    transition: all 0.5s ease-out;
     margin: 10px 0px;
     background-color: #2e8345;
     color: #fff;
@@ -498,13 +502,15 @@ body::-webkit-scrollbar-thumb {
     border-radius: 3px;
     padding: 5px 8px;
 }
-.product-item button:hover{
+
+.product-item button:hover {
     background-color: #fff;
     border: 1px solid #2e8345;
     color: #2e8345;
 }
-@media (max-width: 575.98px) { 
-    .product-container{
+
+@media (max-width: 575.98px) {
+    .product-container {
         width: 60%;
         margin-left: 20%;
     }
@@ -642,7 +648,7 @@ input::placeholder {
 /*====================================================
 ============ Cart Page ===============================
 ====================================================*/
-#cart-page{
+#cart-page {
     margin-top: 100px;
 }
 
@@ -650,6 +656,7 @@ input::placeholder {
 #site-footer {
     background: #fff;
 }
+
 #cart-page #site-header {
     margin: 0 0 30px 0;
 }
@@ -747,6 +754,7 @@ input::placeholder {
     -o-transition: margin .2s linear, opacity .2s linear;
     transition: margin .2s linear, opacity .2s linear;
 }
+
 #cart-page .product .icon-close {
     position: absolute;
     top: 10px;
@@ -824,15 +832,16 @@ input::placeholder {
     font-size: 20px;
     font-weight: 300;
     margin: 10px 0
-
-
 }
-#cart-page .product-info p{
+
+#cart-page .product-info p {
     color: #999;
 }
-#cart-page .product-info p.price{
+
+#cart-page .product-info p.price {
     color: red;
 }
+
 #cart-page .product footer.content {
     height: 50px;
     margin: 0;
@@ -1010,44 +1019,54 @@ input::placeholder {
 #cart-page .added {
     margin: 0 -50px 0 0 !important;
 }
-#cart-page .box-left{
+
+#cart-page .box-left {
     overflow: hidden;
 }
-@media (max-width:768px){
-    #cart-page .product footer .full-price{
+
+@media (max-width:768px) {
+    #cart-page .product footer .full-price {
         padding: 0 10px;
     }
-    #cart-page .qt-plus, .qt-minus {
+
+    #cart-page .qt-plus,
+    .qt-minus {
         padding: 0px 10px;
     }
+
     #cart-page .qt {
         width: 40px;
     }
 }
-@media (max-width:991px){
-    #cart-page .product header h3{
+
+@media (max-width:991px) {
+    #cart-page .product header h3 {
         font-size: 16px;
         line-height: normal;
         padding: 10px 0;
     }
 }
-@media (max-width: 576px){
-    #cart-page .product footer .price{
-        padding: 0 10px; 
+
+@media (max-width: 576px) {
+    #cart-page .product footer .price {
+        padding: 0 10px;
     }
 }
+
 /*====================================================
 ============ Wishlist Page ===========================
 ====================================================*/
-.wishlist-products .content.product-info{
+.wishlist-products .content.product-info {
     border-bottom: 0px;
 }
-.wishlist-products footer.content{
+
+.wishlist-products footer.content {
     position: absolute;
     right: 0px;
     bottom: 0px;
 }
-.wishlist-products footer.content button{
+
+.wishlist-products footer.content button {
     height: 40px;
     background-color: #2e8345;
     color: #fff;
@@ -1058,14 +1077,16 @@ input::placeholder {
     right: 0px;
 
 }
-.wishlist-products footer.content  button:hover{
+
+.wishlist-products footer.content button:hover {
     background-color: #1c502a;
 }
+
 /*====================================================
 ============ Category Page ===========================
 ====================================================*/
 
-#category-page .gategory-grids .category-branches{
+#category-page .gategory-grids .category-branches {
     margin-top: 15px;
     padding: 0px;
     border-radius: 5px;
@@ -1073,7 +1094,8 @@ input::placeholder {
     box-shadow: 0px 0px 36px 0px #0003;
     position: relative;
 }
-#category-page .gategory-grids .category-branches a{
+
+#category-page .gategory-grids .category-branches a {
     display: block;
     width: 100%;
     text-transform: uppercase;
@@ -1084,16 +1106,162 @@ input::placeholder {
     transition: all 0.3s ease-in-out;
     border-bottom: 1px solid #d1d1d1;
 }
-#category-page .gategory-grids .category-branches a:last-of-type{
+
+#category-page .gategory-grids .category-branches a:last-of-type {
     border-bottom: none;
 
 }
-#category-page .gategory-grids .category-branches a:hover{
+
+#category-page .gategory-grids .category-branches a:hover {
     text-decoration: none;
     background-color: #2e8345;
     color: #fff;
 }
-#category-page .gategory-grids .category-branches a.active{
+
+#category-page .gategory-grids .category-branches a.active {
     background-color: #2e8345;
     color: #fff;
+}
+
+/*====================================================
+============ Orders Page =============================
+====================================================*/
+#orders-page .card-stepper {
+    z-index: 0
+}
+
+#orders-page #progressbar-2 {
+    color: #455A64;
+}
+
+#orders-page #progressbar-2 li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+}
+
+#orders-page #progressbar-2 #step1:before {
+    content: '\f058';
+    font-family: "Font Awesome 5 Free";
+    color: #fff;
+    width: 37px;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+#orders-page #progressbar-2 #step2:before {
+    content: '\f058';
+    font-family: "Font Awesome 5 Free";
+    color: #fff;
+    width: 37px;
+}
+
+#orders-page #progressbar-2 #step3:before {
+    content: '\f058';
+    font-family: "Font Awesome 5 Free";
+    color: #fff;
+    width: 37px;
+    margin-right: 0;
+    text-align: center;
+}
+
+#orders-page #progressbar-2 #step4:before {
+    content: '\f111';
+    font-family: "Font Awesome 5 Free";
+    color: #fff;
+    width: 37px;
+    margin-right: 0;
+    text-align: center;
+}
+
+#orders-page #progressbar-2 li:before {
+    line-height: 37px;
+    display: block;
+    font-size: 12px;
+    background: #c5cae9;
+    border-radius: 50%;
+}
+
+#orders-page #progressbar-2 li:after {
+    content: '';
+    width: 100%;
+    height: 10px;
+    background: #c5cae9;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 15px;
+    z-index: -1;
+}
+
+#orders-page #progressbar-2 li:nth-child(1):after {
+    left: 1%;
+    width: 100%
+}
+
+#orders-page #progressbar-2 li:nth-child(2):after {
+    left: 1%;
+    width: 100%;
+}
+
+#orders-page #progressbar-2 li:nth-child(3):after {
+    left: 1%;
+    width: 100%;
+    background: #c5cae9 !important;
+}
+
+#orders-page #progressbar-2 li:nth-child(4) {
+    left: 0;
+    width: 37px;
+}
+
+#orders-page #progressbar-2 li:nth-child(4):after {
+    left: 0;
+    width: 0;
+}
+
+#orders-page #progressbar-2 li.active:before,
+#orders-page #progressbar-2 li.active:after {
+    background: #2e8345;
+}
+/*========= Collaps ==============*/
+#orders-page .card{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+  }  
+#orders-page .card-header .title {
+    font-size: 17px;
+    color: #000;
+}
+#orders-page .card-header .accicon {
+  float: right;
+  font-size: 20px;  
+  width: 1.2em;
+}
+#orders-page .card-header{
+  cursor: pointer;
+  border-bottom: none;
+  background-color: #2e834530;
+  padding: 30px 10px;
+}
+
+#orders-page .card-header:not(.collapsed) .rotate-icon {
+  transform: rotate(180deg);
+}
+/*======= CUSTOM Order Process =======*/
+#orders-page .card-body{
+    padding: 0px;
+}
+#orders-page .card.card-stepper{
+    border: none;
+}
+#orders-page .process-info i  {
+    color: #2e8345;
+    /* color: #141414; */
+
+}
+#orders-page .process-info p  {
+    color: #141414;
 }

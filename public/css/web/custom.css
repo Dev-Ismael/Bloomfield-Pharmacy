@@ -1290,6 +1290,9 @@ input::placeholder {
     width: 130px;
     border-radius: 50% ;
 }
+#profile-page i {
+    color: #2e8345;
+}
 #profile-page a:hover{
     color: #2e8345 !important
 }
@@ -1305,28 +1308,22 @@ input::placeholder {
     padding: 7px 12px ;
     font-size: 16px;
 }
-#profile-page .profile-button:hover {
-    background: #2e8345
-}
-
-#profile-page .profile-button:focus {
-    background: #2e8345;
-    box-shadow: none
-}
-
-#profile-page .profile-button:active {
-    background: #2e8345;
-    box-shadow: none
-}
-#profile-page .back:hover {
-    color: #2e8345;
-    cursor: pointer
+#profile-page .profile-button i {
+    color: #fff !important;
 }
 #profile-page .profile-button:hover{
     background-color: #fff;
     color: #2e8345;
     border: 1px solid #2e8345;
 }
+#profile-page .profile-button:hover i {
+    color: #2e8345 !important;
+}
+#profile-page .back:hover {
+    color: #2e8345;
+    cursor: pointer
+}
+
 #profile-page .form-group{
     margin-bottom: 10px;
 }

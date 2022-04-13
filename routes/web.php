@@ -41,3 +41,5 @@ Route::get('/wishlist', [App\Http\Controllers\Web\WishlistController::class, 'in
 Route::get('/category', [App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
 // Orders                            
 Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index'])->name('orders');
+// Profile                            
+Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile');

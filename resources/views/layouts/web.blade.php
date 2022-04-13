@@ -773,21 +773,19 @@
 
 
 
-        <!----------------- SIDBAR LOGIN/SIGUP  --------------->
+        <!----------------- SIDBAR LOGIN/SIGUP & --------------->
         <div id="hide-side-bar" class="hide-side-bar">
             <button class="click-me">x</button>
             <div class="col-xs-12  log-side-bar">
                 <a href="#" class="login-btn" data-toggle="modal" data-target="#login">log in</a>
                 <a href="#" class="singup-btn" data-toggle="modal" data-target="#register">Sign Up</a>
             </div>
-            <div class="col-xs-12 pro-icons-main disable-icons">
-                <a href="#" class="orders-icon">My Orders</a>
-                <a href="#" class="wishlist-icon">My Wishlist</a>
-                <a href="#" class="subscribed-icon">My Subscribed Orders</a>
-                <a href="#" class="indicator-icon">My Health Indicator</a>
-                <a href="#" class="prescriptions-icon">My Prescriptions</a>
-                <a href="#" class="addresses-icon">My Saved Addresses</a>
-                <a href="#" class="articles-icon remove-border">My Saved Articles</a>
+            <div class="col-xs-12 pro-icons-main">
+                <a href="{{ route("profile") }}">My Profile</a>
+                <a href="{{ route("orders") }}">My Subscribed Orders</a>
+                <a href="{{ route("wishlist") }}">My Wishlist</a>
+                <a href="#">My Prescriptions</a>
+                <a href="#">My Saved Addresses</a>
             </div>
         </div>
 

@@ -23674,7 +23674,7 @@ a.sub-order-link::before {
 /*upload-p-main*/
 
 .upload-p-main {
-    background: linear-gradient(to right, var(--green-color) 50%, #eee 50%);
+    background: linear-gradient(to right, var(--green-color) 50%, #fff 50%);
     min-height: 600px;
 }
 
@@ -25850,7 +25850,7 @@ a.cancel-btn-o {
         margin-top: -13px;
     }
     .step-main p {
-        font-size: 12px;
+        font-size: 13px;
         margin-top: 5px;
     }
     .step1 {
@@ -26590,13 +26590,11 @@ a.cancel-btn-o {
         margin-bottom: 30px;
     }
     .upload-p-main {
-        background: linear-gradient(to bottom, var(--green-color) 60%, #eee 60%);
-        height: 100vh;
-        margin-bottom: 50px;
+        background: linear-gradient(to bottom, var(--green-color) 45%, #fff 45%);
         margin-top: -30px;
     }
     .step1 {
-        margin-top: 0px;
+        margin-top: 70px;
     }
     .step3 {
         margin-top: -25px;

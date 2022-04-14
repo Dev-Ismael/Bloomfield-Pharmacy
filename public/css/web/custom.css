@@ -30,6 +30,15 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 100px;
 }
 
+.underline-title-white {
+    position: absolute;
+    width: 16%;
+    height: 3px;
+    left: 42%;
+    background-color: #fff;
+    border-radius: 3px;
+    top: 50px;
+}
 @media (max-width: 767px) {
     .title {
         font-size: 35px;
@@ -1511,7 +1520,6 @@ input::placeholder {
     padding: 0.3125rem;
     border-radius: 10px;
     display: none;
-    z-index: 1000;
     transition: opacity 300ms ease-in-out;
 }
 
@@ -1679,4 +1687,19 @@ input::placeholder {
 }
 #order-prescription-page .upload-steps-main > h1 img {
     height: 40px;
+}
+@media (max-width: 767px) {
+    #order-prescription-page .upload-steps-main > h1 img {
+        height: 25px;
+    }
+    .underline-title-white {
+        position: absolute;
+        width: 10%;
+        height: 3px;
+        left: 45%;
+        background-color: #fff;
+        border-radius: 3px;
+        top: 30px;
+    }
+
 }

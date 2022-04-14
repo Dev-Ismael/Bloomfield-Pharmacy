@@ -6,9 +6,12 @@
 
             <div class="row">
 
-                <div id="block-block-20" class="col-md-6 col-sm-6 col-xs-12 upload-steps-main block block-block">
-                    <h1> <img src="{{ asset("images/web/prescription-icon.jpg") }}" alt="prescription-icon"> Order Prescriptions</h1>
-
+                <div id="block-block-20" class="col-md-6 col-sm-12 col-xs-12 upload-steps-main block block-block">
+                    <h1> 
+                        <img src="{{ asset("images/web/prescription-icon.jpg") }}" alt="prescription-icon"> 
+                        Order Prescriptions
+                        <div class="underline-title-white"></div>
+                    </h1>
                     <div class="step-main step1" style=" margin-left: -5px; ">
                         <span>1</span>
                         <p>Upload your prescription</p>
@@ -36,7 +39,7 @@
                     <br>
                 </div>
 
-                <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="col-md-6 col-sm-12 col-xs-12">
 
 
                     <br><br><br>

@@ -98,7 +98,7 @@
                             </li>
 
                             <li><a href="{{ route("about") }}"> About Us</a></li>
-                            <li><a href="node/430435.html"> Order a
+                            <li><a href="{{ route("order_prescription") }}"> Order a
                                     Prescription</a></li>
 
 
@@ -712,7 +712,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li><a href="node/430435.html"> Order a
+                                    <li><a href="{{ route("order_prescription") }}"> Order a
                                             Prescription</a></li>
                                     <li><a href="{{ route("about") }}"> About Us</a>
                                     </li>
@@ -785,7 +785,6 @@
                 <a href="{{ route("orders") }}">My Subscribed Orders</a>
                 <a href="{{ route("wishlist") }}">My Wishlist</a>
                 <a href="#">My Prescriptions</a>
-                <a href="#">My Saved Addresses</a>
             </div>
         </div>
 

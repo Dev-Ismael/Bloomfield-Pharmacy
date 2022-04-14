@@ -43,3 +43,5 @@ Route::get('/category', [App\Http\Controllers\Web\CategoryController::class, 'in
 Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index'])->name('orders');
 // Profile                            
 Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile');
+// order_prescription                            
+Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');

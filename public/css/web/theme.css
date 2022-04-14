@@ -23675,7 +23675,7 @@ a.sub-order-link::before {
 
 .upload-p-main {
     background: linear-gradient(to right, var(--green-color) 50%, #eee 50%);
-    height: 100vh;
+    min-height: 600px;
 }
 
 .upload-steps-main {
@@ -23758,9 +23758,9 @@ a.sub-order-link::before {
     height: 30px;
     border-radius: 50%;
     text-align: center;
-    color: #fff;
     line-height: 30px;
-    background-color: #1ab99a;
+    background-color: #fff;
+    color: #2e8345;
     display: inline-block;
 }
 

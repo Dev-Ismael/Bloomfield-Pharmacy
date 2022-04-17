@@ -45,3 +45,5 @@ Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index']
 Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile');
 // order_prescription                            
 Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
+// prescriptions                            
+Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::class, 'index'])->name('prescriptions');

@@ -506,7 +506,28 @@
 
 
         /*========================================================================
-        =================== Order Prescription =====================================
+        ===================  Daynamic input Order Prescription ====================
+        =========================================================================*/
+
+        $("#addRow").click(function () {
+            var html = '';
+            html += '<div id="inputFormRow">';
+            html += '<div class="input-group">';
+            html += '<input type="text" name="title[]" class="form-control m-input" placeholder="Type Medicine..." autocomplete="off">';
+            html += '<div class="input-group-append">';
+            html += '<button id="removeRow" type="button" class="btn btn-danger"> <i class="fa-solid fa-xmark"></i> </button>';
+            html += '</div>';
+            html += '</div>';
+
+            $('#newRow').append(html);
+        });
+
+        // remove row
+        $(document).on('click', 'button#removeRow', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+        /*========================================================================
+        ================= End  Daynamic input Order Prescription ===================
         =========================================================================*/
 
 

@@ -781,10 +781,10 @@
                 <a href="#" class="singup-btn" data-toggle="modal" data-target="#register">Sign Up</a>
             </div>
             <div class="col-xs-12 pro-icons-main">
-                <a href="{{ route("profile") }}">My Profile</a>
-                <a href="{{ route("orders") }}">My Subscribed Orders</a>
-                <a href="{{ route("wishlist") }}">My Wishlist</a>
-                <a href="#">My Prescriptions</a>
+                <a href="{{ route("profile") }}"> <i class="fa-solid fa-address-card"></i> My Profile   </a>
+                <a href="{{ route("orders") }}"> <i class="fa-solid fa-list-check"></i>  My Subscribed Orders </a>
+                <a href="{{ route("wishlist") }}"> <i class="fa-solid fa-heart"></i> My Wishlist </a>
+                <a href="#"> <i class="fa-solid fa-file-medical"></i> My Prescriptions </a>
             </div>
         </div>
 

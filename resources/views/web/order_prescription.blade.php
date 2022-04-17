@@ -100,6 +100,39 @@
                         </div>
 
 
+
+
+                        {{-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
+
+
+                        <div class="form-group text-left dynamic-inputs mb-5">
+                            <label for="description" class="text-black">
+                                <i class="fa-solid fa-capsules"></i> Prescription Medicine (optional)
+                                <button id="addRow" type="button" class="btn btn-info add-medicine ">
+                                    <i class="fa-solid fa-plus" style="color: #fff"></i>
+                                </button>
+                            </label>
+                            
+                            <div id="inputFormRow">
+                                <div class="input-group">
+                                    <input type="text" name="medicine[]" class="form-control m-input medicine-input" placeholder="Type Medicine..." autocomplete="off">
+                                    <div class="input-group-append">
+                                        <button id="removeRow" type="button" class="btn btn-danger"> <i class="fa-solid fa-xmark"></i> </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="newRow"></div>
+
+                        </div>
+                    
+                        
+                        
+                    
+
+
+
+
                         <button class="btn btn-primary profile-button mb-5 float-right" type="button"> 
                             <i class="fa-solid fa-cloud-arrow-up"></i> Upload
                         </button>

@@ -1675,6 +1675,10 @@ input::placeholder {
 
 
 /*====== Custom ========*/
+#order-prescription-page .form-control{
+    border-radius: 7px;
+    overflow: hidden;
+}
 #order-prescription-page label i {
     color: #2e8345;
 }
@@ -1687,6 +1691,10 @@ input::placeholder {
 }
 #order-prescription-page .upload-steps-main > h1 img {
     height: 40px;
+}
+#order-prescription-page button.add-medicine{
+    padding: 7px 9px;
+    border-radius: 50%;
 }
 @media (max-width: 767px) {
     #order-prescription-page .upload-steps-main > h1 img {
@@ -1701,5 +1709,20 @@ input::placeholder {
         border-radius: 3px;
         top: 30px;
     }
-
+}
+/*=========== Dynamic Input ==========*/
+#order-prescription-page .dynamic-inputs #inputFormRow{
+    margin-top: 10px;
+}
+#order-prescription-page .dynamic-inputs > #inputFormRow{
+    margin-top: 0;
+}
+#order-prescription-page .dynamic-inputs button#removeRow{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    height: 100%;
+    z-index: 99;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
 }

@@ -73,7 +73,7 @@
                                         <input type="text" class="form-control" id="address3" placeholder="Type Address Details...">
                                     </div>
                                 </div>
-                                <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button"> <i class="fa-solid fa-floppy-disk"></i> Save Profile</button></div>
+                                <div class="mt-5 text-right"><button class="btn btn-green" type="button"> <i class="fa-solid fa-floppy-disk"></i> Save Profile</button></div>
                             </form>
                         </div>
                     </div>

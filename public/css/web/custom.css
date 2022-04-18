@@ -39,14 +39,61 @@ body::-webkit-scrollbar-thumb {
     border-radius: 3px;
     top: 50px;
 }
+
 @media (max-width: 767px) {
     .title {
         font-size: 35px;
     }
 }
-
-
-
+/*============= btn =============*/
+.btn {
+    box-shadow: none;
+    padding: 7px 12px;
+    font-size: 16px;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover{
+    box-shadow: 0px 0px 14px 2px rgb(175 175 175) !important; 
+}
+.btn i{
+    color: #fff !important;
+    transition: all 0.3s ease-in-out;
+}
+/*=== green ===*/
+.btn.btn-green{
+    background: #2e8345;
+    box-shadow: none;
+    border: 1px solid #2e8345;
+    padding: 7px 12px;
+    font-size: 16px;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+.btn.btn-green:hover{
+    background-color: #fff;
+    color: #2e8345;
+}
+.btn.btn-green:hover i{
+    color: #2e8345 !important;
+}
+/*=== close ===*/
+.btn.btn-close{
+    background: #dc3545;
+    box-shadow: none;
+    border: 1px solid #dc3545;
+    padding: 7px 12px;
+    font-size: 16px;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+.btn.btn-close:hover{
+    background-color: #fff;
+    color: #dc3545;
+}
+.btn.btn-close:hover i{
+    color: #dc3545 !important;
+}
 /*====================================================
 =================== Header ===========================
 ====================================================*/
@@ -1144,7 +1191,7 @@ input::placeholder {
 ============ Orders Page =============================
 ====================================================*/
 
-/*============== ORDERS PROGRESS BAR STEPS =============*/ 
+/*==== ORDERS PROGRESS BAR STEPS ====*/
 #orders-page .card-stepper {
     z-index: 0
 }
@@ -1247,23 +1294,26 @@ input::placeholder {
 }
 
 /*========= Collaps Style ==============*/
- .card {
+.card {
     border: 1px solid #ddd;
     border-radius: 10px;
+
 }
 
- .card-header .title {
+.card-header .title {
     font-size: 18px;
     color: #000;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
- .card-header .accicon {
+.card-header .accicon {
     float: right;
     font-size: 20px;
     width: 1.2em;
 }
 
- .card-header {
+.card-header {
     cursor: pointer;
     border-bottom: none;
     background-color: #2e834530;
@@ -1272,6 +1322,10 @@ input::placeholder {
 
 .card-header:not(.collapsed) .rotate-icon {
     transform: rotate(180deg);
+}
+
+.collapse {
+    border-bottom: 1px solid #ddd;
 }
 
 /*======= Collapse Custom Style =======*/
@@ -1383,8 +1437,8 @@ input::placeholder {
     --clr-light-gray: rgb(196, 195, 196);
     --clr-blue: #2e8345;
     --clr-light-blue: #2e834530;
-  }
-  
+}
+
 /* End General Styles */
 
 /* Upload Area */
@@ -1677,31 +1731,37 @@ input::placeholder {
 
 
 /*====== Custom ========*/
-#order-prescription-page .form-control{
+#order-prescription-page .form-control {
     border-radius: 7px;
     overflow: hidden;
 }
+
 #order-prescription-page label i {
     color: #2e8345;
 }
-#order-prescription-page button{
+
+#order-prescription-page button {
     background: #2e8345;
     box-shadow: none;
     border: 1px solid #2e8345;
     padding: 7px 12px;
     font-size: 16px;
 }
-#order-prescription-page .upload-steps-main > h1 img {
+
+#order-prescription-page .upload-steps-main>h1 img {
     height: 40px;
 }
-#order-prescription-page button.add-medicine{
+
+#order-prescription-page button.add-medicine {
     padding: 7px 9px;
     border-radius: 50%;
 }
+
 @media (max-width: 767px) {
-    #order-prescription-page .upload-steps-main > h1 img {
+    #order-prescription-page .upload-steps-main>h1 img {
         height: 25px;
     }
+
     .underline-title-white {
         position: absolute;
         width: 10%;
@@ -1712,14 +1772,17 @@ input::placeholder {
         top: 30px;
     }
 }
+
 /*=========== Dynamic Input ==========*/
-#order-prescription-page .dynamic-inputs #inputFormRow{
+#order-prescription-page .dynamic-inputs #inputFormRow {
     margin-top: 10px;
 }
-#order-prescription-page .dynamic-inputs > #inputFormRow{
+
+#order-prescription-page .dynamic-inputs>#inputFormRow {
     margin-top: 0;
 }
-#order-prescription-page .dynamic-inputs button#removeRow{
+
+#order-prescription-page .dynamic-inputs button#removeRow {
     position: absolute;
     top: 0;
     right: 0px;
@@ -1728,24 +1791,26 @@ input::placeholder {
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
 }
+
 /*====================================================
 =============== prescriptions-page  ==================
 ====================================================*/
+
+
+/*========= toggle-btn ==========*/
 #prescriptions-page .toggle-btn {
-    width: 80px;
-    height: 40px;
-    margin: 10px;
+    width: 70px;
+    height: 35px;
+    margin-left: 10px;
     border-radius: 50px;
     display: inline-block;
-    position: absolute;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyklEQVQ4T42TaxHCQAyENw5wAhLACVUAUkABOCkSwEkdhNmbpHNckzv689L98toIAKjqGcAFwElEFr5ln6ruAMwA7iLyFBM/TPDuQSrxwf6fCKBoX2UMIYGYkg8BLOnVg2RiAEexGaQQq4w9e9klcxGLLAUwgDAcihlYAR1IvZA1sz/+AAaQjXhTQQVoe2Yo3E7UQiT2ijeQdojRtClOfVKvMVyVpU594kZK9zzySWTlcNqZY9tjCsUds00+A57z1e35xzlzJjee8xf0HYp+cOZQUQAAAABJRU5ErkJggg==") no-repeat 50px center #e74c3c;
+    position: relative;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyklEQVQ4T42TaxHCQAyENw5wAhLACVUAUkABOCkSwEkdhNmbpHNckzv689L98toIAKjqGcAFwElEFr5ln6ruAMwA7iLyFBM/TPDuQSrxwf6fCKBoX2UMIYGYkg8BLOnVg2RiAEexGaQQq4w9e9klcxGLLAUwgDAcihlYAR1IvZA1sz/+AAaQjXhTQQVoe2Yo3E7UQiT2ijeQdojRtClOfVKvMVyVpU594kZK9zzySWTlcNqZY9tjCsUds00+A57z1e35xzlzJjee8xf0HYp+cOZQUQAAAABJRU5ErkJggg==") no-repeat 45px  center #e74c3c;
     cursor: pointer;
     -webkit-transition: background-color 0.4s ease-in-out;
     -moz-transition: background-color 0.4s ease-in-out;
     -o-transition: background-color 0.4s ease-in-out;
     transition: background-color 0.4s ease-in-out;
-    right: 40px;
-    top: 13px;
 }
 
 #prescriptions-page .toggle-btn.active {
@@ -1753,18 +1818,18 @@ input::placeholder {
 }
 
 #prescriptions-page .toggle-btn.active .round-btn {
-    left: 45px;
+    left: 40px;
 }
 
 #prescriptions-page .toggle-btn .round-btn {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: #fff;
     border-radius: 50%;
     display: inline-block;
     position: absolute;
     left: 5px;
-    top: 50%;
+    top: 20px;
     margin-top: -15px;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -1783,5 +1848,39 @@ input::placeholder {
     cursor: pointer;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
-  
-  
+
+#prescriptions-page .prescriptions-info span.title {
+    font-size: 20px ;
+    margin-bottom: 5px;
+    font-weight: bolder;
+    color: #000;
+}
+
+#prescriptions-page .prescriptions-info p {
+    color: #494949;
+}
+
+#prescriptions-page .prescriptions-info i {
+    color: #2e8345;
+}
+
+#prescriptions-page .prescriptions-info ul {
+    padding-left: 10px;
+}
+
+#prescriptions-page .prescriptions-info ul .fa-solid.fa-circle {
+    font-size: 8px;
+}
+
+#prescriptions-page .prescriptions-info .date h4 {
+    padding-right: 20px;
+}
+
+#prescriptions-page .prescriptions-info .date span {
+    font-size: 17px;
+}
+#prescriptions-page .create-by-prescription{
+    position: absolute;
+    top: 22px;
+    right: 65px;
+}

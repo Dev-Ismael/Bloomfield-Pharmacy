@@ -32,7 +32,7 @@
                             
                             <div class="col-md-6 prescriptions-info mt-5">
                                 <div class="description">
-                                    <span class="title"> <i class="fa-solid fa-align-left"></i> Prescription Description </span>
+                                    <h4 class="title"> <i class="fa-solid fa-align-left"></i> Prescription Description </h4>
                                     <p> 
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloribus ea 
                                         earum ducimus neque debitis sapiente. Voluptatibus deleniti blanditiis aspernatur
@@ -46,7 +46,7 @@
                                 </div>
                                 <hr>
                                 <div class="medicine">
-                                    <span class="title"> <i class="fa-solid fa-capsules"></i> Prescription Medicine </span>
+                                    <h4 class="title"> <i class="fa-solid fa-capsules"></i> Prescription Medicine </h4>
                                     <ul class = "list-unstyled">
                                         <li> <i class="fa-solid fa-circle"></i>  Ayahuasca </li>
                                         <li> <i class="fa-solid fa-circle"></i>  Cannabis (Marijuana/Pot/Weed) </li>
@@ -57,14 +57,14 @@
                                     </ul>
                                 </div>
                                 <hr>
-                                <div class="date  inline-flex">
-                                     <i class="fa-solid fa-clock d-inline"></i> Prescription Upload Date : </span>
+                                <div class="date  ">
+                                    <span class="title"> <i class="fa-solid fa-clock d-inline"></i> Prescription Upload Date : </span>
                                     <span>  1st Monday Aug 2021 </span>
 
                                 </div>
                                 <hr>
-                                <div class="schedule d-flex align-items-center">
-                                    <span class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
+                                <div class="schedule  d-flex align-items-center">
+                                    <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
                                     <div class="toggle-btn">
                                         <input type="checkbox" class="cb-value"/>
                                         <span class="round-btn"></span>

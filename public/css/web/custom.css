@@ -1849,9 +1849,18 @@ input::placeholder {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
 
+#prescriptions-page .prescriptions-info h4 {
+    font-size: 20px ;
+    margin-bottom: 5px;
+    letter-spacing: normal;
+    font-weight: bolder;
+    color: #000;
+}
+
 #prescriptions-page .prescriptions-info span.title {
     font-size: 20px ;
     margin-bottom: 5px;
+    letter-spacing: normal;
     font-weight: bolder;
     color: #000;
 }

@@ -1795,6 +1795,42 @@ input::placeholder {
     border-bottom-right-radius: 7px;
 }
 
+
+
+/*====== prescription-valid-img Right Section ========*/
+#order-prescription-page img{
+    box-shadow: 0px 0px 36px 0px #0003;
+    border-radius: 5px;
+}
+#order-prescription-page .validation-desc ul li i{
+    color: #2e8345;
+    font-size: 8px;
+    padding-right: 3px;
+}
+#order-prescription-page .validation-desc ul li{
+    font-size: 12px;
+}
+@media (min-width: 1200px) {
+    #order-prescription-page .prescription-valid-img {
+        max-width: 90%;
+    }
+}
+
+@media (min-width: 768px){
+    #order-prescription-page .prescription-valid-img {
+        border-right: 1px solid rgb(211, 211, 211);
+    }
+}
+
+@media (max-width: 769px){
+    #order-prescription-page .prescription-valid-img {
+        text-align: center;
+        border-bottom: 1px solid rgb(211, 211, 211);
+    }
+    #order-prescription-page ul{
+        text-align: left;
+    }
+}
 /*====================================================
 =============== prescriptions-page  ==================
 ====================================================*/

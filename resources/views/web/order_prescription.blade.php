@@ -1,47 +1,29 @@
 @extends('layouts.web')
 
 @section('content')
-    <div id="order-prescription-page" class="container-fluid remove-padding upload-p-main padding-t-100 ">
+    <div id="order-prescription-page" class="container-fluid remove-padding  padding-t-100 ">
         <div class="container">
 
             <div class="row">
 
-                <div id="block-block-20" class="col-md-6 col-sm-12 col-xs-12 upload-steps-main block block-block">
-                    <h1> 
-                        <img src="{{ asset("images/web/prescription-icon.jpg") }}" alt="prescription-icon"> 
-                        Order Prescriptions
-                        <div class="underline-title-white"></div>
-                    </h1>
-                    <div class="step-main step1" style=" margin-left: -5px; ">
-                        <span>1</span>
-                        <p>Upload your prescription</p>
-
+                <div class="col-md-6 col-sm-12 col-xs-12 mt-5 mb-5">
+                    <div class="prescription-valid-img">
+                        <img src="{{ asset("images/web/validate_rx.jpg") }}" alt="validate_rx">
+                        <div class="validation-desc pt-5">
+                            <ul class="list-unstyled pl-4">
+                                <li> <i class="fa-solid fa-circle"></i>  Don’t crop out any part of the image </li>
+                                <li> <i class="fa-solid fa-circle"></i>  Avoid blurred image </li>
+                                <li> <i class="fa-solid fa-circle"></i> Medicines will be dispensed as per prescription </li>
+                                <li> <i class="fa-solid fa-circle"></i> Supported files type: jpeg , jpg , png , pdf </li>
+                                <li> <i class="fa-solid fa-circle"></i> Maximum allowed file size: 5MB </li>
+                            </ul>
+                        </div>
                     </div>
-
-                    <div class="step-main step2">
-                        <span>2</span>
-                        <p>Items in the prescription will be saved in your profile</p>
-                    </div>
-
-
-                    <div class="step-main step3">
-                        <span>3</span>
-                        <p>Easly checkout form (My Prescription)</p>
-
-                    </div>
-
-                    <svg viewBox="0 0 1156 608" xmlns="http://www.w3.org/2000/svg">
-                        <path class="path"
-                            d="m560.30957,10.588011c0,0 438.0947,1.90476 439.04708,1.90476c0.95238,0 144.57857,-1.02912 143.80934,137.14269c-0.76923,138.17181 -116.81095,142.30859 -131.61967,143.8923c-14.80873,1.58372 -840.41472,-0.71429 -860.5941,0.71429c-20.17938,1.42858 -148.4991,6.80903 -146.83244,147.05973c1.66666,140.2507 129.52365,152.14266 129.33243,151.27321c0.19122,0.86945 815.268425,0 251.42748,0"
-                            opacity="1" stroke-width="7" stroke="#fff" fill="none"></path>
-                    </svg>
-                    <br>
                 </div>
 
-                <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-sm-12 col-xs-12 mt-5">
 
 
-                    <br><br><br>
                     <form action="#" method="post">
                         <!-- Upload Area -->
 
@@ -94,14 +76,11 @@
                         <!-- End Upload Area -->
 
                         <div class="form-group text-left  mb-5">
-                            <label for="description" class="text-black"> <i class="fa-solid fa-align-left"></i> Prescription Description (optional) </label>
-                            <textarea type="description" class="form-control" rows="5" id="description" placeholder="Type Description..."></textarea>
+                            <label for="description" class="text-black"> <i class="fa-solid fa-align-left"></i> Patient details (optional) </label>
+                            <textarea type="description" class="form-control" rows="5" id="description" placeholder="Type Patient details..."></textarea>
                         </div>
 
 
-
-
-                        {{-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
 
 
                         <div class="form-group text-left dynamic-inputs mb-5">

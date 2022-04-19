@@ -30,21 +30,13 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 100px;
 }
 
-.underline-title-white {
-    position: absolute;
-    width: 16%;
-    height: 3px;
-    left: 42%;
-    background-color: #fff;
-    border-radius: 3px;
-    top: 50px;
-}
 
 @media (max-width: 767px) {
     .title {
         font-size: 35px;
     }
 }
+
 /*============= btn =============*/
 .btn {
     box-shadow: none;
@@ -54,12 +46,13 @@ body::-webkit-scrollbar-thumb {
     transition: all 0.3s ease-in-out;
 }
 
-.btn i{
+.btn i {
     color: #fff !important;
     transition: all 0.3s ease-in-out;
 }
+
 /*=== green ===*/
-.btn.btn-green{
+.btn.btn-green {
     background: #2e8345;
     box-shadow: none;
     border: 1px solid #2e8345;
@@ -68,16 +61,19 @@ body::-webkit-scrollbar-thumb {
     color: #fff;
     transition: all 0.3s ease-in-out;
 }
-.btn.btn-green:hover{
+
+.btn.btn-green:hover {
     background-color: #fff;
     color: #2e8345;
-    box-shadow: 0px 0px 14px 2px rgb(175 175 175) !important; 
+    box-shadow: 0px 0px 14px 2px rgb(175 175 175) !important;
 }
-.btn.btn-green:hover i{
+
+.btn.btn-green:hover i {
     color: #2e8345 !important;
 }
+
 /*=== close ===*/
-.btn.btn-close{
+.btn.btn-close {
     background: #dc3545;
     box-shadow: none;
     border: 1px solid #dc3545;
@@ -86,14 +82,17 @@ body::-webkit-scrollbar-thumb {
     color: #fff;
     transition: all 0.3s ease-in-out;
 }
-.btn.btn-close:hover{
+
+.btn.btn-close:hover {
     background-color: #fff;
     color: #dc3545;
-    box-shadow: 0px 0px 14px 2px rgb(175 175 175) !important; 
+    box-shadow: 0px 0px 14px 2px rgb(175 175 175) !important;
 }
-.btn.btn-close:hover i{
+
+.btn.btn-close:hover i {
     color: #dc3545 !important;
 }
+
 /*====================================================
 =================== Header ===========================
 ====================================================*/
@@ -1389,27 +1388,6 @@ input::placeholder {
     border-color: #2e8345
 }
 
-#profile-page .profile-button {
-    background: #2e8345;
-    box-shadow: none;
-    border: 1px solid #2e8345;
-    padding: 7px 12px;
-    font-size: 16px;
-}
-
-#profile-page .profile-button i {
-    color: #fff !important;
-}
-
-#profile-page .profile-button:hover {
-    background-color: #fff;
-    color: #2e8345;
-    border: 1px solid #2e8345;
-}
-
-#profile-page .profile-button:hover i {
-    color: #2e8345 !important;
-}
 
 #profile-page .back:hover {
     color: #2e8345;
@@ -1732,45 +1710,27 @@ input::placeholder {
 
 /*====== Custom ========*/
 #order-prescription-page .form-control {
-    border-radius: 7px;
+    border-radius: 5px;
     overflow: hidden;
+    border: 1px solid #2e834593;
 }
 
 #order-prescription-page label i {
     color: #2e8345;
 }
 
-#order-prescription-page button {
-    background: #2e8345;
-    box-shadow: none;
-    border: 1px solid #2e8345;
-    padding: 7px 12px;
-    font-size: 16px;
-}
 
-#order-prescription-page .upload-steps-main>h1 img {
+#order-prescription-page h1 img {
     height: 40px;
 }
 
-#order-prescription-page button.add-medicine {
-    padding: 7px 9px;
-    border-radius: 50%;
-}
 
 @media (max-width: 767px) {
-    #order-prescription-page .upload-steps-main>h1 img {
+    #order-prescription-page h1 img {
         height: 25px;
     }
 
-    .underline-title-white {
-        position: absolute;
-        width: 10%;
-        height: 3px;
-        left: 45%;
-        background-color: #fff;
-        border-radius: 3px;
-        top: 30px;
-    }
+
 }
 
 /*=========== Dynamic Input ==========*/
@@ -1785,52 +1745,72 @@ input::placeholder {
 
 }
 
-#order-prescription-page .dynamic-inputs button#removeRow {
+#order-prescription-page .dynamic-inputs #inputFormRow input {
+    width: calc(100% - 85px);
+}
+
+#order-prescription-page .dynamic-inputs .input-group-append {
     position: absolute;
     top: 0;
     right: 0px;
-    height: 100%;
+    width: 40px;
+    width: 85px;
     z-index: 99;
-    border-top-right-radius: 7px;
-    border-bottom-right-radius: 7px;
 }
 
+#order-prescription-page .dynamic-inputs button {
+    transition: all 0.3s ease-in-out;
+    border-radius: 50% !important;
+    padding: 8px 10px !important;
+    margin: 0px 5px !important;
+}
+
+#order-prescription-page .dynamic-inputs button:hover {
+    transform: translateY(-3px);
+    background-color: #fff;
+}
 
 
 /*====== prescription-valid-img Right Section ========*/
-#order-prescription-page img{
+#order-prescription-page img {
     box-shadow: 0px 0px 36px 0px #0003;
     border-radius: 5px;
 }
-#order-prescription-page .validation-desc ul li i{
+
+#order-prescription-page .validation-desc ul li i {
     color: #2e8345;
     font-size: 8px;
     padding-right: 3px;
 }
-#order-prescription-page .validation-desc ul li{
+
+#order-prescription-page .validation-desc ul li {
     font-size: 12px;
+    padding: 2px 0px
 }
+
 @media (min-width: 1200px) {
     #order-prescription-page .prescription-valid-img {
         max-width: 90%;
     }
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
     #order-prescription-page .prescription-valid-img {
         border-right: 1px solid rgb(211, 211, 211);
     }
 }
 
-@media (max-width: 769px){
+@media (max-width: 769px) {
     #order-prescription-page .prescription-valid-img {
         text-align: center;
         border-bottom: 1px solid rgb(211, 211, 211);
     }
-    #order-prescription-page ul{
+
+    #order-prescription-page ul {
         text-align: left;
     }
 }
+
 /*====================================================
 =============== prescriptions-page  ==================
 ====================================================*/
@@ -1844,7 +1824,7 @@ input::placeholder {
     border-radius: 50px;
     display: inline-block;
     position: relative;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyklEQVQ4T42TaxHCQAyENw5wAhLACVUAUkABOCkSwEkdhNmbpHNckzv689L98toIAKjqGcAFwElEFr5ln6ruAMwA7iLyFBM/TPDuQSrxwf6fCKBoX2UMIYGYkg8BLOnVg2RiAEexGaQQq4w9e9klcxGLLAUwgDAcihlYAR1IvZA1sz/+AAaQjXhTQQVoe2Yo3E7UQiT2ijeQdojRtClOfVKvMVyVpU594kZK9zzySWTlcNqZY9tjCsUds00+A57z1e35xzlzJjee8xf0HYp+cOZQUQAAAABJRU5ErkJggg==") no-repeat 45px  center #e74c3c;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyklEQVQ4T42TaxHCQAyENw5wAhLACVUAUkABOCkSwEkdhNmbpHNckzv689L98toIAKjqGcAFwElEFr5ln6ruAMwA7iLyFBM/TPDuQSrxwf6fCKBoX2UMIYGYkg8BLOnVg2RiAEexGaQQq4w9e9klcxGLLAUwgDAcihlYAR1IvZA1sz/+AAaQjXhTQQVoe2Yo3E7UQiT2ijeQdojRtClOfVKvMVyVpU594kZK9zzySWTlcNqZY9tjCsUds00+A57z1e35xzlzJjee8xf0HYp+cOZQUQAAAABJRU5ErkJggg==") no-repeat 45px center #e74c3c;
     cursor: pointer;
     -webkit-transition: background-color 0.4s ease-in-out;
     -moz-transition: background-color 0.4s ease-in-out;
@@ -1889,7 +1869,7 @@ input::placeholder {
 }
 
 #prescriptions-page .prescriptions-info h4 {
-    font-size: 19px ;
+    font-size: 19px;
     margin-bottom: 0;
     letter-spacing: normal;
     font-weight: bolder;
@@ -1897,7 +1877,7 @@ input::placeholder {
 }
 
 #prescriptions-page .prescriptions-info span.title {
-    font-size: 19px ;
+    font-size: 19px;
     margin-bottom: 5px;
     letter-spacing: normal;
     font-weight: bolder;
@@ -1909,7 +1889,7 @@ input::placeholder {
 }
 
 #prescriptions-page .prescriptions-info i {
-    color: #2e8345 ;
+    color: #2e8345;
 }
 
 #prescriptions-page .prescriptions-info ul {
@@ -1927,32 +1907,38 @@ input::placeholder {
 #prescriptions-page .prescriptions-info .date span {
     font-size: 17px;
 }
+
 #prescriptions-page .prescriptions-info .validation {
     font-size: 17px;
 }
-#prescriptions-page .prescriptions-info .validation .pendding ,
-#prescriptions-page .prescriptions-info .validation .valid ,
+
+#prescriptions-page .prescriptions-info .validation .pendding,
+#prescriptions-page .prescriptions-info .validation .valid,
 #prescriptions-page .prescriptions-info .validation .not-valid {
     padding: 7px 12px;
     color: #fff;
     border-radius: 5px;
 }
-#prescriptions-page .prescriptions-info .validation .pendding i ,
+
+#prescriptions-page .prescriptions-info .validation .pendding i,
 #prescriptions-page .prescriptions-info .validation .valid i,
-#prescriptions-page .prescriptions-info .validation .not-valid i{
+#prescriptions-page .prescriptions-info .validation .not-valid i {
     color: #fff;
 }
+
 #prescriptions-page .prescriptions-info .validation .pendding {
     background-color: #e2ab07;
 }
+
 #prescriptions-page .prescriptions-info .validation .valid {
     background-color: #28a745
 }
+
 #prescriptions-page .prescriptions-info .validation .not-valid {
     background-color: #dc3545
 }
 
-#prescriptions-page .create-by-prescription{
+#prescriptions-page .create-by-prescription {
     position: absolute;
     top: 22px;
     right: 65px;

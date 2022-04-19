@@ -1853,19 +1853,19 @@ input::placeholder {
 }
 
 #prescriptions-page .prescriptions-info h4 {
-    font-size: 20px ;
-    margin-bottom: 5px;
+    font-size: 19px ;
+    margin-bottom: 0;
     letter-spacing: normal;
     font-weight: bolder;
-    color: #000;
+    color: #000 !important;
 }
 
 #prescriptions-page .prescriptions-info span.title {
-    font-size: 20px ;
+    font-size: 19px ;
     margin-bottom: 5px;
     letter-spacing: normal;
     font-weight: bolder;
-    color: #000;
+    color: #000 !important;
 }
 
 #prescriptions-page .prescriptions-info p {
@@ -1873,7 +1873,7 @@ input::placeholder {
 }
 
 #prescriptions-page .prescriptions-info i {
-    color: #2e8345;
+    color: #2e8345 ;
 }
 
 #prescriptions-page .prescriptions-info ul {
@@ -1891,6 +1891,31 @@ input::placeholder {
 #prescriptions-page .prescriptions-info .date span {
     font-size: 17px;
 }
+#prescriptions-page .prescriptions-info .validation {
+    font-size: 17px;
+}
+#prescriptions-page .prescriptions-info .validation .pendding ,
+#prescriptions-page .prescriptions-info .validation .valid ,
+#prescriptions-page .prescriptions-info .validation .not-valid {
+    padding: 7px 12px;
+    color: #fff;
+    border-radius: 5px;
+}
+#prescriptions-page .prescriptions-info .validation .pendding i ,
+#prescriptions-page .prescriptions-info .validation .valid i,
+#prescriptions-page .prescriptions-info .validation .not-valid i{
+    color: #fff;
+}
+#prescriptions-page .prescriptions-info .validation .pendding {
+    background-color: #e2ab07;
+}
+#prescriptions-page .prescriptions-info .validation .valid {
+    background-color: #28a745
+}
+#prescriptions-page .prescriptions-info .validation .not-valid {
+    background-color: #dc3545
+}
+
 #prescriptions-page .create-by-prescription{
     position: absolute;
     top: 22px;

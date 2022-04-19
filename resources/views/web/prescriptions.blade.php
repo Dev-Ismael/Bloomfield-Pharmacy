@@ -31,6 +31,8 @@
                             </div>
                             
                             <div class="col-md-6 prescriptions-info mt-5">
+
+                                <!-------------- Description ---------------->
                                 <div class="description">
                                     <h4 class="title"> <i class="fa-solid fa-align-left"></i> Prescription Description </h4>
                                     <p> 
@@ -45,6 +47,8 @@
                                     </p>
                                 </div>
                                 <hr>
+
+                                <!-------------- Medicine ----------------->
                                 <div class="medicine">
                                     <h4 class="title"> <i class="fa-solid fa-capsules"></i> Prescription Medicine </h4>
                                     <ul class = "list-unstyled">
@@ -57,12 +61,24 @@
                                     </ul>
                                 </div>
                                 <hr>
-                                <div class="date  ">
+
+                                <!-------------- Date ----------------->
+                                <div class="date">
                                     <span class="title"> <i class="fa-solid fa-clock d-inline"></i> Prescription Upload Date : </span>
                                     <span>  1st Monday Aug 2021 </span>
-
                                 </div>
                                 <hr>
+
+                                <!-------------- Validation ----------------->
+                                <div class="validation">
+                                    <span class="title"> <i class="fa-solid fa-list-check"></i> Prescription Validation : </span>
+                                    <span class="pendding "> <i class="fa-solid fa-spinner"></i> Pendding </span>
+                                    <span class="valid d-none"> <i class="fa-solid fa-check"></i> Valid </span>
+                                    <span class="not-valid d-none"> <i class="fa-solid fa-xmark"></i> Not valid </span>
+                                </div>
+                                <hr>
+
+                                <!-------------- Schedule ----------------->
                                 <div class="schedule  d-flex align-items-center">
                                     <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
                                     <div class="toggle-btn">
@@ -72,11 +88,13 @@
                                 </div>
                                 <hr>
 
+
+                                <!-------------- Buttons ----------------->
                                 <div class="buttons text-right">
-
                                     <a href="#" class="btn btn-close"> <i class="fa-solid fa-xmark"></i> Delete Prescription </a>
-
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>

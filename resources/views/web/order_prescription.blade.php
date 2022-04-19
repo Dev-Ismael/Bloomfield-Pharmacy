@@ -21,7 +21,6 @@
                     <div class="step-main step2">
                         <span>2</span>
                         <p>Items in the prescription will be saved in your profile</p>
-
                     </div>
 
 

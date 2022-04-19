@@ -8,9 +8,14 @@
         $('#prescriptions-page .cb-value').click(function(e) {
             e.stopPropagation();
             $(this).parent('.toggle-btn').toggleClass("active");
-        
         })
 
+        /*========================================================================
+        ================= Create Order Button By Prescription ========================
+        =========================================================================*/
+        $('#prescriptions-page .create-by-prescription').click(function(e) {
+            e.stopPropagation();
+        })
 
         /*========================================================================
         =================== Shipping & delivery ==================================
@@ -567,7 +572,7 @@
 
         // inputs effects
 
-        $(window).load(function () {
+        $(window).on('load', function() {
             $(".input-item input").val("");
 
             $(".input-effect input").focusout(function () {

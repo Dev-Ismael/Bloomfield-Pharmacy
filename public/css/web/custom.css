@@ -53,9 +53,7 @@ body::-webkit-scrollbar-thumb {
     color: #fff;
     transition: all 0.3s ease-in-out;
 }
-.btn:hover{
-    box-shadow: 0px 0px 14px 2px rgb(175 175 175) !important; 
-}
+
 .btn i{
     color: #fff !important;
     transition: all 0.3s ease-in-out;
@@ -73,6 +71,7 @@ body::-webkit-scrollbar-thumb {
 .btn.btn-green:hover{
     background-color: #fff;
     color: #2e8345;
+    box-shadow: 0px 0px 14px 2px rgb(175 175 175) !important; 
 }
 .btn.btn-green:hover i{
     color: #2e8345 !important;
@@ -90,6 +89,7 @@ body::-webkit-scrollbar-thumb {
 .btn.btn-close:hover{
     background-color: #fff;
     color: #dc3545;
+    box-shadow: 0px 0px 14px 2px rgb(175 175 175) !important; 
 }
 .btn.btn-close:hover i{
     color: #dc3545 !important;
@@ -1776,10 +1776,13 @@ input::placeholder {
 /*=========== Dynamic Input ==========*/
 #order-prescription-page .dynamic-inputs #inputFormRow {
     margin-top: 10px;
+    transition: all 0.5s ease-in-out;
 }
 
 #order-prescription-page .dynamic-inputs>#inputFormRow {
     margin-top: 0;
+    transition: all 0.5s ease-in-out;
+
 }
 
 #order-prescription-page .dynamic-inputs button#removeRow {

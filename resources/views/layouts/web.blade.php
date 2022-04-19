@@ -784,7 +784,7 @@
                 <a href="{{ route("profile") }}"> <i class="fa-solid fa-address-card"></i> My Profile   </a>
                 <a href="{{ route("orders") }}"> <i class="fa-solid fa-list-check"></i>  My Subscribed Orders </a>
                 <a href="{{ route("wishlist") }}"> <i class="fa-solid fa-heart"></i> My Wishlist </a>
-                <a href="{{ route("prescriptions") }}""> <i class="fa-solid fa-file-medical"></i> My Prescriptions </a>
+                <a href="{{ route("prescriptions") }}""> <i class="fa-solid fa-file-prescription"></i> My Prescriptions </a>
             </div>
         </div>
 

@@ -7,7 +7,7 @@
         
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12 mt-5 mb-5">
+                <div class="col-md-6 col-sm-12 col-xs-12  mb-5">
                     <div class="prescription-valid-img">
                         <img src="{{ asset('images/web/validate_rx.jpg') }}" alt="validate_rx">
                         <div class="validation-desc pt-5">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-sm-12 col-xs-12 mt-5">
+                <div class="col-md-6 col-sm-12 col-xs-12 ">
 
 
                     <form action="#" method="post">

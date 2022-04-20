@@ -3,6 +3,29 @@
 
 
         /*========================================================================
+        ================= mobile menu ========================
+        =========================================================================*/
+
+
+        var isActive = false;
+        $('.js-menu').on('click', function () {
+            if (isActive) {
+                $('.js-menu').removeClass('active');
+                $('.menu-main-mob').removeClass('menu-open');
+                $('body').removeClass('remove-scroll');
+            } else {
+                $('.js-menu').addClass('active');
+                $('.menu-main-mob').addClass('menu-open');
+                $('body').addClass('remove-scroll');
+            }
+            isActive = !isActive;
+        });
+        $(".mob-shop-link").click(function () {
+            $(this).siblings('.mob-shop-drop-dowm').slideToggle("slow");
+        });
+
+
+        /*========================================================================
         ================= Trun On / Off button  Switching ========================
         =========================================================================*/
         $('#prescriptions-page .cb-value').click(function(e) {
@@ -551,24 +574,7 @@
 
 
         // cart-cart-side-bar
-        // mobile menu
-        var isActive = false;
-        $('.js-menu').on('click', function () {
-            if (isActive) {
-                $('.js-menu').removeClass('active');
-                $('.menu-main-mob').removeClass('menu-open');
-                $('body').removeClass('remove-scroll');
-            } else {
-                $('.js-menu').addClass('active');
-                $('.menu-main-mob').addClass('menu-open');
-                $('body').addClass('remove-scroll');
-            }
-            isActive = !isActive;
-        });
-        $(".mob-shop-link").click(function () {
-            $(this).siblings('.mob-shop-drop-dowm').slideToggle("slow");
-        });
-        // end mob menu
+
 
 
 

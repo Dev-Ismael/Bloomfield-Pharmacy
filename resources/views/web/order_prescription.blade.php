@@ -97,7 +97,12 @@
                         <div class="form-group text-left">
                             <label for="gender" class="text-black"> <i class="fa-solid fa-venus-mars"></i> Patient
                                 gender (optional) </label>
-                            <input type="text" class="form-control" id="gender" placeholder="Type Patient gender...">
+                            <select class="form-control" id="gender"  class="form-control" placeholder="Type Patient gender...">
+                                <option class="d-none">Choose patient Gender...</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
                         </div>
 
 

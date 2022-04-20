@@ -1780,6 +1780,7 @@ input::placeholder {
     transition: all 0.3s ease-in-out;
     border-radius: 50% !important;
     padding: 8px 10px !important;
+    line-height: 1;
     margin: 0px 5px !important;
 }
 

@@ -1010,6 +1010,7 @@
                                     maxlength="128" class="form-text required" />
                             </div>
                             <div id="newsletter-error"></div>
+                            <br>
                             <div id="subscribe"><input type="submit" id="edit-newsletter-submit" name="op"
                                     value="Subscribe" class="form-submit" /></div>
                         </div>

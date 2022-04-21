@@ -136,7 +136,7 @@ body::-webkit-scrollbar-thumb {
 }
 @media (max-width: 768px) {
     .header.owl-carousel {
-        height: 40vh;
+        height: 35vh;
         margin-top: 53px;
     }
 }
@@ -147,6 +147,7 @@ body::-webkit-scrollbar-thumb {
     }
 
 }
+/*====== Hide navebar ===========*/
 /* .container-fluid.head-main{
     display: none;
 } */

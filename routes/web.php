@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-
+/*===========================================================================
+=========== Web Routes ======================================================
+===========================================================================*/
 // Home                           
 Route::get('/', [App\Http\Controllers\Web\HomeController::class, 'index'])->name('home');
 // About Us                           
@@ -47,3 +49,17 @@ Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'inde
 Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
 // prescriptions                            
 Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::class, 'index'])->name('prescriptions');
+
+
+
+
+/*===========================================================================
+========== Admin Routes =====================================================
+===========================================================================*/
+
+Route::group([ "prefix" => "admin" ,  'namespace'=> 'App\Http\Controllers\Admin' ] , function(){
+
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+});
+

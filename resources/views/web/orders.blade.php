@@ -24,7 +24,7 @@
                         <div class="card-body">
 
                             <section class="mb-5">
-                                <div class="container">
+                                <div class="p-5">
                                     <div class="row d-flex justify-content-center align-items-center">
                                         <div class="col-12">
                                             <div class="card card-stepper text-black" style="border-radius: 16px;">
@@ -186,7 +186,7 @@
                         <div class="card-body">
 
                             <section class="mb-5">
-                                <div class="container">
+                                <div class="p-5">
                                     <div class="row d-flex justify-content-center align-items-center">
                                         <div class="col-12">
                                             <div class="card card-stepper text-black" style="border-radius: 16px;">
@@ -348,7 +348,7 @@
                         <div class="card-body">
 
                             <section class="mb-5">
-                                <div class="container">
+                                <div class="p-5">
                                     <div class="row d-flex justify-content-center align-items-center">
                                         <div class="col-12">
                                             <div class="card card-stepper text-black" style="border-radius: 16px;">

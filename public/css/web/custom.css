@@ -507,6 +507,41 @@ body::-webkit-scrollbar-thumb {
 .hybridauth-widget-wrapper i.fa-facebook-square {
     color: #4867aa;
 }
+/*====================================================
+=================== Login Form =======================
+====================================================*/
+form#user-login .is-invalid{
+    border: 1px solid #e5443f;
+}
+form#user-login input{
+    border-radius: 3px;
+}
+form#user-login > div {
+    margin-top: 20px;
+}
+form#user-login label{
+    margin-bottom: 0px;
+}
+/*====================================================
+=================== Register Form ====================
+====================================================*/
+form#user-register-form .is-invalid{
+    border: 1px solid #e5443f;
+}
+form#user-register-form .group-header input{
+    border-radius: 3px;
+    padding-left: 7px !important;
+}
+form#user-register-form .form-item , 
+form#user-register-form .form-actions , 
+form#user-register-form .hybridauth-widget-wrapper{
+    margin-top: 20px !important;
+}
+form#user-register-form label{
+    margin-bottom: 0px;
+}
+
+
 
 /*====================================================
 =================== Navbar ===========================

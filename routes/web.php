@@ -13,7 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+/*===========================================================================
+=========== Auth Routes ======================================================
+===========================================================================*/
 Auth::routes();
+// Custom Routes
+Route::post("/register" , [App\Http\Controllers\Auth\CustomAuthController::class , "register"])->name('register');
+Route::post("/login" , [App\Http\Controllers\Auth\CustomAuthController::class , "login"])->name('login');
+
+
+
 
 
 /*===========================================================================

@@ -10,8 +10,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        // return view('web.dashboard');
-        return "good";
+        return view('admin.dashboard');
     }
 
 }

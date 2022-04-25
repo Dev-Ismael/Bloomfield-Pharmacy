@@ -2,8 +2,114 @@
     $(document).ready(function () {
 
 
+
+
+
+
         /*========================================================================
-        ================= mobile menu ========================
+        ================= Register ==================================================
+        =========================================================================*/
+        $("form#user-register-form input#edit-submit--3").on( 'click' ,function (e){
+
+            e.preventDefault();
+            var RegisterFormData = new FormData( $("form#user-register-form")[0] );
+
+            $.ajax({
+                type: "POST",
+                url: "/register",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: RegisterFormData ,
+                processData: false,
+                contentType : false , 
+                cache    : false,
+                success: function ( response ) {
+                    
+                    console.log(response);
+    
+    
+    
+                    if( response.status == 'error' && response.msg == 'validation error' ){
+                        $.each( response.errors , function( key , val ){
+                            $("form#user-register-form small.text-danger." + key ).text('');
+                            $("form#user-register-form small.text-danger." + key ).text(val[0]);
+                            $('form#user-register-form .group-header input[name="'+ key +'"]').addClass("is-invalid");
+                        });                   
+                    }
+    
+                    if( response.status == 'error' && response.msg == 'insert operation failed' ){
+                        alert(response.status);                   
+                    }
+    
+                    else if( response.status == 'success' ){
+                        alert(response.status);                   
+                    }
+    
+    
+                },
+                error: function(response){
+                    alert("error at connection");
+                }
+            });
+
+
+
+        });
+
+
+
+
+        
+
+        /*========================================================================
+        ================= Login ==================================================
+        =========================================================================*/
+        $("form#user-login input#edit-submit").on( 'click' ,function (e){
+
+            e.preventDefault();
+            var loginFormData = new FormData( $("form#user-login")[0] );
+
+            $.ajax({
+                type: "POST",
+                url: "/login",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: loginFormData ,
+                processData: false,
+                contentType : false , 
+                cache    : false,
+                success: function ( response ) {
+                    
+                    console.log(response);
+    
+    
+    
+                    if( response.status == 'error' ){
+                        
+                    }
+    
+                    else if( response.status == 'success' ){
+    
+                                           
+                    }
+    
+    
+                },
+                error: function(response){
+                    alert("error at connection");
+                }
+            })
+
+
+
+
+        });
+
+
+        /*========================================================================
+        ================= mobile menu ============================================
         =========================================================================*/
 
 
@@ -585,7 +691,6 @@
 
 
         });
-
 
 
 

@@ -808,21 +808,23 @@
                             <h2>HAVE AN ACCOUNT</h2>
                             <p>Please log in to proceed to checkout</p>
                             <div class="col-xs-12 lgo-input-main">
-                                <form method="post" id="user-login" accept-charset="UTF-8">
-                                    <div>
+                                <form id="user-login" >
                                         <div class="form-item form-type-textfield form-item-name">
-                                            <label class="element-invisible" for="edit-name">Softic Code <span
-                                                    class="form-required"
-                                                    title="This field is required.">*</span></label>
-                                            <input placeholder="Username" type="text" id="edit-name" name="name"
-                                                value="" size="60" maxlength="60" class="form-text required" />
+                                            <label class="element-invisible" for="edit-name">Email <span
+                                                    class="form-required">*</span></label>
+                                            <input type="text" id="edit-name" name="email"
+                                                class="form-text"/>
+                                                <small class="form-text text-danger p-0 border-0 email">  </small>
+
                                         </div>
                                         <div class="form-item form-type-password form-item-pass">
                                             <label class="element-invisible" for="edit-pass">Password <span
                                                     class="form-required"
-                                                    title="This field is required.">*</span></label>
-                                            <input placeholder="Password" type="password" id="edit-pass" name="pass"
-                                                size="60" maxlength="128" class="form-text required" />
+                                                    >*</span></label>
+                                            <input type="password" id="edit-pass" name="password"
+                                                class="form-text "/>
+                                                <small class="form-text text-danger p-0 border-0 password">  </small>
+
                                         </div>
 
                                         <div class="form-actions form-wrapper" id="edit-actions--26"><input
@@ -832,16 +834,11 @@
                                             <div class="item-list">
                                                 <h3>Or log in with...</h3>
                                                 <ul class="hybridauth-widget">
-                                                    <li> <i class="fa-brands fa-google-plus"></i> </li>
+                                                    <li> <i class="fa-brands fa-google-plus"></i>  </li>
                                                     <li> <i class="fa-brands fa-facebook-square"></i> </li>
                                                 </ul>
                                             </div>
                                         </div>
-
-
-                                        <input type="submit" id="edit-submit-google" name="op" value=""
-                                            class="form-submit" />
-                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -895,43 +892,43 @@
 
 
                             <form class="user-info-from-cookie ds-2col-stacked-fluid" enctype="multipart/form-data"
-                                action="#" method="post" id="user-register-form"
-                                accept-charset="UTF-8">
+                                id="user-register-form">
                                 <div>
                                     <div class="ds-2col-stacked-fluid  ds-form clearfix">
 
 
                                         <div class="group-header">
-                                            <div class="field-type-text field-name-field-mobile field-widget-text-textfield form-wrapper"
-                                                id="edit-field-mobile">
-                                                <div id="field-mobile-add-more-wrapper">
-                                                    <div
-                                                        class="form-item form-type-textfield form-item-field-mobile-und-0-value">
-                                                        <label for="edit-field-mobile-und-0-value">Mobile <span
-                                                                class="form-required"
-                                                                title="This field is required.">*</span></label>
-                                                        <input class="text-full form-text required" type="text"
-                                                            id="edit-field-mobile-und-0-value"
-                                                            name="field_mobile[und][0][value]" value="" size="60"
-                                                            maxlength="255" />
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div id="edit-account" class="form-wrapper">
                                                 <div class="form-item form-type-textfield form-item-name">
                                                     <label for="edit-name--3">Username <span class="form-required"
-                                                            title="This field is required.">*</span></label>
+                                                            >*</span></label>
                                                     <input class="username form-text required" type="text"
-                                                        id="edit-name--3" name="name" value="" size="60"
-                                                        maxlength="60" />
-                                                   
+                                                        id="edit-name--3" name="name"  />
+                                                        <small class="form-text text-danger p-0 border-0 name">  </small>
+
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
                                                     <label for="edit-mail">E-mail address <span class="form-required"
-                                                            title="This field is required.">*</span></label>
-                                                    <input type="text" id="edit-mail" name="mail" value="" size="60"
-                                                        maxlength="254" class="form-text required" />
-                                                    
+                                                            >*</span></label>
+                                                    <input type="text" id="edit-mail" name="email" 
+                                                        class="form-text required" />
+                                                        <small class="form-text text-danger p-0 border-0 email">  </small>
+
+                                                </div>
+                                                <div class="form-item form-type-textfield form-item-mail">
+                                                    <label for="edit-mail">Password <span class="form-required"
+                                                            >*</span></label>
+                                                    <input type="password" id="edit-mail" name="password" 
+                                                        class="form-text required" />
+                                                        <small class="form-text text-danger p-0 border-0 password">  </small>
+
+                                                </div>
+                                                <div class="form-item form-type-textfield form-item-mail">
+                                                    <label for="edit-mail">Confirm Password <span class="form-required"
+                                                            >*</span></label>
+                                                    <input type="password" id="edit-mail" name="password_confirmation" 
+                                                        class="form-text required" />
+
                                                 </div>
                                                 
                                             </div>

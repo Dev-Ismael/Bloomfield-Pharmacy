@@ -565,9 +565,6 @@ form#user-login input {
     border-radius: 3px;
 }
 
-form#user-login .hybridauth-widget-wrapper {
-    margin-top: 20px !important;
-}
 
 form#user-login>div {
     margin-top: 20px;

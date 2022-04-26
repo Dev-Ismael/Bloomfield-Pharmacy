@@ -859,6 +859,9 @@
                                             <i class="fa-solid fa-arrow-right-to-bracket"></i> LogIn </button>
 
                                     </div>
+                                    <div class="col-xs-12 other-way-p">
+                                        <span>OR</span>
+                                    </div>
                                     <div class="hybridauth-widget-wrapper">
                                         <div class="item-list">
                                             <h3>Or log in with...</h3>
@@ -984,6 +987,9 @@
                                         <button id="signup-btn" class="rounded">
                                             <i class="fa-solid fa-user-plus mr-2"></i> SignUp </button>
 
+                                    </div>
+                                    <div class="col-xs-12 other-way-p">
+                                        <span>OR</span>
                                     </div>
                                     <div class="hybridauth-widget-wrapper">
                                         <div class="item-list">

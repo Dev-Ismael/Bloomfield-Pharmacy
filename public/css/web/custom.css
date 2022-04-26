@@ -38,14 +38,21 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*============= Sweet Alert =============*/
-.swal2-container.swal2-backdrop-show{
+.swal2-container.swal2-backdrop-show {
     transition: all 0.3s ease-in-out;
     z-index: 999999999999999 !important;
 }
-.swal2-container.swal2-center{
+
+.swal2-container.swal2-center {
     transition: all 0.3s ease-in-out;
     transform: scale(1.5) !important;
 }
+
+.swal2-styled.swal2-confirm {
+    background-color: #2e8345 !important;
+}
+
+
 /*============= btn =============*/
 .btn {
     box-shadow: none;
@@ -108,7 +115,7 @@ body::-webkit-scrollbar-thumb {
 
 .header.owl-carousel {
     width: 100%;
-    height: calc( 100vh - 80px );
+    height: calc(100vh - 80px);
     margin-top: 80px;
 }
 
@@ -131,10 +138,11 @@ body::-webkit-scrollbar-thumb {
 .slide-3 {
     background-image: url('/images/web/bg-3.jpg');
 }
+
 @media (max-width: 1199.98px) {
     .header.owl-carousel {
         height: 60vh;
-    } 
+    }
 }
 
 @media (max-width: 991.98px) {
@@ -143,6 +151,7 @@ body::-webkit-scrollbar-thumb {
     }
 
 }
+
 @media (max-width: 768px) {
     .header.owl-carousel {
         height: 35vh;
@@ -156,6 +165,7 @@ body::-webkit-scrollbar-thumb {
     }
 
 }
+
 /*====== Hide navebar ===========*/
 /* .container-fluid.head-main{
     display: none;
@@ -228,11 +238,35 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*====================================================
-=================== SideBar ===========================
+=================== SideBar ==========================
 ====================================================*/
+/*=========== SignOut Btn ==========*/
+.hide-side-bar .signout-btn {
+    color: var(--green-color);
+    background-color: #fff;
+    box-shadow: 0 0 5px 5px #eee;
+    display: block;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 30px;
+    line-height: 40px;
+    font-family: myFont-bold;
+}
+
+.hide-side-bar .signout-btn:hover {
+    color: #fff;
+    background-color: var(--green-color);
+    box-shadow: none;
+}
+
+/*=========== Icon list ==========*/
 .pro-icons-main a {
     font-size: 18px !important;
 }
+
 /*====================================================
 =================== Modals ===========================
 ====================================================*/
@@ -483,8 +517,8 @@ body::-webkit-scrollbar-thumb {
     }
 
     .modal.show .modal-dialog {
-        max-width: 80% !important;
-        margin-left: 10% !important;
+        max-width: 90% !important;
+        margin-left: 5% !important;
         transition: all 0.2s ease-in-out;
     }
 
@@ -503,54 +537,95 @@ body::-webkit-scrollbar-thumb {
     box-shadow: none;
 }
 
-.hybridauth-widget-wrapper i {
-    font-size: 45px;
-    padding-right: 20px;
+/*============ Register Social Media =====*/
+.hybridauth-widget-wrapper li {
+    margin-top: 5px !important;
+    margin-right: 10px !important;
+}
+
+.hybridauth-widget-wrapper a {
+    border-radius: 7px;
+    box-shadow: 0px 0px 36px 0px #0003;
+}
+
+.hybridauth-widget-wrapper img {
+    width: 60px;
     cursor: pointer;
+    padding: 10px;
 }
 
-.hybridauth-widget-wrapper i.fa-google-plus {
-    color: #df4a32;
-}
-
-.hybridauth-widget-wrapper i.fa-facebook-square {
-    color: #4867aa;
-}
 /*====================================================
 =================== Login Form =======================
 ====================================================*/
-form#user-login .is-invalid{
+form#user-login .is-invalid {
     border: 1px solid #e5443f;
 }
-form#user-login input{
+
+form#user-login input {
     border-radius: 3px;
 }
-form#user-login > div {
+
+form#user-login .hybridauth-widget-wrapper {
+    margin-top: 20px !important;
+}
+
+form#user-login>div {
     margin-top: 20px;
 }
-form#user-login label{
+
+form#user-login label {
     margin-bottom: 0px;
 }
+
+form#user-login label i {
+    color: #2e8345;
+}
+
+form#user-login input {
+    border: 1px solid #2e83458f;
+}
+
+form#user-login input::placeholder {
+    display: block !important;
+    opacity: 1 !important;
+    color: rgb(151, 151, 151) !important;
+}
+
 /*====================================================
 =================== Register Form ====================
 ====================================================*/
-form#user-register-form .is-invalid{
+form#user-register-form .is-invalid {
     border: 1px solid #e5443f;
 }
-form#user-register-form .group-header input{
+
+form#user-register-form .group-header input {
     border-radius: 3px;
     padding-left: 7px !important;
 }
-form#user-register-form .form-item , 
-form#user-register-form .form-actions , 
-form#user-register-form .hybridauth-widget-wrapper{
+
+form#user-register-form .form-item,
+form#user-register-form .form-actions,
+form#user-register-form .hybridauth-widget-wrapper {
     margin-top: 20px !important;
 }
-form#user-register-form label{
+
+form#user-register-form label {
     margin-bottom: 0px;
 }
 
+form#user-register-form label i {
+    color: #2e8345;
+}
 
+form#user-register-form input::placeholder {
+    display: block !important;
+    opacity: 1 !important;
+    color: rgb(151, 151, 151) !important;
+}
+
+form#user-register-form input {
+    border: 1px solid #2e83458f;
+}
 
 /*====================================================
 =================== Navbar ===========================
@@ -572,9 +647,6 @@ form#user-register-form label{
     text-shadow: 0px 0px 20px #888888;
 }
 
-.head-icon-main a {
-    font-size: 10px;
-}
 
 .js-menu.menu span,
 .js-menu.menu span::before,
@@ -1371,16 +1443,19 @@ input::placeholder {
 #orders-page #progressbar-2 li.active:after {
     background: #2e8345;
 }
-@media (max-width: 575.98px) { 
 
-    #orders-page .card-header .title{
-        font-size: 14px  !important;
+@media (max-width: 575.98px) {
+
+    #orders-page .card-header .title {
+        font-size: 14px !important;
     }
+
     #orders-page .card-header .price {
         font-size: 20px !important;
         top: 25px !important;
     }
 }
+
 /*========= Collaps Style ==============*/
 .card {
     border: 1px solid #ddd;
@@ -1536,7 +1611,6 @@ input::placeholder {
 }
 
 /* Header */
-#order-prescription-page .upload-area__header {}
 
 #order-prescription-page .upload-area__title {
     font-size: 1.8rem;
@@ -1812,7 +1886,8 @@ input::placeholder {
 #order-prescription-page h1 img {
     height: 40px;
 }
-#order-prescription-page select{
+
+#order-prescription-page select {
     padding-top: 7px !important;
     color: #797979 !important;
 }
@@ -2036,17 +2111,20 @@ input::placeholder {
     top: 22px;
     right: 65px;
 }
-@media (max-width: 575.98px) { 
-    #prescriptions-page .card-header .title{
+
+@media (max-width: 575.98px) {
+    #prescriptions-page .card-header .title {
         font-size: 14px;
     }
+
     #prescriptions-page .create-by-prescription {
         right: 40px;
         padding: 7px 4px;
         font-size: 14px;
     }
+
     #prescriptions-page .prescriptions-info span.title,
-    #prescriptions-page .prescriptions-info h4{
+    #prescriptions-page .prescriptions-info h4 {
         font-size: 17px;
     }
 }

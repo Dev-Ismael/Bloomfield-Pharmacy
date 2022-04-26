@@ -38,8 +38,12 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <!----------------- Sweet Alert Style  ------------------>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css"
+        integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!----------------- Custom Style  ------------------>
     <link href="{{ asset('css/web/custom.css') }}" rel="stylesheet">
@@ -747,14 +751,14 @@
 
                             <div class="col-md-2 col-xs-4 head-icon-main">
                                 <ul>
-
-
-
                                     <li> <a href="#" class="profile-main text-center pro-button" id="pro-button">
-                                            <p>LogIn/SignUp</p>
+                                            @if (Auth::check())
+                                                <p>{{ Str::ucfirst( Auth::user()->name ) }}</p>
+                                            @else
+                                                <p>LogIn/SignUp</p>
+                                            @endif
                                         </a>
                                     </li>
-                                    &nbsp;
                                     <li>
                                         <a href="{{ route('cart') }}" class="cart-main text-center"
                                             id="cart-button">
@@ -782,16 +786,35 @@
         <div id="hide-side-bar" class="hide-side-bar">
             <button class="click-me">x</button>
             <div class="col-xs-12  log-side-bar">
-                <a href="#" class="login-btn" data-toggle="modal" data-target="#login">log in</a>
-                <a href="#" class="singup-btn" data-toggle="modal" data-target="#register">Sign Up</a>
+                @if (Auth::check())
+                    <a class="signout-btn" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                        Sign Out
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @else
+                    <a href="#" class="login-btn" data-toggle="modal" data-target="#login">Log In</a>
+                    <a href="#" class="singup-btn" data-toggle="modal" data-target="#register">Sign Up</a>
+                @endif
             </div>
-            <div class="col-xs-12 pro-icons-main">
-                <a href="{{ route('profile') }}"> <i class="fa-solid fa-address-card"></i> My Profile </a>
-                <a href="{{ route('orders') }}"> <i class="fa-solid fa-list-check"></i> My Subscribed Orders </a>
-                <a href="{{ route('wishlist') }}"> <i class="fa-solid fa-heart"></i> My Wishlist </a>
-                <a href="{{ route('prescriptions') }}""> <i class=" fa-solid fa-file-prescription"></i> My
-                    Prescriptions </a>
-            </div>
+            @if (Auth::check())
+                <div class="col-xs-12 pro-icons-main">
+                    <a href="{{ route('profile') }}"> <i class="fa-solid fa-address-card"></i> My Profile </a>
+                    <a href="{{ route('orders') }}"> <i class="fa-solid fa-list-check"></i> My Subscribed Orders </a>
+                    <a href="{{ route('wishlist') }}"> <i class="fa-solid fa-heart"></i> My Wishlist </a>
+                    <a href="{{ route('prescriptions') }}"> <i class="   fa-solid fa-file-prescription"></i> My Prescriptions </a>
+                </div> 
+            @else
+                <div class="col-xs-12 pro-icons-main disable-icons">
+                    <a href="#"> <i class="fa-solid fa-address-card"></i> My Profile </a>
+                    <a href="#"> <i class="fa-solid fa-list-check"></i> My Subscribed Orders </a>
+                    <a href="#"> <i class="fa-solid fa-heart"></i> My Wishlist </a>
+                    <a href="#"> <i class="   fa-solid fa-file-prescription"></i> My Prescriptions </a>
+                </div> 
+            @endif
         </div>
 
 
@@ -816,28 +839,40 @@
                             <div class="col-xs-12 lgo-input-main">
                                 <form id="user-login">
                                     <div class="form-item form-type-textfield form-item-name">
-                                        <label class="element-invisible" for="edit-name">Email <span
-                                                class="form-required">*</span></label>
-                                        <input type="text" id="edit-name" name="email" class="form-text" />
+                                        <label class="element-invisible" for="edit-name"> <i class="fa-solid fa-envelope"></i> Email <span
+                                                class="form-required"></label>
+                                        <input type="text" id="edit-name" name="email" class="form-text"  placeholder="Type Your Email..." />
                                         <small class="form-text text-danger p-0 border-0 email"> </small>
 
                                     </div>
                                     <div class="form-item form-type-password form-item-pass">
-                                        <label class="element-invisible" for="edit-pass">Password <span
-                                                class="form-required">*</span></label>
-                                        <input type="password" id="edit-pass" name="password" class="form-text " />
+                                        <label class="element-invisible" for="edit-pass"> <i class="fa-solid fa-key"></i> Password <span
+                                                class="form-required"></label>
+                                        <input type="password" id="edit-pass" name="password" class="form-text " placeholder="Type Your Password..."/>
                                         <small class="form-text text-danger p-0 border-0 password"> </small>
 
                                     </div>
 
-                                    <div class="form-actions form-wrapper" id="edit-actions--26"><input type="submit"
-                                            id="edit-submit" name="op" value="Log in" class="form-submit" /></div>
+                                    <div class="form-actions form-wrapper text-left" id="edit-actions--26">
+
+                                        <button id="signup-in" class="rounded">
+                                            <i class="fa-solid fa-arrow-right-to-bracket"></i> LogIn </button>
+
+                                    </div>
                                     <div class="hybridauth-widget-wrapper">
                                         <div class="item-list">
                                             <h3>Or log in with...</h3>
                                             <ul class="hybridauth-widget">
-                                                <li> <i class="fa-brands fa-google-plus"></i> </li>
-                                                <li> <i class="fa-brands fa-facebook-square"></i> </li>
+                                                <li> 
+                                                    <a href="#">
+                                                        <img src="{{ asset("images/google.png") }}" alt="google">    
+                                                    </a>
+                                                </li>
+                                                <li> 
+                                                    <a href="#">
+                                                        <img src="{{ asset("images/facebook.png") }}" alt="facebook">    
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -902,40 +937,40 @@
                                         <div class="group-header">
                                             <div id="edit-account" class="form-wrapper">
                                                 <div class="form-item form-type-textfield form-item-name">
-                                                    <label for="edit-name--3">Username <span
-                                                            class="form-required">*</span></label>
+                                                    <label for="edit-name--3"> <i class="fa-solid fa-user"></i> Username <span
+                                                            class="form-required"></label>
                                                     <input class="username form-text required" type="text"
-                                                        id="edit-name--3" name="name" />
+                                                        id="edit-name--3" name="name"  placeholder="Type Your Username..."  />
                                                     <small class="form-text text-danger p-0 border-0 name"> </small>
 
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
-                                                    <label for="edit-mail">E-mail address <span
-                                                            class="form-required">*</span></label>
+                                                    <label for="edit-mail"> <i class="fa-solid fa-envelope"></i> E-mail address <span
+                                                            class="form-required"></label>
                                                     <input type="text" id="edit-mail" name="email"
-                                                        class="form-text required" />
+                                                        class="form-text required"  placeholder="Type Your Email..."  />
                                                     <small class="form-text text-danger p-0 border-0 email"> </small>
 
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
-                                                    <label for="edit-mail">Password <span
-                                                            class="form-required">*</span></label>
+                                                    <label for="edit-mail"> <i class="fa-solid fa-key"></i> Password <span
+                                                            class="form-required"></label>
                                                     <input type="password" id="edit-mail" name="password"
-                                                        class="form-text required" />
+                                                        class="form-text required"  placeholder="Type Password..." />
                                                     <small class="form-text text-danger p-0 border-0 password">
                                                     </small>
 
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
-                                                    <label for="edit-mail">Confirm Password <span
-                                                            class="form-required">*</span></label>
+                                                    <label for="edit-mail"> <i class="fa-solid fa-key"></i> Confirm Password <span
+                                                            class="form-required"></label>
                                                     <input type="password" id="edit-mail" name="password_confirmation"
-                                                        class="form-text required" />
+                                                        class="form-text required" placeholder="Type Password Again..."  />
                                                     <small
                                                         class="form-text text-danger p-0 border-0 password_confirmation">
                                                     </small>
 
-                                                 
+
                                                 </div>
 
                                             </div>
@@ -945,17 +980,25 @@
                                     </div>
 
                                     <div class="form-actions form-wrapper text-left" id="edit-actions--28">
-                                        
+
                                         <button id="signup-btn" class="rounded">
                                             <i class="fa-solid fa-user-plus mr-2"></i> SignUp </button>
-                                            
+
                                     </div>
                                     <div class="hybridauth-widget-wrapper">
                                         <div class="item-list">
                                             <h3>Or log in with...</h3>
                                             <ul class="hybridauth-widget">
-                                                <li> <i class="fa-brands fa-google-plus"></i> </li>
-                                                <li> <i class="fa-brands fa-facebook-square"></i> </li>
+                                                <li> 
+                                                    <a href="#">
+                                                        <img src="{{ asset("images/google.png") }}" alt="google">    
+                                                    </a>
+                                                </li>
+                                                <li> 
+                                                    <a href="#">
+                                                        <img src="{{ asset("images/facebook.png") }}" alt="facebook">    
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1105,7 +1148,9 @@
     <!---------------- Owl Carousel -------------------->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!---------------- Sweet Alert  -------------------->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js"
+        integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!---------------- File.Js -------------------->
     <script src="{{ asset('js/web/file.js') }}"></script>
 

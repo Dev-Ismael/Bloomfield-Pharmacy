@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class CustomAuthController extends Controller
@@ -22,6 +23,7 @@ class CustomAuthController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required', 'string', 'min:8'],
         ]);
         if ($validator->fails()) {
             return response() -> json([
@@ -61,18 +63,39 @@ class CustomAuthController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
+
+
+
+        // Check Validator
+        $validator = Validator::make($request->all(), [
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
-   
+        if ($validator->fails()) {
+            return response() -> json([
+                'status' => 'error',
+                'msg'    => 'validation error',
+                'errors' => $validator->getMessageBag()->toArray()
+
+            ]); 
+        }
+        
+
+        // credentials Success Create auth session
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                        ->withSuccess('You have Successfully loggedin');
+            return response() -> json([
+                "status" => 'success' ,   // Created Successfully
+                "msg" => "Login Operation Successfully" ,
+            ]);
         }
   
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        // credentials invalid 
+        return response() -> json([
+            "status" => 'error' ,   // Created Successfully
+            'msg'    => 'invalid credentials',
+            "error" => "Oppes! You have entered invalid credentials" ,
+        ]);
 
     }
 

@@ -7,18 +7,17 @@
         /*========================================================================
         ================= Remove text danger Inputs ==============================
         =========================================================================*/
-
-        $('form input , form textarea').on("click", function(){
-
-            // get Attr name=['']
-            var attr_name = $(this).attr('name');
-
-            $(this).removeClass('is-invalid');
-            $("form small.text-danger." + attr_name ).text('');
-
-
-        });
-
+        function removeInValidClass() {
+            $('form input , form textarea').on("click", function(){
+                // get Attr name=['']
+                var attr_name = $(this).attr('name');
+                // remove class is-invalid
+                $(this).removeClass('is-invalid');
+                // empty small danger text
+                $("form small.text-danger." + attr_name ).text('');
+            });
+        }
+        removeInValidClass();
 
         /*========================================================================
         ================= Register ===============================================
@@ -48,43 +47,32 @@
                 success: function ( response ) {
                     
                     btn.html(btnOriginalContent);
-                    console.log(response);
-    
-    
+                    // console.log(response);
     
                     if( response.status == 'error' && response.msg == 'validation error' ){
-
                         $.each( response.errors , function( key , val ){
                             $("form#user-register-form small.text-danger." + key ).text(val[0]);
-                            $('form#user-register-form .group-header input[name="'+ key +'"]').addClass("is-invalid");
+                            $('form#user-register-form input[name="'+ key +'"]').addClass("is-invalid");
                         });
-
                     }
 
     
                     if( response.status == 'error' && response.msg == 'SignUp operation failed' ){
-                        
                         Swal.fire( response.status , response.msg , response.status )
                         .then((value) => {
-                            window.location.href = "/";
+                            window.location.reload();
                         });
-
-
                     }
     
 
                     else if( response.status == 'success' ){
-                        
                         // Empty any input
-                        $("input").val('');
-
+                        removeInValidClass();
                         // Sweet Alert
                         Swal.fire( response.status , response.msg , response.status )
-
                         // Toggle Modals
                         $("#login").modal('show');
                         $('#register').modal('hide')
-
                     }
     
     
@@ -106,10 +94,17 @@
         /*========================================================================
         ================= Login ==================================================
         =========================================================================*/
-        $("form#user-login input#edit-submit").on( 'click' ,function (e){
+        $("form#user-login button#signup-in").on( 'click' ,function (e){
 
-            e.preventDefault();
+            var btn = $(this);
+            var loadingContent = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="width:14px;height:14px;"></span> Loading...';
+            var btnOriginalContent = $(this).html();
             var loginFormData = new FormData( $("form#user-login")[0] );
+
+
+            $(this).html(loadingContent);
+            e.preventDefault();
+
 
             $.ajax({
                 type: "POST",
@@ -123,17 +118,29 @@
                 cache    : false,
                 success: function ( response ) {
                     
-                    console.log(response);
+                    btn.html(btnOriginalContent);
+                    // console.log(response);
     
-    
-    
-                    if( response.status == 'error' ){
-                        
+                    if( response.status == 'error' && response.msg == 'validation error' ){
+                        $.each( response.errors , function( key , val ){
+                            $("form#user-login small.text-danger." + key ).text(val[0]);
+                            $('form#user-login input[name="'+ key +'"]').addClass("is-invalid");
+                        });
                     }
-    
+
+                    if( response.status == 'error' && response.msg == 'invalid credentials' ){
+                        $("form#user-login small.text-danger.email").text(response.error);
+                        $('form#user-login input[name="email"]').addClass("is-invalid");
+                    }
+
                     else if( response.status == 'success' ){
-    
-                                           
+                        // Empty any input
+                        removeInValidClass();
+                        // Reload
+                        Swal.fire( response.status , response.msg , response.status )
+                        .then((value) => {
+                            window.location.reload();
+                        });
                     }
     
     

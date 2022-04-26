@@ -44,17 +44,38 @@ class CustomAuthController extends Controller
         if(!$user){  // If Create user fails
             return response() -> json([
                 "status" => 'error' ,   
-                "msg" => "insert operation failed" ,
+                "msg" => "SignUp operation failed" ,
             ]);
         }
 
         return response() -> json([
             "status" => 'success' ,   // Created Successfully
-            "msg" => "user created successfully" ,
+            "msg" => "SignUp Operation Successfully , Login Now!" ,
         ]);
 
 
     }
+
+
+
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+   
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('dashboard')
+                        ->withSuccess('You have Successfully loggedin');
+        }
+  
+        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+
+    }
+
 
 
 }

@@ -4,15 +4,36 @@
 
 
 
+        /*========================================================================
+        ================= Remove text danger Inputs ==============================
+        =========================================================================*/
+
+        $('form input , form textarea').on("click", function(){
+
+            // get Attr name=['']
+            var attr_name = $(this).attr('name');
+
+            $(this).removeClass('is-invalid');
+            $("form small.text-danger." + attr_name ).text('');
+
+
+        });
 
 
         /*========================================================================
-        ================= Register ==================================================
+        ================= Register ===============================================
         =========================================================================*/
-        $("form#user-register-form input#edit-submit--3").on( 'click' ,function (e){
+        $("form#user-register-form button#signup-btn").on( 'click' ,function (e){
 
-            e.preventDefault();
+            var btn = $(this);
+            var loadingContent = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="width:14px;height:14px;"></span> Loading...';
+            var btnOriginalContent = $(this).html();
             var RegisterFormData = new FormData( $("form#user-register-form")[0] );
+
+
+            $(this).html(loadingContent);
+            e.preventDefault();
+
 
             $.ajax({
                 type: "POST",
@@ -26,24 +47,44 @@
                 cache    : false,
                 success: function ( response ) {
                     
+                    btn.html(btnOriginalContent);
                     console.log(response);
     
     
     
                     if( response.status == 'error' && response.msg == 'validation error' ){
+
                         $.each( response.errors , function( key , val ){
-                            $("form#user-register-form small.text-danger." + key ).text('');
                             $("form#user-register-form small.text-danger." + key ).text(val[0]);
                             $('form#user-register-form .group-header input[name="'+ key +'"]').addClass("is-invalid");
-                        });                   
+                        });
+
+                    }
+
+    
+                    if( response.status == 'error' && response.msg == 'SignUp operation failed' ){
+                        
+                        Swal.fire( response.status , response.msg , response.status )
+                        .then((value) => {
+                            window.location.href = "/";
+                        });
+
+
                     }
     
-                    if( response.status == 'error' && response.msg == 'insert operation failed' ){
-                        alert(response.status);                   
-                    }
-    
+
                     else if( response.status == 'success' ){
-                        alert(response.status);                   
+                        
+                        // Empty any input
+                        $("input").val('');
+
+                        // Sweet Alert
+                        Swal.fire( response.status , response.msg , response.status )
+
+                        // Toggle Modals
+                        $("#login").modal('show');
+                        $('#register').modal('hide')
+
                     }
     
     
@@ -140,7 +181,7 @@
         })
 
         /*========================================================================
-        ================= Create Order Button By Prescription ========================
+        ================= Create Order Button By Prescription ====================
         =========================================================================*/
         $('#prescriptions-page .create-by-prescription').click(function(e) {
             e.stopPropagation();

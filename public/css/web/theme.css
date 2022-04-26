@@ -10636,17 +10636,14 @@ button.close {
 }
 
 #register form button {
-    width: 300px;
     background-color: var(--green-color);
-    height: 45px;
-    line-height: 45px;
+    padding: 10px;
+    width: 140px;
     color: #fff;
     border: none;
-    border-radius: 50px;
-    margin: 0 auto;
-    margin-top: 0px;
+    margin: 0 ;
     display: block;
-    margin-bottom: 0px;
+    text-align: center;
 }
 
 #register .bith-p {

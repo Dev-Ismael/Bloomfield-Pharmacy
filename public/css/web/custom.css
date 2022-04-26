@@ -37,6 +37,15 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
+/*============= Sweet Alert =============*/
+.swal2-container.swal2-backdrop-show{
+    transition: all 0.3s ease-in-out;
+    z-index: 999999999999999 !important;
+}
+.swal2-container.swal2-center{
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.5) !important;
+}
 /*============= btn =============*/
 .btn {
     box-shadow: none;

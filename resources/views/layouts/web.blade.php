@@ -37,6 +37,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!----------------- Sweet Alert Style  ------------------>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!----------------- Custom Style  ------------------>
     <link href="{{ asset('css/web/custom.css') }}" rel="stylesheet">
 
@@ -56,20 +60,19 @@
 
                     <div class="container">
                         <ul>
-                            
+
                             <li>
                                 <div class="col-xs-12 search-main visible-xs">
 
 
 
-                                    <form action="{{ route("search") }}" >
+                                    <form action="{{ route('search') }}">
                                         <div>
 
 
-                                            <input type="text"
-                                                class="form-control" value="" placeholder="Search Products" size="15"
-                                                maxlength="128" />
-                                            <button class="btn icon-search"  />
+                                            <input type="text" class="form-control" value=""
+                                                placeholder="Search Products" size="15" maxlength="128" />
+                                            <button class="btn icon-search" />
 
 
                                         </div>
@@ -77,13 +80,13 @@
 
                                 </div>
                             </li>
-                            
+
                             <li><a href="#" class="mob-shop-link"> <i class="fa-solid fa-list-ul"></i> Shop </a>
                                 <div class="mob-shop-drop-dowm">
 
                                     <a href="fp/taxonomy/term/18671.html" class="shop1">Medications</a> <a
-                                        href="fp/taxonomy/term/18673.html" class="shop2">Medical Supplies</a> <a
-                                        href="fp/taxonomy/term/18675.html" class="shop3">Skin Care</a> <a
+                                        href="fp/taxonomy/term/18673.html" class="shop2">Medical Supplies</a>
+                                    <a href="fp/taxonomy/term/18675.html" class="shop3">Skin Care</a> <a
                                         href="fp/taxonomy/term/18676.html" class="shop4">Hair Care</a> <a
                                         href="fp/taxonomy/term/18674.html" class="shop5">Beaut</a> <a
                                         href="fp/taxonomy/term/18679.html" class="shop6">Perfumes /
@@ -97,8 +100,8 @@
                                 </div>
                             </li>
 
-                            <li><a href="{{ route("about") }}"> About Us</a></li>
-                            <li><a href="{{ route("order_prescription") }}"> Order a
+                            <li><a href="{{ route('about') }}"> About Us</a></li>
+                            <li><a href="{{ route('order_prescription') }}"> Order a
                                     Prescription</a></li>
 
 
@@ -118,9 +121,11 @@
                                 </button>
 
 
-                                <a href="{{ route('home') }}"><img class="logo-white hidden-xs" src="/images/logo-white.png"></a>
+                                <a href="{{ route('home') }}"><img class="logo-white hidden-xs"
+                                        src="/images/logo-white.png"></a>
                                 <a href="{{ route('home') }}"><img class="logo hidden-xs" src="/images/logo.png"></a>
-                                <a href="{{ route('home') }}"><img class="visible-xs logo-min" src="/images/logo-white.png"></a>
+                                <a href="{{ route('home') }}"><img class="visible-xs logo-min"
+                                        src="/images/logo-white.png"></a>
 
                             </div>
 
@@ -712,9 +717,9 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li><a href="{{ route("order_prescription") }}"> Order a
+                                    <li><a href="{{ route('order_prescription') }}"> Order a
                                             Prescription</a></li>
-                                    <li><a href="{{ route("about") }}"> About Us</a>
+                                    <li><a href="{{ route('about') }}"> About Us</a>
                                     </li>
                                 </ul>
 
@@ -724,15 +729,15 @@
                             <div class="col-md-4 col-xs-2 remove-padding search-main ">
 
 
-                                <form action="{{ route("search") }}" >
+                                <form action="{{ route('search') }}">
                                     <div>
 
 
-                                        <input type="text"class="form-control" value="" placeholder="Search Products" size="15"
-                                            maxlength="128" />
-                                        <button class="btn icon-search"  />
-                                        
-                                        
+                                        <input type="text" class="form-control" value=""
+                                            placeholder="Search Products" size="15" maxlength="128" />
+                                        <button class="btn icon-search" />
+
+
 
 
                                     </div>
@@ -751,7 +756,7 @@
                                     </li>
                                     &nbsp;
                                     <li>
-                                        <a href="{{ route("cart") }}" class="cart-main text-center"
+                                        <a href="{{ route('cart') }}" class="cart-main text-center"
                                             id="cart-button">
                                             <p>Cart</p>
                                             <span> 0 </span>
@@ -781,10 +786,11 @@
                 <a href="#" class="singup-btn" data-toggle="modal" data-target="#register">Sign Up</a>
             </div>
             <div class="col-xs-12 pro-icons-main">
-                <a href="{{ route("profile") }}"> <i class="fa-solid fa-address-card"></i> My Profile   </a>
-                <a href="{{ route("orders") }}"> <i class="fa-solid fa-list-check"></i>  My Subscribed Orders </a>
-                <a href="{{ route("wishlist") }}"> <i class="fa-solid fa-heart"></i> My Wishlist </a>
-                <a href="{{ route("prescriptions") }}""> <i class="fa-solid fa-file-prescription"></i> My Prescriptions </a>
+                <a href="{{ route('profile') }}"> <i class="fa-solid fa-address-card"></i> My Profile </a>
+                <a href="{{ route('orders') }}"> <i class="fa-solid fa-list-check"></i> My Subscribed Orders </a>
+                <a href="{{ route('wishlist') }}"> <i class="fa-solid fa-heart"></i> My Wishlist </a>
+                <a href="{{ route('prescriptions') }}""> <i class=" fa-solid fa-file-prescription"></i> My
+                    Prescriptions </a>
             </div>
         </div>
 
@@ -808,37 +814,33 @@
                             <h2>HAVE AN ACCOUNT</h2>
                             <p>Please log in to proceed to checkout</p>
                             <div class="col-xs-12 lgo-input-main">
-                                <form id="user-login" >
-                                        <div class="form-item form-type-textfield form-item-name">
-                                            <label class="element-invisible" for="edit-name">Email <span
-                                                    class="form-required">*</span></label>
-                                            <input type="text" id="edit-name" name="email"
-                                                class="form-text"/>
-                                                <small class="form-text text-danger p-0 border-0 email">  </small>
+                                <form id="user-login">
+                                    <div class="form-item form-type-textfield form-item-name">
+                                        <label class="element-invisible" for="edit-name">Email <span
+                                                class="form-required">*</span></label>
+                                        <input type="text" id="edit-name" name="email" class="form-text" />
+                                        <small class="form-text text-danger p-0 border-0 email"> </small>
 
-                                        </div>
-                                        <div class="form-item form-type-password form-item-pass">
-                                            <label class="element-invisible" for="edit-pass">Password <span
-                                                    class="form-required"
-                                                    >*</span></label>
-                                            <input type="password" id="edit-pass" name="password"
-                                                class="form-text "/>
-                                                <small class="form-text text-danger p-0 border-0 password">  </small>
+                                    </div>
+                                    <div class="form-item form-type-password form-item-pass">
+                                        <label class="element-invisible" for="edit-pass">Password <span
+                                                class="form-required">*</span></label>
+                                        <input type="password" id="edit-pass" name="password" class="form-text " />
+                                        <small class="form-text text-danger p-0 border-0 password"> </small>
 
-                                        </div>
+                                    </div>
 
-                                        <div class="form-actions form-wrapper" id="edit-actions--26"><input
-                                                type="submit" id="edit-submit" name="op" value="Log in"
-                                                class="form-submit" /></div>
-                                        <div class="hybridauth-widget-wrapper">
-                                            <div class="item-list">
-                                                <h3>Or log in with...</h3>
-                                                <ul class="hybridauth-widget">
-                                                    <li> <i class="fa-brands fa-google-plus"></i>  </li>
-                                                    <li> <i class="fa-brands fa-facebook-square"></i> </li>
-                                                </ul>
-                                            </div>
+                                    <div class="form-actions form-wrapper" id="edit-actions--26"><input type="submit"
+                                            id="edit-submit" name="op" value="Log in" class="form-submit" /></div>
+                                    <div class="hybridauth-widget-wrapper">
+                                        <div class="item-list">
+                                            <h3>Or log in with...</h3>
+                                            <ul class="hybridauth-widget">
+                                                <li> <i class="fa-brands fa-google-plus"></i> </li>
+                                                <li> <i class="fa-brands fa-facebook-square"></i> </li>
+                                            </ul>
                                         </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -863,7 +865,7 @@
 
 
         <div class="modal" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+            aria-hidden="true">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
@@ -872,7 +874,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                     <div class="modal-body row">
-                        
+
                         <div class="col-md-6 col-sm-12 link-main-reg">
                             <h2>HAVE AN ACCOUNT!</h2>
                             <p>Please log in to proceed to checkout</p>
@@ -900,55 +902,63 @@
                                         <div class="group-header">
                                             <div id="edit-account" class="form-wrapper">
                                                 <div class="form-item form-type-textfield form-item-name">
-                                                    <label for="edit-name--3">Username <span class="form-required"
-                                                            >*</span></label>
+                                                    <label for="edit-name--3">Username <span
+                                                            class="form-required">*</span></label>
                                                     <input class="username form-text required" type="text"
-                                                        id="edit-name--3" name="name"  />
-                                                        <small class="form-text text-danger p-0 border-0 name">  </small>
+                                                        id="edit-name--3" name="name" />
+                                                    <small class="form-text text-danger p-0 border-0 name"> </small>
 
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
-                                                    <label for="edit-mail">E-mail address <span class="form-required"
-                                                            >*</span></label>
-                                                    <input type="text" id="edit-mail" name="email" 
+                                                    <label for="edit-mail">E-mail address <span
+                                                            class="form-required">*</span></label>
+                                                    <input type="text" id="edit-mail" name="email"
                                                         class="form-text required" />
-                                                        <small class="form-text text-danger p-0 border-0 email">  </small>
+                                                    <small class="form-text text-danger p-0 border-0 email"> </small>
 
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
-                                                    <label for="edit-mail">Password <span class="form-required"
-                                                            >*</span></label>
-                                                    <input type="password" id="edit-mail" name="password" 
+                                                    <label for="edit-mail">Password <span
+                                                            class="form-required">*</span></label>
+                                                    <input type="password" id="edit-mail" name="password"
                                                         class="form-text required" />
-                                                        <small class="form-text text-danger p-0 border-0 password">  </small>
+                                                    <small class="form-text text-danger p-0 border-0 password">
+                                                    </small>
 
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
-                                                    <label for="edit-mail">Confirm Password <span class="form-required"
-                                                            >*</span></label>
-                                                    <input type="password" id="edit-mail" name="password_confirmation" 
+                                                    <label for="edit-mail">Confirm Password <span
+                                                            class="form-required">*</span></label>
+                                                    <input type="password" id="edit-mail" name="password_confirmation"
                                                         class="form-text required" />
+                                                    <small
+                                                        class="form-text text-danger p-0 border-0 password_confirmation">
+                                                    </small>
 
+                                                 
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
 
 
                                     </div>
 
-                                    <div class="form-actions form-wrapper" id="edit-actions--28"><input type="submit"
-                                            id="edit-submit--3" name="op" value="Create new account"
-                                            class="form-submit" /></div>
-                                            <div class="hybridauth-widget-wrapper">
-                                                <div class="item-list">
-                                                    <h3>Or log in with...</h3>
-                                                    <ul class="hybridauth-widget">
-                                                        <li> <i class="fa-brands fa-google-plus"></i> </li>
-                                                        <li> <i class="fa-brands fa-facebook-square"></i> </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
+                                    <div class="form-actions form-wrapper text-left" id="edit-actions--28">
+                                        
+                                        <button id="signup-btn" class="rounded">
+                                            <i class="fa-solid fa-user-plus mr-2"></i> SignUp </button>
+                                            
+                                    </div>
+                                    <div class="hybridauth-widget-wrapper">
+                                        <div class="item-list">
+                                            <h3>Or log in with...</h3>
+                                            <ul class="hybridauth-widget">
+                                                <li> <i class="fa-brands fa-google-plus"></i> </li>
+                                                <li> <i class="fa-brands fa-facebook-square"></i> </li>
+                                            </ul>
+                                        </div>
+                                    </div>
 
 
                                 </div>
@@ -992,7 +1002,7 @@
                     <li class="leaf "><a href="{{ route('contact') }}">CONTACT US</a></li>
                     <li class="leaf "><a href="{{ route('shipping') }}">SHIPPING
                             &amp; DELIVERY</a></li>
-                    <li class="leaf"><a href="{{ route("returns") }}">RETURNS
+                    <li class="leaf"><a href="{{ route('returns') }}">RETURNS
                             &amp; EXCHANGE</a></li>
                     <li class="leaf"><a href="{{ route('privacy') }}">PRIVACY
                             POLICY</a></li>
@@ -1027,8 +1037,8 @@
                 <div class="col-md-4 offset-md-4 col-xs-12 remove-padding scial-fot">
 
 
-                    <a href="" class="face-icon"><svg role="img"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="
+                    <a href="" class="face-icon"><svg role="img" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg" style="
                             border-radius: 5px;
                         ">
                             <path
@@ -1094,6 +1104,8 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <!---------------- Owl Carousel -------------------->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!---------------- Sweet Alert  -------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!---------------- File.Js -------------------->
     <script src="{{ asset('js/web/file.js') }}"></script>
 

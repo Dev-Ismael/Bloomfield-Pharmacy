@@ -20,8 +20,8 @@ class CustomAuthController extends Controller
 
         // Check Validator
         $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:55'],
+            'email' => ['required', 'string', 'email', 'max:55', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'password_confirmation' => ['required', 'string', 'min:8'],
         ]);

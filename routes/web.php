@@ -68,9 +68,9 @@ Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::c
 ========== Admin Routes =====================================================
 ===========================================================================*/
 
-Route::group([ "prefix" => "admin" ,  'namespace'=> 'App\Http\Controllers\Admin' ] , function(){
+// Route::group([ "prefix" => "admin" ,  'namespace'=> 'App\Http\Controllers\Admin' ] , function(){
 
-    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+//     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-});
+// });
 

@@ -25,7 +25,19 @@ class UsersRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name'        => 'required|min:5|max:55' ,
+            'first_name'  => 'nullable|min:5|max:55' ,
+            'last_name'   => 'nullable|min:5|max:55' ,
+            'password'    => 'required|min:5|max:55' ,
+            'email'       => 'required|email|min:5|max:55|unique:users' ,
+            'email_2'     => 'nullable|email|min:5|max:55|unique:users' ,
+            'phone'       => 'nullable|max:55' ,
+            'phone_2'     => 'nullable|max:55' ,
+            'state'       => 'nullable|max:55' ,
+            'address'     => 'nullable|max:255' ,
+            'address_2'   => 'nullable|max:255' ,
+            'address_3'   => 'nullable|max:255' ,
+            'role'        => 'required|max:1' ,
         ];
     }
 

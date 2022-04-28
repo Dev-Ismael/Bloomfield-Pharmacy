@@ -47,8 +47,8 @@ class UsersCrudController extends CrudController
         CRUD::column('last_name');
         CRUD::column('email');
         CRUD::column('email_2');
-        CRUD::column('email_verified_at');
-        CRUD::column('password');
+        // CRUD::column('email_verified_at');
+        // CRUD::column('password');
         CRUD::column('phone');
         CRUD::column('phone_2');
         CRUD::column('state');
@@ -56,7 +56,7 @@ class UsersCrudController extends CrudController
         CRUD::column('address_2');
         CRUD::column('address_3');
         CRUD::column('role');
-        CRUD::column('remember_token');
+        // CRUD::column('remember_token');
         CRUD::column('created_at');
         CRUD::column('updated_at');
 

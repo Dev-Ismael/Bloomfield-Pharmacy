@@ -20,7 +20,7 @@ class Users extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
-    // protected $hidden = [];
+    protected $hidden = [ 'password', 'remember_token', 'remember_token', 'email_verified_at' ];
     // protected $dates = [];
 
     /*

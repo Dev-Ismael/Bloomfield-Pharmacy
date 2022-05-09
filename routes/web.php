@@ -46,21 +46,26 @@ Route::get('/privacy', [App\Http\Controllers\Web\PrivacyController::class, 'inde
 Route::get('/search', [App\Http\Controllers\Web\SearchController::class, 'index'])->name('search');
 // Product                            
 Route::get('/product', [App\Http\Controllers\Web\ProductController::class, 'index'])->name('product');
-// Cart                            
-Route::get('/cart', [App\Http\Controllers\Web\CartController::class, 'index'])->name('cart');
-// wishlist                            
-Route::get('/wishlist', [App\Http\Controllers\Web\WishlistController::class, 'index'])->name('wishlist');
 // Category                            
 Route::get('/category', [App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
-// Orders                            
-Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index'])->name('orders');
-// Profile                            
-Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile');
 // order_prescription                            
 Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
-// prescriptions                            
-Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::class, 'index'])->name('prescriptions');
 
+
+Route::group([  'middleware'=> 'auth'  ] , function(){
+
+    // Profile                            
+    Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile');
+    // Orders                            
+    Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index'])->name('orders');
+    // wishlist                            
+    Route::get('/wishlist', [App\Http\Controllers\Web\WishlistController::class, 'index'])->name('wishlist');
+    // prescriptions                            
+    Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::class, 'index'])->name('prescriptions');
+    // Cart                            
+    Route::get('/cart', [App\Http\Controllers\Web\CartController::class, 'index'])->name('cart');
+
+});
 
 
 
@@ -68,9 +73,10 @@ Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::c
 ========== Admin Routes =====================================================
 ===========================================================================*/
 
-Route::group([ "prefix" => "admin" ,  'namespace'=> 'App\Http\Controllers\Admin' , "as" => "admin." ] , function(){
+Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ] , function(){
 
-    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    // Dashboard
+    Route::get('/dashboard' , [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
 });
 

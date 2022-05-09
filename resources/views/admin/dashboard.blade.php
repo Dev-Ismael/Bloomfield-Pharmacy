@@ -6,7 +6,7 @@
     <div class="py-4 admin-page-info">
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                <li class="breadcrumb-item">
+                <li class="breadcrumb-item " style="margin-top: -1px">
                     <a href="{{ route("home") }}">
                         <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">

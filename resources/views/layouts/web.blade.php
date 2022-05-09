@@ -802,6 +802,9 @@
             </div>
             @if (Auth::check())
                 <div class="col-xs-12 pro-icons-main">
+                    @if ( Auth::user()->role ==="1" )
+                        <a href="{{ route('admin.dashboard') }}"> <i class="fa-solid fa-gauge-high"></i> Dashboard </a>
+                    @endif
                     <a href="{{ route('profile') }}"> <i class="fa-solid fa-address-card"></i> My Profile </a>
                     <a href="{{ route('orders') }}"> <i class="fa-solid fa-list-check"></i> My Subscribed Orders </a>
                     <a href="{{ route('wishlist') }}"> <i class="fa-solid fa-heart"></i> My Wishlist </a>

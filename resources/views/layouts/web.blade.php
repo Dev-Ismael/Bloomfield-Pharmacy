@@ -30,7 +30,7 @@
 
 
     <!------- App.css Style  ( Include Bootstrap )------->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/web/app.css') }}" rel="stylesheet">
     <!------------------- Theme Style ------------------->
     <link href="{{ asset('css/web/theme.css') }}" rel="stylesheet">
     <!------- Owl Carousel Style  ------->
@@ -1150,7 +1150,7 @@
 
     <!---------------- Scripts ----------------------->
     <!------ App.js (include Bootstrap & jquery) ----->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/web/app.js') }}"></script>
     <!---------------- Owl Carousel -------------------->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!---------------- Sweet Alert  -------------------->

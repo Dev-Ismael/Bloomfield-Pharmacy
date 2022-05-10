@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="py-4 admin-page-info">
-        
+
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
             <div class="d-block mb-4 mb-md-0">
                 <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -47,27 +47,27 @@
                 </div>
                 <div class="col-3 col-lg-4 d-flex justify-content-end">
                     <div class="btn-group">
-                        <div class="dropdown me-1"><button
-                                class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1"
+                        <div class="dropdown me-1">
+                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg
                                     class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z">
                                     </path>
-                                </svg> <span class="visually-hidden">Toggle Dropdown</span></button>
-                            <div class="dropdown-menu dropdown-menu-end pb-0"><span
-                                    class="small ps-3 fw-bold text-dark">Show</span> <a
-                                    class="dropdown-item d-flex align-items-center fw-bold" href="#">10 <svg
-                                        class="icon icon-xxs ms-auto" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg></a><a class="dropdown-item fw-bold" href="#">20</a> <a
-                                    class="dropdown-item fw-bold rounded-bottom" href="#">30</a></div>
+                                </svg> <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end pb-0">
+                                <span class="small ps-3 fw-bold text-dark">Show</span>
+
+                                <a class="dropdown-item d-flex align-items-center fw-bold" href="{{ route('admin.users.perPage' , 10 ) }}"> 10 </a>
+                                <a class="dropdown-item d-flex align-items-center fw-bold" href="{{ route('admin.users.perPage' , 30) }}"> 30 </a>
+                                <a class="dropdown-item d-flex align-items-center fw-bold" href="{{ route('admin.users.perPage' , 50) }}">  50 </a>
+                                <a class="dropdown-item d-flex align-items-center fw-bold" href="{{ route('admin.users.perPage' , 100) }}"> 100 </a>
+
+                            </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -92,8 +92,9 @@
                     <thead>
                         <tr>
                             <th class="border-bottom">
-                                <div class="form-check dashboard-check"><input class="form-check-input checkbox-head" type="checkbox" value=""
-                                        id="userCheck55"> <label class="form-check-label" for="userCheck55"></label></div>
+                                <div class="form-check dashboard-check"><input class="form-check-input checkbox-head"
+                                        type="checkbox" value="" id="userCheck55"> <label class="form-check-label"
+                                        for="userCheck55"></label></div>
                             </th>
                             <th class="border-bottom">Name</th>
                             <th class="border-bottom">Date Created</th>
@@ -104,15 +105,16 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>
-                                    <div class="form-check dashboard-check"><input class="form-check-input" type="checkbox" value=""
-                                            id="userCheck1"> <label class="form-check-label" for="userCheck1"></label></div>
+                                    <div class="form-check dashboard-check"><input class="form-check-input" type="checkbox"
+                                            value="" id="userCheck1"> <label class="form-check-label"
+                                            for="userCheck1"></label></div>
                                 </td>
                                 <td><a href="#" class="d-flex align-items-center"><i class="fa-solid fa-user p-2 fa-2x"></i>
-                                        <div class="d-block"><span class="fw-bold">{{ $user->name }}</span>
+                                        <div class="d-block"><span class="fw-bold">{{ $user->name }} {{ $user->id }} </span>
                                             <div class="small text-gray">{{ $user->email }}</div>
                                         </div>
                                     </a></td>
-                                <td><span class="fw-normal">{{ $user->created_at}}</span></td>
+                                <td><span class="fw-normal">{{ $user->created_at }}</span></td>
                                 <td class="actions">
                                     <a href="#" class="text-tertiary"> <i class="fa-solid fa-eye"></i> </a>
                                     <a href="#" class="text-info"> <i class="fa-solid fa-pen-to-square"></i> </a>
@@ -124,11 +126,15 @@
                 </table>
                 <div
                     class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
-                            {{-- Pagination --}}
-                            <div class="d-flex justify-content-center">
-                                {!! $users->links() !!}
-                            </div>
-                    <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div>
+                    {{-- Pagination --}}
+                    <div class="d-flex justify-content-center">
+                        {{ $users->withQueryString()->onEachSide(0)->links() }}
+                    </div>
+                    <div class="fw-normal small mt-4 mt-lg-0">
+                        {{-- Showing <b>5</b> out of <b>25</b> entries --}}
+                        Showing <b>{{ $users->firstItem() }}</b>  to <b>{{ $users->lastItem() }}</b> 
+                        of total <b>{{$users->total()}}</b>  entries
+                    </div>
                 </div>
             </div>
         @endif

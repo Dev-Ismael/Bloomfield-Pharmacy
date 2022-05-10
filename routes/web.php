@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*===========================================================================
+=========== Route Pattern ======================================================
+===========================================================================*/\
+Route::pattern('num', '[0-9]+');
 
 
 
@@ -77,6 +81,9 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
 
     // Dashboard
     Route::get('/dashboard' , [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+    // Users
+    Route::get('users/perPage/{num}',[App\Http\Controllers\Admin\UserController::class, 'perPage'])->name("users.perPage");
     Route::resource('users', App\Http\Controllers\Admin\UserController::class);
 
 });

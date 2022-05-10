@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Requests\PaginateRequest;
+
 class UserController extends Controller
 {
     /**
@@ -12,9 +14,22 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function perPage( $num=10 )
+    {
+        // Dynamic pagination
+        $users = User::orderBy('id','desc')->paginate( $num );
+        return view("admin.users.index",compact("users"));
+    }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $users = User::orderBy('id','desc')->paginate(50);
+        $users = User::orderBy('id','desc')->paginate( 10 );
         return view("admin.users.index",compact("users"));
     }
 

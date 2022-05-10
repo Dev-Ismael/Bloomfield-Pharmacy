@@ -75,7 +75,7 @@
                             <i class="fa-solid fa-circle-user fa-3x"></i>
                         </div>
                         <div class="d-block">
-                            <h2 class="h5 mb-3">Hi, Jane</h2>
+                            <h2 class="h5 mb-3">Hi, {{ Str::ucfirst(Auth::user()->name) }} </h2>
                             <a href="../../pages/examples/sign-in.html"
                                 class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
                                 <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -294,7 +294,7 @@
                                     <div class="media d-flex align-items-center">
                                         <i class="fa-solid fa-user"></i>
                                         <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                            <span class="mb-0 font-small fw-bold text-gray-900">Bonnie Green</span>
+                                            <span class="mb-0 font-small fw-bold text-gray-900">{{ Str::ucfirst(Auth::user()->name) }}</span>
                                         </div>
                                     </div>
                                 </a>

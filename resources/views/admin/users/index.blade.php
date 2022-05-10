@@ -43,14 +43,7 @@
                                 <path fill-rule="evenodd"
                                     d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                                     clip-rule="evenodd"></path>
-                            </svg> </span><input type="text" class="form-control" placeholder="Search users"></div><select
-                        class="form-select fmxw-200 d-none d-md-inline" aria-label="Message select example 2">
-                        <option selected="selected">All</option>
-                        <option value="1">Active</option>
-                        <option value="2">Inactive</option>
-                        <option value="3">Pending</option>
-                        <option value="3">Cancelled</option>
-                    </select>
+                            </svg> </span><input type="text" class="form-control" placeholder="Search users"></div>
                 </div>
                 <div class="col-3 col-lg-4 d-flex justify-content-end">
                     <div class="btn-group">
@@ -99,7 +92,7 @@
                     <thead>
                         <tr>
                             <th class="border-bottom">
-                                <div class="form-check dashboard-check"><input class="form-check-input" type="checkbox" value=""
+                                <div class="form-check dashboard-check"><input class="form-check-input checkbox-head" type="checkbox" value=""
                                         id="userCheck55"> <label class="form-check-label" for="userCheck55"></label></div>
                             </th>
                             <th class="border-bottom">Name</th>
@@ -131,17 +124,10 @@
                 </table>
                 <div
                     class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination mb-0">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
+                            {{-- Pagination --}}
+                            <div class="d-flex justify-content-center">
+                                {!! $users->links() !!}
+                            </div>
                     <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>25</b> entries</div>
                 </div>
             </div>

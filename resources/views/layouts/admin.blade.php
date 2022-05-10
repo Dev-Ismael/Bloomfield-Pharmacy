@@ -53,8 +53,8 @@
 
 
         <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
-            <a class="navbar-brand me-lg-5" href="{{ route("home") }}">
-                <img src="{{asset("images/logo-white.png")}}" style="max-width: 150px" alt="Bloomfield Logo">
+            <a class="navbar-brand me-lg-5" href="{{ route('home') }}">
+                <img src="{{ asset('images/logo-white.png') }}" style="max-width: 150px" alt="Bloomfield Logo">
             </a>
             <div class="d-flex align-items-center">
                 <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
@@ -65,13 +65,14 @@
             </div>
         </nav>
 
-        <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+        <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse simplebar-scrollable-y"
+            data-simplebar>
             <div class="sidebar-inner px-4 pt-3">
                 <div
                     class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
                     <div class="d-flex align-items-center">
                         <div class="avatar-lg  d-flex justify-content-between align-items-center">
-                                <i class="fa-solid fa-circle-user fa-3x"></i>
+                            <i class="fa-solid fa-circle-user fa-3x"></i>
                         </div>
                         <div class="d-block">
                             <h2 class="h5 mb-3">Hi, Jane</h2>
@@ -101,12 +102,16 @@
                 </div>
                 <ul class="nav flex-column pt-3 pt-md-0">
                     <li class="nav-item">
-                        <a href="{{ route("home") }}" class="nav-link text-center">
-                            <img src="{{asset("images/logo-white.png")}}" style="max-width: 150px" alt="Bloomfield Logo">
+                        <a href="{{ route("home") }}"
+                            class="nav-link text-center">
+                            <span class="sidebar-icon brand-img"><img
+                                    src="{{ asset("images/favicon.png") }}" alt="Bloomfield Logo"> 
+                            </span>
+                            <span class="mt-1 sidebar-text">Bloomfield <small style="font-size: 0.7rem">PH</small></span>
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="{{ route("admin.dashboard") }}" class="nav-link">
+                        <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Request::is('*/dashboard*') ? 'active' : '' }}">
                             <span class="sidebar-icon">
                                 <i class="fa-solid fa-gauge-high"></i>
                             </span>
@@ -114,14 +119,14 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a href="" class="nav-link">
+                        <a href="{{ route('admin.users.index') }}" class="nav-link {{ Request::is('*/users*') ? 'active' : '' }}">
                             <span class="sidebar-icon">
                                 <i class="fa-solid fa-users"></i>
                             </span>
                             <span class="sidebar-text">Users</span>
                         </a>
                     </li>
-                    
+
 
                 </ul>
             </div>
@@ -132,10 +137,15 @@
             <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
                 <div class="container-fluid px-0">
                     <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
-                        <div class="d-flex align-items-center">
-                            <!-- Search form -->
 
-                        </div>
+                        <div class="d-flex align-items-center"><button id="sidebar-toggle"
+                                class="sidebar-toggle me-3 btn btn-icon-only d-none d-lg-inline-block align-items-center justify-content-center"><svg
+                                    class="toggle-icon" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg></button></div>
                         <!-- Navbar links -->
                         <ul class="navbar-nav align-items-center">
                             <li class="nav-item dropdown">
@@ -333,7 +343,7 @@
                 </div>
             </nav>
 
-            
+
 
 
             @yield('content')

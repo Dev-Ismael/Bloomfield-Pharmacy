@@ -77,6 +77,7 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
 
     // Dashboard
     Route::get('/dashboard' , [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('users', App\Http\Controllers\Admin\UserController::class);
 
 });
 

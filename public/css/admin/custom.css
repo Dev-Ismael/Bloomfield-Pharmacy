@@ -8,7 +8,18 @@
     --green_light: #2e834533;
     --green_dark: #246636;
 }
+/*=========== scrollbar ===========*/
 
+body::-webkit-scrollbar {
+    background-color: var(--green_light);
+    width: 10px;
+    right: -10px
+}
+body::-webkit-scrollbar-thumb{
+    background-color: var(--green_dark);
+    border-radius:8px;
+    right: -10px
+}
 /*=========== Buttons ===========*/
 .btn-primary {
     background-color: var(--green_dark) !important;

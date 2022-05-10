@@ -60,14 +60,14 @@
                             <div class="dropdown-menu dropdown-menu-end pb-0">
                                 <span class="small ps-3 fw-bold text-dark">Show</span>
 
-                                <a class="dropdown-item d-flex align-items-center fw-bold" href="{{ route('admin.users.perPage' , 10 ) }}"> 10 </a>
-                                <a class="dropdown-item d-flex align-items-center fw-bold" href="{{ route('admin.users.perPage' , 30) }}"> 30 </a>
-                                <a class="dropdown-item d-flex align-items-center fw-bold" href="{{ route('admin.users.perPage' , 50) }}">  50 </a>
-                                <a class="dropdown-item d-flex align-items-center fw-bold" href="{{ route('admin.users.perPage' , 100) }}"> 100 </a>
+                                <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 10 ) }}"> <span>10</span>   </a>
+                                <a class="dropdown-item {{ Request::is('*/perPage/30') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 30) }}"> 30 </a>
+                                <a class="dropdown-item {{ Request::is('*/perPage/50') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 50) }}">  50 </a>
+                                <a class="dropdown-item {{ Request::is('*/perPage/100') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 100) }}"> 100 </a>
 
                             </div>
+                            
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -106,17 +106,19 @@
                             <tr>
                                 <td>
                                     <div class="form-check dashboard-check"><input class="form-check-input" type="checkbox"
-                                            value="" id="userCheck1"> <label class="form-check-label"
+                                            value="0" id="userCheck1"> <label class="form-check-label"
                                             for="userCheck1"></label></div>
                                 </td>
-                                <td><a href="#" class="d-flex align-items-center"><i class="fa-solid fa-user p-2 fa-2x"></i>
-                                        <div class="d-block"><span class="fw-bold">{{ $user->name }} {{ $user->id }} </span>
+                                <td><a href="{{ route('admin.users.show', $user->id) }}"
+                                        class="d-flex align-items-center"><i class="fa-solid fa-user p-2 fa-2x"></i>
+                                        <div class="d-block"><span class="fw-bold">{{ $user->name }} </span>
                                             <div class="small text-gray">{{ $user->email }}</div>
                                         </div>
                                     </a></td>
                                 <td><span class="fw-normal">{{ $user->created_at }}</span></td>
                                 <td class="actions">
-                                    <a href="#" class="text-tertiary"> <i class="fa-solid fa-eye"></i> </a>
+                                    <a href="{{ route('admin.users.show', $user->id) }}" class="text-tertiary"> <i
+                                            class="fa-solid fa-eye"></i> </a>
                                     <a href="#" class="text-info"> <i class="fa-solid fa-pen-to-square"></i> </a>
                                     <a href="#" class="text-danger"> <i class="fa-solid fa-trash-can"></i> </a>
                                 </td>
@@ -132,8 +134,8 @@
                     </div>
                     <div class="fw-normal small mt-4 mt-lg-0">
                         {{-- Showing <b>5</b> out of <b>25</b> entries --}}
-                        Showing <b>{{ $users->firstItem() }}</b>  to <b>{{ $users->lastItem() }}</b> 
-                        of total <b>{{$users->total()}}</b>  entries
+                        Showing <b>{{ $users->firstItem() }}</b> to <b>{{ $users->lastItem() }}</b>
+                        of total <b>{{ $users->total() }}</b> entries
                     </div>
                 </div>
             </div>

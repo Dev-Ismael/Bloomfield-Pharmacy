@@ -62,7 +62,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $user = User::findOrFail($id);  // to check id in Db With Error 404
+        return view("admin.users.show" , compact("user") ) ;
     }
 
     /**

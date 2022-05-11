@@ -60,18 +60,47 @@
                             <div class="dropdown-menu dropdown-menu-end pb-0">
                                 <span class="small ps-3 fw-bold text-dark">Show</span>
 
-                                <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 10 ) }}"> 10  </a>
-                                <a class="dropdown-item {{ Request::is('*/perPage/30') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 30) }}"> 30 </a>
-                                <a class="dropdown-item {{ Request::is('*/perPage/50') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 50) }}">  50 </a>
-                                <a class="dropdown-item {{ Request::is('*/perPage/100') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 100) }}"> 100 </a>
+                                <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }}"
+                                    href="{{ route('admin.users.perPage', 10) }}"> 10 </a>
+                                <a class="dropdown-item {{ Request::is('*/perPage/30') ? 'active' : '' }}"
+                                    href="{{ route('admin.users.perPage', 30) }}"> 30 </a>
+                                <a class="dropdown-item {{ Request::is('*/perPage/50') ? 'active' : '' }}"
+                                    href="{{ route('admin.users.perPage', 50) }}"> 50 </a>
+                                <a class="dropdown-item {{ Request::is('*/perPage/100') ? 'active' : '' }}"
+                                    href="{{ route('admin.users.perPage', 100) }}"> 100 </a>
 
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
+        <!--------------- Session Alert ----------------->
+        @if(session()->has('success'))
+            <div class="notyf" style="justify-content: flex-end; align-items: end;">
+                <div class="notyf__toast notyf__toast--upper notyf__toast--disappear" style="animation-delay: 3s;">
+                    <div class="notyf__wrapper">
+                        <div> <i class="fa-solid fa-check"></i> {{ session()->get('success') }} </div>
+                    </div>
+                    <div class="notyf__ripple" style="background: #0ea271;"></div>
+                </div>
+            </div
+        @elseif( session()->has('failed') ) 
+            <div class="notyf" style="justify-content: flex-end; align-items: end;">
+                <div class="notyf__toast notyf__toast--upper notyf__toast--disappear" style="animation-delay: 3s;">
+                    <div class="notyf__wrapper">
+                        <div> <i class="fa-solid fa-x"></i> {{ session()->get('failed') }} </div>
+                    </div>
+                    <div class="notyf__ripple" style="background: #ca1a41;"></div>
+                </div>
+            </div> 
+        @endif
+        
 
 
         @if ($users->isEmpty())
@@ -111,7 +140,8 @@
                                 </td>
                                 <td><a href="{{ route('admin.users.show', $user->id) }}"
                                         class="d-flex align-items-center"><i class="fa-solid fa-user p-2 fa-2x"></i>
-                                        <div class="d-block"><span class="fw-bold">{{ $user->name }} </span>
+                                        <div class="d-block"><span class="fw-bold">{{ $user->name }}
+                                            </span>
                                             <div class="small text-gray">{{ $user->email }}</div>
                                         </div>
                                     </a></td>

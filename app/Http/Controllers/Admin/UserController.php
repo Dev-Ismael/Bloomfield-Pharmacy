@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Http\Requests\PaginateRequest;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -49,9 +50,23 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        
+        $requestData = $request->all();
+        // Hash Password
+        $requestData['password'] = Hash::make($request->password);
+
+        // Store in DB
+        try {
+            $user = User::create( $requestData );
+                return redirect() -> route("admin.users.index") -> with( [ "success" => " user added successfully"] ) ;
+            if(!$user) 
+                return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at insert opration"] ) ;
+        } catch (\Exception $e) {
+            return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at insert opration"] ) ;
+        }
+        
     }
 
     /**

@@ -43,7 +43,33 @@ body::-webkit-scrollbar-thumb{
     border: 1px solid var(--green) !important;
     color: #fff;
 }
-
+/*=========== Inputs ==============*/
+div.input-content{
+    transition: all 0.3s ease-in-out;
+}
+.form-control{
+    transition: all 0.3s ease-in-out;
+}
+.form-control:focus {
+    color: #6b7280;
+    background-color: #fff;
+    border: 1px solid var(--green) !important;
+    outline: 0;
+    box-shadow: 0 0px 0px 0 var(--green_light), 0 0 0 0.18rem var(--green_light) !important;
+}
+.form-select{
+    font-size: 1rem;
+}
+.input-content label.required:after {
+    content:"*";
+    color:rgb(247, 16, 16);
+}
+.input-content label i{
+    color: var(--green) ;
+}
+select.form-select option{
+    font-size: 1.1rem;
+}
 /*=========== Pagination ===========*/
 .page-item.active .page-link {
     background-color: var(--green_dark) !important;

@@ -24,7 +24,7 @@
                 <h2 class="h4 text-primary"> <i class="fa-solid fa-users "></i> Users List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
-            <div class="btn-toolbar mb-2 mb-md-0"><a href="#"
+            <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.users.create') }}"
                     class="btn btn-sm btn-primary d-inline-flex align-items-center"><svg class="icon icon-xs me-2"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -60,7 +60,7 @@
                             <div class="dropdown-menu dropdown-menu-end pb-0">
                                 <span class="small ps-3 fw-bold text-dark">Show</span>
 
-                                <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 10 ) }}"> <span>10</span>   </a>
+                                <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 10 ) }}"> 10  </a>
                                 <a class="dropdown-item {{ Request::is('*/perPage/30') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 30) }}"> 30 </a>
                                 <a class="dropdown-item {{ Request::is('*/perPage/50') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 50) }}">  50 </a>
                                 <a class="dropdown-item {{ Request::is('*/perPage/100') ? 'active' : '' }}" href="{{ route('admin.users.perPage' , 100) }}"> 100 </a>

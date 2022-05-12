@@ -6,18 +6,20 @@
 
 :root {
     --green: #2e8345;
+    --green_opacity: #2e8345b7;
     --green_light: #2e834533;
     --green_dark: #246636;
 }
 
 /*=========== Global Css ===========*/
-.float-right{
+.float-right {
     float: right;
 }
 
-.float-left{
+.float-left {
     float: left;
 }
+
 /*=========== scrollbar ===========*/
 
 body::-webkit-scrollbar {
@@ -25,18 +27,22 @@ body::-webkit-scrollbar {
     width: 10px;
     right: -10px
 }
-body::-webkit-scrollbar-thumb{
+
+body::-webkit-scrollbar-thumb {
     background-color: var(--green_dark);
-    border-radius:8px;
+    border-radius: 8px;
     right: -10px
 }
+
 /*=========== txt ===========*/
-.text-primary{
+.text-primary {
     color: var(--green) !important;
 }
-.text-primary:hover{
+
+.text-primary:hover {
     color: var(--green) !important;
 }
+
 /*=========== Buttons ===========*/
 .btn-primary {
     background-color: var(--green) !important;
@@ -50,13 +56,16 @@ body::-webkit-scrollbar-thumb{
     border: 1px solid var(--green_dark) !important;
     color: #fff;
 }
+
 /*=========== Inputs ==============*/
-div.input-content{
+div.input-content {
     transition: all 0.3s ease-in-out;
 }
-.form-control{
+
+.form-control {
     transition: all 0.3s ease-in-out;
 }
+
 .form-control:focus {
     color: #6b7280;
     background-color: #fff;
@@ -64,19 +73,24 @@ div.input-content{
     outline: 0;
     box-shadow: 0 0px 0px 0 var(--green_light), 0 0 0 0.18rem var(--green_light) !important;
 }
-.form-select{
+
+.form-select {
     font-size: 1rem;
 }
+
 .input-content label.required:after {
-    content:"*";
-    color:rgb(247, 16, 16);
+    content: "*";
+    color: rgb(247, 16, 16);
 }
-.input-content label i{
-    color: var(--green) ;
+
+.input-content label i {
+    color: var(--green);
 }
-select.form-select option{
+
+select.form-select option {
     font-size: 1.1rem;
 }
+
 /*=========== Pagination ===========*/
 .page-item.active .page-link {
     background-color: var(--green_dark) !important;
@@ -87,6 +101,49 @@ select.form-select option{
     background-color: var(--green) !important;
     border-color: var(--green) !important;
 }
+
+/*=========== button-scroll-up ===========*/
+#admin #button-scroll-up {
+    display: inline-block;
+    background-color: var(--green_opacity);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#admin #button-scroll-up::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+#admin #button-scroll-up:hover {
+    cursor: pointer;
+    background-color: var(--green);
+}
+
+#admin #button-scroll-up:active {
+    background-color: var(--green);
+}
+
+#admin #button-scroll-up.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 /*==================================================================
 =================== NavBar  =================================
@@ -149,24 +206,24 @@ select.form-select option{
 #admin nav#sidebarMenu .sidebar-inner {
     overflow-y: visible !important;
 }
-/*==================================================================
-=================== search box ====================================
-==================================================================*/
-#admin
+
 /*==================================================================
 =================== table index ====================================
 ==================================================================*/
 #admin table.index-table td.actions i {
     font-size: 1.2rem;
 }
-#admin table.index-table i.fa-user{
+
+#admin table.index-table i.fa-user {
     color: var(--green_dark);
 }
-#admin table.index-table .delete-btn{
+
+#admin table.index-table .delete-btn {
     border: none;
     padding: 0;
     background-color: transparent;
 }
+
 /*==================================================================
 =================== table show ====================================
 ==================================================================*/

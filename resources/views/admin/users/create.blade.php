@@ -28,7 +28,7 @@
                             <div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-plus text-tertiary"></i> Create
+                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-plus text-primary"></i> Create
                                             User</h2>
                                     </div>
                                 </div>
@@ -163,7 +163,8 @@
                                             <select class="form-select form-control @error('role') is-invalid @enderror" name="role" id="role"  aria-label="Default select example" required>
                                                 <option value="" selected="selected" class="d-none">Choose User Role...</option>
                                                 <option value="1"  {{ old('role') == '1' ? "selected" : "" }}>Admin</option>
-                                                <option value="2"  {{ old('role') == '2' ? "selected" : "" }}>User</option>
+                                                {{-- <option value="2"  {{ old('role') == '2' ? "selected" : "" }}>Editor</option> --}}
+                                                <option value="3"  {{ old('role') == '3' ? "selected" : "" }}>User</option>
                                             </select>
                                             @error('role')
                                                 <small class="form-text text-danger">{{$message }}</small> 

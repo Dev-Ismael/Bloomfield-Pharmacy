@@ -30,6 +30,13 @@ body::-webkit-scrollbar-thumb{
     border-radius:8px;
     right: -10px
 }
+/*=========== txt ===========*/
+.text-primary{
+    color: var(--green) !important;
+}
+.text-primary:hover{
+    color: var(--green) !important;
+}
 /*=========== Buttons ===========*/
 .btn-primary {
     background-color: var(--green_dark) !important;
@@ -144,11 +151,17 @@ select.form-select option{
 }
 
 /*==================================================================
-=================== table =================================
+=================== table index ====================================
 ==================================================================*/
 #admin table.table td.actions i {
     font-size: 1.2rem;
 }
 #admin table i.fa-user{
     color: var(--green_dark);
+}
+/*==================================================================
+=================== table index ====================================
+==================================================================*/
+table.show-data i {
+    color: var(--green) !important;
 }

@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Users</li>
                     </ol>
                 </nav>
-                <h2 class="h4 text-primary"> <i class="fa-solid fa-users "></i> Users List</h2>
+                <h2 class="h4"> <i class="fa-solid fa-users text-primary"></i> Users List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.users.create') }}"
@@ -140,8 +140,8 @@
                                 </td>
                                 <td><a href="{{ route('admin.users.show', $user->id) }}"
                                         class="d-flex align-items-center"><i class="fa-solid fa-user p-2 fa-2x"></i>
-                                        <div class="d-block"><span class="fw-bold">{{ $user->name }}
-                                            </span>
+                                        <div class="d-block">
+                                            <span class="fw-bold">{{ $user->name }}</span>
                                             <div class="small text-gray">{{ $user->email }}</div>
                                         </div>
                                     </a></td>
@@ -149,8 +149,8 @@
                                 <td class="actions">
                                     <a href="{{ route('admin.users.show', $user->id) }}" class="text-tertiary"> <i
                                             class="fa-solid fa-eye"></i> </a>
-                                    <a href="#" class="text-info"> <i class="fa-solid fa-pen-to-square"></i> </a>
-                                    <a href="#" class="text-danger"> <i class="fa-solid fa-trash-can"></i> </a>
+                                    <a href="{{ route("admin.users.edit", $user->id) }}" class="text-info"> <i class="fa-solid fa-pen-to-square"></i> </a>
+                                    <a href="{{ route("admin.users.destroy", $user->id) }}" class="text-danger"> <i class="fa-solid fa-trash-can"></i> </a>
                                 </td>
                             </tr>
                         @endforeach

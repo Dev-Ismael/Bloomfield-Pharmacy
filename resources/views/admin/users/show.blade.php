@@ -28,69 +28,82 @@
                             <div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-tertiary"></i> User Details</h2>
+                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> User Details</h2>
                                     </div>
                                     <div class="col text-end"><a href="{{ route("admin.users.edit" , $user->id) }}"
                                             class="btn btn-sm btn-primary"> <i class="fa-solid fa-pen-to-square"></i> Edit</a></div>
                                 </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table align-items-center table-flush">
+                                <table class="table align-items-center table-flush show-data">
                                     <tbody>
-                                        @php
-
-                                        @endphp
                                         <tr>
                                             <td class="text-capitalize"> # ID </td>
                                             <td> {{ $user->id != "" ? $user->id : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> First Name </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> Username </td>
+                                            <td> {{ $user->name != "" ? $user->name : '-'  }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> First Name </td>
                                             <td> {{ $user->first_name != "" ? $user->first_name : '-'  }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> Last Name </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> Last Name </td>
                                             <td> {{ $user->last_name != "" ? $user->last_name : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> Email </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-envelope"></i> Email </td>
                                             <td> {{ $user->email != "" ? $user->email : '-'  }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> Email 2 </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-envelope"></i> Second Email </td>
                                             <td> {{ $user->email_2 != "" ? $user->email_2 : '-'  }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> phone </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-phone-volume"></i> Phone </td>
                                             <td> {{ $user->phone != "" ? $user->phone : '-'  }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize">  phone 2 </td>
+                                            <td class="text-capitalize">  <i class="fa-solid fa-phone-volume"></i> Second Phone  </td>
                                             <td> {{ $user->phone_2 != "" ? $user->phone_2 : '-' }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> state </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-flag-usa"></i> State </td>
                                             <td> {{ $user->state != "" ? $user->state : '-' }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> address </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Address </td>
                                             <td> {{ $user->address != "" ? $user->address : '-' }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> address 2 </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Second Address  </td>
                                             <td> {{ $user->address_2 != "" ? $user->address_2 : '-' }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> address 3 </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Third address </td>
                                             <td> {{ $user->address_3 != "" ? $user->address_3 : '-' }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> Created At </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-clock"></i> Created At </td>
                                             <td> {{ $user->created_at != "" ? $user->created_at : '-' }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> updated At </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-clock"></i> Updated At </td>
                                             <td> {{ $user->updated_at != "" ? $user->updated_at : '-' }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-shield-halved"></i> Role </td>
+                                            <td> 
+                                                @if ( $user->role == '1' )
+                                                    Admin
+                                                @elseif( $user->role == '2')
+                                                    Editor
+                                                @elseif( $user->role == '3')
+                                                    User
+                                                @endif
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

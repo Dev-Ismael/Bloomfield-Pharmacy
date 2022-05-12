@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -50,7 +51,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(CreateUserRequest $request)
     {
         
         $requestData = $request->all();
@@ -62,9 +63,9 @@ class UserController extends Controller
             $user = User::create( $requestData );
                 return redirect() -> route("admin.users.index") -> with( [ "success" => " user added successfully"] ) ;
             if(!$user) 
-                return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at insert opration"] ) ;
+                return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at added opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at insert opration"] ) ;
+            return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at added opration"] ) ;
         }
         
     }
@@ -77,8 +78,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        
-        $user = User::findOrFail($id);  // to check id in Db With Error 404
+        // find id in Db With Error 404
+        $user = User::findOrFail($id);  
         return view("admin.users.show" , compact("user") ) ;
     }
 
@@ -90,7 +91,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        // find id in Db With Error 404
+        $user = User::findOrFail($id);  
+        return view("admin.users.edit" , compact("user") ) ;
     }
 
     /**
@@ -100,9 +103,28 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        // find id in Db With Error 404
+        $user = User::findOrFail($id); 
+        $requestData = $request->all();
+
+        // Hash Password
+        if( $requestData['password'] == '' ){
+            $requestData['password'] = $user->password;
+        }else{
+            $requestData['password'] = Hash::make($request->password);
+        }
+
+        // Update Record in DB
+        try {
+            $update = $user-> update( $requestData );
+                return redirect() -> route("admin.users.index") -> with( [ "success" => " user updated successfully"] ) ;
+            if(!$update) 
+                return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at update opration"] ) ;
+        } catch (\Exception $e) {
+            return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at update opration"] ) ;
+        }
     }
 
     /**

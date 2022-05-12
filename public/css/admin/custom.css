@@ -149,11 +149,14 @@ select.form-select option{
 #admin nav#sidebarMenu .sidebar-inner {
     overflow-y: visible !important;
 }
-
+/*==================================================================
+=================== search box ====================================
+==================================================================*/
+#admin
 /*==================================================================
 =================== table index ====================================
 ==================================================================*/
-#admin table.index-table.table td.actions i {
+#admin table.index-table td.actions i {
     font-size: 1.2rem;
 }
 #admin table.index-table i.fa-user{
@@ -161,6 +164,7 @@ select.form-select option{
 }
 #admin table.index-table .delete-btn{
     border: none;
+    padding: 0;
     background-color: transparent;
 }
 /*==================================================================

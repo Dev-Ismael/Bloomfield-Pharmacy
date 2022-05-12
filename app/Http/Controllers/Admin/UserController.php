@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class UserController extends Controller
 {
@@ -148,4 +150,28 @@ class UserController extends Controller
             return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at delete opration"] ) ;
         }
     }
+
+
+
+
+
+    /**
+     * search in record.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        // validate search and redirect back
+        $this->validate($request, [
+            'email'     =>  ['required', 'string', 'email', 'max:55'],
+        ]);
+
+        $users = User::where('email', 'like', "%{$request->email}%")->paginate( 10 );
+        return view("admin.users.index",compact("users"));
+         
+    }
+
+
 }

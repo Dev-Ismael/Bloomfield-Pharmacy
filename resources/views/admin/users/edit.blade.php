@@ -44,7 +44,7 @@
 
                                         <div class="mb-4 input-content">
                                             <label for="name" class="capitalize"> <i class="fa-solid fa-file-signature"></i> Username </label>
-                                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" aria-describedby="emailHelp" placeholder="Type User Name..." autocomplete="nope" />
+                                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" aria-describedby="emailHelp" placeholder="Type User Name..." autocomplete="nope" required/>
                                             @error('name')
                                                 <small class="form-text text-danger">{{$message }}</small> 
                                             @enderror
@@ -71,7 +71,7 @@
 
                                         <div class="mb-4 input-content">
                                             <label for="email" class="capitalize"> <i class="fa-solid fa-envelope"></i> Email Address </label>
-                                            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" aria-describedby="emailHelp" placeholder="Type User Email..." autocomplete="nope" />
+                                            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" aria-describedby="emailHelp" placeholder="Type User Email..." autocomplete="nope" required/>
                                             @error('email')
                                                 <small class="form-text text-danger">{{$message }}</small> 
                                             @enderror
@@ -162,7 +162,7 @@
 
                                         <div class="mb-4 input-content">
                                             <label for="role" class="capitalize"> <i class="fa-solid fa-shield-halved"></i> User Role </label>
-                                            <select class="form-select form-control @error('role') is-invalid @enderror" name="role" id="role"  aria-label="Default select example">
+                                            <select class="form-select form-control @error('role') is-invalid @enderror" name="role" id="role"  aria-label="Default select example"  required>
                                                 <option value="1"  {{ $user->role == '1' ? "selected" : "" }}>Admin</option>
                                                 {{-- <option value="2"  {{ $user->role == '2' ? "selected" : "" }}>Editor</option> --}}
                                                 <option value="3"  {{ $user->role == '3' ? "selected" : "" }}>User</option>

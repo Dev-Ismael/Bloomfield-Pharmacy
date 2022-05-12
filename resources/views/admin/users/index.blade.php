@@ -35,45 +35,54 @@
 
         <div class="table-settings mb-4">
             <div class="row justify-content-between align-items-center">
-                <div class="col-9 col-lg-8 d-md-flex">
-                    <div class="input-group me-2 me-lg-3 fmxw-300"><span class="input-group-text"><svg
-                                class="icon icon-xs" x-description="Heroicon name: solid/search"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                    clip-rule="evenodd"></path>
-                            </svg> </span><input type="text" class="form-control" placeholder="Search users"></div>
-                </div>
-                <div class="col-3 col-lg-4 d-flex justify-content-end">
-                    <div class="btn-group">
-                        <div class="dropdown me-1">
-                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg
-                                    class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z">
-                                    </path>
-                                </svg> <span class="visually-hidden">Toggle Dropdown</span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end pb-0">
-                                <span class="small ps-3 fw-bold text-dark">Show</span>
 
-                                <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }}"
-                                    href="{{ route('admin.users.perPage', 10) }}"> 10 </a>
-                                <a class="dropdown-item {{ Request::is('*/perPage/30') ? 'active' : '' }}"
-                                    href="{{ route('admin.users.perPage', 30) }}"> 30 </a>
-                                <a class="dropdown-item {{ Request::is('*/perPage/50') ? 'active' : '' }}"
-                                    href="{{ route('admin.users.perPage', 50) }}"> 50 </a>
-                                <a class="dropdown-item {{ Request::is('*/perPage/100') ? 'active' : '' }}"
-                                    href="{{ route('admin.users.perPage', 100) }}"> 100 </a>
+                <!--------------- Search Form --------------->
+                <div class="col-9 col-lg-8 d-md-flex">
+                    <form action="{{ route('admin.users.search') }}" method="POST" class="input-group me-2 me-lg-3 fmxw-300">
+                        <button type="submit" class="input-group-text">
+                            <svg class="icon icon-xs" x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        @csrf
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Search users by primary email" autocomplete="off" required/>
+                        @error('email')
+                            <div class="invalid-feedback" style="margin-left: 40px">{{$message }}.</div>
+                        @enderror
+                    </form>
+                </div>
+                <!------------------ Dynamic Pagination ------------------->
+                @if( preg_match('(search)', url()->current()) !== 1 )  <!---- Remove in search Page ---->
+                    <div class="col-3 col-lg-4 d-flex justify-content-end">
+                        <div class="btn-group">
+                            <div class="dropdown me-1">
+                                <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-1"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><svg
+                                        class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z">
+                                        </path>
+                                    </svg> <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end pb-0">
+                                    <span class="small ps-3 fw-bold text-dark">Show</span>
+
+                                    <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }}"
+                                        href="{{ route('admin.users.perPage', 10) }}"> 10 </a>
+                                    <a class="dropdown-item {{ Request::is('*/perPage/30') ? 'active' : '' }}"
+                                        href="{{ route('admin.users.perPage', 30) }}"> 30 </a>
+                                    <a class="dropdown-item {{ Request::is('*/perPage/50') ? 'active' : '' }}"
+                                        href="{{ route('admin.users.perPage', 50) }}"> 50 </a>
+                                    <a class="dropdown-item {{ Request::is('*/perPage/100') ? 'active' : '' }}"
+                                        href="{{ route('admin.users.perPage', 100) }}"> 100 </a>
+
+                                </div>
 
                             </div>
-
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
 
@@ -81,7 +90,7 @@
 
 
         <!--------------- Session Alert ----------------->
-        @if(session()->has('success'))
+        @if (session()->has('success'))
             <div class="notyf" style="justify-content: flex-end; align-items: end;">
                 <div class="notyf__toast notyf__toast--upper notyf__toast--disappear" style="animation-delay: 3s;">
                     <div class="notyf__wrapper">
@@ -89,93 +98,94 @@
                     </div>
                     <div class="notyf__ripple" style="background: #0ea271;"></div>
                 </div>
-            </div
-        @elseif( session()->has('failed') ) 
-            <div class="notyf" style="justify-content: flex-end; align-items: end;">
-                <div class="notyf__toast notyf__toast--upper notyf__toast--disappear" style="animation-delay: 3s;">
-                    <div class="notyf__wrapper">
-                        <div> <i class="fa-solid fa-x"></i> {{ session()->get('failed') }} </div>
-                    </div>
-                    <div class="notyf__ripple" style="background: #ca1a41;"></div>
+        </div @elseif(session()->has('failed')) <div class="notyf"
+                style="justify-content: flex-end; align-items: end;">
+            <div class="notyf__toast notyf__toast--upper notyf__toast--disappear" style="animation-delay: 3s;">
+                <div class="notyf__wrapper">
+                    <div> <i class="fa-solid fa-x"></i> {{ session()->get('failed') }} </div>
                 </div>
-            </div> 
-        @endif
-        
-
-
-        @if ($users->isEmpty())
-            <!----------- No Data ------------->
-            <div class="card card-body shadow border-0 text-center">
-                No Data Found :(
+                <div class="notyf__ripple" style="background: #ca1a41;"></div>
             </div>
-        @else
-            <!----------- Users Table ------------->
-            <div class="card card-body shadow border-0 table-wrapper table-responsive">
-                <div class="d-flex mb-3"><select class="form-select fmxw-200" aria-label="Message select example">
-                        <option selected="selected">Bulk Action</option>
-                        <option value="1">Send Email</option>
-                        <option value="2">Change Group</option>
-                        <option value="3">Delete User</option>
-                    </select> <button class="btn btn-sm px-3 btn-primary ms-3">Apply</button></div>
-                <table class="table user-table table-hover align-items-center index-table">
-                    <thead>
+    </div>
+    @endif
+
+
+
+    @if ($users->isEmpty())
+        <!----------- No Data ------------->
+        <div class="card card-body shadow border-0 text-center">
+            No Data Found :(
+        </div>
+    @else
+        <!----------- Users Table ------------->
+        <div class="card card-body shadow border-0 table-wrapper table-responsive">
+            <div class="d-flex mb-3"><select class="form-select fmxw-200" aria-label="Message select example">
+                    <option selected="selected">Bulk Action</option>
+                    <option value="1">Send Email</option>
+                    <option value="2">Change Group</option>
+                    <option value="3">Delete User</option>
+                </select> <button class="btn btn-sm px-3 btn-primary ms-3">Apply</button></div>
+            <table class="table user-table table-hover align-items-center index-table">
+                <thead>
+                    <tr>
+                        <th class="border-bottom">
+                            <div class="form-check dashboard-check"><input class="form-check-input checkbox-head"
+                                    type="checkbox" value="" id="userCheck55"> <label class="form-check-label"
+                                    for="userCheck55"></label></div>
+                        </th>
+                        <th class="border-bottom">Name</th>
+                        <th class="border-bottom">Date Created</th>
+                        <th class="border-bottom">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
                         <tr>
-                            <th class="border-bottom">
-                                <div class="form-check dashboard-check"><input class="form-check-input checkbox-head"
-                                        type="checkbox" value="" id="userCheck55"> <label class="form-check-label"
-                                        for="userCheck55"></label></div>
-                            </th>
-                            <th class="border-bottom">Name</th>
-                            <th class="border-bottom">Date Created</th>
-                            <th class="border-bottom">Action</th>
+                            <td>
+                                <div class="form-check dashboard-check"><input class="form-check-input" type="checkbox"
+                                        value="0" id="userCheck1"> <label class="form-check-label" for="userCheck1"></label>
+                                </div>
+                            </td>
+                            <td><a href="{{ route('admin.users.show', $user->id) }}" class="d-flex align-items-center"><i
+                                        class="fa-solid fa-user p-2 fa-2x"></i>
+                                    <div class="d-block">
+                                        <span class="fw-bold">{{ $user->name }}</span>
+                                        <div class="small text-gray">{{ $user->email }}</div>
+                                    </div>
+                                </a></td>
+                            <td><span class="fw-normal">{{ $user->created_at }}</span></td>
+                            <td class="actions">
+                                <a href="{{ route('admin.users.show', $user->id) }}" class="text-tertiary"> <i
+                                        class="fa-solid fa-eye fa-lg"></i> </a>
+                                <a href="{{ route('admin.users.edit', $user->id) }}" class="text-info"> <i
+                                        class="fa-solid fa-pen-to-square fa-lg"></i> </a>
+                                <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
+                                    style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="delete-btn">
+                                        <i class="fa-solid fa-trash-can text-danger fa-lg"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                            <tr>
-                                <td>
-                                    <div class="form-check dashboard-check"><input class="form-check-input" type="checkbox"
-                                            value="0" id="userCheck1"> <label class="form-check-label"
-                                            for="userCheck1"></label></div>
-                                </td>
-                                <td><a href="{{ route('admin.users.show', $user->id) }}"
-                                        class="d-flex align-items-center"><i class="fa-solid fa-user p-2 fa-2x"></i>
-                                        <div class="d-block">
-                                            <span class="fw-bold">{{ $user->name }}</span>
-                                            <div class="small text-gray">{{ $user->email }}</div>
-                                        </div>
-                                    </a></td>
-                                <td><span class="fw-normal">{{ $user->created_at }}</span></td>
-                                <td class="actions">
-                                    <a href="{{ route('admin.users.show', $user->id) }}" class="text-tertiary"> <i
-                                            class="fa-solid fa-eye"></i> </a>
-                                    <a href="{{ route("admin.users.edit", $user->id) }}" class="text-info"> <i class="fa-solid fa-pen-to-square"></i> </a>
-                                    <form action="{{ route("admin.users.destroy" , $user->id) }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="delete-btn"> 
-                                            <i class="fa-solid fa-trash-can text-danger"></i>  
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <div
-                    class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
-                    {{-- Pagination --}}
-                    <div class="d-flex justify-content-center">
-                        {{ $users->withQueryString()->onEachSide(0)->links() }}
-                    </div>
-                    <div class="fw-normal small mt-4 mt-lg-0">
-                        {{-- Showing <b>5</b> out of <b>25</b> entries --}}
-                        Showing <b>{{ $users->firstItem() }}</b> to <b>{{ $users->lastItem() }}</b>
-                        of total <b>{{ $users->total() }}</b> entries
-                    </div>
+                    @endforeach
+                </tbody>
+            </table>
+            <div
+                class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                {{-- Pagination --}}
+                <div class="d-flex justify-content-center">
+                    {{ $users->withQueryString()->onEachSide(0)->links() }}
+                </div>
+                <div class="fw-normal small mt-4 mt-lg-0">
+                    {{-- Showing <b>5</b> out of <b>25</b> entries --}}
+                    Showing <b>{{ $users->firstItem() }}</b> to <b>{{ $users->lastItem() }}</b>
+                    of total <b>{{ $users->total() }}</b> entries
                 </div>
             </div>
-        @endif
+        </div>
+    @endif
 
     </div>
 @endsection

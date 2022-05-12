@@ -130,9 +130,10 @@
                     <thead>
                         <tr>
                             <th class="border-bottom">
-                                <div class="form-check dashboard-check"><input class="form-check-input checkbox-head"
-                                        type="checkbox" value="" id="userCheck55"> <label class="form-check-label"
-                                        for="userCheck55"></label></div>
+                                <div class="form-check dashboard-check">
+                                    <input class="form-check-input checkbox-head" type="checkbox" value="1" id="main-checker"> 
+                                    <label class="form-check-label" for="userCheck55"> </label>
+                                </div>
                             </th>
                             <th class="border-bottom">Name</th>
                             <th class="border-bottom">Date Created</th>
@@ -143,8 +144,9 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>
-                                    <div class="form-check dashboard-check"><input class="form-check-input" type="checkbox"
-                                            value="0" id="userCheck1"> <label class="form-check-label" for="userCheck1"></label>
+                                    <div class="form-check dashboard-check">
+                                        <input class="form-check-input checkbox-head check-item" type="checkbox"> 
+                                        <label class="form-check-label" for="userCheck55">  </label>
                                     </div>
                                 </td>
                                 <td><a href="{{ route('admin.users.show', $user->id) }}" class="d-flex align-items-center"><i
@@ -190,7 +192,7 @@
 
 
         <!-- Back to top button -->
-        <a id="button-scroll-up" class="show"></a>
+        <a id="button-scroll-up"></a>
 
     </div>
 @endsection

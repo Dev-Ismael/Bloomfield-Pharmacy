@@ -14,7 +14,7 @@
     /*==================================================
     ================ Scroll To Top
     =====================================================*/
-    var scrollBtn = document.getElementById("button-scroll-up");
+    const scrollBtn = document.getElementById("button-scroll-up");
     
     // visibility function
     const btnVisibility = () => {
@@ -42,5 +42,21 @@
     });
    
 
+    /*==================================================
+    ================ input Check
+    =====================================================*/
+    const mainChecker = document.getElementById("main-checker");
+    const checkItems = document.querySelectorAll(".check-item");
 
+    mainChecker.addEventListener('click', event => {
+        if (mainChecker.checked == true) {
+            for (var i = 0; i < checkItems.length; i++) {
+                checkItems[i].setAttribute("checked", "checked");
+            }
+        } else {
+            for (var i = 0; i < checkItems.length; i++) {
+                checkItems[i].removeAttribute('checked');
+            }
+        }
+    });
 

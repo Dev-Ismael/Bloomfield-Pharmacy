@@ -114,8 +114,9 @@
 
         @if ($users->isEmpty())
             <!----------- No Data ------------->
-            <div class="card card-body shadow border-0 text-center">
-                No Data Found :(
+            <div class="card card-body shadow border-0 d-flex justify-content-center align-items-center">
+                <img src="{{ asset("images/no_data.jpg") }}" alt="no_data" class="img-fluid" style="max-width: 500px">
+                <h5>Sorry... No Data Available !!</h5>
             </div>
         @else
             <!----------- Users Table ------------->

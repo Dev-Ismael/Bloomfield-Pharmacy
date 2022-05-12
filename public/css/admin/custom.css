@@ -39,15 +39,15 @@ body::-webkit-scrollbar-thumb{
 }
 /*=========== Buttons ===========*/
 .btn-primary {
-    background-color: var(--green_dark) !important;
-    border: 1px solid var(--green_dark) !important;
+    background-color: var(--green) !important;
+    border: 1px solid var(--green) !important;
     color: #fff;
     box-shadow: none;
 }
 
 .btn-primary:hover {
-    background-color: var(--green) !important;
-    border: 1px solid var(--green) !important;
+    background-color: var(--green_dark) !important;
+    border: 1px solid var(--green_dark) !important;
     color: #fff;
 }
 /*=========== Inputs ==============*/
@@ -153,14 +153,18 @@ select.form-select option{
 /*==================================================================
 =================== table index ====================================
 ==================================================================*/
-#admin table.table td.actions i {
+#admin table.index-table.table td.actions i {
     font-size: 1.2rem;
 }
-#admin table i.fa-user{
+#admin table.index-table i.fa-user{
     color: var(--green_dark);
 }
+#admin table.index-table .delete-btn{
+    border: none;
+    background-color: transparent;
+}
 /*==================================================================
-=================== table index ====================================
+=================== table show ====================================
 ==================================================================*/
 table.show-data i {
     color: var(--green) !important;

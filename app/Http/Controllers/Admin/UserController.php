@@ -135,6 +135,17 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // find id in Db With Error 404
+        $user = User::findOrFail($id); 
+        
+        // Delete Record from DB
+        try {
+            $delete = $user->delete();
+                return redirect() -> route("admin.users.index") -> with( [ "success" => " user deleted successfully"] ) ;
+            if(!$delete) 
+                return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at delete opration"] ) ;
+        } catch (\Exception $e) {
+            return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at delete opration"] ) ;
+        }
     }
 }

@@ -117,7 +117,7 @@
                         <option value="2">Change Group</option>
                         <option value="3">Delete User</option>
                     </select> <button class="btn btn-sm px-3 btn-primary ms-3">Apply</button></div>
-                <table class="table user-table table-hover align-items-center">
+                <table class="table user-table table-hover align-items-center index-table">
                     <thead>
                         <tr>
                             <th class="border-bottom">
@@ -150,7 +150,13 @@
                                     <a href="{{ route('admin.users.show', $user->id) }}" class="text-tertiary"> <i
                                             class="fa-solid fa-eye"></i> </a>
                                     <a href="{{ route("admin.users.edit", $user->id) }}" class="text-info"> <i class="fa-solid fa-pen-to-square"></i> </a>
-                                    <a href="{{ route("admin.users.destroy", $user->id) }}" class="text-danger"> <i class="fa-solid fa-trash-can"></i> </a>
+                                    <form action="{{ route("admin.users.destroy" , $user->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="delete-btn"> 
+                                            <i class="fa-solid fa-trash-can text-danger"></i>  
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

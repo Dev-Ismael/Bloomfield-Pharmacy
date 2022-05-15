@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 =========== Route Pattern ======================================================
 ===========================================================================*/\
 Route::pattern('num', '[0-9]+');
+Route::pattern('id', '[0-9]+');
 
 
 
@@ -80,14 +81,23 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
     // Dashboard
     Route::get('/dashboard' , [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
+
     // Users
     Route::get('users/perPage/{num}' , [App\Http\Controllers\Admin\UserController::class, 'perPage'])->name("users.perPage");
     Route::post('users/search' , [App\Http\Controllers\Admin\UserController::class, 'search'])->name("users.search");
     Route::post('users/multiAction' , [App\Http\Controllers\Admin\UserController::class, 'multiAction'])->name("users.multiAction");
     Route::resource('users', App\Http\Controllers\Admin\UserController::class);
-    Route::get('users/destroy/{user}' , [App\Http\Controllers\Admin\UserController::class, 'destroy'] )->name("users.destroy");
+    Route::get('users/destroy/{id}' , [App\Http\Controllers\Admin\UserController::class, 'destroy'] )->name("users.destroy");
 
 
     
+    // Categories
+    Route::get('categories/perPage/{num}' , [App\Http\Controllers\Admin\CategoryController::class, 'perPage'])->name("categories.perPage");
+    Route::post('categories/search' , [App\Http\Controllers\Admin\CategoryController::class, 'search'])->name("categories.search");
+    Route::post('categories/multiAction' , [App\Http\Controllers\Admin\CategoryController::class, 'multiAction'])->name("categories.multiAction");
+    Route::resource('categories', App\Http\Controllers\Admin\CategoryController::class);
+    Route::get('categories/destroy/{id}' , [App\Http\Controllers\Admin\CategoryController::class, 'destroy'] )->name("categories.destroy");
+
+
 });
 

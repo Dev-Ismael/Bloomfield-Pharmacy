@@ -225,6 +225,9 @@ select.form-select option {
     overflow-y: visible !important;
 }
 
+#admin nav#sidebarMenu .multi-level .nav-item .nav-link{
+    padding-left: 35px !important;
+}
 /*==================================================================
 =================== table index ====================================
 ==================================================================*/

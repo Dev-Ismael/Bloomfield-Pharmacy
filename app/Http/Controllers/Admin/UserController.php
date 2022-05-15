@@ -63,11 +63,11 @@ class UserController extends Controller
         // Store in DB
         try {
             $user = User::create( $requestData );
-                return redirect() -> route("admin.users.index") -> with( [ "success" => " user added successfully"] ) ;
+                return redirect() -> route("admin.users.index") -> with( [ "success" => " User added successfully"] ) ;
             if(!$user) 
-                return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at added opration"] ) ;
+                return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at added opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at added opration"] ) ;
+            return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
         
     }
@@ -121,11 +121,11 @@ class UserController extends Controller
         // Update Record in DB
         try {
             $update = $user-> update( $requestData );
-                return redirect() -> route("admin.users.index") -> with( [ "success" => " user updated successfully"] ) ;
+                return redirect() -> route("admin.users.index") -> with( [ "success" => " User updated successfully"] ) ;
             if(!$update) 
-                return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at update opration"] ) ;
+                return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at update opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at update opration"] ) ;
+            return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at update opration"] ) ;
         }
     }
 
@@ -143,11 +143,11 @@ class UserController extends Controller
         // Delete Record from DB
         try {
             $delete = $user->delete();
-                return redirect() -> route("admin.users.index") -> with( [ "success" => " user deleted successfully"] ) ;
+                return redirect() -> route("admin.users.index") -> with( [ "success" => " User deleted successfully"] ) ;
             if(!$delete) 
-                return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at delete opration"] ) ;
+                return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.users.index") -> with( [ "failed" => "error at delete opration"] ) ;
+            return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         }
     }
 
@@ -173,5 +173,39 @@ class UserController extends Controller
          
     }
 
+
+
+    public function multiAction(Request $request)
+    {
+
+        // Validator at action
+        $validator = Validator::make($request->all(),[
+            "action" => 'required | string',
+        ]);
+        
+        // Check If request->id exist
+        if ($validator->fails())
+            return redirect()->back()->withErrors($validator)->withInput();
+
+        // Check If request->id exist & add validation Msg
+        if( !$request->has('id') ){
+            $validator->getMessageBag()->add('action', 'Pease select rows..');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+            
+        // If Action is Delete
+        if( $request->action == "delete" ){
+            try {
+                $delete = User::destroy( $request->id );
+                    return redirect() -> route("admin.users.index") -> with( [ "success" => " Users deleted successfully"] ) ;
+                if(!$delete) 
+                    return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+            } catch (\Exception $e) {
+                return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+            }
+        }
+
+    }
+    
 
 }

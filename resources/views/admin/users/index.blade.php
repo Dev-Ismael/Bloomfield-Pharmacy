@@ -94,7 +94,7 @@
             <div class="notyf" style="justify-content: flex-end; align-items: end;">
                 <div class="notyf__toast notyf__toast--upper notyf__toast--disappear" style="animation-delay: 3s;">
                     <div class="notyf__wrapper">
-                        <div> <i class="fa-solid fa-check"></i> {{ session()->get('success') }} </div>
+                        <div> <i class="fa-solid fa-check pr-2"></i> {{ session()->get('success') }} </div>
                     </div>
                     <div class="notyf__ripple" style="background: #0ea271;"></div>
                 </div>
@@ -103,7 +103,7 @@
             <div class="notyf" style="justify-content: flex-end; align-items: end;">
                 <div class="notyf__toast notyf__toast--upper notyf__toast--disappear" style="animation-delay: 3s;">
                     <div class="notyf__wrapper">
-                        <div> <i class="fa-solid fa-x"></i> {{ session()->get('failed') }} </div>
+                        <div> <i class="fa-solid fa-x pr-2"></i> {{ session()->get('failed') }} </div>
                     </div>
                     <div class="notyf__ripple" style="background: #ca1a41;"></div>
                 </div>
@@ -119,71 +119,86 @@
                 <h5>Sorry... No Data Available !!</h5>
             </div>
         @else
-            <!----------- Users Table ------------->
+            <!----------- Index Table ------------->
             <div class="card card-body shadow border-0 table-wrapper table-responsive">
-                <div class="d-flex mb-3"><select class="form-select fmxw-200" aria-label="Message select example">
-                        <option selected="selected">Bulk Action</option>
-                        <option value="1">Send Email</option>
-                        <option value="2">Change Group</option>
-                        <option value="3">Delete User</option>
-                    </select> <button class="btn btn-sm px-3 btn-primary ms-3">Apply</button></div>
-                <table class="table user-table table-hover align-items-center index-table">
-                    <thead>
-                        <tr>
-                            <th class="border-bottom">
-                                <div class="form-check dashboard-check">
-                                    <input class="form-check-input checkbox-head" type="checkbox" value="1" id="main-checker"> 
-                                    <label class="form-check-label" for="userCheck55"> </label>
-                                </div>
-                            </th>
-                            <th class="border-bottom">Name</th>
-                            <th class="border-bottom">Date Created</th>
-                            <th class="border-bottom">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                            <tr>
-                                <td>
-                                    <div class="form-check dashboard-check">
-                                        <input class="form-check-input checkbox-head check-item" type="checkbox"> 
-                                        <label class="form-check-label" for="userCheck55">  </label>
-                                    </div>
-                                </td>
-                                <td><a href="{{ route('admin.users.show', $user->id) }}" class="d-flex align-items-center"><i
-                                            class="fa-solid fa-user p-2 fa-2x"></i>
-                                        <div class="d-block">
-                                            <span class="fw-bold">{{ $user->name }}</span>
-                                            <div class="small text-gray">{{ $user->email }}</div>
-                                        </div>
-                                    </a></td>
-                                <td><span class="fw-normal">{{ $user->created_at }}</span></td>
-                                <td class="actions">
-                                    <a href="{{ route('admin.users.show', $user->id) }}" class="text-tertiary"> <i
-                                            class="fa-solid fa-eye fa-lg"></i> </a>
-                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="text-info"> <i
-                                            class="fa-solid fa-pen-to-square fa-lg"></i> </a>
-                                    <a href="{{ route('admin.users.destroy', $user->id) }}" class="text-info delete-record">
-                                        <i class="fa-solid fa-trash-can text-danger fa-lg"></i> 
-                                    </a>
 
-                                </td>
+                <!----------- multi Action ------------->
+                <form id="multi-action-form" action="{{ route("admin.users.multiAction") }}" method="POST">
+                    <div class="pb-3">
+                        
+                        @csrf
+                        <select id="select-action" class="form-select fmxw-200" name="action" aria-label="Message select example" style="display:inline">
+                            <option value="" selected="selected" style="display: none"> Choose Action </option>
+                            <option value="delete"> Delete User </option>
+                        </select> 
+                        <button type="submit" id="multi-alert-btn" class="btn btn-sm px-3 btn-primary ms-3 multi-alert" disabled>Apply</button>
+                        
+                        @error('action')
+                            <div class="invalid-feedback" style="margin-left: 10px;display: block;" >{{$message }}.</div>
+                        @enderror
+
+                    </div>
+                    <table class="table user-table table-hover align-items-center index-table">
+                        <thead>
+                            <tr>
+                                <th class="border-bottom">
+                                    <div class="form-check dashboard-check">
+                                        <input name="id[]" value="0" class="form-check-input checkbox-head" type="checkbox" id="main-checker"> 
+                                        <label class="form-check-label" for="userCheck55"> </label>
+                                    </div>
+                                </th>
+                                <th class="border-bottom">Name</th>
+                                <th class="border-bottom">Date Created</th>
+                                <th class="border-bottom">Action</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <div
-                    class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
-                    {{-- Pagination --}}
-                    <div class="d-flex justify-content-center">
-                        {{ $users->withQueryString()->onEachSide(0)->links() }}
+                        </thead>
+                        <tbody>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td>
+                                        <div class="form-check dashboard-check">
+                                            <input name="id[]" value="{{ $user->id }}" class="form-check-input checkbox-head check-item"  type="checkbox"> 
+                                            <label class="form-check-label" for="userCheck55">  </label>
+                                        </div>
+                                    </td>
+                                    <td><a href="{{ route('admin.users.show', $user->id) }}" class="d-flex align-items-center"><i
+                                                class="fa-solid fa-user p-2 fa-2x"></i>
+                                            <div class="d-block">
+                                                <span class="fw-bold">{{ $user->name }}</span>
+                                                <div class="small text-gray">{{ $user->email }}</div>
+                                            </div>
+                                        </a></td>
+                                    <td><span class="fw-normal">{{ $user->created_at }}</span></td>
+                                    <td class="actions">
+                                        <a href="{{ route('admin.users.show', $user->id) }}" class="text-tertiary"> <i
+                                                class="fa-solid fa-eye fa-lg"></i> </a>
+                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="text-info"> <i
+                                                class="fa-solid fa-pen-to-square fa-lg"></i> </a>
+                                        <a href="{{ route('admin.users.destroy', $user->id) }}" class="text-info delete-record">
+                                            <i class="fa-solid fa-trash-can text-danger fa-lg"></i> 
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <div
+                        class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                        {{-- Pagination --}}
+                        <div class="d-flex justify-content-center">
+                            {{ $users->withQueryString()->onEachSide(0)->links() }}
+                        </div>
+                        <div class="fw-normal small mt-4 mt-lg-0">
+                            Showing <b>{{ $users->firstItem() }}</b> to <b>{{ $users->lastItem() }}</b>
+                            of total <b>{{ $users->total() }}</b> entries
+                        </div>
                     </div>
-                    <div class="fw-normal small mt-4 mt-lg-0">
-                        Showing <b>{{ $users->firstItem() }}</b> to <b>{{ $users->lastItem() }}</b>
-                        of total <b>{{ $users->total() }}</b> entries
-                    </div>
-                </div>
+                </form>
             </div>
+
+
+                
         @endif
 
 

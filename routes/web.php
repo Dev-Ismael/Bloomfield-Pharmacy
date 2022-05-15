@@ -83,6 +83,7 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
     // Users
     Route::get('users/perPage/{num}' , [App\Http\Controllers\Admin\UserController::class, 'perPage'])->name("users.perPage");
     Route::post('users/search' , [App\Http\Controllers\Admin\UserController::class, 'search'])->name("users.search");
+    Route::post('users/multiAction' , [App\Http\Controllers\Admin\UserController::class, 'multiAction'])->name("users.multiAction");
     Route::resource('users', App\Http\Controllers\Admin\UserController::class);
     Route::get('users/destroy/{user}' , [App\Http\Controllers\Admin\UserController::class, 'destroy'] )->name("users.destroy");
 

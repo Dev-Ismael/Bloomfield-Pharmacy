@@ -101,3 +101,40 @@
 
     }
 
+    /*==================================================
+    ================ Multible btn Confimation
+    =====================================================*/
+    const multiAlertBtn = document.getElementById("multi-alert-btn");
+    const multiActionForm = document.getElementById("multi-action-form");
+
+    if(multiAlertBtn){
+
+        multiAlertBtn.addEventListener('click', event => {
+
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to back again!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, do it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    multiActionForm.submit();
+                }
+            })
+            
+        });
+
+    }
+
+    /*==================================================
+    ================ if Multible option
+    =====================================================*/
+    const selectAction = document.getElementById('select-action');
+    
+    selectAction.addEventListener('change', function handleChange(event) {
+        multiAlertBtn.removeAttribute("disabled");
+    });

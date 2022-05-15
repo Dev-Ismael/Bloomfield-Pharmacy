@@ -100,6 +100,15 @@ select.form-select option {
     font-size: 1.1rem;
 }
 
+/*=========== Dynamic Pagination ===========*/
+.dropdown-menu.dynamic-pagination .dropdown-item.active::after{
+    font-family: "Font Awesome 5 Free";
+    content: "\f00c";
+    padding-right: 5px;
+    float: right;
+    vertical-align: middle;
+    font-weight: 900;
+}
 /*=========== Pagination ===========*/
 .page-item.active .page-link {
     background-color: var(--green_dark) !important;

@@ -25,11 +25,7 @@
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.users.create') }}"
-                    class="btn btn-sm btn-primary d-inline-flex align-items-center"><svg class="icon icon-xs me-2"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                    </svg> New User</a>
+                    class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i> &nbsp; New User</a>
             </div>
         </div>
 
@@ -65,10 +61,10 @@
                                         </path>
                                     </svg> <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-end pb-0">
+                                <div class="dynamic-pagination dropdown-menu dropdown-menu-end pb-0">
                                     <span class="small ps-3 fw-bold text-dark">Show</span>
 
-                                    <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }}"
+                                    <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }} {{ Request::is('admin/users') ? 'active' : '' }}"
                                         href="{{ route('admin.users.perPage', 10) }}"> 10 </a>
                                     <a class="dropdown-item {{ Request::is('*/perPage/30') ? 'active' : '' }}"
                                         href="{{ route('admin.users.perPage', 30) }}"> 30 </a>
@@ -131,7 +127,7 @@
                             <option value="" selected="selected" style="display: none"> Choose Action </option>
                             <option value="delete"> Delete User </option>
                         </select> 
-                        <button type="submit" id="multi-alert-btn" class="btn btn-sm px-3 btn-primary ms-3 multi-alert" disabled>Apply</button>
+                        <button type="submit" id="multi-alert-btn" class="btn btn-sm px-3 btn-primary ms-3 multi-alert" disabled> <i class="fa-solid fa-list-check"></i> Apply</button>
                         
                         @error('action')
                             <div class="invalid-feedback" style="margin-left: 10px;display: block;" >{{$message }}.</div>

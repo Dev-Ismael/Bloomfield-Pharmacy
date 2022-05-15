@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Category;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Hash;
@@ -21,8 +21,8 @@ class CategoryController extends Controller
     public function perPage( $num=10 )
     {
         // Dynamic pagination
-        $users = User::orderBy('id','desc')->paginate( $num );
-        return view("admin.users.index",compact("users"));
+        $categories = Category::orderBy('id','desc')->paginate( $num );
+        return view("admin.categories.index",compact("categories"));
     }
 
 
@@ -33,8 +33,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id','desc')->paginate( 10 );
-        return view("admin.users.index",compact("users"));
+        $categories = Category::orderBy('id','desc')->paginate( 10 );
+        return view("admin.categories.index",compact("categories"));
     }
 
     /**
@@ -44,7 +44,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view("admin.users.create");
+        return view("admin.categories.create");
     }
 
     /**
@@ -62,12 +62,12 @@ class CategoryController extends Controller
 
         // Store in DB
         try {
-            $user = User::create( $requestData );
-                return redirect() -> route("admin.users.index") -> with( [ "success" => " User added successfully"] ) ;
-            if(!$user) 
-                return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at added opration"] ) ;
+            $category = Category::create( $requestData );
+                return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category added successfully"] ) ;
+            if(!$category) 
+                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at added opration"] ) ;
+            return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
         
     }
@@ -81,8 +81,8 @@ class CategoryController extends Controller
     public function show($id)
     {
         // find id in Db With Error 404
-        $user = User::findOrFail($id);  
-        return view("admin.users.show" , compact("user") ) ;
+        $category = Category::findOrFail($id);  
+        return view("admin.categories.show" , compact("category") ) ;
     }
 
     /**
@@ -94,8 +94,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         // find id in Db With Error 404
-        $user = User::findOrFail($id);  
-        return view("admin.users.edit" , compact("user") ) ;
+        $category = Category::findOrFail($id);  
+        return view("admin.categories.edit" , compact("category") ) ;
     }
 
     /**
@@ -108,24 +108,24 @@ class CategoryController extends Controller
     public function update(UpdateUserRequest $request, $id)
     {
         // find id in Db With Error 404
-        $user = User::findOrFail($id); 
+        $category = Category::findOrFail($id); 
         $requestData = $request->all();
 
         // Hash Password
         if( $requestData['password'] == '' ){
-            $requestData['password'] = $user->password;
+            $requestData['password'] = $category->password;
         }else{
             $requestData['password'] = Hash::make($request->password);
         }
 
         // Update Record in DB
         try {
-            $update = $user-> update( $requestData );
-                return redirect() -> route("admin.users.index") -> with( [ "success" => " User updated successfully"] ) ;
+            $update = $category-> update( $requestData );
+                return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category updated successfully"] ) ;
             if(!$update) 
-                return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at update opration"] ) ;
+                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at update opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at update opration"] ) ;
         }
     }
 
@@ -138,16 +138,16 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $user = User::findOrFail($id); 
+        $category = Category::findOrFail($id); 
         
         // Delete Record from DB
         try {
-            $delete = $user->delete();
-                return redirect() -> route("admin.users.index") -> with( [ "success" => " User deleted successfully"] ) ;
+            $delete = $category->delete();
+                return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category deleted successfully"] ) ;
             if(!$delete) 
-                return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+            return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         }
     }
 
@@ -168,8 +168,8 @@ class CategoryController extends Controller
             'email'     =>  ['required', 'string', 'email', 'max:55'],
         ]);
 
-        $users = User::where('email', 'like', "%{$request->email}%")->paginate( 10 );
-        return view("admin.users.index",compact("users"));
+        $categories = Category::where('email', 'like', "%{$request->email}%")->paginate( 10 );
+        return view("admin.categories.index",compact("categories"));
          
     }
 
@@ -196,12 +196,12 @@ class CategoryController extends Controller
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
-                $delete = User::destroy( $request->id );
-                    return redirect() -> route("admin.users.index") -> with( [ "success" => " Users deleted successfully"] ) ;
+                $delete = Category::destroy( $request->id );
+                    return redirect() -> route("admin.categories.index") -> with( [ "success" => " Categories deleted successfully"] ) ;
                 if(!$delete) 
-                    return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+                    return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
-                return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             }
         }
 

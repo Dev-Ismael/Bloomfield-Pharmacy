@@ -26,8 +26,8 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->catchPhrase,
-            'slug'  => $this->faker->catchPhrase,
+            'title' => $this->faker->name,
+            'slug'  => $this->faker->name,
             'img'  =>  'category.png' ,
         ];
     }

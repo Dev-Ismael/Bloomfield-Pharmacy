@@ -20,6 +20,10 @@
     float: left;
 }
 
+/*=========== sweet alert ===========*/
+.swal2-styled.swal2-confirm{
+    background-color: var(--green) !important;
+}
 /*=========== scrollbar ===========*/
 
 body::-webkit-scrollbar {

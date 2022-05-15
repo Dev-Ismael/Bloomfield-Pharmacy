@@ -147,7 +147,7 @@
                                         clip-rule="evenodd"></path>
                                 </svg></button></div>
                         <!-- Navbar links -->
-                        <ul class="navbar-nav align-items-center">
+                        <ul class="navbar-nav align-items-center" style="padding-right: 40px;">
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-dark notification-bell unread dropdown-toggle"
                                     data-unread-notifications="true" href="#" role="button" data-bs-toggle="dropdown"
@@ -348,6 +348,8 @@
 
             @yield('content')
 
+            <!-- Back to top button -->
+            <a id="button-scroll-up"></a>
 
 
 

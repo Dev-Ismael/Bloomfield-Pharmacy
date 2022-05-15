@@ -84,6 +84,9 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
     Route::get('users/perPage/{num}' , [App\Http\Controllers\Admin\UserController::class, 'perPage'])->name("users.perPage");
     Route::post('users/search' , [App\Http\Controllers\Admin\UserController::class, 'search'])->name("users.search");
     Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+    Route::get('users/destroy/{user}' , [App\Http\Controllers\Admin\UserController::class, 'destroy'] )->name("users.destroy");
 
+
+    
 });
 

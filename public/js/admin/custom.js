@@ -48,6 +48,8 @@
     const mainChecker = document.getElementById("main-checker");
     const checkItems = document.querySelectorAll(".check-item");
 
+    if(mainChecker){
+
     mainChecker.addEventListener('click', event => {
         if (mainChecker.checked == true) {
             for (var i = 0; i < checkItems.length; i++) {
@@ -59,4 +61,43 @@
             }
         }
     });
+}
+
+
+    /*==================================================
+    ================ Danger Alert
+    =====================================================*/
+    const dangerBtns = document.querySelectorAll(".delete-record");
+
+    for (var i = 0; i < dangerBtns.length; i++) {
+
+        const dangerBtn = dangerBtns[i];
+        dangerBtn.addEventListener('click', event => {
+
+            event.preventDefault();
+            Swal.fire({
+                
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    );
+                    setTimeout(function () {
+                        window.location = dangerBtn.getAttribute('href');
+                    }, 1000); 
+                }
+            })
+            
+        });
+
+    }
 

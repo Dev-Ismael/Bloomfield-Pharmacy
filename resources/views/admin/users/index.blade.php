@@ -163,14 +163,10 @@
                                             class="fa-solid fa-eye fa-lg"></i> </a>
                                     <a href="{{ route('admin.users.edit', $user->id) }}" class="text-info"> <i
                                             class="fa-solid fa-pen-to-square fa-lg"></i> </a>
-                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
-                                        style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="delete-btn">
-                                            <i class="fa-solid fa-trash-can text-danger fa-lg"></i>
-                                        </button>
-                                    </form>
+                                    <a href="{{ route('admin.users.destroy', $user->id) }}" class="text-info delete-record">
+                                        <i class="fa-solid fa-trash-can text-danger fa-lg"></i> 
+                                    </a>
+
                                 </td>
                             </tr>
                         @endforeach
@@ -183,7 +179,6 @@
                         {{ $users->withQueryString()->onEachSide(0)->links() }}
                     </div>
                     <div class="fw-normal small mt-4 mt-lg-0">
-                        {{-- Showing <b>5</b> out of <b>25</b> entries --}}
                         Showing <b>{{ $users->firstItem() }}</b> to <b>{{ $users->lastItem() }}</b>
                         of total <b>{{ $users->total() }}</b> entries
                     </div>
@@ -192,8 +187,6 @@
         @endif
 
 
-        <!-- Back to top button -->
-        <a id="button-scroll-up"></a>
 
     </div>
 @endsection

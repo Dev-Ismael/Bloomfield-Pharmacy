@@ -31,14 +31,12 @@
                                         <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> User Details</h2>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="{{ route("admin.users.edit" , $user->id) }}" class="btn btn-sm btn-primary"> <i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                                        <form action="{{ route("admin.users.destroy" , $user->id) }}" method="POST" style="display: inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger"> 
-                                                <i class="fa-solid fa-trash-can"></i> Delete 
-                                            </button>
-                                        </form>
+                                        <a href="{{ route("admin.users.edit" , $user->id) }}" class="btn btn-sm btn-primary"> 
+                                            <i class="fa-solid fa-pen-to-square"></i> Edit
+                                        </a>
+                                        <a href="{{ route('admin.users.destroy', $user->id) }}" class="btn btn-sm btn-danger delete-record">
+                                            <i class="fa-solid fa-trash-can"></i> Delete 
+                                        </a>
                                     </div>
                                 </div>
                             </div>

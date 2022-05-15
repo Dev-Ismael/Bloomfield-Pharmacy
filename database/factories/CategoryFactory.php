@@ -28,7 +28,7 @@ class CategoryFactory extends Factory
         return [
             'title' => $this->faker->name,
             'slug'  => $this->faker->name,
-            'img'  =>  'category.png' ,
+            'icon'  =>  'category.png' ,
         ];
     }
 }

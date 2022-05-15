@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Categories</li>
                     </ol>
                 </nav>
-                <h2 class="h4"> <i class="fa-solid fa-categories text-primary"></i> Categories List</h2>
+                <h2 class="h4"> <i class="fa-solid fa-list text-primary"></i> Categories List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.categories.create') }}"
@@ -172,7 +172,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="#" class="d-flex align-items-center">
+                                        <a href="{{ route('admin.categories.show', $category->id) }}" class="d-flex align-items-center">
                                             <img src="{{ asset("images/categories/category.png") }}" width="40" alt="category-icon">
                                         </a>
                                     </td>

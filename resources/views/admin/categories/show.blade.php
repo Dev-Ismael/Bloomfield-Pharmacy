@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Users</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.categories.index') }}">Categories</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Show</li>
             </ol>
         </nav>
@@ -28,13 +28,13 @@
                             <div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> User Details</h2>
+                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> Category Details</h2>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="{{ route("admin.users.edit" , $user->id) }}" class="btn btn-sm btn-primary"> 
+                                        <a href="{{ route("admin.categories.edit" , $category->id) }}" class="btn btn-sm btn-primary"> 
                                             <i class="fa-solid fa-pen-to-square"></i> Edit
                                         </a>
-                                        <a href="{{ route('admin.users.destroy', $user->id) }}" class="btn btn-sm btn-danger delete-record">
+                                        <a href="{{ route('admin.categories.destroy', $category->id) }}" class="btn btn-sm btn-danger delete-record">
                                             <i class="fa-solid fa-trash-can"></i> Delete 
                                         </a>
                                     </div>
@@ -45,72 +45,19 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-capitalize"> # ID </td>
-                                            <td> {{ $user->id != "" ? $user->id : '-'}} </td>
+                                            <td> {{ $category->id != "" ? $category->id : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> Username </td>
-                                            <td> {{ $user->name != "" ? $user->name : '-'  }} </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> Title </td>
+                                            <td> {{ $category->title != "" ? $category->title : '-'  }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> First Name </td>
-                                            <td> {{ $user->first_name != "" ? $user->first_name : '-'  }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> Last Name </td>
-                                            <td> {{ $user->last_name != "" ? $user->last_name : '-'}} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-envelope"></i> Email </td>
-                                            <td> {{ $user->email != "" ? $user->email : '-'  }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-envelope"></i> Second Email </td>
-                                            <td> {{ $user->email_2 != "" ? $user->email_2 : '-'  }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-phone-volume"></i> Phone </td>
-                                            <td> {{ $user->phone != "" ? $user->phone : '-'  }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize">  <i class="fa-solid fa-phone-volume"></i> Second Phone  </td>
-                                            <td> {{ $user->phone_2 != "" ? $user->phone_2 : '-' }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-flag-usa"></i> State </td>
-                                            <td> {{ $user->state != "" ? $user->state : '-' }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Address </td>
-                                            <td> {{ $user->address != "" ? $user->address : '-' }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Second Address  </td>
-                                            <td> {{ $user->address_2 != "" ? $user->address_2 : '-' }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Third address </td>
-                                            <td> {{ $user->address_3 != "" ? $user->address_3 : '-' }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-clock"></i> Created At </td>
-                                            <td> {{ $user->created_at != "" ? $user->created_at : '-' }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-clock"></i> Updated At </td>
-                                            <td> {{ $user->updated_at != "" ? $user->updated_at : '-' }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-shield-halved"></i> Role </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Icon </td>
                                             <td> 
-                                                @if ( $user->role == '1' )
-                                                    Admin
-                                                @elseif( $user->role == '2')
-                                                    Editor
-                                                @elseif( $user->role == '3')
-                                                    User
-                                                @endif
+                                                <img src="{{ asset("images/categories/category.png") }}" width="40" alt="category-icon">
                                             </td>
                                         </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>

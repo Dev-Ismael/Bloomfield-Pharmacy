@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\UpdateUserRequest;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CategoryController extends Controller
 {
@@ -53,22 +51,31 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateUserRequest $request)
+    public function store(CategoryRequest $request)
     {
-        
-        $requestData = $request->all();
-        // Hash Password
-        $requestData['password'] = Hash::make($request->password);
+        // return $request->icon;
 
-        // Store in DB
-        try {
-            $category = Category::create( $requestData );
-                return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category added successfully"] ) ;
-            if(!$category) 
-                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
-        } catch (\Exception $e) {
-            return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
-        }
+        // //  Upload image & Create name img
+        $file_extention = $request->icon -> getClientOriginalExtension();
+        $file_name = time() . "." . $file_extention;   // name => 3628.png
+        $path = "images/categories" ;
+        $request -> icon -> move( $path , $file_name );
+
+
+        $requestData = $request->all();
+        $requestData['icon'] = $file_name;
+
+        $requestData += [ 'slug' => SlugService::createSlug(Post::class, 'slug', $request->title)];
+        return $requestData;
+        // // Store in DB
+        // try {
+        //     $category = Category::create( $requestData );
+        //         return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category added successfully"] ) ;
+        //     if(!$category) 
+        //         return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
+        // } catch (\Exception $e) {
+        //     return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
+        // }
         
     }
 

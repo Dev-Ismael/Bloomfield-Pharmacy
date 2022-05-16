@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Users</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.categories.index') }}">Categories</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit</li>
             </ol>
         </nav>
@@ -29,146 +29,38 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-pen-to-square text-primary"></i> Edit
-                                            User</h2>
+                                            Category</h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <form action="{{ route('admin.users.update' , $user->id) }}" method="POST">
+                                    <form action="{{ route('admin.categories.update' , $category->id) }}" method="POST" enctype="multipart/form-data">
 
                                         @csrf
 
                                         @method('PUT')
- 
+
+
 
                                         <div class="mb-4 input-content">
-                                            <label for="name" class="capitalize"> <i class="fa-solid fa-file-signature"></i> Username </label>
-                                            <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" aria-describedby="emailHelp" placeholder="Type User Name..." autocomplete="nope" required/>
-                                            @error('name')
-                                                <small class="form-text text-danger">{{$message }}</small> 
+                                            <label for="title" class="capitalize"> <i
+                                                    class="fa-solid fa-file-signature"></i> Title </label>
+                                            <input type="text" name="title" id="title"
+                                                class="form-control @error('title') is-invalid @enderror"
+                                                value="{{ $category->title }}" aria-describedby="emailHelp"
+                                                placeholder="Type Category Title..." autocomplete="nope" required />
+                                            @error('title')
+                                                <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
 
 
-                                        <div class="mb-4 input-content">
-                                            <label for="first_name" class="capitalize"> <i class="fa-solid fa-file-signature"></i> First Name </label>
-                                            <input type="text" name="first_name" id="first_name" class="form-control @error('first_name') is-invalid @enderror" value="{{ $user->first_name }}" aria-describedby="emailHelp" placeholder="Type User Frist Name..." autocomplete="nope"/>
-                                            @error('first_name')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-                                        
-                                        <div class="mb-4 input-content">
-                                            <label for="last_name" class="capitalize"> <i class="fa-solid fa-file-signature"></i> Last Name </label>
-                                            <input type="text" name="last_name" id="last_name" class="form-control @error('last_name') is-invalid @enderror" value="{{ $user->last_name }}" aria-describedby="emailHelp" placeholder="Type User Last Name..." autocomplete="nope"/>
-                                            @error('last_name')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-
-                                        <div class="mb-4 input-content">
-                                            <label for="email" class="capitalize"> <i class="fa-solid fa-envelope"></i> Email Address </label>
-                                            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" aria-describedby="emailHelp" placeholder="Type User Email..." autocomplete="nope" required/>
-                                            @error('email')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-
-                                        <div class="mb-4 input-content">
-                                            <label for="email_2" class="capitalize"> <i class="fa-solid fa-envelope"></i> Second Email Address </label>
-                                            <input type="text" name="email_2" id="email_2" class="form-control @error('email_2') is-invalid @enderror" value="{{ $user->email_2 }}" aria-describedby="emailHelp" placeholder="Type User Second Email..." autocomplete="nope"/>
-                                            @error('email_2')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-                                        
-                                        <div class="mb-4 input-content">
-                                            <label for="password" class="capitalize"> <i class="fa-solid fa-lock"></i> Password </label>
-                                            <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Password..." autocomplete="nope" />
-                                            @error('password')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-                                        
-                                        <div class="mb-4 input-content">
-                                            <label for="password_confirmation" class="capitalize"> <i class="fa-solid fa-lock"></i> Password Confirmed </label>
-                                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Password Again..." autocomplete="nope" />
-                                            @error('password_confirmation')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-                                        
-
-                                        <div class="mb-4 input-content">
-                                            <label for="phone" class="capitalize"> <i class="fa-solid fa-phone-volume"></i> Phone </label>
-                                            <input type="text" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" value="{{ $user->phone }}" aria-describedby="emailHelp" placeholder="Type User Phone..." autocomplete="nope"/>
-                                            @error('phone')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-                                        
-                                        <div class="mb-4 input-content">
-                                            <label for="phone_2" class="capitalize"> <i class="fa-solid fa-phone-volume"></i> Second Phone </label>
-                                            <input type="text" name="phone_2" id="phone_2" class="form-control @error('phone_2') is-invalid @enderror" value="{{ $user->phone_2 }}" aria-describedby="emailHelp" placeholder="Type User Second Phone..." autocomplete="nope"/>
-                                            @error('phone_2')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-                                        
-                                        <div class="mb-4 input-content">
-                                            <label for="state" class="capitalize"> <i class="fa-solid fa-flag-usa"></i> State </label>
-                                            <input type="text" name="state" id="state" class="form-control @error('state') is-invalid @enderror" value="{{ $user->state }}" aria-describedby="emailHelp" placeholder="Type User State..." autocomplete="nope"/>
-                                            @error('state')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-                                        
-                                        <div class="mb-4 input-content">
-                                            <label for="address" class="capitalize"> <i class="fa-solid fa-location-dot"></i> Address </label>
-                                            <textarea type="text" name="address" id="address" rows="5" class="form-control @error('address') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Address..." autocomplete="nope"/> {{ $user->address }} </textarea>
-                                            @error('address')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-                                        
-                                        <div class="mb-4 input-content">
-                                            <label for="address_2" class="capitalize"> <i class="fa-solid fa-location-dot"></i> Second Address </label>
-                                            <textarea type="text" name="address_2" id="address_2" rows="5" class="form-control @error('address_2') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Second Address..." autocomplete="nope"/> {{ $user->address_2 }} </textarea>
-                                            @error('address_2')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-                                        
-                                        <div class="mb-4 input-content">
-                                            <label for="address_3" class="capitalize"> <i class="fa-solid fa-location-dot"></i> Third Address </label>
-                                            <textarea type="text" name="address_3" id="address_3" rows="5" class="form-control @error('address_3') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Third Address..." autocomplete="nope"/> {{ $user->address_2 }} </textarea>
-                                            @error('address_3')
-                                                <small class="form-text text-danger">{{$message }}</small> 
-                                            @enderror
-                                        </div>
-
-                                        
-
-                                        <div class="mb-4 input-content">
-                                            <label for="role" class="capitalize"> <i class="fa-solid fa-shield-halved"></i> User Role </label>
-                                            <select class="form-select form-control @error('role') is-invalid @enderror" name="role" id="role"  aria-label="Default select example"  required>
-                                                <option value="1"  {{ $user->role == '1' ? "selected" : "" }}>Admin</option>
-                                                {{-- <option value="2"  {{ $user->role == '2' ? "selected" : "" }}>Editor</option> --}}
-                                                <option value="3"  {{ $user->role == '3' ? "selected" : "" }}>User</option>
-                                            </select>
-                                            @error('role')
-                                                <small class="form-text text-danger">{{$message }}</small> 
+                                        <div class="mb-3 input-content">
+                                            <label for="icon" class="form-label"> <i class="fa-solid fa-image"></i> Icon</label> 
+                                            <input name="icon" type="file" class="form-control @error('icon') is-invalid @enderror" id="icon"  />
+                                            @error('icon')
+                                                <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
 

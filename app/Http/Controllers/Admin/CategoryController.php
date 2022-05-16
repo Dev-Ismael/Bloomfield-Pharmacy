@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\Category\CreateCategoryRequest;
+use App\Http\Requests\Category\UpdateCategoryRequest;
 use Illuminate\Support\Facades\Validator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -51,7 +52,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(CreateCategoryRequest $request)
     {
 
         // //  Upload image & Create name img
@@ -112,18 +113,26 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update(UpdateCategoryRequest $request, $id)
     {
+        
+        
         // find id in Db With Error 404
         $category = Category::findOrFail($id); 
         $requestData = $request->all();
 
-        // Hash Password
-        if( $requestData['password'] == '' ){
-            $requestData['password'] = $category->password;
+        
+        // Check If There Img Uploaded
+        if( $request-> hasFile("icon") ){
+            //  Upload image & Create name img
+            $file_extention = $request->icon -> getClientOriginalExtension();
+            $file_name = time() . "." . $file_extention;   // name => 3628.png
+            $path = "images/categories" ;
+            $request -> icon -> move( $path , $file_name );
         }else{
-            $requestData['password'] = Hash::make($request->password);
+            $file_name = $category->img;
         }
+        
 
         // Update Record in DB
         try {
@@ -134,6 +143,8 @@ class CategoryController extends Controller
         } catch (\Exception $e) {
             return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at update opration"] ) ;
         }
+
+
     }
 
     /**

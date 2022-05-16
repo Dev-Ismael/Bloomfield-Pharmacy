@@ -173,7 +173,7 @@
                                     </td>
                                     <td>
                                         <a href="{{ route('admin.categories.show', $category->id) }}" class="d-flex align-items-center">
-                                            <img src="{{ asset("images/categories/category.png") }}" width="40" alt="category-icon">
+                                            <img src="{{ asset("images/categories/".$category->icon) }}" width="40" alt="category-icon">
                                         </a>
                                     </td>
                                     <td><span class="fw-normal">{{ $category->title }}</span></td>

@@ -12,7 +12,7 @@
     - Users    ==> (  )
     - Categories ==> ( title , img )
     - Caregory_branches ==> ( category_id , title )
-    - Products ==>  ( caregory_branch_id , title , price , Quntity )
+    - Products ==>  ( caregory_branch_id , title , price , Quntity , desc )
     - Cart     ==>  ( product_id , user_id )
     - Wishlist ==>  ( product_id , user_id )
     - Messege  ==>  ( full Name , email , Subject , Messege )

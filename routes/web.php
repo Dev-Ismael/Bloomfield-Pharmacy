@@ -99,5 +99,14 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
     Route::get('categories/destroy/{id}' , [App\Http\Controllers\Admin\CategoryController::class, 'destroy'] )->name("categories.destroy");
 
 
+    
+    // SubCategories
+    Route::get('subcategories/perPage/{num}' , [App\Http\Controllers\Admin\SubcategoryController::class, 'perPage'])->name("subcategories.perPage");
+    Route::post('subcategories/search' , [App\Http\Controllers\Admin\SubcategoryController::class, 'search'])->name("subcategories.search");
+    Route::post('subcategories/multiAction' , [App\Http\Controllers\Admin\SubcategoryController::class, 'multiAction'])->name("subcategories.multiAction");
+    Route::resource('subcategories', App\Http\Controllers\Admin\SubcategoryController::class);
+    Route::get('subcategories/destroy/{id}' , [App\Http\Controllers\Admin\SubcategoryController::class, 'destroy'] )->name("subcategories.destroy");
+
+
 });
 

@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.categories.index') }}">Categories</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.subcategories.index') }}">Sub Categories</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit</li>
             </ol>
         </nav>
@@ -29,17 +29,18 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-pen-to-square text-primary"></i> Edit
-                                            Category</h2>
+                                            Subcategory</h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <form action="{{ route('admin.categories.update' , $category->id) }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.subcategories.update' , $subcategory->id) }}" method="POST" enctype="multipart/form-data">
 
                                         @csrf
 
                                         @method('PUT')
+
 
 
 
@@ -48,24 +49,23 @@
                                                     class="fa-solid fa-file-signature"></i> Title </label>
                                             <input type="text" name="title" id="title"
                                                 class="form-control @error('title') is-invalid @enderror"
-                                                value="{{ $category->title }}" aria-describedby="emailHelp"
-                                                placeholder="Type Category Title..." autocomplete="nope" required />
+                                                value="{{ $subcategory->title }}" aria-describedby="emailHelp"
+                                                placeholder="Type Sub Subcategory Title..." autocomplete="nope"  required/>
                                             @error('title')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
 
-
-                                        <div class="mb-3 input-content">
-                                            <label for="icon" class="form-label d-flex align-items-center"> 
-                                                <i class="fa-solid fa-image"></i> &nbsp; Icon 
-                                                <div class="show-img-container">
-                                                    <img src="{{ asset("images/categories/".$category->icon) }}" alt="category-icon">
-                                                </div>
-                                            </label> 
-                                            <input name="icon" type="file" class="form-control @error('icon') is-invalid @enderror" id="icon"  />
-                                            @error('icon')
-                                                <small class="form-text text-danger">{{ $message }}</small>
+                                        <div class="mb-4 input-content">
+                                            <label for="category_id" class="capitalize"> <i class="fa-solid fa-list"></i> Main Subcategory </label>
+                                            <select class="form-select form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id"  aria-label="Default select example" required>
+                                                <option value="" selected="selected" class="d-none">Choose Main Subcategory...</option>
+                                                @foreach ( $categories as $category )
+                                                    <option value="{{ $category->id }}"  {{ $category->id == $subcategory->category->id ? "selected" : "" }} >{{ $category->title }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('category_id')
+                                                <small class="form-text text-danger">{{$message }}</small> 
                                             @enderror
                                         </div>
 

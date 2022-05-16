@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -25,8 +25,8 @@ class SubcategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'      =>  ['required' , 'string' , 'max:55' , Rule::unique('subcategories', 'title')->ignore($this->subcategory)],
-            'categoy_id' =>  ['required' , 'integer'],
+            'title'       =>  ['required' , 'string' , 'max:55' , Rule::unique('subcategories', 'title')->ignore($this->subcategory)],
+            'category_id' =>  ['required' , 'integer'],
         ];
     }
 }

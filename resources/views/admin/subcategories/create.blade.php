@@ -35,7 +35,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <form action="{{ route('admin.subcategories.store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.subcategories.store') }}" method="POST" >
 
                                         @csrf
 
@@ -46,21 +46,21 @@
                                             <input type="text" name="title" id="title"
                                                 class="form-control @error('title') is-invalid @enderror"
                                                 value="{{ old('title') }}" aria-describedby="emailHelp"
-                                                placeholder="Type Sub Category Title..." autocomplete="nope" required />
+                                                placeholder="Type Sub Category Title..." autocomplete="nope"  required/>
                                             @error('title')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
 
                                         <div class="mb-4 input-content">
-                                            <label for="role" class="capitalize"> <i class="fa-solid fa-shield-halved"></i> Main Category </label>
-                                            <select class="form-select form-control @error('role') is-invalid @enderror" name="role" id="role"  aria-label="Default select example" required>
-                                                <option value="" selected="selected" class="d-none">Choose User Role...</option>
-                                                <option value="1"  {{ old('role') == '1' ? "selected" : "" }}>Admin</option>
-                                                {{-- <option value="2"  {{ old('role') == '2' ? "selected" : "" }}>Editor</option> --}}
-                                                <option value="3"  {{ old('role') == '3' ? "selected" : "" }}>User</option>
+                                            <label for="category_id" class="capitalize"> <i class="fa-solid fa-list"></i> Main Category </label>
+                                            <select class="form-select form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id"  aria-label="Default select example" required>
+                                                <option value="" selected="selected" class="d-none">Choose Main Category...</option>
+                                                @foreach ( $categories as $category )
+                                                    <option value="{{ $category->id }}"  {{ old('category_id') == $category->id ? "selected" : "" }} >{{ $category->title }}</option>
+                                                @endforeach
                                             </select>
-                                            @error('role')
+                                            @error('category_id')
                                                 <small class="form-text text-danger">{{$message }}</small> 
                                             @enderror
                                         </div>

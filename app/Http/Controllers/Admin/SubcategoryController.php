@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
 use App\Models\Subcategory;
 use App\Http\Requests\SubcategoryRequest;
 use Illuminate\Support\Facades\Validator;
@@ -42,7 +43,8 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        return view("admin.subcategories.create");
+        $categories = Category::get();
+        return view("admin.subcategories.create" , compact("categories"));
     }
 
     /**
@@ -58,6 +60,7 @@ class SubcategoryController extends Controller
 
         // Add slug to $requestData
         $requestData += [ 'slug' => SlugService::createSlug(Subcategory::class, 'slug', $requestData['title']) ];
+
 
         // Store in DB
         try {
@@ -92,9 +95,10 @@ class SubcategoryController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::get();
         // find id in Db With Error 404
         $subcategory = Subcategory::findOrFail($id);  
-        return view("admin.subcategories.edit" , compact("subcategory") ) ;
+        return view("admin.subcategories.edit" , compact("subcategory","categories") ) ;
     }
 
     /**
@@ -112,9 +116,6 @@ class SubcategoryController extends Controller
         $subcategory = Subcategory::findOrFail($id); 
         $requestData = $request->all();
 
-        
-        
-        $requestData = $request->all();
 
         // Add slug to $requestData
         $requestData += [ 'slug' => SlugService::createSlug(Subcategory::class, 'slug', $requestData['title']) ];

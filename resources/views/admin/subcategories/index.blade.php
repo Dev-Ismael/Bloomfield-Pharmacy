@@ -24,10 +24,13 @@
                 <h2 class="h4"> <i class="fa-solid fa-list text-primary"></i> Sub Categories List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
-            <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.subcategories.create') }}"
-                    class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i> &nbsp;
-                    New Sub Category</a>
-            </div>
+            <!--------------- If No Category hide create btn --------------->
+            @if (!$categories->isEmpty())
+                <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.subcategories.create') }}"
+                        class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i> &nbsp;
+                        New Sub Category</a>
+                </div>
+            @endif
         </div>
 
         <div class="table-settings mb-4">

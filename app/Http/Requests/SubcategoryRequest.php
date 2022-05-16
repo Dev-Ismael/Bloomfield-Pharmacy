@@ -25,7 +25,7 @@ class SubcategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'      =>  ['required' , 'string' , 'max:55' , Rule::unique('categories', 'title')->ignore($this->category)],
+            'title'      =>  ['required' , 'string' , 'max:55' , Rule::unique('subcategories', 'title')->ignore($this->subcategory)],
             'categoy_id' =>  ['required' , 'integer'],
         ];
     }

@@ -52,6 +52,18 @@
                                             @enderror
                                         </div>
 
+                                        <div class="mb-4 input-content">
+                                            <label for="role" class="capitalize"> <i class="fa-solid fa-shield-halved"></i> Main Category </label>
+                                            <select class="form-select form-control @error('role') is-invalid @enderror" name="role" id="role"  aria-label="Default select example" required>
+                                                <option value="" selected="selected" class="d-none">Choose User Role...</option>
+                                                <option value="1"  {{ old('role') == '1' ? "selected" : "" }}>Admin</option>
+                                                {{-- <option value="2"  {{ old('role') == '2' ? "selected" : "" }}>Editor</option> --}}
+                                                <option value="3"  {{ old('role') == '3' ? "selected" : "" }}>User</option>
+                                            </select>
+                                            @error('role')
+                                                <small class="form-text text-danger">{{$message }}</small> 
+                                            @enderror
+                                        </div>
 
                                         <button type="submit" class="btn btn-primary float-right"> <i class="fa-solid fa-floppy-disk"></i> Submit </button>
 

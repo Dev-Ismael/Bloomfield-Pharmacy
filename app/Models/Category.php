@@ -21,5 +21,9 @@ class Category extends Model
             ]
         ];
     }
-
+    
+    ############################## Relations ################################
+    public function subcategories(){
+        return  $this -> hasMany("App\Models\Subcategory") ;  
+    }
 }

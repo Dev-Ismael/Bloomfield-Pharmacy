@@ -57,7 +57,12 @@
 
 
                                         <div class="mb-3 input-content">
-                                            <label for="icon" class="form-label"> <i class="fa-solid fa-image"></i> Icon</label> 
+                                            <label for="icon" class="form-label d-flex align-items-center"> 
+                                                <i class="fa-solid fa-image"></i> &nbsp; Icon 
+                                                <div class="show-img-container">
+                                                    <img src="{{ asset("images/categories/".$category->icon) }}" alt="category-icon">
+                                                </div>
+                                            </label> 
                                             <input name="icon" type="file" class="form-control @error('icon') is-invalid @enderror" id="icon"  />
                                             @error('icon')
                                                 <small class="form-text text-danger">{{ $message }}</small>

@@ -55,7 +55,7 @@ class CategoryController extends Controller
     public function store(CreateCategoryRequest $request)
     {
 
-        // //  Upload image & Create name img
+        //  Upload image & Create name icon
         $file_extention = $request->icon -> getClientOriginalExtension();
         $file_name = time() . "." . $file_extention;   // name => 3628.png
         $path = "images/categories" ;
@@ -122,17 +122,23 @@ class CategoryController extends Controller
         $requestData = $request->all();
 
         
-        // Check If There Img Uploaded
+        // Check If There icon Uploaded
         if( $request-> hasFile("icon") ){
-            //  Upload image & Create name img
+            //  Upload image & Create name icon
             $file_extention = $request->icon -> getClientOriginalExtension();
             $file_name = time() . "." . $file_extention;   // name => 3628.png
             $path = "images/categories" ;
-            $request -> icon -> move( $path , $file_name );
+            $request->icon -> move( $path , $file_name );
         }else{
-            $file_name = $category->img;
+            $file_name = $category->icon;
         }
         
+        $requestData = $request->all();
+        $requestData['icon'] = $file_name;
+
+        // Add slug to $requestData
+        $requestData += [ 'slug' => SlugService::createSlug(Category::class, 'slug', $requestData['title']) ];
+
 
         // Update Record in DB
         try {

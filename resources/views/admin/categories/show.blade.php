@@ -54,7 +54,7 @@
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Icon </td>
                                             <td> 
-                                                <img src="{{ asset("images/categories/category.png") }}" width="40" alt="category-icon">
+                                                <img src="{{ asset("images/categories/" . $category->icon) }}" width="40" alt="category-icon">
                                             </td>
                                         </tr>
                                         

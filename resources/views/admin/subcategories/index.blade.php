@@ -156,7 +156,7 @@
                                     </div>
                                 </th>
                                 <th class="border-bottom">Title</th>
-                                <th class="border-bottom">Main</th>
+                                <th class="border-bottom">Main Category</th>
                                 <th class="border-bottom">Date Created</th>
                                 <th class="border-bottom">Action</th>
                             </tr>

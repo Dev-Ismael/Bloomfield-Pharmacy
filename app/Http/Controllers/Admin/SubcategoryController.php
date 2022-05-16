@@ -19,7 +19,7 @@ class SubcategoryController extends Controller
     public function perPage( $num=10 )
     {
         // Dynamic pagination
-        $subcategories = Subcategory::orderBy('id','desc')->paginate( $num );
+        $subcategories = Subcategory::with('category')->orderBy('id','desc')->paginate( $num );
         return view("admin.subcategories.index",compact("subcategories"));
     }
 
@@ -31,7 +31,7 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $subcategories = Subcategory::orderBy('id','desc')->paginate( 10 );
+        $subcategories = Subcategory::with('category')->orderBy('id','desc')->paginate( 10 );
         return view("admin.subcategories.index",compact("subcategories"));
     }
 
@@ -80,7 +80,7 @@ class SubcategoryController extends Controller
     public function show($id)
     {
         // find id in Db With Error 404
-        $subcategory = Subcategory::findOrFail($id);  
+        $subcategory = Subcategory::with('category')->findOrFail($id);
         return view("admin.subcategories.show" , compact("subcategory") ) ;
     }
 

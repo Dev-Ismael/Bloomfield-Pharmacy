@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.categories.index') }}">Categories</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.subcategories.index') }}">Sub Category</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Show</li>
             </ol>
         </nav>
@@ -28,13 +28,13 @@
                             <div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> Category Details</h2>
+                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> Sub Category Details</h2>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="{{ route("admin.categories.edit" , $category->id) }}" class="btn btn-sm btn-primary"> 
+                                        <a href="{{ route("admin.subcategories.edit" , $subcategory->id) }}" class="btn btn-sm btn-primary"> 
                                             <i class="fa-solid fa-pen-to-square"></i> Edit
                                         </a>
-                                        <a href="{{ route('admin.categories.destroy', $category->id) }}" class="btn btn-sm btn-danger delete-record">
+                                        <a href="{{ route('admin.subcategories.destroy', $subcategory->id) }}" class="btn btn-sm btn-danger delete-record">
                                             <i class="fa-solid fa-trash-can"></i> Delete 
                                         </a>
                                     </div>
@@ -45,19 +45,16 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-capitalize"> # ID </td>
-                                            <td> {{ $category->id != "" ? $category->id : '-'}} </td>
+                                            <td> {{ $subcategory->id != "" ? $subcategory->id : '-'}} </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> Title </td>
-                                            <td> {{ $category->title != "" ? $category->title : '-'  }} </td>
+                                            <td> {{ $subcategory->title != "" ? $subcategory->title : '-'  }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Icon </td>
-                                            <td> 
-                                                <img src="{{ asset("images/categories/" . $category->icon) }}" width="40" alt="category-icon">
-                                            </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-list"></i> Main Category </td>
+                                            <td> {{ $subcategory->category->title != "" ? $subcategory->category->title : '-'  }} </td>
                                         </tr>
-                                        
                                     </tbody>
                                 </table>
                             </div>

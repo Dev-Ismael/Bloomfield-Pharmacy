@@ -47,9 +47,9 @@
                             </svg>
                         </button>
                         @csrf
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                            placeholder="Search categories by primary email" autocomplete="off" required />
-                        @error('email')
+                        <input type="text" name="search" class="form-control @error('search') is-invalid @enderror"
+                            placeholder="Search categories by name" autocomplete="off" required />
+                        @error('search')
                             <div class="invalid-feedback" style="margin-left: 40px">{{ $message }}.</div>
                         @enderror
                     </form>

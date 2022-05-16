@@ -183,10 +183,10 @@ class CategoryController extends Controller
     {
         // validate search and redirect back
         $this->validate($request, [
-            'email'     =>  ['required', 'string', 'email', 'max:55'],
+            'search'     =>  ['required', 'string', 'max:55'],
         ]);
 
-        $categories = Category::where('email', 'like', "%{$request->email}%")->paginate( 10 );
+        $categories = Category::where('title', 'like', "%{$request->search}%")->paginate( 10 );
         return view("admin.categories.index",compact("categories"));
          
     }

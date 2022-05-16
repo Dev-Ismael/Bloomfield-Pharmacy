@@ -25,7 +25,7 @@
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <!--------------- If No Category hide create btn --------------->
-            @if (!$categories->isEmpty())
+            @if ( $categoriesCount > 0)
                 <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.subcategories.create') }}"
                         class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i> &nbsp;
                         New Sub Category</a>

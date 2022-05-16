@@ -19,9 +19,11 @@ class SubcategoryController extends Controller
      */
     public function perPage( $num=10 )
     {
+        // Get Parent Rows Count
+        $categoriesCount = Category::count();
         // Dynamic pagination
         $subcategories = Subcategory::with('category')->orderBy('id','desc')->paginate( $num );
-        return view("admin.subcategories.index",compact("subcategories"));
+        return view("admin.subcategories.index",compact("subcategories","categoriesCount"));
     }
 
 
@@ -32,9 +34,10 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
+        // Get Parent Rows Count
+        $categoriesCount = Category::count();
         $subcategories = Subcategory::with('category')->orderBy('id','desc')->paginate( 10 );
-        return view("admin.subcategories.index",compact("subcategories","categories"));
+        return view("admin.subcategories.index",compact("subcategories","categoriesCount"));
     }
 
     /**

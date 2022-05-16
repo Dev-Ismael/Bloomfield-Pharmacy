@@ -65,7 +65,7 @@ class CategoryController extends Controller
         $requestData = $request->all();
         $requestData['icon'] = $file_name;
 
-        $requestData += [ 'slug' => SlugService::createSlug(Post::class, 'slug', $request->title)];
+        $requestData += [ 'slug' => SlugService::createSlug(Category::class, 'slug', $requestData['title']) ];
         return $requestData;
         // // Store in DB
         // try {

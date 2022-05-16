@@ -53,7 +53,6 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        // return $request->icon;
 
         // //  Upload image & Create name img
         $file_extention = $request->icon -> getClientOriginalExtension();
@@ -65,17 +64,18 @@ class CategoryController extends Controller
         $requestData = $request->all();
         $requestData['icon'] = $file_name;
 
+        // Add slug to $requestData
         $requestData += [ 'slug' => SlugService::createSlug(Category::class, 'slug', $requestData['title']) ];
-        return $requestData;
-        // // Store in DB
-        // try {
-        //     $category = Category::create( $requestData );
-        //         return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category added successfully"] ) ;
-        //     if(!$category) 
-        //         return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
-        // } catch (\Exception $e) {
-        //     return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
-        // }
+
+        // Store in DB
+        try {
+            $category = Category::create( $requestData );
+                return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category added successfully"] ) ;
+            if(!$category) 
+                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
+        } catch (\Exception $e) {
+            return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
+        }
         
     }
 

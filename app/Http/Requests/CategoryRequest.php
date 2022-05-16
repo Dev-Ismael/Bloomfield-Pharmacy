@@ -24,7 +24,7 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'    =>  ['required' , 'string' , 'max:55'],
+            'title'    =>  ['required' , 'string' , 'max:55' , 'unique:categories'],
             'icon'     =>  ['required' , 'mimes:svg' , 'max:2048'],
         ];
     }

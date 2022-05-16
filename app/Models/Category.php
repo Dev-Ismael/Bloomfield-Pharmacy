@@ -10,7 +10,7 @@ class Category extends Model
 {
     use Sluggable ;
 
-    protected $fillable = [ 'title', 'slug', 'img' ];
+    protected $fillable = [ 'title', 'slug', 'icon' ];
 
 
     public function sluggable()

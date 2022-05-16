@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 /*===========================================================================
 =========== Route Pattern ======================================================
-===========================================================================*/\
+===========================================================================*/
 Route::pattern('num', '[0-9]+');
 Route::pattern('id', '[0-9]+');
 
@@ -106,6 +107,15 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
     Route::post('subcategories/multiAction' , [App\Http\Controllers\Admin\SubcategoryController::class, 'multiAction'])->name("subcategories.multiAction");
     Route::resource('subcategories', App\Http\Controllers\Admin\SubcategoryController::class);
     Route::get('subcategories/destroy/{id}' , [App\Http\Controllers\Admin\SubcategoryController::class, 'destroy'] )->name("subcategories.destroy");
+
+
+    
+    // Products
+    Route::get('products/perPage/{num}' , [App\Http\Controllers\Admin\ProductController::class, 'perPage'])->name("products.perPage");
+    Route::post('products/search' , [App\Http\Controllers\Admin\ProductController::class, 'search'])->name("products.search");
+    Route::post('products/multiAction' , [App\Http\Controllers\Admin\ProductController::class, 'multiAction'])->name("products.multiAction");
+    Route::resource('products', App\Http\Controllers\Admin\ProductController::class);
+    Route::get('products/destroy/{id}' , [App\Http\Controllers\Admin\ProductController::class, 'destroy'] )->name("products.destroy");
 
 
 });

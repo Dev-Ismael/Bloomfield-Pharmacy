@@ -172,7 +172,15 @@
                             </ul>
                         </div>
                     </li>
-
+                    <li class="nav-item ">
+                        <a href="{{ route('admin.products.index') }}"
+                            class="nav-link {{ Request::is('*/products*') ? 'active' : '' }}">
+                            <span class="sidebar-icon">
+                                <i class="fa-solid fa-box-open"></i>
+                            </span>
+                            <span class="sidebar-text">Products</span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

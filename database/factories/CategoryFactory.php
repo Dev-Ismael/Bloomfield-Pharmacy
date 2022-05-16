@@ -26,9 +26,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->name,
-            'slug'  => $this->faker->name,
-            'icon'  =>  'category.png' ,
+            //
         ];
     }
 }

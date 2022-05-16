@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\User\CreateUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
@@ -165,10 +165,10 @@ class UserController extends Controller
     {
         // validate search and redirect back
         $this->validate($request, [
-            'email'     =>  ['required', 'string', 'email', 'max:55'],
+            'search'     =>  ['required', 'string', 'email', 'max:55'],
         ]);
 
-        $users = User::where('email', 'like', "%{$request->email}%")->paginate( 10 );
+        $users = User::where('email', 'like', "%{$request->search}%")->paginate( 10 );
         return view("admin.users.index",compact("users"));
          
     }

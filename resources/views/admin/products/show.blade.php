@@ -55,9 +55,9 @@
                                             <td class="text-capitalize"> <i class="fa-solid fa-list"></i> Category </td>
                                             <td> {{ $product->subcategory->title != "" ? $product->subcategory->title : '-'  }} </td>
                                         </tr>
-                                        <tr class="product-price">
+                                        <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-money-bill-1"></i> Price </td>
-                                            <td> {{ $product->price != "" ? $product->price : '-'  }}$</td>
+                                            <td class="product-price"> {{ $product->price != "" ? $product->price : '-'  }}<i class="fa-solid fa-dollar-sign"></i> </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-cart-flatbed"></i> Quantity </td>
@@ -65,7 +65,11 @@
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-align-left"></i> Description </td>
-                                            <td> {{ $product->description != "" ? $product->description : '-'  }} </td>
+                                            <td class="product-desc"> 
+                                                <div>
+                                                    {{ $product->description != "" ? $product->description : '-'  }} 
+                                                </div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Image </td>

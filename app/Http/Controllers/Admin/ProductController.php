@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subcategory;
 use App\Models\Product;
-use App\Http\Requests\SubcategoryRequest;
+use App\Http\Requests\Product\CreateProductRequest;
+use App\Http\Requests\Product\UpdateProductRequest;
 use Illuminate\Support\Facades\Validator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -47,8 +48,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $subcategory = Subcategory::get();
-        return view("admin.products.create" , compact("subcategory"));
+        $subcategories = Subcategory::get();
+        return view("admin.products.create" , compact("subcategories"));
     }
 
     /**
@@ -57,14 +58,24 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SubcategoryRequest $request)
+    public function store(CreateProductRequest $request)
     {
 
+        //  Upload image & Create name img
+        $file_extention = $request->img -> getClientOriginalExtension();
+        $file_name = time() . "." . $file_extention;   // name => 3628.png
+        $path = "images/products" ;
+        $request -> img -> move( $path , $file_name );
+
+
         $requestData = $request->all();
+        $requestData['img'] = $file_name;
 
         // Add slug to $requestData
         $requestData += [ 'slug' => SlugService::createSlug(Product::class, 'slug', $requestData['title']) ];
 
+
+        // return $requestData;
 
         // Store in DB
         try {

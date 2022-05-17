@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Product;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -25,7 +25,12 @@ class CreateProductRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'title'           =>  ['required' , 'string' , 'max:55' , Rule::unique('products', 'title')->ignore($this->product)],
+            'subcategory_id'  =>  ['required' , 'numeric' ],
+            'price'           =>  ['required' , 'numeric' , 'digits_between:1,6'],
+            'quantity'        =>  ['required' , 'numeric' , 'digits_between:1,6'],
+            'description'     =>  ['required' , 'string' , 'max:1000'],
+            'img'             =>  ['required' , 'mimes:jpeg,png,jpg' , 'max:2048'],
         ];
     }
 }

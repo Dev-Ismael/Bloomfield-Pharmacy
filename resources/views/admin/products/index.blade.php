@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Product</li>
                     </ol>
                 </nav>
-                <h2 class="h4"> <i class="fa-solid fa-list text-primary"></i> Product List</h2>
+                <h2 class="h4"> <i class="fa-solid fa-box-open text-primary"></i> Product List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <!--------------- If No SubCategory hide create btn --------------->
@@ -177,7 +177,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.users.show', $product->id) }}" class="d-flex align-items-center">
+                                        <a href="{{ route('admin.products.show', $product->id) }}" class="d-flex align-items-center">
                                             <div class="d-block index-table-img">
                                                 <img src="{{ asset("images/products/".$product->img) }}" height="50" alt="product-img">
                                             </div>

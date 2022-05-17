@@ -118,5 +118,13 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
     Route::get('products/destroy/{id}' , [App\Http\Controllers\Admin\ProductController::class, 'destroy'] )->name("products.destroy");
 
 
+    
+    // Prescription
+    Route::get('prescriptions/perPage/{num}' , [App\Http\Controllers\Admin\PrescriptionController::class, 'perPage'])->name("prescriptions.perPage");
+    Route::post('prescriptions/search' , [App\Http\Controllers\Admin\PrescriptionController::class, 'search'])->name("prescriptions.search");
+    Route::post('prescriptions/multiAction' , [App\Http\Controllers\Admin\PrescriptionController::class, 'multiAction'])->name("prescriptions.multiAction");
+    Route::resource('prescriptions', App\Http\Controllers\Admin\PrescriptionController::class);
+    Route::get('prescriptions/destroy/{id}' , [App\Http\Controllers\Admin\PrescriptionController::class, 'destroy'] )->name("prescriptions.destroy");
+
 });
 

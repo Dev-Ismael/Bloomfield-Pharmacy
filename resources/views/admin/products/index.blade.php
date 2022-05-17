@@ -25,7 +25,7 @@
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <!--------------- If No SubCategory hide create btn --------------->
-            @if ( $subcategoriesCount > 0)
+            @if ( isset($subcategoriesCount) && $subcategoriesCount > 0)
                 <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.products.create') }}"
                         class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i> &nbsp;
                         New Product</a>
@@ -139,6 +139,7 @@
                             aria-label="Message select example" style="display:inline">
                             <option value="" selected="selected" style="display: none"> Choose Action </option>
                             <option value="delete"> Delete </option>
+                            <option value="out_of_stock"> Out Of Stock </option>
                         </select>
                         <button type="submit" id="multi-alert-btn" class="btn btn-sm px-3 btn-primary ms-3 multi-alert"
                             disabled> <i class="fa-solid fa-list-check"></i> Apply</button>

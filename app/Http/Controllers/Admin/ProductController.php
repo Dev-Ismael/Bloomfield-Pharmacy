@@ -236,6 +236,18 @@ class ProductController extends Controller
                 return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             }
         }
+            
+        // If Action is Delete
+        if( $request->action == "out_of_stock" ){
+            try {
+                $delete = Product::where('id', $request->id)->update(['quantity'=> 0 ]);
+                    return redirect() -> route("admin.products.index") -> with( [ "success" => " Products updated successfully"] ) ;
+                if(!$delete) 
+                    return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            } catch (\Exception $e) {
+                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            }
+        }
 
     }
     

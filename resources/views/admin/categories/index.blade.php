@@ -150,7 +150,7 @@
                             <tr>
                                 <th class="border-bottom">
                                     <div class="form-check dashboard-check">
-                                        <input name="id[]" value="0" class="form-check-input checkbox-head" type="checkbox"
+                                        <input  class="form-check-input checkbox-head" type="checkbox"
                                             id="main-checker">
                                         <label class="form-check-label" for="userCheck55"> </label>
                                     </div>

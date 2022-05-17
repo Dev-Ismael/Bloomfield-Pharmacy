@@ -240,9 +240,9 @@ class ProductController extends Controller
         // If Action is Delete
         if( $request->action == "out_of_stock" ){
             try {
-                $delete = Product::where('id', $request->id)->update(['quantity'=> 0 ]);
+                $out_of_stock = Product::whereIn('id', $request->id )->update([ 'quantity' => 0 ]);
                     return redirect() -> route("admin.products.index") -> with( [ "success" => " Products updated successfully"] ) ;
-                if(!$delete) 
+                if(!$out_of_stock) 
                     return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;

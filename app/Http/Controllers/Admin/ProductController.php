@@ -110,10 +110,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $subcategory = Subcategory::get();
+        $subcategories = Subcategory::get();
         // find id in Db With Error 404
         $product = Product::findOrFail($id);  
-        return view("admin.products.edit" , compact("product","subcategory") ) ;
+        return view("admin.products.edit" , compact("product","subcategories") ) ;
     }
 
     /**
@@ -123,7 +123,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SubcategoryRequest $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
         
         
@@ -131,10 +131,23 @@ class ProductController extends Controller
         $product = Product::findOrFail($id); 
         $requestData = $request->all();
 
+        
+        // Check If There img Uploaded
+        if( $request-> hasFile("img") ){
+            //  Upload image & Create name img
+            $file_extention = $request->img -> getClientOriginalExtension();
+            $file_name = time() . "." . $file_extention;   // name => 3628.png
+            $path = "images/products" ;
+            $request->img -> move( $path , $file_name );
+        }else{
+            $file_name = $product->img;
+        }
+        
+        $requestData = $request->all();
+        $requestData['img'] = $file_name;
 
         // Add slug to $requestData
         $requestData += [ 'slug' => SlugService::createSlug(Product::class, 'slug', $requestData['title']) ];
-
 
         // Update Record in DB
         try {
@@ -145,7 +158,6 @@ class ProductController extends Controller
         } catch (\Exception $e) {
             return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
         }
-
 
     }
 

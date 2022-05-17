@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Http\Requests\Category\CreateProductRequest;
-use App\Http\Requests\Category\UpdateProductRequest;
+use App\Models\Subcategory;
+use App\Models\Product;
+use App\Http\Requests\SubcategoryRequest;
 use Illuminate\Support\Facades\Validator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -19,9 +19,11 @@ class ProductController extends Controller
      */
     public function perPage( $num=10 )
     {
+        // Get Parent Rows Count
+        $subcategoriesCount = Subcategory::count();
         // Dynamic pagination
-        $categories = Category::orderBy('id','desc')->paginate( $num );
-        return view("admin.categories.index",compact("categories"));
+        $products = Product::with('subcategory')->orderBy('id','desc')->paginate( $num );
+        return view("admin.products.index",compact("products","subcategoriesCount"));
     }
 
 
@@ -32,8 +34,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('id','desc')->paginate( 10 );
-        return view("admin.categories.index",compact("categories"));
+        // Get Parent Rows Count
+        $subcategoriesCount = Subcategory::count();
+        $products = Product::with('subcategory')->orderBy('id','desc')->paginate( 10 );
+        return view("admin.products.index",compact("products","subcategoriesCount"));
     }
 
     /**
@@ -43,7 +47,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view("admin.categories.create");
+        $subcategory = Subcategory::get();
+        return view("admin.products.create" , compact("subcategory"));
     }
 
     /**
@@ -52,30 +57,23 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateCategoryRequest $request)
+    public function store(SubcategoryRequest $request)
     {
 
-        //  Upload image & Create name icon
-        $file_extention = $request->icon -> getClientOriginalExtension();
-        $file_name = time() . "." . $file_extention;   // name => 3628.png
-        $path = "images/categories" ;
-        $request -> icon -> move( $path , $file_name );
-
-
         $requestData = $request->all();
-        $requestData['icon'] = $file_name;
 
         // Add slug to $requestData
-        $requestData += [ 'slug' => SlugService::createSlug(Category::class, 'slug', $requestData['title']) ];
+        $requestData += [ 'slug' => SlugService::createSlug(Product::class, 'slug', $requestData['title']) ];
+
 
         // Store in DB
         try {
-            $category = Category::create( $requestData );
-                return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category added successfully"] ) ;
-            if(!$category) 
-                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
+            $product = Product::create( $requestData );
+                return redirect() -> route("admin.products.index") -> with( [ "success" => " Product added successfully"] ) ;
+            if(!$product) 
+                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at added opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
+            return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
         
     }
@@ -89,8 +87,8 @@ class ProductController extends Controller
     public function show($id)
     {
         // find id in Db With Error 404
-        $category = Category::findOrFail($id);  
-        return view("admin.categories.show" , compact("category") ) ;
+        $product = Product::with('category')->findOrFail($id);
+        return view("admin.products.show" , compact("product") ) ;
     }
 
     /**
@@ -101,9 +99,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        $subcategory = Subcategory::get();
         // find id in Db With Error 404
-        $category = Category::findOrFail($id);  
-        return view("admin.categories.edit" , compact("category") ) ;
+        $product = Product::findOrFail($id);  
+        return view("admin.products.edit" , compact("product","subcategory") ) ;
     }
 
     /**
@@ -113,41 +112,27 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoryRequest $request, $id)
+    public function update(SubcategoryRequest $request, $id)
     {
         
         
         // find id in Db With Error 404
-        $category = Category::findOrFail($id); 
+        $product = Product::findOrFail($id); 
         $requestData = $request->all();
 
-        
-        // Check If There icon Uploaded
-        if( $request-> hasFile("icon") ){
-            //  Upload image & Create name icon
-            $file_extention = $request->icon -> getClientOriginalExtension();
-            $file_name = time() . "." . $file_extention;   // name => 3628.png
-            $path = "images/categories" ;
-            $request->icon -> move( $path , $file_name );
-        }else{
-            $file_name = $category->icon;
-        }
-        
-        $requestData = $request->all();
-        $requestData['icon'] = $file_name;
 
         // Add slug to $requestData
-        $requestData += [ 'slug' => SlugService::createSlug(Category::class, 'slug', $requestData['title']) ];
+        $requestData += [ 'slug' => SlugService::createSlug(Product::class, 'slug', $requestData['title']) ];
 
 
         // Update Record in DB
         try {
-            $update = $category-> update( $requestData );
-                return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category updated successfully"] ) ;
+            $update = $product-> update( $requestData );
+                return redirect() -> route("admin.products.index") -> with( [ "success" => " Product updated successfully"] ) ;
             if(!$update) 
-                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at update opration"] ) ;
+                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
         }
 
 
@@ -162,16 +147,16 @@ class ProductController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $category = Category::findOrFail($id); 
+        $product = Product::findOrFail($id); 
         
         // Delete Record from DB
         try {
-            $delete = $category->delete();
-                return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category deleted successfully"] ) ;
+            $delete = $product->delete();
+                return redirect() -> route("admin.products.index") -> with( [ "success" => " Product deleted successfully"] ) ;
             if(!$delete) 
-                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+            return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         }
     }
 
@@ -192,8 +177,8 @@ class ProductController extends Controller
             'search'     =>  ['required', 'string', 'max:55'],
         ]);
 
-        $categories = Category::where('title', 'like', "%{$request->search}%")->paginate( 10 );
-        return view("admin.categories.index",compact("categories"));
+        $products = Product::where('title', 'like', "%{$request->search}%")->paginate( 10 );
+        return view("admin.products.index",compact("products"));
          
     }
 
@@ -220,12 +205,12 @@ class ProductController extends Controller
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
-                $delete = Category::destroy( $request->id );
-                    return redirect() -> route("admin.categories.index") -> with( [ "success" => " Categories deleted successfully"] ) ;
+                $delete = Product::destroy( $request->id );
+                    return redirect() -> route("admin.products.index") -> with( [ "success" => " Products deleted successfully"] ) ;
                 if(!$delete) 
-                    return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+                    return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
-                return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             }
         }
 

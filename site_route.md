@@ -8,7 +8,6 @@
         - Schedule Orders With prescription
 
 
-
     - Users    ==> (  )
     - Categories ==> ( title , img )
     - Caregory_branches ==> ( category_id , title )

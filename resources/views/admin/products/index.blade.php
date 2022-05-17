@@ -18,16 +18,19 @@
                             </a>
                         </li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                        <li class="breadcrumb-item active" aria-current="page">Product</li>
                     </ol>
                 </nav>
-                <h2 class="h4"> <i class="fa-solid fa-list text-primary"></i> Categories List</h2>
+                <h2 class="h4"> <i class="fa-solid fa-list text-primary"></i> Product List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
-            <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.categories.create') }}"
-                    class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i> &nbsp;
-                    New Category</a>
-            </div>
+            <!--------------- If No SubCategory hide create btn --------------->
+            @if ( $subcategoriesCount > 0)
+                <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.products.create') }}"
+                        class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i> &nbsp;
+                        New Product</a>
+                </div>
+            @endif
         </div>
 
         <div class="table-settings mb-4">
@@ -35,7 +38,7 @@
 
                 <!--------------- Search Form --------------->
                 <div class="col-9 col-lg-8 d-md-flex">
-                    <form action="{{ route('admin.categories.search') }}" method="POST"
+                    <form action="{{ route('admin.products.search') }}" method="POST"
                         class="input-group me-2 me-lg-3 fmxw-300">
                         <button type="submit" class="input-group-text">
                             <svg class="icon icon-xs" x-description="Heroicon name: solid/search"
@@ -48,7 +51,7 @@
                         </button>
                         @csrf
                         <input type="text" name="search" class="form-control @error('search') is-invalid @enderror"
-                            placeholder="Search categories by title" autocomplete="off" required />
+                            placeholder="Search product by title" autocomplete="off" required />
                         @error('search')
                             <div class="invalid-feedback" style="margin-left: 40px">{{ $message }}.</div>
                         @enderror
@@ -72,14 +75,14 @@
                                 <div class="dynamic-pagination dropdown-menu dropdown-menu-end pb-0">
                                     <span class="small ps-3 fw-bold text-dark">Show</span>
 
-                                    <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }} {{ Request::is('admin/categories') ? 'active' : '' }}"
-                                        href="{{ route('admin.categories.perPage', 10) }}"> 10 </a>
+                                    <a class="dropdown-item {{ Request::is('*/perPage/10') ? 'active' : '' }} {{ Request::is('admin/products') ? 'active' : '' }}"
+                                        href="{{ route('admin.products.perPage', 10) }}"> 10 </a>
                                     <a class="dropdown-item {{ Request::is('*/perPage/30') ? 'active' : '' }}"
-                                        href="{{ route('admin.categories.perPage', 30) }}"> 30 </a>
+                                        href="{{ route('admin.products.perPage', 30) }}"> 30 </a>
                                     <a class="dropdown-item {{ Request::is('*/perPage/50') ? 'active' : '' }}"
-                                        href="{{ route('admin.categories.perPage', 50) }}"> 50 </a>
+                                        href="{{ route('admin.products.perPage', 50) }}"> 50 </a>
                                     <a class="dropdown-item {{ Request::is('*/perPage/100') ? 'active' : '' }}"
-                                        href="{{ route('admin.categories.perPage', 100) }}"> 100 </a>
+                                        href="{{ route('admin.products.perPage', 100) }}"> 100 </a>
 
                                 </div>
 
@@ -116,7 +119,7 @@
 
 
 
-        @if ($categories->isEmpty())
+        @if ($products->isEmpty())
             <!----------- No Data ------------->
             <div class="card card-body shadow border-0 d-flex justify-content-center align-items-center">
                 <img src="{{ asset('images/no_data.jpg') }}" alt="no_data" class="img-fluid"
@@ -128,7 +131,7 @@
             <div class="card card-body shadow border-0 table-wrapper table-responsive">
 
                 <!----------- multi Action ------------->
-                <form id="multi-action-form" action="{{ route('admin.categories.multiAction') }}" method="POST">
+                <form id="multi-action-form" action="{{ route('admin.products.multiAction') }}" method="POST">
                     <div class="pb-3">
 
                         @csrf
@@ -145,7 +148,7 @@
                         @enderror
 
                     </div>
-                    <table class="table category-table table-hover align-items-center index-table">
+                    <table class="table product-table table-hover align-items-center index-table">
                         <thead>
                             <tr>
                                 <th class="border-bottom">
@@ -155,35 +158,31 @@
                                         <label class="form-check-label" for="userCheck55"> </label>
                                     </div>
                                 </th>
-                                <th class="border-bottom">Icon</th>
                                 <th class="border-bottom">Title</th>
+                                <th class="border-bottom">Category</th>
                                 <th class="border-bottom">Date Created</th>
                                 <th class="border-bottom">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($products as $product)
                                 <tr>
                                     <td>
                                         <div class="form-check dashboard-check">
-                                            <input name="id[]" value="{{ $category->id }}"
+                                            <input name="id[]" value="{{ $product->id }}"
                                                 class="form-check-input checkbox-head check-item" type="checkbox">
                                             <label class="form-check-label" for="userCheck55"> </label>
                                         </div>
                                     </td>
-                                    <td>
-                                        <a href="{{ route('admin.categories.show', $category->id) }}" class="d-flex align-items-center">
-                                            <img src="{{ asset("images/categories/".$category->icon) }}" width="40" alt="category-icon">
-                                        </a>
-                                    </td>
-                                    <td><span class="fw-normal">{{ $category->title }}</span></td>
-                                    <td><span class="fw-normal">{{ $category->created_at }}</span></td>
+                                    <td><span class="fw-normal">{{ $product->title }}</span></td>
+                                    <td><span class="fw-normal">{{ $product->subcategory->title }}</span></td>
+                                    <td><span class="fw-normal">{{ $product->created_at }}</span></td>
                                     <td class="actions">
-                                        <a href="{{ route('admin.categories.show', $category->id) }}"
+                                        <a href="{{ route('admin.products.show', $product->id) }}"
                                             class="text-tertiary"> <i class="fa-solid fa-eye fa-lg"></i> </a>
-                                        <a href="{{ route('admin.categories.edit', $category->id) }}"
+                                        <a href="{{ route('admin.products.edit', $product->id) }}"
                                             class="text-info"> <i class="fa-solid fa-pen-to-square fa-lg"></i> </a>
-                                        <a href="{{ route('admin.categories.destroy', $category->id) }}"
+                                        <a href="{{ route('admin.products.destroy', $product->id) }}"
                                             class="text-info delete-record">
                                             <i class="fa-solid fa-trash-can text-danger fa-lg"></i>
                                         </a>
@@ -197,11 +196,11 @@
                         class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
                         {{-- Pagination --}}
                         <div class="d-flex justify-content-center">
-                            {{ $categories->withQueryString()->onEachSide(0)->links() }}
+                            {{ $products->withQueryString()->onEachSide(0)->links() }}
                         </div>
                         <div class="fw-normal small mt-4 mt-lg-0">
-                            Showing <b>{{ $categories->firstItem() }}</b> to <b>{{ $categories->lastItem() }}</b>
-                            of total <b>{{ $categories->total() }}</b> entries
+                            Showing <b>{{ $products->firstItem() }}</b> to <b>{{ $products->lastItem() }}</b>
+                            of total <b>{{ $products->total() }}</b> entries
                         </div>
                     </div>
                 </form>

@@ -23,7 +23,7 @@ class ForgienKey extends Migration
         });
         ################ products ###################
         Schema::table('products', function (Blueprint $table) {
-            $table->foreign("subcategories_id")
+            $table->foreign("subcategory_id")
             ->references('id')
             ->on("subcategories")
             ->onDelete("cascade")       

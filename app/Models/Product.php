@@ -10,7 +10,7 @@ class Product extends Model
 {
     use Sluggable ;
 
-    protected $fillable = [ 'subcategories_id', 'title', 'slug', 'img' , 'price' , 'quantity'  , 'description' ];
+    protected $fillable = [ 'subcategory_id', 'title', 'slug', 'img' , 'price' , 'quantity'  , 'description' ];
 
 
     public function sluggable()

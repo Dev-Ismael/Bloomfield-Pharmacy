@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('subcategory_id');	
             $table->string('title')->index();
             $table->string('slug');
-            $table->string('img');
+            $table->string('img')->default("product.png");
             $table->smallInteger('price');
             $table->smallInteger('quantity');
             $table->string('description', 1000);

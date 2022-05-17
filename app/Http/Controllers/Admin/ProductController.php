@@ -87,7 +87,7 @@ class ProductController extends Controller
     public function show($id)
     {
         // find id in Db With Error 404
-        $product = Product::with('category')->findOrFail($id);
+        $product = Product::with('subcategory')->findOrFail($id);
         return view("admin.products.show" , compact("product") ) ;
     }
 

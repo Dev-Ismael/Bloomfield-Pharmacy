@@ -35,7 +35,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <form action="{{ route('admin.subcategories.update' , $subcategory->id) }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.subcategories.update' , $subcategory->id) }}" class="edit-form" method="POST" enctype="multipart/form-data">
 
                                         @csrf
 

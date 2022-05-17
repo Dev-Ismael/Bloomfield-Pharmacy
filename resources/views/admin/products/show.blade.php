@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.subcategories.index') }}">Sub Category</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Product</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Show</li>
             </ol>
         </nav>
@@ -28,13 +28,13 @@
                             <div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> Sub Category Details</h2>
+                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> Product Details</h2>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="{{ route("admin.subcategories.edit" , $subcategory->id) }}" class="btn btn-sm btn-primary"> 
+                                        <a href="{{ route("admin.products.edit" , $product->id) }}" class="btn btn-sm btn-primary"> 
                                             <i class="fa-solid fa-pen-to-square"></i> Edit
                                         </a>
-                                        <a href="{{ route('admin.subcategories.destroy', $subcategory->id) }}" class="btn btn-sm btn-danger delete-record">
+                                        <a href="{{ route('admin.products.destroy', $product->id) }}" class="btn btn-sm btn-danger delete-record">
                                             <i class="fa-solid fa-trash-can"></i> Delete 
                                         </a>
                                     </div>
@@ -45,15 +45,35 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-capitalize"> # ID </td>
-                                            <td> {{ $subcategory->id != "" ? $subcategory->id : '-'}} </td>
+                                            <td> {{ $product->id != "" ? $product->id : '-'}} </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> Title </td>
-                                            <td> {{ $subcategory->title != "" ? $subcategory->title : '-'  }} </td>
+                                            <td> {{ $product->title != "" ? $product->title : '-'  }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-list"></i> Main Category </td>
-                                            <td> {{ $subcategory->category->title != "" ? $subcategory->category->title : '-'  }} </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-list"></i> Category </td>
+                                            <td> {{ $product->subcategory->title != "" ? $product->subcategory->title : '-'  }} </td>
+                                        </tr>
+                                        <tr class="product-price">
+                                            <td class="text-capitalize"> <i class="fa-solid fa-money-bill-1"></i> Price </td>
+                                            <td> {{ $product->price != "" ? $product->price : '-'  }}$</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-cart-flatbed"></i> Quantity </td>
+                                            <td> {{ $product->quantity != "" ? $product->quantity : '-'  }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-align-left"></i> Description </td>
+                                            <td> {{ $product->description != "" ? $product->description : '-'  }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Image </td>
+                                            <td class="product-image"> 
+                                                <div class="show-img-container">
+                                                    <img src="{{ asset('images/products/'.$product->img) }}" alt="product-image">    
+                                                </div>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

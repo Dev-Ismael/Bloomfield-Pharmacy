@@ -35,7 +35,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <form action="{{ route('admin.users.update' , $user->id) }}" method="POST">
+                                    <form action="{{ route('admin.users.update' , $user->id) }}" class="edit-form" method="POST">
 
                                         @csrf
 

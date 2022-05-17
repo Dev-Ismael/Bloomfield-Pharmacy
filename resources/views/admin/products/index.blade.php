@@ -159,6 +159,7 @@
                                         <label class="form-check-label" for="userCheck55"> </label>
                                     </div>
                                 </th>
+                                <th class="border-bottom">Image</th>
                                 <th class="border-bottom">Title</th>
                                 <th class="border-bottom">Category</th>
                                 <th class="border-bottom">Date Created</th>
@@ -174,6 +175,13 @@
                                                 class="form-check-input checkbox-head check-item" type="checkbox">
                                             <label class="form-check-label" for="userCheck55"> </label>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.users.show', $product->id) }}" class="d-flex align-items-center">
+                                            <div class="d-block index-table-img">
+                                                <img src="{{ asset("images/products/".$product->img) }}" height="50" alt="product-img">
+                                            </div>
+                                        </a>
                                     </td>
                                     <td><span class="fw-normal">{{ $product->title }}</span></td>
                                     <td><span class="fw-normal">{{ $product->subcategory->title }}</span></td>

@@ -246,6 +246,49 @@ select.form-select option {
 }
 
 /*==================================================================
+=================== Create form ====================================
+==================================================================*/
+
+/*===== Dynamic Input ====*/
+.create-form .dynamic-inputs #inputFormRow {
+    margin-top: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.create-form .dynamic-inputs>#inputFormRow {
+    margin-top: 0;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.create-form .dynamic-inputs #inputFormRow input {
+    width: calc(100% - 100px);
+}
+
+.create-form .dynamic-inputs .input-group-append {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 100px;
+    z-index: 99;
+}
+
+.create-form .dynamic-inputs button {
+    transition: all 0.3s ease-in-out;
+    border-radius: 50% !important;
+    padding: 8px 10px !important;
+    line-height: 1;
+    margin: 0px  !important;
+}
+.create-form .dynamic-inputs button:first-of-type{
+    margin-left: 10px !important;
+}
+.create-form .dynamic-inputs button:hover {
+    transform: translateY(-3px);
+    background-color: #fff;
+}
+
+/*==================================================================
 =================== edit form ====================================
 ==================================================================*/
 form.edit-form .show-img-container{

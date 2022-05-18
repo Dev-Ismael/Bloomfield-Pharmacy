@@ -35,7 +35,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <form action="{{ route('admin.prescriptions.store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.prescriptions.store') }}" class="create-form" method="POST" enctype="multipart/form-data">
 
                                         @csrf
 
@@ -77,7 +77,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="mb-4 input-content">
+                                        {{-- <div class="mb-4 input-content">
                                             <label for="medicine" class="capitalize"> <i class="fa-solid fa-capsules"></i> Medicines </label>
                                             <input type="text" name="medicine" id="medicine"
                                                 class="form-control @error('medicine') is-invalid @enderror"
@@ -86,8 +86,38 @@
                                             @error('medicine')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
+                                        </div> --}}
+                                        <!------------ Prescription Medicine ----------------->
+                                        <div class="mb-4 input-content dynamic-inputs">
+                                            <label for="medicine" class="capitalize"> 
+                                                <i class="fa-solid fa-capsules"></i> Medicines 
+                                                <button type="button" class="btn btn-primary add-field">
+                                                    <i class="fa-solid fa-plus" style="color: #fff"></i>
+                                                </button>
+                                            </label>
+
+                                            <div id="inputFormRow">
+                                                <div class="input-group">
+                                                    <!---------- Input ----------->
+                                                    <input type="text" name="medicine" id="medicine"
+                                                        class="form-control"
+                                                        aria-describedby="emailHelp"
+                                                        placeholder="Type Prescription Title..." autocomplete="nope" />
+                                                    <!---------- Buttons ----------->
+                                                    <div class="input-group-append position-relative">
+                                                        <button type="button" class="btn btn-primary add-field">
+                                                            <i class="fa-solid fa-plus" style="color: #fff"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary remove-field">
+                                                            <i class="fa-solid fa-trash" style="color: #fff"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="newRowsContainer"></div>
+
                                         </div>
-                                        
 
                                         
                                         <div class="mb-4 input-content">

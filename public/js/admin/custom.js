@@ -1,4 +1,5 @@
 
+
     /*==================================================
     ================ Remove invalid class
     =====================================================*/
@@ -50,18 +51,18 @@
 
     if(mainChecker){
 
-    mainChecker.addEventListener('click', event => {
-        if (mainChecker.checked == true) {
-            for (var i = 0; i < checkItems.length; i++) {
-                checkItems[i].setAttribute("checked", "checked");
+        mainChecker.addEventListener('click', event => {
+            if (mainChecker.checked == true) {
+                for (var i = 0; i < checkItems.length; i++) {
+                    checkItems[i].setAttribute("checked", "checked");
+                }
+            } else {
+                for (var i = 0; i < checkItems.length; i++) {
+                    checkItems[i].removeAttribute('checked');
+                }
             }
-        } else {
-            for (var i = 0; i < checkItems.length; i++) {
-                checkItems[i].removeAttribute('checked');
-            }
-        }
-    });
-}
+        });
+    }
 
 
     /*==================================================
@@ -131,10 +132,51 @@
     }
 
     /*==================================================
-    ================ if Multible option
+    ================ if Isset Multible option
     =====================================================*/
     const selectAction = document.getElementById('select-action');
     
-    selectAction.addEventListener('change', function handleChange(event) {
-        multiAlertBtn.removeAttribute("disabled");
+    if(selectAction){
+        selectAction.addEventListener('change', function handleChange(event) {
+            multiAlertBtn.removeAttribute("disabled");
+        });
+    }
+
+    
+    /*========================================================================
+    ===================  Daynamic input Order Prescription ====================
+    =========================================================================*/
+    // Jquery Code
+    $(document).ready(function(){
+        // remove field
+        $(document).on("click", "button.add-field" , function() {
+            var html = `
+                <div id="inputFormRow">
+                <div class="input-group">
+                    <!---------- Input ----------->
+                    <input type="text" name="medicine" id="medicine"
+                        class="form-control"
+                        aria-describedby="emailHelp"
+                        placeholder="Type Prescription Title..." autocomplete="nope" />
+                    <!---------- Buttons ----------->
+                    <div class="input-group-append position-relative">
+                        <button type="button" class="btn btn-primary add-field">
+                            <i class="fa-solid fa-plus" style="color: #fff"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary remove-field">
+                            <i class="fa-solid fa-trash" style="color: #fff"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            `;
+
+            $('#newRowsContainer').append(html);
+        });
+
+        // remove field
+        $(document).on('click', 'button.remove-field', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+
     });

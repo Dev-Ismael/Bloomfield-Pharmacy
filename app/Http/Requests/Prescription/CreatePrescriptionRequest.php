@@ -28,10 +28,10 @@ class CreatePrescriptionRequest extends FormRequest
             'user_id'           =>  ['required' , 'numeric' ],
             'age'               =>  ['nullable' , 'string' , 'max:55'],
             'gender'            =>  ['nullable' , 'string' , 'max:55'],
-            'medicine'          =>  ['nullable' , 'string' , 'max:2000'],
-            // 'additional_details'=>  ['nullable' , 'string' , 'max:1000'],
-            // 'validation'        =>  ['required' , 'string' , 'max:1'],
-            // 'schedule_orders'   =>  ['required' , 'string' , 'max:1'],
+            'medicine'          =>  ['nullable' , 'string' , 'max:1000'],
+            'additional_details'=>  ['nullable' , 'string' , 'max:1000'],
+            'validation'        =>  ['required' , 'string' , 'max:1'],
+            'schedule_orders'   =>  ['required' , 'string' , 'max:1'],
             'img'               =>  ['required' , 'mimes:jpeg,png,jpg' , 'max:2048'],
         ];
     }

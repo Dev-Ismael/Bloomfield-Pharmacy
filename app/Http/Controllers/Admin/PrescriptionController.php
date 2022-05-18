@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Subcategory;
-use App\Models\Product;
-use App\Http\Requests\Product\CreateProductRequest;
-use App\Http\Requests\Product\UpdateProductRequest;
+use App\Models\User;
+use App\Models\Prescription;
+use App\Http\Requests\Prescription\CreateProductRequest;
+use App\Http\Requests\Prescription\UpdateProductRequest;
 use Illuminate\Support\Facades\Validator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class ProductController extends Controller
+class PrescriptionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,10 +21,10 @@ class ProductController extends Controller
     public function perPage( $num=10 )
     {
         // Get Parent Rows Count
-        $subcategoriesCount = Subcategory::count();
+        $userCount = User::count();
         // Dynamic pagination
-        $products = Product::with('subcategory')->orderBy('id','desc')->paginate( $num );
-        return view("admin.products.index",compact("products","subcategoriesCount"));
+        $prescriptions = Prescription::with('user')->orderBy('id','desc')->paginate( $num );
+        return view("admin.prescriptions.index",compact("prescriptions","userCount"));
     }
 
 
@@ -36,9 +36,9 @@ class ProductController extends Controller
     public function index()
     {
         // Get Parent Rows Count
-        $subcategoriesCount = Subcategory::count();
-        $products = Product::with('subcategory')->orderBy('id','desc')->paginate( 10 );
-        return view("admin.products.index",compact("products","subcategoriesCount"));
+        $userCount = User::count();
+        $prescriptions = Prescription::with('user')->orderBy('id','desc')->paginate( 10 );
+        return view("admin.prescriptions.index",compact("prescriptions","userCount"));
     }
 
     /**
@@ -49,7 +49,7 @@ class ProductController extends Controller
     public function create()
     {
         $subcategories = Subcategory::get();
-        return view("admin.products.create" , compact("subcategories"));
+        return view("admin.prescriptions.create" , compact("subcategories"));
     }
 
     /**
@@ -64,7 +64,7 @@ class ProductController extends Controller
         //  Upload image & Create name img
         $file_extention = $request->img -> getClientOriginalExtension();
         $file_name = time() . "." . $file_extention;   // name => 3628.png
-        $path = "images/products" ;
+        $path = "images/prescriptions" ;
         $request -> img -> move( $path , $file_name );
 
 
@@ -72,19 +72,19 @@ class ProductController extends Controller
         $requestData['img'] = $file_name;
 
         // Add slug to $requestData
-        $requestData += [ 'slug' => SlugService::createSlug(Product::class, 'slug', $requestData['title']) ];
+        $requestData += [ 'slug' => SlugService::createSlug(Prescription::class, 'slug', $requestData['title']) ];
 
 
         // return $requestData;
 
         // Store in DB
         try {
-            $product = Product::create( $requestData );
-                return redirect() -> route("admin.products.index") -> with( [ "success" => " Product added successfully"] ) ;
-            if(!$product) 
-                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at added opration"] ) ;
+            $prescription = Prescription::create( $requestData );
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription added successfully"] ) ;
+            if(!$prescription) 
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at added opration"] ) ;
+            return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
         
     }
@@ -98,8 +98,8 @@ class ProductController extends Controller
     public function show($id)
     {
         // find id in Db With Error 404
-        $product = Product::with('subcategory')->findOrFail($id);
-        return view("admin.products.show" , compact("product") ) ;
+        $prescription = Prescription::with('subcategory')->findOrFail($id);
+        return view("admin.prescriptions.show" , compact("prescription") ) ;
     }
 
     /**
@@ -112,8 +112,8 @@ class ProductController extends Controller
     {
         $subcategories = Subcategory::get();
         // find id in Db With Error 404
-        $product = Product::findOrFail($id);  
-        return view("admin.products.edit" , compact("product","subcategories") ) ;
+        $prescription = Prescription::findOrFail($id);  
+        return view("admin.prescriptions.edit" , compact("prescription","subcategories") ) ;
     }
 
     /**
@@ -128,7 +128,7 @@ class ProductController extends Controller
         
         
         // find id in Db With Error 404
-        $product = Product::findOrFail($id); 
+        $prescription = Prescription::findOrFail($id); 
         $requestData = $request->all();
 
         
@@ -137,26 +137,26 @@ class ProductController extends Controller
             //  Upload image & Create name img
             $file_extention = $request->img -> getClientOriginalExtension();
             $file_name = time() . "." . $file_extention;   // name => 3628.png
-            $path = "images/products" ;
+            $path = "images/prescriptions" ;
             $request->img -> move( $path , $file_name );
         }else{
-            $file_name = $product->img;
+            $file_name = $prescription->img;
         }
         
         $requestData = $request->all();
         $requestData['img'] = $file_name;
 
         // Add slug to $requestData
-        $requestData += [ 'slug' => SlugService::createSlug(Product::class, 'slug', $requestData['title']) ];
+        $requestData += [ 'slug' => SlugService::createSlug(Prescription::class, 'slug', $requestData['title']) ];
 
         // Update Record in DB
         try {
-            $update = $product-> update( $requestData );
-                return redirect() -> route("admin.products.index") -> with( [ "success" => " Product updated successfully"] ) ;
+            $update = $prescription-> update( $requestData );
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription updated successfully"] ) ;
             if(!$update) 
-                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
         }
 
     }
@@ -170,16 +170,16 @@ class ProductController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $product = Product::findOrFail($id); 
+        $prescription = Prescription::findOrFail($id); 
         
         // Delete Record from DB
         try {
-            $delete = $product->delete();
-                return redirect() -> route("admin.products.index") -> with( [ "success" => " Product deleted successfully"] ) ;
+            $delete = $prescription->delete();
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription deleted successfully"] ) ;
             if(!$delete) 
-                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+            return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         }
     }
 
@@ -200,8 +200,8 @@ class ProductController extends Controller
             'search'     =>  ['required', 'string', 'max:55'],
         ]);
 
-        $products = Product::where('title', 'like', "%{$request->search}%")->paginate( 10 );
-        return view("admin.products.index",compact("products"));
+        $prescriptions = Prescription::where('title', 'like', "%{$request->search}%")->paginate( 10 );
+        return view("admin.prescriptions.index",compact("prescriptions"));
          
     }
 
@@ -228,24 +228,24 @@ class ProductController extends Controller
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
-                $delete = Product::destroy( $request->id );
-                    return redirect() -> route("admin.products.index") -> with( [ "success" => " Products deleted successfully"] ) ;
+                $delete = Prescription::destroy( $request->id );
+                    return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescriptions deleted successfully"] ) ;
                 if(!$delete) 
-                    return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+                    return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
-                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             }
         }
             
         // If Action is Delete
         if( $request->action == "out_of_stock" ){
             try {
-                $out_of_stock = Product::whereIn('id', $request->id )->update([ 'quantity' => 0 ]);
-                    return redirect() -> route("admin.products.index") -> with( [ "success" => " Products updated successfully"] ) ;
+                $out_of_stock = Prescription::whereIn('id', $request->id )->update([ 'quantity' => 0 ]);
+                    return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescriptions updated successfully"] ) ;
                 if(!$out_of_stock) 
-                    return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
+                    return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
-                return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
             }
         }
 

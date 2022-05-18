@@ -181,6 +181,15 @@
                             <span class="sidebar-text">Products</span>
                         </a>
                     </li>
+                    <li class="nav-item ">
+                        <a href="{{ route('admin.prescriptions.index') }}"
+                            class="nav-link {{ Request::is('*/prescriptions*') ? 'active' : '' }}">
+                            <span class="sidebar-icon">
+                                <i class="fa-solid fa-file-prescription"></i>
+                            </span>
+                            <span class="sidebar-text">Prescriptions</span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

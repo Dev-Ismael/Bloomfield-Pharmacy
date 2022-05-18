@@ -97,7 +97,7 @@
                                         
 
                                         <div class="mb-4 input-content">
-                                            <label for="description" class="capitalize"> <i class="fa-solid fa-align-left"></i> Descrioption </label>
+                                            <label for="description" class="capitalize"> <i class="fa-solid fa-align-left"></i> Description </label>
                                             <textarea type="text" name="description" id="description" rows="5" class="form-control @error('description') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type Product descreption..." autocomplete="nope"/>{{  $product->description }}}}</textarea>
                                             @error('description')
                                                 <small class="form-text text-danger">{{$message }}</small> 

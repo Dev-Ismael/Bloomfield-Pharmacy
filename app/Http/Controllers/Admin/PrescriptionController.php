@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Prescription;
-use App\Http\Requests\Prescription\CreateProductRequest;
-use App\Http\Requests\Prescription\UpdateProductRequest;
+use App\Http\Requests\Prescription\CreatePrescriptionRequest;
+use App\Http\Requests\Prescription\UpdatePrescriptionRequest;
 use Illuminate\Support\Facades\Validator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -48,8 +48,8 @@ class PrescriptionController extends Controller
      */
     public function create()
     {
-        $subcategories = Subcategory::get();
-        return view("admin.prescriptions.create" , compact("subcategories"));
+        $users = User::get();
+        return view("admin.prescriptions.create" , compact("users"));
     }
 
     /**
@@ -58,34 +58,37 @@ class PrescriptionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateProductRequest $request)
+    public function store(CreatePrescriptionRequest $request)
     {
 
-        //  Upload image & Create name img
-        $file_extention = $request->img -> getClientOriginalExtension();
-        $file_name = time() . "." . $file_extention;   // name => 3628.png
-        $path = "images/prescriptions" ;
-        $request -> img -> move( $path , $file_name );
+
+        return $request;
+
+        // //  Upload image & Create name img
+        // $file_extention = $request->img -> getClientOriginalExtension();
+        // $file_name = time() . "." . $file_extention;   // name => 3628.png
+        // $path = "images/prescriptions" ;
+        // $request -> img -> move( $path , $file_name );
 
 
-        $requestData = $request->all();
-        $requestData['img'] = $file_name;
+        // $requestData = $request->all();
+        // $requestData['img'] = $file_name;
 
-        // Add slug to $requestData
-        $requestData += [ 'slug' => SlugService::createSlug(Prescription::class, 'slug', $requestData['title']) ];
+        // // Add slug to $requestData
+        // $requestData += [ 'slug' => SlugService::createSlug(Prescription::class, 'slug', $requestData['title']) ];
 
 
-        // return $requestData;
+        // // return $requestData;
 
-        // Store in DB
-        try {
-            $prescription = Prescription::create( $requestData );
-                return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription added successfully"] ) ;
-            if(!$prescription) 
-                return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
-        } catch (\Exception $e) {
-            return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
-        }
+        // // Store in DB
+        // try {
+        //     $prescription = Prescription::create( $requestData );
+        //         return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription added successfully"] ) ;
+        //     if(!$prescription) 
+        //         return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
+        // } catch (\Exception $e) {
+        //     return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
+        // }
         
     }
 

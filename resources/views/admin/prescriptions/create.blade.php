@@ -99,7 +99,7 @@
                                             <div id="inputFormRow">
                                                 <div class="input-group">
                                                     <!---------- Input ----------->
-                                                    <input type="text" name="medicine" id="medicine"
+                                                    <input type="text" name="medicine[]" id="medicine"
                                                         class="form-control"
                                                         aria-describedby="emailHelp"
                                                         placeholder="Type Prescription Title..." autocomplete="nope" />
@@ -114,9 +114,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div id="newRowsContainer"></div>
-
+                                            @error('medicine')
+                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
                                         </div>
 
                                         

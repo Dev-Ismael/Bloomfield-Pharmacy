@@ -154,7 +154,7 @@
                 <div id="inputFormRow">
                 <div class="input-group">
                     <!---------- Input ----------->
-                    <input type="text" name="medicine" id="medicine"
+                    <input type="text" name="medicine[]" id="medicine"
                         class="form-control"
                         aria-describedby="emailHelp"
                         placeholder="Type Prescription Title..." autocomplete="nope" />

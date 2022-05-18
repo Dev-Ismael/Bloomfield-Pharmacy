@@ -11,7 +11,9 @@ class Prescription extends Model
 
     protected $fillable = [ 'user_id', 'img', 'age', 'img' , 'additional_details' , 'medicine'  , 'validation' , 'schedule_orders' ];
 
-
+    protected $casts = [
+        'medicine' => 'array',
+    ];
 
     ############################## Relations ################################
     public function user(){

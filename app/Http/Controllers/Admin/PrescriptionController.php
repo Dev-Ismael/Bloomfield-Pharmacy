@@ -62,33 +62,28 @@ class PrescriptionController extends Controller
     {
 
 
-        return $request;
 
-        // //  Upload image & Create name img
-        // $file_extention = $request->img -> getClientOriginalExtension();
-        // $file_name = time() . "." . $file_extention;   // name => 3628.png
-        // $path = "images/prescriptions" ;
-        // $request -> img -> move( $path , $file_name );
-
-
-        // $requestData = $request->all();
-        // $requestData['img'] = $file_name;
-
-        // // Add slug to $requestData
-        // $requestData += [ 'slug' => SlugService::createSlug(Prescription::class, 'slug', $requestData['title']) ];
+        //  Upload image & Create name img
+        $file_extention = $request->img -> getClientOriginalExtension();
+        $file_name = time() . "." . $file_extention;   // name => 3628.png
+        $path = "images/prescriptions" ;
+        $request -> img -> move( $path , $file_name );
 
 
-        // // return $requestData;
+        $requestData = $request->all();
+        $requestData['img'] = $file_name;
 
-        // // Store in DB
-        // try {
-        //     $prescription = Prescription::create( $requestData );
-        //         return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription added successfully"] ) ;
-        //     if(!$prescription) 
-        //         return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
-        // } catch (\Exception $e) {
-        //     return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
-        // }
+
+
+        // Store in DB
+        try {
+            $prescription = Prescription::create( $requestData );
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription added successfully"] ) ;
+            if(!$prescription) 
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
+        } catch (\Exception $e) {
+            return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
+        }
         
     }
 

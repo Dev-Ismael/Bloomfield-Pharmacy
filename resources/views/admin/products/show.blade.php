@@ -64,7 +64,7 @@
                                             <td> {{ $product->quantity != "" ? $product->quantity : '-'  }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-align-left"></i> Description </td>
+                                            <td class="text-capitalize" style="vertical-align: top;"> <i class="fa-solid fa-align-left"></i> Description </td>
                                             <td class="product-desc"> 
                                                 <div>
                                                     {{ $product->description != "" ? $product->description : '-'  }} 

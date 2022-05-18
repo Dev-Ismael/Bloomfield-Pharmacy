@@ -80,15 +80,15 @@
                                             <td> {{ $user->state != "" ? $user->state : '-' }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Address </td>
+                                            <td class="text-capitalize" style="vertical-align: top;"> <i class="fa-solid fa-location-dot"></i> Address </td>
                                             <td> {{ $user->address != "" ? $user->address : '-' }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Second Address  </td>
+                                            <td class="text-capitalize" style="vertical-align: top;"> <i class="fa-solid fa-location-dot"></i> Second Address  </td>
                                             <td> {{ $user->address_2 != "" ? $user->address_2 : '-' }} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Third address </td>
+                                            <td class="text-capitalize" style="vertical-align: top;"> <i class="fa-solid fa-location-dot"></i> Third address </td>
                                             <td> {{ $user->address_3 != "" ? $user->address_3 : '-' }} </td>
                                         </tr>
                                         <tr>

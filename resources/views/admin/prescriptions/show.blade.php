@@ -64,8 +64,16 @@
                                             <td> {{ $prescription->gender != "" ? $prescription->gender : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-capsules"></i> Medicine </td>
-                                            <td> {{ $prescription->medicine != "" ? $prescription->medicine : '-'}} </td>
+                                            <td class="text-capitalize" style="vertical-align: top;"> <i class="fa-solid fa-capsules"></i> Medicine </td>
+                                            <td>
+                                                @if ( $prescription->medicine == '')
+                                                    -
+                                                @else 
+                                                    @foreach ( $prescription->medicine as $key => $medicine )
+                                                        <p> {{ ( $key + 1 ) . '-' . $medicine }} </p>
+                                                    @endforeach
+                                                @endif 
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-list-check"></i> Validation </td>

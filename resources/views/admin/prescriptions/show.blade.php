@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Product</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.prescriptions.index') }}">Prescription</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Show</li>
             </ol>
         </nav>
@@ -28,13 +28,13 @@
                             <div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> Product Details</h2>
+                                        <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> Prescription Details</h2>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="{{ route("admin.products.edit" , $product->id) }}" class="btn btn-sm btn-primary"> 
+                                        <a href="{{ route("admin.prescriptions.edit" , $prescription->id) }}" class="btn btn-sm btn-primary"> 
                                             <i class="fa-solid fa-pen-to-square"></i> Edit
                                         </a>
-                                        <a href="{{ route('admin.products.destroy', $product->id) }}" class="btn btn-sm btn-danger delete-record">
+                                        <a href="{{ route('admin.prescriptions.destroy', $prescription->id) }}" class="btn btn-sm btn-danger delete-record">
                                             <i class="fa-solid fa-trash-can"></i> Delete 
                                         </a>
                                     </div>
@@ -45,38 +45,64 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-capitalize"> # ID </td>
-                                            <td> {{ $product->id != "" ? $product->id : '-'}} </td>
+                                            <td> {{ $prescription->id != "" ? $prescription->id : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-file-signature"></i> Title </td>
-                                            <td> {{ $product->title != "" ? $product->title : '-'  }} </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-user"></i> User </td>
+                                            <td> 
+                                                <a href="{{ route('admin.users.show', $prescription->user->id) }}" class="text-decoration-underline">
+                                                    {{ $prescription->user->name }}
+                                                </a>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-list"></i> Category </td>
-                                            <td> {{ $product->subcategory->title != "" ? $product->subcategory->title : '-'  }} </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-address-card"></i> Age </td>
+                                            <td> {{ $prescription->age != "" ? $prescription->age : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-money-bill-1"></i> Price </td>
-                                            <td class="product-price"> {{ $product->price != "" ? $product->price : '-'  }}<i class="fa-solid fa-dollar-sign"></i> </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-venus-mars"></i> Gender </td>
+                                            <td> {{ $prescription->gender != "" ? $prescription->gender : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-cart-flatbed"></i> Quantity </td>
-                                            <td> {{ $product->quantity != "" ? $product->quantity : '-'  }} </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-capsules"></i> Medicine </td>
+                                            <td> {{ $prescription->medicine != "" ? $prescription->medicine : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-align-left"></i> Description </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-list-check"></i> Validation </td>
+                                            <td> 
+                                                @if ( $prescription->validation == '0')
+                                                    <span class="badge super-badge bg-danger"> <i class="fa-solid fa-x"></i> Not Valid </span>
+                                                @elseif ( $prescription->validation == '1')
+                                                    <span class="badge super-badge bg-warning"> <i class="fa-solid fa-spinner"></i> Pending </span>
+                                                @elseif ( $prescription->validation == '2')
+                                                    <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> Valid </span>
+                                                @endif    
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-calendar"></i> Schedule Orders </td>
+                                            <td> 
+                                                @if ( $prescription->schedule_orders == '0')
+                                                    <span class="badge super-badge bg-danger"> <i class="fa-solid fa-x"></i> OFF </span>
+                                                @elseif ( $prescription->schedule_orders == '1')
+                                                    <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> ON </span>
+                                                @endif    
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-align-left"></i> Additional Details </td>
                                             <td class="product-desc"> 
                                                 <div>
-                                                    {{ $product->description != "" ? $product->description : '-'  }} 
+                                                    {{ $prescription->additional_details != "" ? $prescription->additional_details : '-'  }} 
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Image </td>
                                             <td class="product-image"> 
-                                                <div class="show-img-container">
-                                                    <img src="{{ asset('images/products/'.$product->img) }}" alt="product-image">    
-                                                </div>
+                                                <a class="show-img-container" href="{{ asset('images/prescriptions/'.$prescription->img) }}">
+                                                    <img src="{{ asset('images/prescriptions/'.$prescription->img) }}" alt="product-image">    
+                                                </a>
                                             </td>
                                         </tr>
                                     </tbody>

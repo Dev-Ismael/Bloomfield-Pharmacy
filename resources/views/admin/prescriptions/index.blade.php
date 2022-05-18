@@ -176,7 +176,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.prescriptions.show', $prescription->img) }}" class="d-flex align-items-center">
+                                        <a href="{{ route('admin.prescriptions.show', $prescription->id) }}" class="d-flex align-items-center">
                                             <div class="d-block index-table-img">
                                                 <img src="{{ asset("images/prescriptions/".$prescription->img) }}" height="50" alt="prescription-img">
                                             </div>

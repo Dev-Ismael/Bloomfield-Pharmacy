@@ -98,7 +98,7 @@ class PrescriptionController extends Controller
     public function show($id)
     {
         // find id in Db With Error 404
-        $prescription = Prescription::with('subcategory')->findOrFail($id);
+        $prescription = Prescription::with('user')->findOrFail($id);
         return view("admin.prescriptions.show" , compact("prescription") ) ;
     }
 

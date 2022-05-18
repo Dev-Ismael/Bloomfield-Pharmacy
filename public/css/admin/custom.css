@@ -262,7 +262,7 @@ form.edit-form .show-img-container img{
 /*==================================================================
 =================== table show ====================================
 ==================================================================*/
-table.show-data i {
+table.show-data tr td > i {
     color: var(--green) !important;
 }
 table.show-data .product-price{
@@ -280,4 +280,12 @@ table.show-data td.product-image img{
 }
 table.show-data td.product-desc{
     white-space: normal;
+}
+table.show-data td span.badge{
+    color: #fff !important;
+    padding: 7px 10px;
+    border-radius: 3px;
+}
+table.show-data td span.badge i {
+    padding-right: 3px;
 }

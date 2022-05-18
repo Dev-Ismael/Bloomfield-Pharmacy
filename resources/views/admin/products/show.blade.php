@@ -74,7 +74,7 @@
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Image </td>
                                             <td class="product-image"> 
-                                                <div class="show-img-container">
+                                                <a class="show-img-container" href="{{ asset('images/products/'.$product->img) }}">
                                                     <img src="{{ asset('images/products/'.$product->img) }}" alt="product-image">    
                                                 </div>
                                             </td>

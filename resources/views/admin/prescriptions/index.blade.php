@@ -139,7 +139,8 @@
                             aria-label="Message select example" style="display:inline">
                             <option value="" selected="selected" style="display: none"> Choose Action </option>
                             <option value="delete"> Delete </option>
-                            <option value="out_of_stock"> Out Of Stock </option>
+                            <option value="vaild"> Valid </option>
+                            <option value="not_vaild"> Not Valid </option>
                         </select>
                         <button type="submit" id="multi-alert-btn" class="btn btn-sm px-3 btn-primary ms-3 multi-alert"
                             disabled> <i class="fa-solid fa-list-check"></i> Apply</button>
@@ -161,7 +162,7 @@
                                 </th>
                                 <th class="border-bottom">Image</th>
                                 <th class="border-bottom">User</th>
-                                <th class="border-bottom">Status</th>
+                                <th class="border-bottom">Validation</th>
                                 <th class="border-bottom">Date Uploaded</th>
                                 <th class="border-bottom">Action</th>
                             </tr>
@@ -183,7 +184,7 @@
                                             </div>
                                         </a>
                                     </td>
-                                    <td><span class="fw-normal">{{ $prescription->user->name }}</span></td>
+                                    <td><span class="fw-normal"> <a href="{{ route('admin.users.show',$prescription->user->id) }}" class="user-link"> {{ $prescription->user->name }} </a> </span></td>
                                     <td>
                                         @if ( $prescription->validation == '0')
                                             <span class="badge super-badge bg-danger"> <i class="fa-solid fa-x"></i> Not Valid </span>

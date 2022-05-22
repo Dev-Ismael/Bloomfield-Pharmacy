@@ -233,12 +233,24 @@ class PrescriptionController extends Controller
             }
         }
             
-        // If Action is Delete
-        if( $request->action == "out_of_stock" ){
+        // If Action is Vaild
+        if( $request->action == "vaild" ){
             try {
-                $out_of_stock = Prescription::whereIn('id', $request->id )->update([ 'quantity' => 0 ]);
+                $vaild = Prescription::whereIn('id', $request->id )->update([ 'validation' => '2' ]);
                     return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescriptions updated successfully"] ) ;
-                if(!$out_of_stock) 
+                if(!$vaild) 
+                    return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            } catch (\Exception $e) {
+                return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            }
+        }
+            
+        // If Action is Not Vaild
+        if( $request->action == "not_vaild" ){
+            try {
+                $not_vaild = Prescription::whereIn('id', $request->id )->update([ 'validation' => '0' ]);
+                    return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescriptions updated successfully"] ) ;
+                if(!$not_vaild) 
                     return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;

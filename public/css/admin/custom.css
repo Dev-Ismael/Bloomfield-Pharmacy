@@ -298,7 +298,9 @@ select.form-select option {
 #admin table.index-table td span.badge i {
     padding-right: 3px;
 }
-
+#admin table.index-table .user-link{
+    text-decoration: underline;
+}
 /*===== Animation =========*/
 #admin table.index-table tr.pending{
     animation: pendingBg 1s infinite;

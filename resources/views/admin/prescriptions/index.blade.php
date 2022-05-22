@@ -168,7 +168,7 @@
                         </thead>
                         <tbody>
                             @foreach ($prescriptions as $prescription)
-                                <tr>
+                                <tr class="{{ $prescription->validation == '1' ? 'pending' : '' }}">
                                     <td>
                                         <div class="form-check dashboard-check">
                                             <input name="id[]" value="{{ $prescription->id }}"

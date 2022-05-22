@@ -299,6 +299,18 @@ select.form-select option {
     padding-right: 3px;
 }
 
+/*===== Animation =========*/
+#admin table.index-table tr.pending{
+    animation: pendingBg 1s infinite;
+}
+@keyframes pendingBg {
+    from {
+        background-color: #e6203a10;
+    }
+    to {
+        background-color: #e6203a25;
+    }
+  }
 /*==================================================================
 =================== Create form ====================================
 ==================================================================*/

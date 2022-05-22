@@ -38,8 +38,7 @@
 
                 <!--------------- Search Form --------------->
                 <div class="col-9 col-lg-8 d-md-flex">
-                    <form action="{{ route('admin.prescriptions.search') }}" method="POST"
-                        class="input-group me-2 me-lg-3 fmxw-300">
+                    <form action="{{ route('admin.prescriptions.search') }}" method="POST" class="input-group me-2 me-lg-3 fmxw-300">
                         <button type="submit" class="input-group-text">
                             <svg class="icon icon-xs" x-description="Heroicon name: solid/search"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -50,8 +49,8 @@
                             </svg>
                         </button>
                         @csrf
-                        <input type="text" name="search" class="form-control @error('search') is-invalid @enderror"
-                            placeholder="Search prescription by title" autocomplete="off" required />
+                        <input type="email" name="search" class="form-control @error('search') is-invalid @enderror"
+                            placeholder="Search prescription by user email" autocomplete="off" required />
                         @error('search')
                             <div class="invalid-feedback" style="margin-left: 40px">{{ $message }}.</div>
                         @enderror

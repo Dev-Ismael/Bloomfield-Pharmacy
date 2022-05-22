@@ -193,10 +193,13 @@ class PrescriptionController extends Controller
     {
         // validate search and redirect back
         $this->validate($request, [
-            'search'     =>  ['required', 'string', 'max:55'],
+            'search'     =>  ['required', 'string', 'email', 'max:55'],
         ]);
 
-        $prescriptions = Prescription::where('title', 'like', "%{$request->search}%")->paginate( 10 );
+        $userId = User::where('email', 'like', "%{$request->search}%")->first()->id;
+        // return $userId;
+        $prescriptions = Prescription::where('user_id', $userId)->paginate(10);
+        // return $prescriptions; 
         return view("admin.prescriptions.index",compact("prescriptions"));
          
     }

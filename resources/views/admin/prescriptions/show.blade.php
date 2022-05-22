@@ -100,6 +100,16 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-calendar-days"></i> Days Scheduling </td>
+                                            <td>
+                                                @if ( $prescription->scheduled_days == '')
+                                                    -
+                                                @else 
+                                                    Renew every {{ $prescription->scheduled_days }} day
+                                                @endif 
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-align-left"></i> Additional Details </td>
                                             <td class="product-desc"> 
                                                 <div>

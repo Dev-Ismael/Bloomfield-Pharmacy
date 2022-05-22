@@ -138,9 +138,9 @@
                                         
 
                                         <div class="mb-4 input-content">
-                                            <label for="schedule_orders" class="capitalize"> <i class="fa-solid fa-list-check"></i> Status </label>
+                                            <label for="schedule_orders" class="capitalize"> <i class="fa-solid fa-calendar-check"></i> Schedule Orders Automatically</label>
                                             <select class="form-select form-control @error('schedule_orders') is-invalid @enderror" name="schedule_orders" id="schedule_orders"  aria-label="Default select example" required>
-                                                <option value="" selected="selected" class="d-none">Choose Prescription Status...</option>
+                                                <option value="" selected="selected" class="d-none">Choose Schedule Status...</option>
                                                 <option value="0" {{ $prescription->schedule_orders == "0" ? "selected" : "" }}> OFF </option>
                                                 <option value="1" {{ $prescription->schedule_orders == "1" ? "selected" : "" }}> ON </option>
                                             </select>
@@ -151,6 +151,17 @@
 
 
                                         <div class="mb-4 input-content">
+                                            <label for="scheduled_days" class="capitalize"> <i class="fa-solid fa-calendar-days"></i> Days Scheduling </label>
+                                            <input type="text" name="scheduled_days" id="scheduled_days"
+                                                class="form-control @error('scheduled_days') is-invalid @enderror"
+                                                value="{{ $prescription->scheduled_days }}" aria-describedby="emailHelp"
+                                                placeholder="Type Days Scheduling the Prescription ..." autocomplete="nope"  required/>
+                                            @error('scheduled_days')
+                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                        
+                                        <div class="mb-4 input-content">
                                             <label for="additional_details" class="capitalize"> <i class="fa-solid fa-align-left"></i> Additional Details </label>
                                             <textarea type="text" name="additional_details" id="additional_details" rows="5" class="form-control @error('additional_details') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type Prescription descreption..." autocomplete="nope"/>{{ $prescription->additional_details }}</textarea>
                                             @error('additional_details')
@@ -158,7 +169,7 @@
                                             @enderror
                                         </div>
 
-
+                                        
                                         <div class="mb-3 input-content">
                                             <label for="img" class="form-label"> <i class="fa-solid fa-image"></i> Image </label> 
                                             <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img" />
@@ -166,7 +177,7 @@
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
-
+                                        
 
 
                                         <button type="submit" class="btn btn-primary float-right" > <i class="fa-solid fa-floppy-disk"></i> Save </button>

@@ -9,7 +9,7 @@ class Prescription extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ 'user_id', 'img', 'age', 'img' , 'additional_details' , 'medicine'  , 'validation' , 'schedule_orders' ];
+    protected $fillable = [ 'user_id', 'img', 'age', 'img' , 'additional_details' , 'medicine'  , 'validation' , 'schedule_orders' , 'scheduled_days' ];
 
     protected $casts = [
         'medicine' => 'array',

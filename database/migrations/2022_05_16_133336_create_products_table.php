@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('subcategory_id');	
-            $table->string('title')->index();
+            $table->string('title' , 55)->index();
             $table->string('slug');
             $table->string('img')->default("product.png");
             $table->smallInteger('price');

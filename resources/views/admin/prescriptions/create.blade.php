@@ -129,14 +129,27 @@
                                         
 
                                         <div class="mb-4 input-content">
-                                            <label for="schedule_orders" class="capitalize"> <i class="fa-solid fa-list-check"></i> Status </label>
+                                            <label for="schedule_orders" class="capitalize"> <i class="fa-solid fa-calendar-check"></i> Schedule Orders Automatically </label>
                                             <select class="form-select form-control @error('schedule_orders') is-invalid @enderror" name="schedule_orders" id="schedule_orders"  aria-label="Default select example" required>
-                                                <option value="" selected="selected" class="d-none">Choose Prescription Status...</option>
+                                                <option value="" selected="selected" class="d-none">Choose Schedule Status...</option>
                                                 <option value="0" {{ old('schedule_orders') == '0' ? "selected" : "" }}> OFF </option>
                                                 <option value="1" {{ old('schedule_orders') == '1' ? "selected" : "" }}> ON </option>
                                             </select>
                                             @error('schedule_orders')
                                                 <small class="form-text text-danger">{{$message }}</small> 
+                                            @enderror
+                                        </div>
+
+
+
+                                        <div class="mb-4 input-content">
+                                            <label for="scheduled_days" class="capitalize"> <i class="fa-solid fa-calendar-days"></i> Days Scheduling </label>
+                                            <input type="text" name="scheduled_days" id="scheduled_days"
+                                                class="form-control @error('scheduled_days') is-invalid @enderror"
+                                                value="{{ old('scheduled_days') }}" aria-describedby="emailHelp"
+                                                placeholder="Type Days Scheduling the Prescription ..." autocomplete="nope"  required/>
+                                            @error('scheduled_days')
+                                                <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
 
@@ -158,6 +171,7 @@
                                             @enderror
                                         </div>
 
+                                        
 
                                         <button type="submit" class="btn btn-primary float-right"> <i class="fa-solid fa-floppy-disk"></i> Submit </button>
 

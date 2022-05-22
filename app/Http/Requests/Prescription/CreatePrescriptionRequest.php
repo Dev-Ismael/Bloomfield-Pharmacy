@@ -33,6 +33,7 @@ class CreatePrescriptionRequest extends FormRequest
             'additional_details'=>  ['nullable' , 'string' , 'max:1000'],
             'validation'        =>  ['required' , 'string' , 'max:1'],
             'schedule_orders'   =>  ['required' , 'string' , 'max:1'],
+            'scheduled_days'    =>  ['required' , 'numeric' , 'digits_between:1,4' ],
             'img'               =>  ['required' , 'mimes:jpeg,png,jpg' , 'max:2048'],
         ];
     }

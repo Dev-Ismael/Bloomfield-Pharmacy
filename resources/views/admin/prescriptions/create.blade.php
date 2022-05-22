@@ -77,16 +77,6 @@
                                             @enderror
                                         </div>
 
-                                        {{-- <div class="mb-4 input-content">
-                                            <label for="medicine" class="capitalize"> <i class="fa-solid fa-capsules"></i> Medicines </label>
-                                            <input type="text" name="medicine" id="medicine"
-                                                class="form-control @error('medicine') is-invalid @enderror"
-                                                value="{{ old('medicine') }}" aria-describedby="emailHelp"
-                                                placeholder="Type Prescription Title..." autocomplete="nope"  />
-                                            @error('medicine')
-                                                <small class="form-text text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div> --}}
                                         <!------------ Prescription Medicine ----------------->
                                         <div class="mb-4 input-content dynamic-inputs">
                                             <label for="medicine" class="capitalize"> 
@@ -102,7 +92,7 @@
                                                     <input type="text" name="medicine[]" id="medicine"
                                                         class="form-control"
                                                         aria-describedby="emailHelp"
-                                                        placeholder="Type Prescription Title..." autocomplete="nope" />
+                                                        placeholder="Type Prescription Title..." autocomplete="nope" required/>
                                                     <!---------- Buttons ----------->
                                                     <div class="input-group-append position-relative">
                                                         <button type="button" class="btn btn-primary add-field">
@@ -115,8 +105,11 @@
                                                 </div>
                                             </div>
                                             <div id="newRowsContainer"></div>
-                                            @error('medicine')
-                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @error('medicine') <!--------- if isset array Validation ------------>
+                                                <small class="form-text text-danger">{{$message }}</small>
+                                            @enderror
+                                            @error('medicine.*') <!--------- if isset items array Validation ------------>
+                                                <small class="form-text text-danger">medicine field is not valid</small>
                                             @enderror
                                         </div>
 
@@ -125,9 +118,9 @@
                                             <label for="validation" class="capitalize"> <i class="fa-solid fa-list-check"></i> Validation </label>
                                             <select class="form-select form-control @error('validation') is-invalid @enderror" name="validation" id="validation"  aria-label="Default select example" required>
                                                 <option value="" selected="selected" class="d-none">Choose Prescription validation ...</option>
-                                                <option value="1"> Pending </option>
-                                                <option value="2"> Valid </option>
-                                                <option value="3"> Not Valid </option>
+                                                <option value="1" {{ old('validation') == '1' ? "selected" : "" }}> Pending </option>
+                                                <option value="2" {{ old('validation') == '2' ? "selected" : "" }}> Valid </option>
+                                                <option value="3" {{ old('validation') == '3' ? "selected" : "" }}> Not Valid </option>
                                             </select>
                                             @error('validation')
                                                 <small class="form-text text-danger">{{$message }}</small> 
@@ -139,8 +132,8 @@
                                             <label for="schedule_orders" class="capitalize"> <i class="fa-solid fa-list-check"></i> Status </label>
                                             <select class="form-select form-control @error('schedule_orders') is-invalid @enderror" name="schedule_orders" id="schedule_orders"  aria-label="Default select example" required>
                                                 <option value="" selected="selected" class="d-none">Choose Prescription Status...</option>
-                                                <option value="0"> OFF </option>
-                                                <option value="1"> ON </option>
+                                                <option value="0" {{ old('schedule_orders') == '0' ? "selected" : "" }}> OFF </option>
+                                                <option value="1" {{ old('schedule_orders') == '1' ? "selected" : "" }}> ON </option>
                                             </select>
                                             @error('schedule_orders')
                                                 <small class="form-text text-danger">{{$message }}</small> 

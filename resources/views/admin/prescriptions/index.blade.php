@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Prescription</li>
                     </ol>
                 </nav>
-                <h2 class="h4"> <i class="fa-solid fa-box-open text-primary"></i> Prescription List</h2>
+                <h2 class="h4"> <i class="fa-solid fa-file-prescription text-primary"></i> Prescription List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <!--------------- If No Users hide create btn --------------->
@@ -161,7 +161,8 @@
                                 </th>
                                 <th class="border-bottom">Image</th>
                                 <th class="border-bottom">User</th>
-                                <th class="border-bottom">Date Created</th>
+                                <th class="border-bottom">Status</th>
+                                <th class="border-bottom">Date Uploaded</th>
                                 <th class="border-bottom">Action</th>
                             </tr>
                         </thead>
@@ -183,6 +184,15 @@
                                         </a>
                                     </td>
                                     <td><span class="fw-normal">{{ $prescription->user->name }}</span></td>
+                                    <td>
+                                        @if ( $prescription->validation == '0')
+                                            <span class="badge super-badge bg-danger"> <i class="fa-solid fa-x"></i> Not Valid </span>
+                                        @elseif ( $prescription->validation == '1')
+                                            <span class="badge super-badge bg-warning"> <i class="fa-solid fa-spinner"></i> Pending </span>
+                                        @elseif ( $prescription->validation == '2')
+                                            <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> Valid </span>
+                                        @endif  
+                                    </td>
                                     <td><span class="fw-normal">{{ $prescription->created_at }}</span></td>
                                     <td class="actions">
                                         <a href="{{ route('admin.prescriptions.show', $prescription->id) }}"

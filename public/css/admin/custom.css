@@ -21,9 +21,10 @@
 }
 
 /*=========== sweet alert ===========*/
-.swal2-styled.swal2-confirm{
+.swal2-styled.swal2-confirm {
     background-color: var(--green) !important;
 }
+
 /*=========== scrollbar ===========*/
 
 body::-webkit-scrollbar {
@@ -62,10 +63,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*=========== checkbox ==============*/
-.form-check-input:checked{
+.form-check-input:checked {
     background-color: var(--green);
     border-color: var(--green);
 }
+
 /*=========== Inputs ==============*/
 div.input-content {
     transition: all 0.3s ease-in-out;
@@ -101,7 +103,7 @@ select.form-select option {
 }
 
 /*=========== Dynamic Pagination ===========*/
-.dropdown-menu.dynamic-pagination .dropdown-item.active::after{
+.dropdown-menu.dynamic-pagination .dropdown-item.active::after {
     font-family: "Font Awesome 5 Free";
     content: "\f00c";
     padding-right: 5px;
@@ -109,6 +111,7 @@ select.form-select option {
     vertical-align: middle;
     font-weight: 900;
 }
+
 /*=========== Pagination ===========*/
 .page-item.active .page-link {
     background-color: var(--green_dark) !important;
@@ -162,6 +165,46 @@ select.form-select option {
     visibility: visible;
 }
 
+
+
+/*===== Dynamic Input ====*/
+.dynamic-inputs #inputFormRow {
+    margin-top: 10px;
+    transition: all 0.5s ease-in-out;
+}
+
+.dynamic-inputs>#inputFormRow:first-of-type {
+    margin-top: 0;
+}
+
+.dynamic-inputs #inputFormRow input {
+    width: calc(100% - 100px);
+}
+
+.dynamic-inputs .input-group-append {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 100px;
+    z-index: 99;
+}
+
+.dynamic-inputs button {
+    transition: all 0.3s ease-in-out;
+    border-radius: 50% !important;
+    padding: 8px 10px !important;
+    line-height: 1;
+    margin: 0px !important;
+}
+
+.dynamic-inputs button:first-of-type {
+    margin-left: 10px !important;
+}
+
+.dynamic-inputs button:hover {
+    transform: translateY(-3px);
+    background-color: #fff;
+}
 
 /*==================================================================
 =================== NavBar  =======================================
@@ -225,9 +268,10 @@ select.form-select option {
     overflow-y: visible !important;
 }
 
-#admin nav#sidebarMenu .multi-level .nav-item .nav-link{
+#admin nav#sidebarMenu .multi-level .nav-item .nav-link {
     padding-left: 35px !important;
 }
+
 /*==================================================================
 =================== table index ====================================
 ==================================================================*/
@@ -245,90 +289,70 @@ select.form-select option {
     background-color: transparent;
 }
 
+#admin table.index-table td span.badge {
+    color: #fff !important;
+    padding: 7px 10px;
+    border-radius: 3px;
+}
+
+#admin table.index-table td span.badge i {
+    padding-right: 3px;
+}
+
 /*==================================================================
 =================== Create form ====================================
 ==================================================================*/
 
-/*===== Dynamic Input ====*/
-.create-form .dynamic-inputs #inputFormRow {
-    margin-top: 10px;
-    transition: all 0.5s ease-in-out;
-}
-
-.create-form .dynamic-inputs>#inputFormRow {
-    margin-top: 0;
-    transition: all 0.5s ease-in-out;
-
-}
-
-.create-form .dynamic-inputs #inputFormRow input {
-    width: calc(100% - 100px);
-}
-
-.create-form .dynamic-inputs .input-group-append {
-    position: absolute;
-    top: 0;
-    right: 0px;
-    width: 100px;
-    z-index: 99;
-}
-
-.create-form .dynamic-inputs button {
-    transition: all 0.3s ease-in-out;
-    border-radius: 50% !important;
-    padding: 8px 10px !important;
-    line-height: 1;
-    margin: 0px  !important;
-}
-.create-form .dynamic-inputs button:first-of-type{
-    margin-left: 10px !important;
-}
-.create-form .dynamic-inputs button:hover {
-    transform: translateY(-3px);
-    background-color: #fff;
-}
 
 /*==================================================================
 =================== edit form ====================================
 ==================================================================*/
-form.edit-form .show-img-container{
+form.edit-form .show-img-container {
     margin-left: 20px;
     box-shadow: 0px 2px 36px 2px rgb(0 0 0 / 34%);
     display: inline;
     border-radius: 5px;
     padding: 3px;
 }
-form.edit-form .show-img-container img{
+
+form.edit-form .show-img-container img {
     width: 30px;
 
 }
+
 /*==================================================================
 =================== table show ====================================
 ==================================================================*/
-table.show-data tr td > i {
+table.show-data tr td>i {
     color: var(--green) !important;
 }
-table.show-data .product-price{
+
+table.show-data .product-price {
     color: #2e8345;
     font-weight: bolder;
 }
-table.show-data .show-img-container{
+
+table.show-data .show-img-container {
     box-shadow: 0px 2px 36px 2px rgb(0 0 0 / 16%);
     display: inline-block;
     border-radius: 5px;
     padding: 3px;
 }
-table.show-data td.product-image img{
+
+table.show-data td.product-image img {
     height: 120px;
 }
-table.show-data td.product-desc{
+
+table.show-data td.product-desc {
     white-space: normal;
 }
-table.show-data td span.badge{
+
+table.show-data td span.badge {
     color: #fff !important;
     padding: 7px 10px;
     border-radius: 3px;
 }
+
 table.show-data td span.badge i {
     padding-right: 3px;
 }

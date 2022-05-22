@@ -69,9 +69,11 @@
                                                 @if ( $prescription->medicine == '')
                                                     -
                                                 @else 
-                                                    @foreach ( $prescription->medicine as $key => $medicine )
-                                                        <p> {{ ( $key + 1 ) . '-' . $medicine }} </p>
-                                                    @endforeach
+                                                    <ul style="padding-left: 1rem; margin-bottom:0px">
+                                                        @foreach ( $prescription->medicine as $medicine )
+                                                            <li> {{ $medicine }} </li>
+                                                        @endforeach
+                                                    </ul>
                                                 @endif 
                                             </td>
                                         </tr>

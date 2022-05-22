@@ -8,7 +8,7 @@
     for (var i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener('click', function(event) {
             this.classList.remove("is-invalid");
-            var textDanger = this.nextElementSibling;
+            var textDanger = this.parentElement.querySelector(".text-danger");
             textDanger.style.display = "none";
         });
     }
@@ -157,7 +157,7 @@
                     <input type="text" name="medicine[]" id="medicine"
                         class="form-control"
                         aria-describedby="emailHelp"
-                        placeholder="Type Prescription Title..." autocomplete="nope" />
+                        placeholder="Type Medicine Title..." autocomplete="nope" required/>
                     <!---------- Buttons ----------->
                     <div class="input-group-append position-relative">
                         <button type="button" class="btn btn-primary add-field">

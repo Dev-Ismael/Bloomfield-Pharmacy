@@ -108,10 +108,10 @@ class PrescriptionController extends Controller
      */
     public function edit($id)
     {
-        $subcategories = Subcategory::get();
+        $users = User::get();
         // find id in Db With Error 404
         $prescription = Prescription::findOrFail($id);  
-        return view("admin.prescriptions.edit" , compact("prescription","subcategories") ) ;
+        return view("admin.prescriptions.edit" , compact("prescription","users") ) ;
     }
 
     /**
@@ -121,10 +121,10 @@ class PrescriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, $id)
+    public function update(UpdatePrescriptionRequest $request, $id)
     {
         
-        
+
         // find id in Db With Error 404
         $prescription = Prescription::findOrFail($id); 
         $requestData = $request->all();
@@ -144,8 +144,6 @@ class PrescriptionController extends Controller
         $requestData = $request->all();
         $requestData['img'] = $file_name;
 
-        // Add slug to $requestData
-        $requestData += [ 'slug' => SlugService::createSlug(Prescription::class, 'slug', $requestData['title']) ];
 
         // Update Record in DB
         try {

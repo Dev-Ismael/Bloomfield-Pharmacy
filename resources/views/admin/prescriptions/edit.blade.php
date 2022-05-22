@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Admin</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Product</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.prescriptions.index') }}">Prescription</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit</li>
             </ol>
         </nav>
@@ -29,13 +29,13 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-pen-to-square text-primary"></i> Edit
-                                            product</h2>
+                                            prescription</h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <form action="{{ route('admin.products.update' , $product->id) }}" class="edit-form" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('admin.prescriptions.update' , $prescription->id) }}" class="edit-form" method="POST" enctype="multipart/form-data">
 
                                         @csrf
 
@@ -45,61 +45,115 @@
 
 
                                         <div class="mb-4 input-content">
-                                            <label for="title" class="capitalize"> <i
-                                                    class="fa-solid fa-file-signature"></i> Title </label>
-                                            <input type="text" name="title" id="title"
-                                                class="form-control @error('title') is-invalid @enderror"
-                                                value="{{ $product->title }}" aria-describedby="emailHelp"
-                                                placeholder="Type Sub product Title..." autocomplete="nope"  required/>
-                                            @error('title')
-                                                <small class="form-text text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-
-                                        
-                                        <div class="mb-4 input-content">
-                                            <label for="subcategory_id" class="capitalize"> <i class="fa-solid fa-list"></i> Category </label>
-                                            <select class="form-select form-control @error('subcategory_id') is-invalid @enderror" name="subcategory_id" id="subcategory_id"  aria-label="Default select example" required>
-                                                <option value="" selected="selected" class="d-none">Choose Category...</option>
-                                                @foreach ( $subcategories as $subcategory )
-                                                    <option value="{{ $subcategory->id }}"  {{ $subcategory->id == $product->subcategory->id ? "selected" : "" }} >{{ $subcategory->title }}</option>
+                                            <label for="user_id" class="capitalize"> <i class="fa-solid fa-user"></i> User </label>
+                                            <select class="form-select form-control @error('user_id') is-invalid @enderror" name="user_id" id="user_id"  aria-label="Default select example" required>
+                                                <option value="" selected="selected" class="d-none">Choose User...</option>
+                                                @foreach ( $users as $user )
+                                                    <option value="{{ $user->id }}"  {{ $prescription->user->id == $user->id ? "selected" : "" }}>{{ $user->email }}</option>
                                                 @endforeach
                                             </select>
-                                            @error('subcategory_id')
+                                            @error('user_id')
                                                 <small class="form-text text-danger">{{$message }}</small> 
                                             @enderror
                                         </div>
 
 
+                                        <div class="mb-4 input-content">
+                                            <label for="age" class="capitalize"> <i class="fa-solid fa-address-card"></i> Age </label>
+                                            <input type="number" name="age" id="age"
+                                                class="form-control @error('age') is-invalid @enderror"
+                                                value="{{ $prescription->age }}" aria-describedby="emailHelp"
+                                                placeholder="Type Prescription Title..." autocomplete="nope" />
+                                            @error('age')
+                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
 
                                         <div class="mb-4 input-content">
-                                            <label for="price" class="capitalize"> <i class="fa-solid fa-money-bill-1"></i> Price </label>
-                                            <input type="number" name="price" id="price"
-                                                class="form-control @error('price') is-invalid @enderror"
-                                                value="{{ $product->price }}" aria-describedby="emailHelp"
-                                                placeholder="Type Product price..." autocomplete="nope"  required/>
-                                            @error('price')
+                                            <label for="gender" class="capitalize"> <i class="fa-solid fa-venus-mars"></i> Gender </label>
+                                                <select class="form-select form-control @error('gender') is-invalid @enderror" name="gender" id="gender"  aria-label="Default select example">
+                                                    <option value="" selected="selected" class="d-none">Choose Patient Gender...</option>
+                                                    <option value="male"   {{ $user->gender == 'male' ? "selected" : "" }}>Male</option>
+                                                    <option value="female" {{ $user->gender == 'female' ? "selected" : "" }}>Female</option>
+                                                    <option value="other"  {{ $user->gender == 'other' ? "selected" : "" }}>Other</option>
+                                                </select>
+                                            @error('gender')
                                                 <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+
+                                        <!------------ Prescription Medicine ----------------->
+                                        <div class="mb-4 input-content dynamic-inputs">
+                                            <label for="medicine" class="capitalize"> 
+                                                <i class="fa-solid fa-capsules"></i> Medicines 
+                                                <button type="button" class="btn btn-primary add-field">
+                                                    <i class="fa-solid fa-plus" style="color: #fff"></i>
+                                                </button>
+                                            </label>
+
+                                            
+                                            @for ( $i = 0 ; $i < count($prescription->medicine) ; $i++ )
+                                                <div id="inputFormRow">
+                                                    <div class="input-group">
+                                                        <!---------- Input ----------->
+                                                        <input type="text" name="medicine[]" id="medicine"
+                                                            class="form-control"
+                                                            value="{{ $prescription->medicine[$i] }}"
+                                                            aria-describedby="emailHelp"
+                                                            placeholder="Type Medicine Title..." autocomplete="nope" required/>
+                                                        <!---------- Buttons ----------->
+                                                        <div class="input-group-append position-relative">
+                                                            <button type="button" class="btn btn-primary add-field">
+                                                                <i class="fa-solid fa-plus" style="color: #fff"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-primary remove-field">
+                                                                <i class="fa-solid fa-trash" style="color: #fff"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endfor
+                                            <div id="newRowsContainer"></div>
+                                            @error('medicine') <!--------- if isset array Validation ------------>
+                                                <small class="form-text text-danger">{{$message }}</small>
+                                            @enderror
+                                            @error('medicine.*') <!--------- if isset items array Validation ------------>
+                                                <small class="form-text text-danger">medicine field is not valid</small>
+                                            @enderror
+                                        </div>
+
+                                        
+                                        <div class="mb-4 input-content">
+                                            <label for="validation" class="capitalize"> <i class="fa-solid fa-list-check"></i> Validation </label>
+                                            <select class="form-select form-control @error('validation') is-invalid @enderror" name="validation" id="validation"  aria-label="Default select example" required>
+                                                <option value="" selected="selected" class="d-none">Choose Prescription validation ...</option>
+                                                <option value="1" {{ $prescription->validation == "1" ? "selected" : "" }}> Pending </option>
+                                                <option value="2" {{ $prescription->validation == "2" ? "selected" : "" }}> Valid </option>
+                                                <option value="3" {{ $prescription->validation == "3" ? "selected" : "" }}> Not Valid </option>
+                                            </select>
+                                            @error('validation')
+                                                <small class="form-text text-danger">{{$message }}</small> 
                                             @enderror
                                         </div>
                                         
 
                                         <div class="mb-4 input-content">
-                                            <label for="quantity" class="capitalize"> <i class="fa-solid fa-cart-flatbed"></i> Quantity </label>
-                                            <input type="number" name="quantity" id="quantity"
-                                                class="form-control @error('quantity') is-invalid @enderror"
-                                                value="{{ $product->quantity }}" aria-describedby="emailHelp"
-                                                placeholder="Type Product quantity..." autocomplete="nope"  required/>
-                                            @error('quantity')
-                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            <label for="schedule_orders" class="capitalize"> <i class="fa-solid fa-list-check"></i> Status </label>
+                                            <select class="form-select form-control @error('schedule_orders') is-invalid @enderror" name="schedule_orders" id="schedule_orders"  aria-label="Default select example" required>
+                                                <option value="" selected="selected" class="d-none">Choose Prescription Status...</option>
+                                                <option value="0" {{ $prescription->schedule_orders == "0" ? "selected" : "" }}> OFF </option>
+                                                <option value="1" {{ $prescription->schedule_orders == "1" ? "selected" : "" }}> ON </option>
+                                            </select>
+                                            @error('schedule_orders')
+                                                <small class="form-text text-danger">{{$message }}</small> 
                                             @enderror
                                         </div>
-                                        
+
 
                                         <div class="mb-4 input-content">
-                                            <label for="description" class="capitalize"> <i class="fa-solid fa-align-left"></i> Description </label>
-                                            <textarea type="text" name="description" id="description" rows="5" class="form-control @error('description') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type Product descreption..." autocomplete="nope"/>{{  $product->description }}}}</textarea>
-                                            @error('description')
+                                            <label for="additional_details" class="capitalize"> <i class="fa-solid fa-align-left"></i> Additional Details </label>
+                                            <textarea type="text" name="additional_details" id="additional_details" rows="5" class="form-control @error('additional_details') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type Prescription descreption..." autocomplete="nope"/>{{ $prescription->additional_details }}</textarea>
+                                            @error('additional_details')
                                                 <small class="form-text text-danger">{{$message }}</small> 
                                             @enderror
                                         </div>

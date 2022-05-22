@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Product;
+namespace App\Http\Requests\Prescription;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -25,12 +25,15 @@ class UpdatePrescriptionRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'           =>  ['required' , 'string' , 'max:55' , Rule::unique('products', 'title')->ignore($this->product)],
-            'subcategory_id'  =>  ['required' , 'numeric' ],
-            'price'           =>  ['required' , 'numeric' , 'digits_between:1,6'],
-            'quantity'        =>  ['required' , 'numeric' , 'digits_between:1,6'],
-            'description'     =>  ['required' , 'string' , 'max:1000'],
-            'img'             =>  ['nullable' , 'mimes:jpeg,png,jpg' , 'max:2048'],
+            'user_id'           =>  ['required' , 'numeric' ],
+            'age'               =>  ['nullable' , 'string' , 'max:55'],
+            'gender'            =>  ['nullable' , 'string' , 'max:55'],
+            'medicine'          =>  ['required' , 'array' ,  'max:1000'],
+            'medicine.*'        =>  ['required' , 'string' , 'distinct'],
+            'additional_details'=>  ['nullable' , 'string' , 'max:1000'],
+            'validation'        =>  ['required' , 'string' , 'max:1'],
+            'schedule_orders'   =>  ['required' , 'string' , 'max:1'],
+            'img'               =>  ['nullable' , 'mimes:jpeg,png,jpg' , 'max:2048'],
         ];
     }
 }

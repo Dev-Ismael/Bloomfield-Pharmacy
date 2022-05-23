@@ -51,7 +51,7 @@ Route::get('/privacy', [App\Http\Controllers\Web\PrivacyController::class, 'inde
 // Search                            
 Route::get('/search', [App\Http\Controllers\Web\SearchController::class, 'index'])->name('search');
 // Product                            
-Route::get('/product', [App\Http\Controllers\Web\ProductController::class, 'index'])->name('product');
+Route::get('/product/{slug}', [App\Http\Controllers\Web\ProductController::class, 'index'])->name('product');
 // Category                            
 Route::get('/category', [App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
 // order_prescription                            

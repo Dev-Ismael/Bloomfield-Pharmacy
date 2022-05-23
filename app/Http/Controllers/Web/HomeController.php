@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -16,8 +17,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
-        return view('web.home',compact('categories'));
+        $categories   = Category::get();
+        $lastedOffers = Product::where('has_offer','1')->orderBy('id', 'desc')->limit(10)->get();
+        return view('web.home',compact('categories','lastedOffers'));
     }
 
 }

@@ -842,6 +842,7 @@ form#user-register-form input {
 /*====================================================
 =================== Product item =====================
 ====================================================*/
+
 .product-item button {
     transition: all 0.5s ease-out;
     margin: 10px 0px;
@@ -852,7 +853,12 @@ form#user-register-form input {
     border-radius: 3px;
     padding: 5px 8px;
 }
-
+.product-item h5{
+    padding-bottom: 5px;
+}
+.product-item a, .product-item p{
+    margin-bottom: 0px;
+}
 .product-item button:hover {
     background-color: #fff;
     border: 1px solid #2e8345;

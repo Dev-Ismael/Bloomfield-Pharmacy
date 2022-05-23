@@ -91,6 +91,56 @@
                                         
 
                                         <div class="mb-4 input-content">
+                                            <label for="has_offer" class="capitalize"> <i class="fa-solid fa-gift"></i> Offer Exist </label>
+                                            <select class="form-select form-control @error('has_offer') is-invalid @enderror" name="has_offer" id="has_offer"  aria-label="Default select example" required>
+                                                <option value="" selected="selected" class="d-none">Choose Offer Status...</option>
+                                                <option value="0" {{ old('has_offer') == '0' ? "selected" : "" }}> No </option>
+                                                <option value="1" {{ old('has_offer') == '1' ? "selected" : "" }}> Yes </option>
+                                            </select>
+                                            @error('has_offer')
+                                                <small class="form-text text-danger">{{$message }}</small> 
+                                            @enderror
+                                        </div>
+
+
+
+                                        <div class="mb-4 input-content">
+                                            <label for="offer_percentage" class="capitalize"> <i class="fa-solid fa-percent"></i> Offer Percentage </label>
+                                            <input type="number" name="offer_percentage" id="offer_percentage"
+                                                class="form-control @error('offer_percentage') is-invalid @enderror"
+                                                value="{{ old('offer_percentage') }}" aria-describedby="emailHelp"
+                                                placeholder="Type Offer Percentage..." autocomplete="nope"/>
+                                            @error('offer_percentage')
+                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mb-4 input-content">
+                                            <label for="brand" class="capitalize"> <i class="fa-brands fa-slack"></i> Company / Brand </label>
+                                            <input type="text" name="brand" id="brand"
+                                                class="form-control @error('brand') is-invalid @enderror"
+                                                value="{{ old('brand') }}" aria-describedby="emailHelp"
+                                                placeholder="Type Company / Brand Title..." autocomplete="nope" required/>
+                                            @error('brand')
+                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+
+
+
+                                        <div class="mb-4 input-content">
+                                            <label for="measurement" class="capitalize"> <i class="fa-solid fa-maximize"></i> Measurement </label>
+                                            <input type="text" name="measurement" id="measurement"
+                                                class="form-control @error('measurement') is-invalid @enderror"
+                                                value="{{ old('measurement') }}" aria-describedby="emailHelp"
+                                                placeholder="Type Product Measurement / Size..." autocomplete="nope" required/>
+                                            @error('measurement')
+                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+
+
+                                        <div class="mb-4 input-content">
                                             <label for="description" class="capitalize"> <i class="fa-solid fa-align-left"></i> Description </label>
                                             <textarea type="text" name="description" id="description" rows="5" class="form-control @error('description') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type Product descreption..." autocomplete="nope" required>{{ old('description') }}</textarea>
                                             @error('description')

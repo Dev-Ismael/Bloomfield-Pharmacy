@@ -22,3 +22,10 @@
 
 
 
+
+
+
+problems  :
+
+- focus inputs at admin 
+- multi select javascript

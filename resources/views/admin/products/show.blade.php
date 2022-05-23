@@ -64,6 +64,35 @@
                                             <td> {{ $product->quantity != "" ? $product->quantity : '-'  }} </td>
                                         </tr>
                                         <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-gift"></i> Offer Exist </td>
+                                            <td> 
+                                                @if ( $product->has_offer == '0')
+                                                    <span class="badge super-badge bg-danger"> <i class="fa-solid fa-x"></i> No </span>
+                                                @elseif ( $product->has_offer == '1')
+                                                    <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> Yes </span>
+                                                @endif    
+                                            </td>
+                                        </tr>
+                                        <!------------- if isset offer -------------->
+                                        @if ( $product->has_offer == '1')
+                                            <tr>
+                                                <td class="text-capitalize">  <i class="fa-solid fa-percent"></i> Offer Percentage </td>
+                                                <td> {{ $product->offer_percentage != "" ? $product->offer_percentage : '-'  }}% </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-capitalize"> <i class="fa-solid fa-money-bill-1"></i> Final Price </td>
+                                                <td class="product-price"> {{ $product->final_price != "" ? $product->final_price : '-'  }}<i class="fa-solid fa-dollar-sign"></i> </td>
+                                            </tr>
+                                        @endif 
+                                        <tr>
+                                            <td class="text-capitalize">  <i class="fa-brands fa-slack"></i> Company / Brand </td>
+                                            <td> {{ $product->brand != "" ? $product->brand : '-'  }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize">  <i class="fa-solid fa-maximize"></i> Measurement </td>
+                                            <td> {{ $product->measurement != "" ? $product->measurement : '-'  }} </td>
+                                        </tr>
+                                        <tr>
                                             <td class="text-capitalize" style="vertical-align: top;"> <i class="fa-solid fa-align-left"></i> Description </td>
                                             <td class="product-desc"> 
                                                 <div>

@@ -61,19 +61,30 @@ class ProductController extends Controller
     public function store(CreateProductRequest $request)
     {
 
+
+        $requestData = $request->all();
+
         //  Upload image & Create name img
         $file_extention = $request->img -> getClientOriginalExtension();
         $file_name = time() . "." . $file_extention;   // name => 3628.png
         $path = "images/products" ;
         $request -> img -> move( $path , $file_name );
 
-
-        $requestData = $request->all();
+        // Add img name to $requestData
         $requestData['img'] = $file_name;
 
         // Add slug to $requestData
         $requestData += [ 'slug' => SlugService::createSlug(Product::class, 'slug', $requestData['title']) ];
 
+        if( $request->has('has_offer') && $request->has_offer == '1' ){
+            $offerPercentage =  $request->offer_percentage;
+            $price           =  $request->price;
+            $finalPrice = $price - ( $price * ( $offerPercentage / 100 ) );
+            // Add final price to $requestData
+            $requestData += [ 'final_price' => $finalPrice ];
+        }else{
+            $requestData += [ 'final_price' => $requestData['price'] ];
+        }
 
         // return $requestData;
 
@@ -142,12 +153,24 @@ class ProductController extends Controller
         }else{
             $file_name = $product->img;
         }
-        
-        $requestData = $request->all();
+
+        // Add img name to $requestData
         $requestData['img'] = $file_name;
 
         // Add slug to $requestData
         $requestData += [ 'slug' => SlugService::createSlug(Product::class, 'slug', $requestData['title']) ];
+
+        if( $request->has('has_offer') && $request->has_offer == '1' ){
+            $offerPercentage =  $request->offer_percentage;
+            $price           =  $request->price;
+            $finalPrice = $price - ( $price * ( $offerPercentage / 100 ) );
+            // Add final price to $requestData
+            $requestData += [ 'final_price' => $finalPrice ];
+        }else{
+            $requestData += [ 'final_price' => $requestData['price'] ];
+        }
+
+
 
         // Update Record in DB
         try {

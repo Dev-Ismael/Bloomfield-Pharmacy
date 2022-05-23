@@ -58,7 +58,7 @@ Route::get('/category', [App\Http\Controllers\Web\CategoryController::class, 'in
 Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
 
 
-Route::group([  'middleware'=> 'auth'  ] , function(){
+Route::group([ 'middleware'=> 'auth'  ] , function(){
     // Profile                            
     Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile');
     // Orders                            

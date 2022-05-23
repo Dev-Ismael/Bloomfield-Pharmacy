@@ -37,6 +37,7 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
+
 /*============= Sweet Alert =============*/
 .swal2-container.swal2-backdrop-show {
     transition: all 0.3s ease-in-out;
@@ -633,7 +634,7 @@ form#user-register-form input {
 }
 
 /*== shop-down category ==*/
-.icon.category-icon{
+.icon.category-icon {
     display: inline-block;
     width: 45px;
     height: 40px;
@@ -641,68 +642,77 @@ form#user-register-form input {
     background-position: center;
     cursor: pointer;
 }
-.icon.category-icon{
+
+.icon.category-icon {
     filter: brightness(0) saturate(100%) invert(78%) sepia(0%) saturate(343%) hue-rotate(202deg) brightness(90%) contrast(89%);
 }
-.shop-icons-child > div{
+
+.shop-icons-child>div {
     transition: none !important;
 }
-.shop-icons-child .icon.category-icon{
+
+.shop-icons-child .icon.category-icon {
     transition: none !important;
 }
+
 /*======= category-1 =======*/
 .shop-icons-child:hover .icon-down-1,
-.shop-icons-child.current .icon-down-1{
+.shop-icons-child.current .icon-down-1 {
     color: #06ab84;
 }
+
 .shop-icons-child.current .icon.category-icon.category-1,
 .shop-icons-child:hover .icon.category-icon.category-1,
-.shop-icons-child:focus .icon.category-icon.category-1{
+.shop-icons-child:focus .icon.category-icon.category-1 {
     filter: invert(42%) sepia(95%) saturate(623%) hue-rotate(123deg) brightness(96%) contrast(95%);
 }
 
 /*======= category-2 =======*/
 .shop-icons-child:hover .icon-down-2,
-.shop-icons-child.current .icon-down-2{
+.shop-icons-child.current .icon-down-2 {
     color: #ee5741;
 }
+
 .shop-icons-child.current .icon.category-icon.category-2,
 .shop-icons-child:hover .icon.category-icon.category-2,
-.shop-icons-child:focus .icon.category-icon.category-2{
+.shop-icons-child:focus .icon.category-icon.category-2 {
     filter: invert(64%) sepia(85%) saturate(5292%) hue-rotate(337deg) brightness(98%) contrast(90%);
 }
 
 /*======= category-3 =======*/
 .shop-icons-child:hover .icon-down-3,
-.shop-icons-child.current .icon-down-3{
+.shop-icons-child.current .icon-down-3 {
     color: #fcac2a;
 }
+
 .shop-icons-child.current .icon.category-icon.category-3,
 .shop-icons-child:hover .icon.category-icon.category-3,
-.shop-icons-child:focus .icon.category-icon.category-3{
+.shop-icons-child:focus .icon.category-icon.category-3 {
     filter: invert(88%) sepia(18%) saturate(5890%) hue-rotate(333deg) brightness(97%) contrast(103%);
 }
 
 /*======= category-4 =======*/
 .shop-icons-child:hover .icon-down-4,
-.shop-icons-child.current .icon-down-4{
+.shop-icons-child.current .icon-down-4 {
     color: #78cbcf;
 }
+
 .shop-icons-child.current .icon.category-icon.category-4,
 .shop-icons-child:hover .icon.category-icon.category-4,
-.shop-icons-child:focus .icon.category-icon.category-4{
+.shop-icons-child:focus .icon.category-icon.category-4 {
     filter: invert(100%) sepia(22%) saturate(6778%) hue-rotate(157deg) brightness(85%) contrast(89%);
 }
 
 
 /*======= category-5 =======*/
 .shop-icons-child:hover .icon-down-5,
-.shop-icons-child.current .icon-down-5{
+.shop-icons-child.current .icon-down-5 {
     color: #ed3841;
 }
+
 .shop-icons-child.current .icon.category-icon.category-5,
 .shop-icons-child:hover .icon.category-icon.category-5,
-.shop-icons-child:focus .icon.category-icon.category-5{
+.shop-icons-child:focus .icon.category-icon.category-5 {
     filter: invert(25%) sepia(60%) saturate(4226%) hue-rotate(342deg) brightness(105%) contrast(85%);
 }
 
@@ -710,12 +720,13 @@ form#user-register-form input {
 
 /*======= category-6 =======*/
 .shop-icons-child:hover .icon-down-6,
-.shop-icons-child.current .icon-down-6{
+.shop-icons-child.current .icon-down-6 {
     color: #7d59a3;
 }
+
 .shop-icons-child.current .icon.category-icon.category-6,
 .shop-icons-child:hover .icon.category-icon.category-6,
-.shop-icons-child:focus .icon.category-icon.category-6{
+.shop-icons-child:focus .icon.category-icon.category-6 {
     filter: invert(41%) sepia(66%) saturate(408%) hue-rotate(227deg) brightness(83%) contrast(89%);
 }
 
@@ -723,12 +734,13 @@ form#user-register-form input {
 
 /*======= category-7 =======*/
 .shop-icons-child:hover .icon-down-7,
-.shop-icons-child.current .icon-down-7{
+.shop-icons-child.current .icon-down-7 {
     color: #f7a5ae;
 }
+
 .shop-icons-child.current .icon.category-icon.category-7,
 .shop-icons-child:hover .icon.category-icon.category-7,
-.shop-icons-child:focus .icon.category-icon.category-7{
+.shop-icons-child:focus .icon.category-icon.category-7 {
     filter: invert(95%) sepia(66%) saturate(1337%) hue-rotate(273deg) brightness(97%) contrast(97%);
 }
 
@@ -736,12 +748,13 @@ form#user-register-form input {
 
 /*======= category-8 =======*/
 .shop-icons-child:hover .icon-down-8,
-.shop-icons-child.current .icon-down-8{
+.shop-icons-child.current .icon-down-8 {
     color: #81c143;
 }
+
 .shop-icons-child.current .icon.category-icon.category-8,
 .shop-icons-child:hover .icon.category-icon.category-8,
-.shop-icons-child:focus .icon.category-icon.category-8{
+.shop-icons-child:focus .icon.category-icon.category-8 {
     filter: invert(65%) sepia(66%) saturate(396%) hue-rotate(48deg) brightness(93%) contrast(89%);
 }
 
@@ -749,12 +762,13 @@ form#user-register-form input {
 
 /*======= category-9 =======*/
 .shop-icons-child:hover .icon-down-9,
-.shop-icons-child.current .icon-down-9{
+.shop-icons-child.current .icon-down-9 {
     color: #f37026;
 }
+
 .shop-icons-child.current .icon.category-icon.category-9,
 .shop-icons-child:hover .icon.category-icon.category-9,
-.shop-icons-child:focus .icon.category-icon.category-9{
+.shop-icons-child:focus .icon.category-icon.category-9 {
     filter: invert(53%) sepia(82%) saturate(2688%) hue-rotate(347deg) brightness(100%) contrast(91%);
 }
 
@@ -762,12 +776,13 @@ form#user-register-form input {
 
 /*======= category-10 =======*/
 .shop-icons-child:hover .icon-down-10,
-.shop-icons-child.current .icon-down-10{
+.shop-icons-child.current .icon-down-10 {
     color: #2ebed8;
 }
+
 .shop-icons-child.current .icon.category-icon.category-10,
 .shop-icons-child:hover .icon.category-icon.category-10,
-.shop-icons-child:focus .icon.category-icon.category-10{
+.shop-icons-child:focus .icon.category-icon.category-10 {
     filter: invert(69%) sepia(53%) saturate(829%) hue-rotate(149deg) brightness(91%) contrast(85%);
 }
 
@@ -853,12 +868,16 @@ form#user-register-form input {
     border-radius: 3px;
     padding: 5px 8px;
 }
-.product-item h5{
+
+.product-item h5 {
     padding-bottom: 5px;
 }
-.product-item a, .product-item p{
+
+.product-item a,
+.product-item p {
     margin-bottom: 0px;
 }
+
 .product-item button:hover {
     background-color: #fff;
     border: 1px solid #2e8345;
@@ -983,22 +1002,69 @@ input::placeholder {
 /*====================================================
 =================== Product Page =====================
 ====================================================*/
-#product-page .Product-img-box {
+#product-page .Product-img-box img {
     border-radius: 10px;
     box-shadow: 0px 0px 36px 0px #0003;
 }
-
-#product-page .product-content * {
-    padding-bottom: 20px;
+#product-page .product-d .product-offer {
+    float: none;
+    width: 125px;
+    border-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    color: #fff;
+    background: #f1563f;
+    padding: 7px 15px;
+    margin-bottom: 15px;
+}
+#product-page .product-content>* {
+    padding-bottom: 7px;
     display: block;
 }
 
+#product-page  .product-offer{
+    display: block;
+}
 #product-page .product-content h3 {
     font-size: 25px;
 }
+.quantity{
+    font-size: 16px;
+    color: #2e8345;
+}
+#product-page .product-d h4 {
+    margin: 0px;
+}
 
-#product-page .product-content p {
-    color: rgb(100, 100, 100);
+.product-d .product-title {
+    padding: 0px !important;
+    margin: 0px;
+}
+
+.product-d .product-brand {
+    padding-bottom: 20px !important; 
+
+}
+
+#product-page .product-content .description {
+    color: rgb(134, 134, 134);
+}
+
+#product-page button {
+    transition: all 0.3s ease-out;
+    margin: 10px 0px;
+    background-color: #2e8345;
+    color: #fff;
+    border: 1px solid #2e8345;
+    font-size: 15px;
+    border-radius: 3px;
+    padding: 10px 15px;
+}
+
+#product-page button:hover {
+    background-color: #fff;
+    border: 1px solid #2e8345;
+    color: #2e8345;
 }
 
 /*====================================================

@@ -165,13 +165,13 @@
                         @foreach ( $lastedOffers as $product )
                             <div class="col-xs-12">
                                 <div class="col-xs-12 remove-padding product-item">
-                                    <a href="/palmolive" class="item-img" tabindex="0">
+                                    <a href="{{ route("product", $product->slug ) }}" class="item-img" tabindex="0">
                                         <img src="{{ asset('images/products/'.$product->img) }}" width="220" height="220"
                                             alt="">
                                         <span class="off-span">UP TO {{ $product->offer_percentage }} %</span>
                                     </a>
                                     <p> {{ $product->brand }} </p>
-                                    <a href="#" tabindex="0">  {{ $product->title }}  </a>
+                                    <a href="{{ route("product", $product->slug ) }}" tabindex="0">  {{ $product->title }}  </a>
                                     <h5> {{ $product->measurement }} </h5>
                                     <h3>
                                         {{ $product->final_price }}  <i class="fa-solid fa-dollar-sign"></i> 

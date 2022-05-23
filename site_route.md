@@ -18,3 +18,7 @@
     - Prescription  ( img , age , gender , additional_details , medicine , validation , schedule_orders(0,1)  time_schedule )
     - prescription_orders ( prescription_id , address , status )
     - Orders   ==> ( type{prescription/products}  , json_array[ product , quntity , price ] , Total price , address , status )
+
+
+
+

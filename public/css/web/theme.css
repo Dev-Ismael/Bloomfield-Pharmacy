@@ -9627,7 +9627,7 @@ a.cart-main span {
     cursor: pointer;
     color: #adadad;
 }
-
+/* 
 .icon-down-1:hover,
 .icon-down-1.current {
     color: #06ab84;
@@ -9676,7 +9676,7 @@ a.cart-main span {
 .icon-down-10:hover,
 .icon-down-10.current {
     color: #2ebed8;
-}
+} */
 
 .tabs-main .col-xs-12 {
     display: none;
@@ -9763,7 +9763,7 @@ a.other-mega-link {
     font-family: "Categories icons";
     font-size: 40px;
 }
-
+/* 
 .icon-down-1::before {
     content: "\e903";
 }
@@ -9802,7 +9802,7 @@ a.other-mega-link {
 
 .icon-down-10::before {
     content: "\e900";
-}
+} */
 
 
 /*cart-side-bar*/

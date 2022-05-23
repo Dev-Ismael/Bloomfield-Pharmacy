@@ -2,8 +2,22 @@
     $(document).ready(function () {
 
 
+        /*========================================================================
+        ================= Add Active class =======================================
+        =========================================================================*/
+        $(".shop-icons-child:first-of-type").addClass("current");
+        $(".tabs-main #tab-1").addClass("current");
 
+        $(".shop-icons-child").on( "click" , function(){
+            $(this).addClass('current').siblings().removeClass('current');
 
+            var tab_id = $(this).attr('data-tab');
+            $('.tabs-main .col-xs-12').removeClass('current');
+            $("#" + tab_id).addClass('current');
+
+        });
+
+        
         /*========================================================================
         ================= Remove text danger Inputs ==============================
         =========================================================================*/
@@ -314,17 +328,6 @@
 
 
 
-
-        /*========================================================================
-        =================== NAVBAR Taps ========================================
-        =========================================================================*/
-        $('.shop-icons-child div').click(function () {
-            var tab_id = $(this).attr('data-tab');
-            $('.shop-icons-child div').removeClass('current');
-            $('.tabs-main .col-xs-12').removeClass('current');
-            $(this).addClass('current');
-            $("#" + tab_id).addClass('current');
-        });
 
 
 

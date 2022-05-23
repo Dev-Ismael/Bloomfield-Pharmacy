@@ -60,11 +60,29 @@
                                             <label for="icon" class="form-label d-flex align-items-center"> 
                                                 <i class="fa-solid fa-image"></i> &nbsp; Icon 
                                                 <div class="show-img-container">
-                                                    <img src="{{ asset("images/categories/".$category->icon) }}" alt="category-icon">
+                                                    <a href="{{ asset("images/categories/".$category->icon) }}"  target="_blank">
+                                                        <img src="{{ asset("images/categories/".$category->icon) }}" alt="category-icon">
+                                                    </a>
                                                 </div>
                                             </label> 
                                             <input name="icon" type="file" class="form-control @error('icon') is-invalid @enderror" id="icon"  />
                                             @error('icon')
+                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+
+
+                                        <div class="mb-3 input-content">
+                                            <label for="img" class="form-label d-flex align-items-center"> 
+                                                <i class="fa-solid fa-image"></i> &nbsp; Background Image 
+                                                <div class="show-img-container">
+                                                    <a href="{{ asset("images/categories/".$category->img) }}"  target="_blank">
+                                                        <img src="{{ asset("images/categories/".$category->img) }}" alt="category-img">
+                                                    </a>
+                                                </div>
+                                            </label> 
+                                            <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img"  />
+                                            @error('img')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>

@@ -27,6 +27,7 @@ class UpdateCategoryRequest extends FormRequest
         return [
             'title'    =>  ['required' , 'string' , 'max:55' , Rule::unique('categories', 'title')->ignore($this->category)],
             'icon'     =>  ['nullable' , 'mimes:svg' , 'max:2048'],
+            'img'      =>  ['nullable' , 'mimes:jpeg,png,jpg' , 'max:2048'],
         ];
     }
 }

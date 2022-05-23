@@ -101,112 +101,24 @@
 
         <!---------------------- OUR CATEGORIES ----------------------------->
         <div id="block-block-22" class="container section product-slider text-center remove-padding block block-block">
-
-
             <!-- <div class="content"> -->
             <div class="container text-center">
                 <p class="sub-title">Browse products by</p>
                 <h1 class="title text-bloder">OUR CATEGORIES</h1>
                 <div class="categories-main">
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18671.html" class="child-1">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/medications.jpg') }}" class="g-bg">
-                                <p>Medications</p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18672.html" class="child-10">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/supplements.jpg') }}" class="g-bg">
-                                <p>Supplements / Vitamines</p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18675.html" class="child-3">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/skin-care.jpg') }}" class="g-bg">
-                                <p>Skin Care</p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18676.html" class="child-4">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/hair-care.jpg') }}" class="g-bg">
-                                <p>Hair Care</p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18674.html" class="child-5">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/beauty.jpg') }}" class="g-bg">
-                                <p>Beauty</p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18677.html" class="child-9">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/body-personal-care.jpg') }}"
-                                    class="g-bg">
-                                <p>Body / Personal Care</p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18679.html" class="child-6">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/perfumes.jpg') }}" class="g-bg">
-                                <p>Perfumes </p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18678.html" class="child-7">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/mother-baby-care.jpg') }}"
-                                    class="g-bg">
-                                <p>Mother / Baby Care</p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18673.html" class="child-2">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/medical-supplies.jpg') }}"
-                                    class="g-bg">
-                                <p>Medical Supplies</p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="categories-child">
-                        <a href="fp/taxonomy/term/18680.html" class="child-8">
-                            <div class="category-main">
-                                <img src="{{ asset('images/web/category-bg/general-hygiene.jpg') }}"
-                                    class="g-bg">
-                                <p>General Use</p><span class="v-g">Browse Products </span>
-                            </div>
-                        </a>
-                    </div>
-
+                    @foreach ( $categories as $key => $category )
+                        <div class="categories-child">
+                            <a href="#" class="child-{{ $key + 1 }}">
+                                <div class="category-main">
+                                    <img src="{{ asset('images/categories/'.$category->img) }}" class="g-bg">
+                                    <p>{{ $category->title }}</p><span class="v-g">Browse Products </span>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-
-
-
 
 
 

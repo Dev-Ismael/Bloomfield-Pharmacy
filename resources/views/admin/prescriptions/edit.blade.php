@@ -169,15 +169,20 @@
                                             @enderror
                                         </div>
 
-                                        
                                         <div class="mb-3 input-content">
-                                            <label for="img" class="form-label"> <i class="fa-solid fa-image"></i> Image </label> 
-                                            <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img" />
+                                            <label for="img" class="form-label d-flex align-items-center"> 
+                                                <i class="fa-solid fa-image"></i> &nbsp; Prescription Image 
+                                                <div class="show-img-container">
+                                                    <a href="{{ asset("images/categories/".$prescription->img) }}"  target="_blank">
+                                                        <img src="{{ asset("images/prescriptions/".$prescription->img) }}" alt="prescription-img">
+                                                    </a>
+                                                </div>
+                                            </label> 
+                                            <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img"  />
                                             @error('img')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
-                                        
 
 
                                         <button type="submit" class="btn btn-primary float-right" > <i class="fa-solid fa-floppy-disk"></i> Save </button>

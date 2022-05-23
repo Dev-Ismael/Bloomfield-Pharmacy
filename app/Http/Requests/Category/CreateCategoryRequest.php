@@ -27,6 +27,7 @@ class CreateCategoryRequest extends FormRequest
         return [
             'title'    =>  ['required' , 'string' , 'max:55' , Rule::unique('categories', 'title')->ignore($this->category)],
             'icon'     =>  ['required' , 'mimes:svg' , 'max:2048'],
+            'img'      =>  ['required' , 'mimes:jpeg,png,jpg' , 'max:2048'],
         ];
     }
 }

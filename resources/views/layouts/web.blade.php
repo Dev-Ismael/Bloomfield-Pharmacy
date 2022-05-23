@@ -143,12 +143,12 @@
                                                     $categories = App\Models\Category::with('subcategories')->get();  
                                                 @endphp
                                                 <div class="container shop-icons-perant remove-padding">
-                                                    @foreach ( $categories as $category )
-                                                        <div class="shop-icons-child" data-tab="tab-{{$category->id}}">
-                                                            <span class="icon category-icon category-{{$category->id}}"
+                                                    @foreach ( $categories as $key => $category )
+                                                        <div class="shop-icons-child" data-tab="tab-{{$key + 1}}">
+                                                            <span class="icon category-icon category-{{$key + 1}}"
                                                                 style="background-image: url('/images/categories/{{$category->icon}}')">
                                                             </span>
-                                                            <div class="icon-down-{{$category->id}}">
+                                                            <div class="icon-down-{{$key + 1}}">
                                                                 <p>{{ $category->title }}</p>
                                                             </div>
                                                         </div>
@@ -157,8 +157,8 @@
                                                 <div class="container remove-padding tabs-main">
 
                                                     
-                                                    @foreach ( $categories as $category )
-                                                        <div class="col-xs-12 remove-padding" id="tab-{{$category->id}}">
+                                                    @foreach ( $categories as $key => $category )
+                                                        <div class="col-xs-12 remove-padding" id="tab-{{$key + 1}}">
                                                             <div class="col-md-12 row">
                                                                 @foreach ( $category->subcategories as $subcategory )
                                                                     <div class="col-md-6 col-lg-4">

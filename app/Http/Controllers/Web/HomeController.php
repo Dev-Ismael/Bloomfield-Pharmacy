@@ -16,8 +16,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $categories = Category::with('subcategories')->get();
-        return view('web.home');
+        $categories = Category::get();
+        return view('web.home',compact('categories'));
     }
 
 }

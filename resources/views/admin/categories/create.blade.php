@@ -61,6 +61,15 @@
                                             @enderror
                                         </div>
 
+
+                                        <div class="mb-3 input-content">
+                                            <label for="img" class="form-label"> <i class="fa-solid fa-image"></i> Background Image</label> 
+                                            <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img" required/>
+                                            @error('img')
+                                                <small class="form-text text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+
                                         <button type="submit" class="btn btn-primary float-right"> <i class="fa-solid fa-floppy-disk"></i> Submit </button>
 
                                     </form>

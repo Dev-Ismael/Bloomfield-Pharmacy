@@ -120,7 +120,7 @@
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Image </td>
                                             <td class="product-image"> 
-                                                <a class="show-img-container" href="{{ asset('images/prescriptions/'.$prescription->img) }}">
+                                                <a class="show-img-container" href="{{ asset('images/prescriptions/'.$prescription->img) }}" target="_blank">
                                                     <img src="{{ asset('images/prescriptions/'.$prescription->img) }}" alt="product-image">    
                                                 </a>
                                             </td>

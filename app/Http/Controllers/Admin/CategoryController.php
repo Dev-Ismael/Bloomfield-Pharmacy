@@ -54,16 +54,29 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
+        
+        // Create img name
+        $img_extention = $request -> img -> getClientOriginalExtension();
+        $img_name = rand(1000000,10000000) . "." . $img_extention;   // name => 32632.png
+        
+        // Create icon name
+        $icon_extention = $request -> icon -> getClientOriginalExtension();
+        $icon_name = rand(1000000,10000000) . "." . $icon_extention;   // name => 3623628.png
 
-        //  Upload image & Create name icon
-        $file_extention = $request->icon -> getClientOriginalExtension();
-        $file_name = time() . "." . $file_extention;   // name => 3628.png
+        // Path
         $path = "images/categories" ;
-        $request -> icon -> move( $path , $file_name );
 
+        // Upload
+        $request -> img -> move( $path , $img_name );
+        $request -> icon  -> move( $path , $icon_name );
 
         $requestData = $request->all();
-        $requestData['icon'] = $file_name;
+
+        // Add img name in request array 
+        $requestData['img'] = $img_name;
+        // Add icon name in request array 
+        $requestData['icon'] = $icon_name;
+
 
         // Add slug to $requestData
         $requestData += [ 'slug' => SlugService::createSlug(Category::class, 'slug', $requestData['title']) ];
@@ -121,20 +134,33 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id); 
         $requestData = $request->all();
 
-        
-        // Check If There icon Uploaded
-        if( $request-> hasFile("icon") ){
+
+        // Check If There Images Uploaded
+        $path = "images/categories" ;
+
+        if( $request -> hasFile("icon") ){
             //  Upload image & Create name icon
-            $file_extention = $request->icon -> getClientOriginalExtension();
-            $file_name = time() . "." . $file_extention;   // name => 3628.png
-            $path = "images/categories" ;
-            $request->icon -> move( $path , $file_name );
+            $icon_extention = $request -> icon -> getClientOriginalExtension();
+            $icon_name = rand(1000000,10000000) . "." . $icon_extention;   // name => 3628.png
+            $request -> icon -> move( $path , $icon_name );
         }else{
-            $file_name = $category->icon;
+            $icon_name = $category->icon;
+        }
+
+        if( $request -> hasFile("img") ){
+            //  Upload image & Create name img
+            $img_extention = $request -> img -> getClientOriginalExtension();
+            $img_name = rand(1000000,10000000) . "." . $img_extention;   // name => 3628.png
+            $request -> img -> move( $path , $img_name );
+        }else{
+            $img_name = $category->img;
         }
         
-        $requestData = $request->all();
-        $requestData['icon'] = $file_name;
+        // Add icon name in request array 
+        $requestData['icon'] = $icon_name;
+        // Add img name in request array 
+        $requestData['img'] = $img_name;
+
 
         // Add slug to $requestData
         $requestData += [ 'slug' => SlugService::createSlug(Category::class, 'slug', $requestData['title']) ];

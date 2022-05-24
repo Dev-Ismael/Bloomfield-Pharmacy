@@ -48,12 +48,17 @@ Route::get('/shipping', [App\Http\Controllers\Web\ShippingController::class, 'in
 Route::get('/returns', [App\Http\Controllers\Web\ReturnsController::class, 'index'])->name('returns');
 // Privacy                            
 Route::get('/privacy', [App\Http\Controllers\Web\PrivacyController::class, 'index'])->name('privacy');
+
 // Search                            
-Route::get('/search', [App\Http\Controllers\Web\SearchController::class, 'index'])->name('search');
+Route::post('/search', [App\Http\Controllers\Web\SearchController::class, 'search'])->name('search');
+Route::post('/search/hasOffer', [App\Http\Controllers\Web\SearchController::class, 'search'])->name('search');
+
 // Product                            
 Route::get('/product/{slug}', [App\Http\Controllers\Web\ProductController::class, 'index'])->name('product');
+
 // Category                            
 Route::get('/category/{categorySlug}/{subCategorySlug}', [App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
+
 // order_prescription                            
 Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
 

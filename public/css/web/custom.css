@@ -848,6 +848,17 @@ form#user-register-form input {
 }
 
 /*====================================================
+=================== search-page ===================
+====================================================*/
+#search-page fieldset .form-check{
+    margin-top: 5px;
+}
+#search-page .filter-btn{
+    margin-top: 10px;
+}
+
+
+/*====================================================
 =================== Product Slider ===================
 ====================================================*/
 #home-page .product-slider .owl-nav button:nth-of-type(1) {
@@ -887,6 +898,10 @@ form#user-register-form input {
     padding: 0px;
 }
 
+.product-item a:hover{
+    color: #2e8345;
+    text-decoration: underline;
+}
 .product-item .product-txt-container *
 {
     padding: 0px 10px;

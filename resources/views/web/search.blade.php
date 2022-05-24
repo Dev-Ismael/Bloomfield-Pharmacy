@@ -1,174 +1,125 @@
 @extends('layouts.web')
 
 @section('content')
-    <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
-        <h4 class="title text-bloder"> <i class="fa-solid fa-magnifying-glass"></i> Search results... </h1>
-        <div class="container-fluid content remove-padding">
-            <div class="container ">
+    <div id="search-page">
+        <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
+            <h4 class="title text-bloder"> <i class="fa-solid fa-magnifying-glass"></i> Search results... </h1>
+                <div class="container-fluid content remove-padding">
+                    <div class="container ">
 
 
 
-                <div class=" gategory-grids text-center remove-padding row">
-                    <!-- filter -->
-                    <div class=" col-xs-12  col-md-3 col-sm-12">
+                        <div class=" gategory-grids text-center remove-padding row">
+                            <!-- filter -->
+                            <div class=" col-xs-12  col-md-3 col-sm-12">
 
-                        <div id="block-facetapi-apizx0dwq8pu7f530hjzuy2kolvt5gic"
-                            class="col-xs-12 fillter-side-main remove-padding block block-facetapi block--ajax_facets">
+                                <div id="block-facetapi-apizx0dwq8pu7f530hjzuy2kolvt5gic"
+                                    class="col-xs-12 fillter-side-main remove-padding block block-facetapi block--ajax_facets">
 
-                            <h3 class="slide-side-fillter">Filter by offer:</h3>
-                            <div class="col-xs-12 remove-padding links-main-fillter-side" style="display: block;">
-                                <div class="col-xs-12 remove-padding">
+                                    <h3 class="slide-side-fillter">Filter by offer:</h3>
+                                    <div class="col-xs-12 remove-padding links-main-fillter-side" style="display: block;">
+                                        <div class="col-xs-12 remove-padding">
+                                            <form action="{{ route('search') }}" method="POST">
+                                                @csrf
+                                                <fieldset class="text-left">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="offer_filter"
+                                                            id="all_products" value="0"  {{ $offer_filter == '0' ? "checked" : "" }}>
+                                                        <label class="form-check-label" for="all_products">
+                                                            All Product
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="offer_filter"
+                                                            id="offer_products" value="1" {{ $offer_filter == '1' ? "checked" : "" }}>
+                                                        <label class="form-check-label" for="offer_products">
+                                                            Only Offered Products
+                                                        </label>
+                                                    </div>
+                                                    <!-- End of Radio -->
+                                                </fieldset>
+                                                <input type="text" name="searchQuery" value="{{ $searchQuery }}" hidden/>
+                                                <div class="text-right">
+                                                    <button type="submit" class="btn btn-green filter-btn"> <i class="fa-solid fa-magnifying-glass"></i> Go </button>
+                                                </div>
+                                            </form>
 
+                                        </div>
+                                    </div>
                                 </div>
+
+
                             </div>
+                            <!-- End filter -->
+                            <div class=" col-xs-12 col-md-9 col-sm-12">
+
+
+                                <!--------------- Products ---------------->
+                                @if ($products->isEmpty())
+                                    <div class="col-md-8 offset-2">
+                                        <p> Not products to show</p>
+                                    </div>
+                                @else
+                                    <div class="row">
+                                        @foreach ($products as $product)
+                                            <div class="col-lg-4 col-md-6 product-container">
+                                                <div class="col-xs-12">
+                                                    <div class="col-xs-12 remove-padding product-item">
+                                                        <a href="{{ route('product', $product->slug) }}"
+                                                            class="item-img" tabindex="0">
+                                                            <img src="{{ asset('images/products/' . $product->img) }}"
+                                                                width="220" height="220" alt="">
+                                                            @if ($product->has_offer == '1')
+                                                                <span class="off-span">UP TO
+                                                                    {{ $product->offer_percentage }} %</span>
+                                                            @endif
+                                                        </a>
+                                                        <div class="product-txt-container">
+                                                            <p> {{ $product->brand }} </p>
+                                                        </div>
+                                                        <div class="product-txt-container"><a
+                                                                href="{{ route('product', $product->slug) }}"
+                                                                tabindex="0">
+                                                                {{ $product->title }} </a></div>
+                                                        <div class="product-txt-container">
+                                                            <p> {{ $product->measurement }} </p>
+                                                        </div>
+                                                        <div class="price">
+                                                            {{ $product->final_price }}$
+
+                                                            @if ($product->has_offer == '1')
+                                                                <span class="uc-price">
+                                                                    {{ $product->price }}$
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                        <div class="col-xs-12 add-cart-main text-center">
+                                                            <button href="#"> <i class="fa-solid fa-cart-shopping"></i> Cart
+                                                            </button>
+                                                            <button href="#"> <i class="fa-solid fa-heart"></i> Wishlist
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    {{-- Pagination --}}
+                                    <div class="d-flex justify-content-center">
+                                        {{ $products->withQueryString()->onEachSide(0)->links() }}
+                                    </div>
+                                @endif
+
+                            </div>
+
                         </div>
 
-                        <div id="block-facetapi-diajxwumnecbl7lunq01rqxh6lygbpte"
-                            class="col-xs-12 fillter-side-main remove-padding block block-facetapi block--ajax_facets">
-
-                            <h3 class="slide-side-fillter links-colapsed">Filter by product type:</h3>
-                            <div class="col-xs-12 remove-padding links-main-fillter-side" style="display: none;">
-                                <div class="col-xs-12 remove-padding">
-
-                                </div>
-                            </div>
-                        </div>
+                        <!-- /.section, /#content -->
 
 
                     </div>
-                    <!-- End filter -->
-                    <div class=" col-xs-12 col-md-9 col-sm-12">
-
-
-                        <!--------------- Products ---------------->
-                        <div class="row">
-                            
-
-
-                            
-                            <div class="col-lg-4 col-sm-6 product-container">
-                                <div class="col-xs-12 remove-padding ">
-                                    <div class="col-xs-12 remove-padding product-item">
-                                        <a href="/palmolive" class="item-img" tabindex="0">
-                                            <img  
-                                                src="{{ asset('images/products/product.png') }}"
-                                                width="220" height="220" alt="">
-                                            <span class="off-span">UP TO 70 %</span>
-                                        </a>
-                                        <p>Mup (Medical Union Pharma)</p>
-                                        <a href="/palmolive" tabindex="0">PALMOLIVE </a>
-                                        <h5>14 tab</h5>
-                                        <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
-                                        <div class="col-xs-12 add-cart-main text-center">
-                                            <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-                            <div class="col-lg-4 col-sm-6 product-container">
-                                <div class="col-xs-12 remove-padding ">
-                                    <div class="col-xs-12 remove-padding product-item">
-                                        <a href="/palmolive" class="item-img" tabindex="0">
-                                            <img  
-                                                src="{{ asset('images/products/product.png') }}"
-                                                width="220" height="220" alt="">
-                                            <span class="off-span">UP TO 70 %</span>
-                                        </a>
-                                        <p>Mup (Medical Union Pharma)</p>
-                                        <a href="/palmolive" tabindex="0">PALMOLIVE </a>
-                                        <h5>14 tab</h5>
-                                        <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
-                                        <div class="col-xs-12 add-cart-main text-center">
-                                            <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-                            <div class="col-lg-4 col-sm-6 product-container">
-                                <div class="col-xs-12 remove-padding ">
-                                    <div class="col-xs-12 remove-padding product-item">
-                                        <a href="/palmolive" class="item-img" tabindex="0">
-                                            <img  
-                                                src="{{ asset('images/products/product.png') }}"
-                                                width="220" height="220" alt="">
-                                            <span class="off-span">UP TO 70 %</span>
-                                        </a>
-                                        <p>Mup (Medical Union Pharma)</p>
-                                        <a href="/palmolive" tabindex="0">PALMOLIVE </a>
-                                        <h5>14 tab</h5>
-                                        <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
-                                        <div class="col-xs-12 add-cart-main text-center">
-                                            <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-                            <div class="col-lg-4 col-sm-6 product-container">
-                                <div class="col-xs-12 remove-padding ">
-                                    <div class="col-xs-12 remove-padding product-item">
-                                        <a href="/palmolive" class="item-img" tabindex="0">
-                                            <img  
-                                                src="{{ asset('images/products/product.png') }}"
-                                                width="220" height="220" alt="">
-                                            <span class="off-span">UP TO 70 %</span>
-                                        </a>
-                                        <p>Mup (Medical Union Pharma)</p>
-                                        <a href="/palmolive" tabindex="0">PALMOLIVE </a>
-                                        <h5>14 tab</h5>
-                                        <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
-                                        <div class="col-xs-12 add-cart-main text-center">
-                                            <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-                            <div class="col-lg-4 col-sm-6 product-container">
-                                <div class="col-xs-12 remove-padding ">
-                                    <div class="col-xs-12 remove-padding product-item">
-                                        <a href="/palmolive" class="item-img" tabindex="0">
-                                            <img  
-                                                src="{{ asset('images/products/product.png') }}"
-                                                width="220" height="220" alt="">
-                                            <span class="off-span">UP TO 70 %</span>
-                                        </a>
-                                        <p>Mup (Medical Union Pharma)</p>
-                                        <a href="/palmolive" tabindex="0">PALMOLIVE </a>
-                                        <h5>14 tab</h5>
-                                        <h3>105.00 <i class="fa-solid fa-dollar-sign"></i> <span class="uc-price">150.00 <i class="fa-solid fa-dollar-sign"></i></span> </h3>
-                                        <div class="col-xs-12 add-cart-main text-center">
-                                            <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                            <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-
-
-
-                        </div>
-
-                    </div>
-
                 </div>
-
-                <!-- /.section, /#content -->
-
-
-            </div>
         </div>
     </div>
+
 @endsection

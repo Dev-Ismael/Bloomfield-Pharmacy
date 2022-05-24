@@ -108,12 +108,14 @@
                 <div class="categories-main">
                     @foreach ( $categories as $key => $category )
                         <div class="categories-child">
-                            <a href="{{ route("category", [ $category->slug , $category->subcategories[0]->slug ] ) }}" class="child-{{ $key + 1 }}">
-                                <div class="category-main">
-                                    <img src="{{ asset('images/categories/'.$category->img) }}" class="g-bg">
-                                    <p>{{ $category->title }}</p><span class="v-g">Browse Products </span>
-                                </div>
-                            </a>
+                            @if ( !$category->subcategories->isEmpty() )
+                                <a href="{{ route("category", [ $category->slug , $category->subcategories[0]->slug ] ) }}" class="child-{{ $key + 1 }}">
+                                    <div class="category-main">
+                                        <img src="{{ asset('images/categories/'.$category->img) }}" class="g-bg">
+                                        <p>{{ $category->title }}</p><span class="v-g">Browse Products </span>
+                                    </div>
+                                </a>
+                            @endif
                         </div>
                     @endforeach
                 </div>

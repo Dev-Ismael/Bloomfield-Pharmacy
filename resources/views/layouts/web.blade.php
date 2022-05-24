@@ -70,17 +70,15 @@
 
 
 
-                                    <form action="{{ route('search') }}">
+                                    <form action="{{ route('search') }}" method="POST">
                                         <div>
-
-
-                                            <input type="text" class="form-control" value=""
-                                                placeholder="Search Products" size="15" maxlength="128" />
-                                            <button class="btn icon-search" />
-
-
+                                            @csrf
+                                            <input type="text" name="searchQuery" class="form-control @error('search') is-invalid @enderror" placeholder="Search Products" autocomplete="off" minlength="3" required/>
+                                            <button type="submit" class="btn icon-search"></button>
                                         </div>
                                     </form>
+
+
 
                                 </div>
                             </li>
@@ -188,19 +186,15 @@
                             <div class="col-md-4 col-xs-2 remove-padding search-main ">
 
 
-                                <form action="{{ route('search') }}">
+
+                                <form action="{{ route('search') }}" method="POST">
                                     <div>
-
-
-                                        <input type="text" class="form-control" value=""
-                                            placeholder="Search Products" size="15" maxlength="128" />
-                                        <button class="btn icon-search" />
-
-
-
-
+                                        @csrf
+                                        <input type="text" name="searchQuery" class="form-control @error('search') is-invalid @enderror" placeholder="Search Products" autocomplete="off" minlength="3" required/>
+                                        <button type="submit" class="btn icon-search"></button>
                                     </div>
                                 </form>
+
 
                             </div>
 

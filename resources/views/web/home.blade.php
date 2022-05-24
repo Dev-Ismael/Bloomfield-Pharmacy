@@ -150,59 +150,49 @@
 
 
 
-
         <!---------------------- Latest Offers ----------------------------->
-        <div class="container section product-slider text-center  remove-padding block block-views pt-4 pb-4">
-            <p class="sub-title">DON'T MISS OUR</p>
-            <h4 class="title text-bloder">Latest Offers</h1>
+        @if (!$lastedOffers->isEmpty())
+            <div class="container section product-slider text-center  remove-padding block block-views pt-4 pb-4">
+                <p class="sub-title">DON'T MISS OUR</p>
+                <h4 class="title text-bloder">Latest Offers</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="product-container owl-carousel">
 
-
-            <div class="container">
-                <div class="row">
-                    <div class="product-container owl-carousel">
-
-                        <!------------ Product Items ------------->
-                        @foreach ( $lastedOffers as $product )
-                            <div class="col-xs-12">
-                                <div class="col-xs-12 remove-padding product-item">
-                                    <a href="{{ route("product", $product->slug ) }}" class="item-img" tabindex="0">
-                                        <img src="{{ asset('images/products/'.$product->img) }}" width="220" height="220"
-                                            alt="">
-                                        <span class="off-span">UP TO {{ $product->offer_percentage }} %</span>
-                                    </a>
-                                    <p> {{ $product->brand }} </p>
-                                    <a href="{{ route("product", $product->slug ) }}" tabindex="0">  {{ $product->title }}  </a>
-                                    <h5> {{ $product->measurement }} </h5>
-                                    <h3>
-                                        {{ $product->final_price }}  <i class="fa-solid fa-dollar-sign"></i> 
-                                        <span class="uc-price"> {{ $product->price }} 
-                                            <i class="fa-solid fa-dollar-sign"></i>
-                                        </span> 
-                                    </h3>
-                                    <div class="col-xs-12 add-cart-main text-center">
-                                        <button href="#" product_id="{{ $product->id }}"> <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                        &nbsp;
-                                        &nbsp;
-                                        <button href="#" product_id="{{ $product->id }}"> <i class="fa-solid fa-heart"></i> Wishlist </button>
+                            <!------------ Product Items ------------->
+                            @foreach ( $lastedOffers as $product )
+                                <div class="col-xs-12">
+                                    <div class="col-xs-12 remove-padding product-item">
+                                        <a href="{{ route("product", $product->slug ) }}" class="item-img" tabindex="0">
+                                            <img src="{{ asset('images/products/'.$product->img) }}" width="220" height="220"
+                                                alt="">
+                                            <span class="off-span">UP TO {{ $product->offer_percentage }} %</span>
+                                        </a>
+                                        <div class="product-txt-container"> <p> {{ $product->brand }} </p></div>
+                                        <div class="product-txt-container"><a href="{{ route("product", $product->slug ) }}" tabindex="0">  {{ $product->title }}  </a></div>
+                                        <div class="product-txt-container"> <p> {{ $product->measurement }} </p></div>
+                                        <div class="price">
+                                            {{ $product->final_price }}$ 
+                                            <span class="uc-price"> {{ $product->price }}$</span> 
+                                        </div>
+                                        <div class="col-xs-12 add-cart-main text-center">
+                                            <button href="#" product_id="{{ $product->id }}"> <i class="fa-solid fa-cart-shopping"></i> Cart </button>
+                                            &nbsp;
+                                            &nbsp;
+                                            <button href="#" product_id="{{ $product->id }}"> <i class="fa-solid fa-heart"></i> Wishlist </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
 
+                        </div>
                     </div>
+
+                    <a href="/" class="all-btn mt-5">view all</a>
+
                 </div>
-
-
-
-                <a href="/" class="all-btn mt-5">view all</a>
-
-
-
-
-
             </div>
-        </div>
-
+        @endif
 
 
 

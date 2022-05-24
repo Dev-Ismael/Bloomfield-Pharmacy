@@ -3,7 +3,7 @@
 @section('content')
     <div id="product-page">
         <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
-            <div class="container-fluid content remove-padding">
+            <div class="container-fluid content">
     
     
                 <div class="row text-left">

@@ -38,6 +38,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+/*============= Pagination =============*/
+.page-item.active .page-link{
+    background-color: #2e8345;
+    border-color: #2e8345;
+}
+.page-item.active .page-link:hover{
+    background-color: #2e8345;
+    border-color: #2e8345;
+}
 /*============= Sweet Alert =============*/
 .swal2-container.swal2-backdrop-show {
     transition: all 0.3s ease-in-out;
@@ -857,7 +866,9 @@ form#user-register-form input {
 /*====================================================
 =================== Product item =====================
 ====================================================*/
-
+.product-item {
+    height: 370px;
+}
 .product-item button {
     transition: all 0.5s ease-out;
     margin: 10px 0px;
@@ -869,15 +880,34 @@ form#user-register-form input {
     padding: 5px 8px;
 }
 
-.product-item h5 {
-    padding-bottom: 5px;
-}
 
 .product-item a,
 .product-item p {
-    margin-bottom: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
+.product-item .product-txt-container *
+{
+    padding: 0px 10px;
+    width: 100%;
+    overflow:hidden;
+    display:inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-item .price{
+    font-size: 16px;
+    font-family: myFont-bold;
+    color: #f1563f;
+    float: left;
+    padding: 0px 10px;
+}
+.product-item .price .uc-price{
+    color: #a1a1a1ad;
+    text-decoration: line-through;
+}
 .product-item button:hover {
     background-color: #fff;
     border: 1px solid #2e8345;

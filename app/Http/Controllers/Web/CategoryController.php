@@ -28,7 +28,7 @@ class CategoryController extends Controller
         }
 
         // get products
-        $products = Product::where("subcategory_id", $subcategory->id)->get();
+        $products = Product::where("subcategory_id", $subcategory->id)->paginate( 30 );
         return view('web.category', compact('category', 'products'));
     }
 }

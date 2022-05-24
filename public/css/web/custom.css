@@ -1510,10 +1510,10 @@ input::placeholder {
 
 #category-page .gategory-grids .category-branches {
     margin-top: 15px;
-    padding: 0px;
+    padding: 30px 0px;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 0px 0px 36px 0px #0003;
+    box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.281);
     position: relative;
 }
 
@@ -1529,9 +1529,8 @@ input::placeholder {
     border-bottom: 1px solid #d1d1d1;
 }
 
-#category-page .gategory-grids .category-branches a:last-of-type {
-    border-bottom: none;
-
+#category-page .gategory-grids .category-branches a:first-of-type {
+    border-top: 1px solid #d1d1d1;
 }
 
 #category-page .gategory-grids .category-branches a:hover {
@@ -1540,11 +1539,21 @@ input::placeholder {
     color: #fff;
 }
 
-#category-page .gategory-grids .category-branches a.active {
+#category-page .gategory-grids .category-branches a.active{
     background-color: #2e8345;
     color: #fff;
 }
-
+#category-page .title{
+    font-size: 35px !important;
+}
+#category-page .title p{
+    color: #2e8345;
+}
+#category-page .title img{
+    margin-right: 10px;
+    width: 35px;
+    filter: invert(43%) sepia(13%) saturate(2068%) hue-rotate(84deg) brightness(93%) contrast(87%); 
+}
 /*====================================================
 ============ Orders Page =============================
 ====================================================*/

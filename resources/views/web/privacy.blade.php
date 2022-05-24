@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
-        <h1 class="title text-bloder"> <i class="fa-solid fa-list"></i> PRIVACY POLICY </h1>
+        <h4 class="title text-bloder"> <i class="fa-solid fa-list"></i> PRIVACY POLICY </h1>
 
         <div class="col-xs-12 col-md-9 col-sm-8">
             <div class="col-xs-12 fillter-side-main remove-padding" style="text-align: justify;">

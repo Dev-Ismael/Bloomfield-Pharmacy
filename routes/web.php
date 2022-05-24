@@ -53,7 +53,7 @@ Route::get('/search', [App\Http\Controllers\Web\SearchController::class, 'index'
 // Product                            
 Route::get('/product/{slug}', [App\Http\Controllers\Web\ProductController::class, 'index'])->name('product');
 // Category                            
-Route::get('/category', [App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
+Route::get('/category/{categorySlug}/{subCategorySlug}', [App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
 // order_prescription                            
 Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
 

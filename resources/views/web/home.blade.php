@@ -37,7 +37,7 @@
             <!-- <div class="content"> -->
             <div class="container services-main text-center">
                 <p class="sub-title">our services</p>
-                <h1 class="title text-bloder">{{ config('app.name') }}</h1>
+                <h4 class="title text-bloder">{{ config('app.name') }}</h1>
                 <div class="row">
                     <div class="col-md-4 text-center service-item">
                         <img src="{{ asset('images/web/Deliver-logo.png') }}">
@@ -104,11 +104,11 @@
             <!-- <div class="content"> -->
             <div class="container text-center">
                 <p class="sub-title">Browse products by</p>
-                <h1 class="title text-bloder">OUR CATEGORIES</h1>
+                <h4 class="title text-bloder">OUR CATEGORIES</h1>
                 <div class="categories-main">
                     @foreach ( $categories as $key => $category )
                         <div class="categories-child">
-                            <a href="#" class="child-{{ $key + 1 }}">
+                            <a href="{{ route("category", [ $category->slug , $category->subcategories[0]->slug ] ) }}" class="child-{{ $key + 1 }}">
                                 <div class="category-main">
                                     <img src="{{ asset('images/categories/'.$category->img) }}" class="g-bg">
                                     <p>{{ $category->title }}</p><span class="v-g">Browse Products </span>
@@ -154,7 +154,7 @@
         <!---------------------- Latest Offers ----------------------------->
         <div class="container section product-slider text-center  remove-padding block block-views pt-4 pb-4">
             <p class="sub-title">DON'T MISS OUR</p>
-            <h1 class="title text-bloder">Latest Offers</h1>
+            <h4 class="title text-bloder">Latest Offers</h1>
 
 
             <div class="container">

@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories   = Category::get();
+        $categories   = Category::with('subcategories')->get();
         $lastedOffers = Product::where('has_offer','1')->orderBy('id', 'desc')->limit(10)->get();
         return view('web.home',compact('categories','lastedOffers'));
     }

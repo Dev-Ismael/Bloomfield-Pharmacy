@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
-        <h1 class="title text-bloder"> <i class="fa-solid fa-circle-info"></i> About Us </h1>
+        <h4 class="title text-bloder"> <i class="fa-solid fa-circle-info"></i> About Us </h1>
         <div class="col-xs-12 fillter-side-main remove-padding" style="text-align: justify;">
             <h2 class="pt-5"><b>Wellness is you</b></h2>
             It is not just about being healthy, it is beyond.&nbsp;

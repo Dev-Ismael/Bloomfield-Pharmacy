@@ -3,7 +3,7 @@
 @section('content')
     <div id="returns-page">
         <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
-            <h1 class="title text-bloder"> <i class="fa-solid fa-rotate-left"></i> RETURNS & EXCHANGE POLICY </h1>
+            <h4 class="title text-bloder"> <i class="fa-solid fa-rotate-left"></i> RETURNS & EXCHANGE POLICY </h1>
 
             <div class="row">
 

@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="order-prescription-page" class="container-fluid remove-padding  padding-t-100">
-        <h1 class="title text-bloder text-center mt-3"> <i class="fa-solid fa-file-prescription"></i> Order Prescriptions  </h1>
+        <h4 class="title text-bloder text-center mt-3"> <i class="fa-solid fa-file-prescription"></i> Order Prescriptions  </h1>
 
         
         <div class="container">

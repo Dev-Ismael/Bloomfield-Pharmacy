@@ -3,7 +3,7 @@
 @section('content')
     <div id="prescriptions-page">
         <div class="section container text-center faq-main section-h2 margin-t-100 ">
-            <h1 class="title text-bloder"> <i class="fa-solid fa-file-prescription"></i> My Prescription </h1>
+            <h4 class="title text-bloder"> <i class="fa-solid fa-file-prescription"></i> My Prescription </h1>
 
 
 

@@ -11,6 +11,10 @@ class ProductController extends Controller
     public function index($slug)
     {
         $product = Product::where('slug',$slug)->first();
+        // if product Not Found
+        if( !$product ){
+            return redirect('/');
+        }
         return view('web.product',compact("product"));
     }
 }

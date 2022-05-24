@@ -162,7 +162,7 @@
                                                             <div class="col-md-12 row">
                                                                 @foreach ( $category->subcategories as $subcategory )
                                                                     <div class="col-md-6 col-lg-4">
-                                                                        <a href="fp/taxonomy/term/18864.html">
+                                                                        <a href="{{ route('category',[ $category->slug , $subcategory->slug ]) }}">
                                                                             <h2> {{ $subcategory->title }} </h2>
                                                                         </a>
                                                                     </div>

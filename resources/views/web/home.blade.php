@@ -98,29 +98,30 @@
 
 
 
-
         <!---------------------- OUR CATEGORIES ----------------------------->
-        <div id="block-block-22" class="container section product-slider text-center remove-padding block block-block">
-            <!-- <div class="content"> -->
-            <div class="container text-center">
-                <p class="sub-title">Browse products by</p>
-                <h4 class="title text-bloder">OUR CATEGORIES</h1>
-                <div class="categories-main">
-                    @foreach ( $categories as $key => $category )
-                        <div class="categories-child">
-                            @if ( !$category->subcategories->isEmpty() )
-                                <a href="{{ route("category", [ $category->slug , $category->subcategories[0]->slug ] ) }}" class="child-{{ $key + 1 }}">
-                                    <div class="category-main">
-                                        <img src="{{ asset('images/categories/'.$category->img) }}" class="g-bg">
-                                        <p>{{ $category->title }}</p><span class="v-g">Browse Products </span>
-                                    </div>
-                                </a>
-                            @endif
-                        </div>
-                    @endforeach
+        @if (!$categories->isEmpty())
+            <div id="block-block-22" class="container section product-slider text-center remove-padding block block-block">
+                <!-- <div class="content"> -->
+                <div class="container text-center">
+                    <p class="sub-title">Browse products by</p>
+                    <h4 class="title text-bloder">OUR CATEGORIES</h1>
+                    <div class="categories-main">
+                        @foreach ( $categories as $key => $category )
+                            <div class="categories-child">
+                                @if ( !$category->subcategories->isEmpty() )
+                                    <a href="{{ route("category", [ $category->slug , $category->subcategories[0]->slug ] ) }}" class="child-{{ $key + 1 }}">
+                                        <div class="category-main">
+                                            <img src="{{ asset('images/categories/'.$category->img) }}" class="g-bg">
+                                            <p>{{ $category->title }}</p><span class="v-g">Browse Products </span>
+                                        </div>
+                                    </a>
+                                @endif
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
 
 
 
@@ -190,7 +191,7 @@
                         </div>
                     </div>
 
-                    <a href="/" class="all-btn mt-5">view all</a>
+                    <a href="{{ route("offered_products") }}" class="all-btn mt-5">view all</a>
 
                 </div>
             </div>

@@ -15,13 +15,16 @@
                     <!-- filter -->
                     <div class=" col-xs-12  col-md-3 col-sm-4 text-left">
                         <div class="category-branches">
-                            @foreach ( $category->subcategories as $subcategory )
-                                <a  
-                                    href="{{ route('category' , [  $category->slug , $subcategory->slug ]) }}" 
-                                    class=" {{ Request::is('category/'. $category->slug .'/'. $subcategory->slug) ? 'active' : '' }}">
-                                    {{ $subcategory->title }}
-                                </a> 
-                            @endforeach
+                            <p> <i class="fa-solid fa-bars-staggered"></i> Categories </p>
+                            <ul>
+                                @foreach ( $category->subcategories as $subcategory )
+                                    <li><a  
+                                        href="{{ route('category' , [  $category->slug , $subcategory->slug ]) }}" 
+                                        class=" {{ Request::is('category/'. $category->slug .'/'. $subcategory->slug) ? 'active' : '' }}">
+                                        {{ $subcategory->title }}
+                                    </a></li> 
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                     <!-- End filter -->

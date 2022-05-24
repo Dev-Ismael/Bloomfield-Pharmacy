@@ -1552,42 +1552,54 @@ input::placeholder {
 /*====================================================
 ============ Category Page ===========================
 ====================================================*/
-
 #category-page .gategory-grids .category-branches {
     margin-top: 15px;
-    padding: 30px 0px;
-    border-radius: 5px;
+    border-radius: 7px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     overflow: hidden;
     box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.281);
     position: relative;
+}
+#category-page .gategory-grids .category-branches ul{
+    margin-bottom: 0px;
+    list-style-type: circle;
+}
+#category-page .gategory-grids .category-branches p{
+    text-transform: uppercase;
+    background-color: #27703a;
+    color: #fff;
+    padding: 15px 7px;
+    font-size: 18px;
 }
 
 #category-page .gategory-grids .category-branches a {
     display: block;
     width: 100%;
-    text-transform: uppercase;
     cursor: pointer;
     background-color: #fff;
-    color: #2e8345;
-    padding: 15px 10px;
+    color: #2e83458c;
+    padding: 12px 20px  ;
     transition: all 0.3s ease-in-out;
     border-bottom: 1px solid #d1d1d1;
 }
-
-#category-page .gategory-grids .category-branches a:first-of-type {
-    border-top: 1px solid #d1d1d1;
+#category-page .gategory-grids .category-branches a:last-of-type{
+    border: none;
 }
 
 #category-page .gategory-grids .category-branches a:hover {
     text-decoration: none;
-    background-color: #2e8345;
+    background-color: #2e83458c;
     color: #fff;
 }
 
 #category-page .gategory-grids .category-branches a.active{
-    background-color: #2e8345;
+    background-color: #2e83458c;
     color: #fff;
-}
+} 
+
+
+
 #category-page .title{
     font-size: 35px !important;
 }

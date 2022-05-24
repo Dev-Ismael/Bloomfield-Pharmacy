@@ -59,6 +59,9 @@ Route::get('/product/{slug}', [App\Http\Controllers\Web\ProductController::class
 // Category                            
 Route::get('/category/{categorySlug}/{subCategorySlug}', [App\Http\Controllers\Web\CategoryController::class, 'index'])->name('category');
 
+// offeredProducts                            
+Route::get('/offered_products', [App\Http\Controllers\Web\OfferedProductsController::class, 'index'])->name('offered_products');
+
 // order_prescription                            
 Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
 

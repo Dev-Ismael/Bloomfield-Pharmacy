@@ -2404,3 +2404,25 @@ input::placeholder {
         font-size: 17px;
     }
 }
+
+
+
+
+/*========= img ==========*/
+#prescriptions-page img.prescription-img{
+    padding: 0px !important;
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px 5px #0000002e;
+}
+#prescriptions-page ul {
+    list-style-type: disc !important;
+    padding-left:1em !important;
+    margin-left:1em;
+}
+#prescriptions-page ul li{
+    list-style: disc;
+}
+#prescriptions-page i.fa-circle-question{
+    color: #c7b57e !important;
+    font-size: 24px;
+}

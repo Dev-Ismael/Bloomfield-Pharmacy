@@ -33,212 +33,129 @@
                 </script>
             @endif
 
-            <div class="accordion" id="accordionExample">
-
-                <div class="card mt-2">
-                    <div class="card-header text-left" data-toggle="collapse" data-target="#collapseOne"
-                        aria-expanded="true">
-                        <span class="title text-left"> PRESCRIPTION ID <span class="text-primary font-weight-bold">#82346</span>
-                        </span>
-
-
-                            <a href="#" class="btn btn-green create-by-prescription"> <i class="fa-solid fa-cart-shopping"></i> Order Products </a>
-
-                            <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
-                    </div>
-                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-                        <div class="card-body row text-left">
-
-                            
-                            <div class="col-md-6 prescriptions-img">
-                                <img src="{{ asset("images/prescriptions/prescription.jpg") }}" class="img-fluid" alt="prescription">
-                            </div>
-                            
-                            <div class="col-md-6 prescriptions-info mt-5">
-
-                                <!-------------- Description ---------------->
-                                <div class="description">
-                                    <h4 class="title"> <i class="fa-solid fa-align-left"></i> Aditional Details </h4>
-                                    <p> 
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloribus ea 
-                                        earum ducimus neque debitis sapiente. Voluptatibus deleniti blanditiis aspernatur
-                                        accusantium officiis dolor exercitationem, ratione corrupti odit, saepe voluptas numquam!
-                                    </p>
-                                </div>
-                                <hr>
-
-                                <!-------------- Medicine ----------------->
-                                <div class="medicine">
-                                    <h4 class="title"> <i class="fa-solid fa-capsules"></i> Prescription Medicine </h4>
-                                    <ul class = "list-unstyled">
-                                        <li> <i class="fa-solid fa-circle"></i>  Ayahuasca </li>
-                                        <li> <i class="fa-solid fa-circle"></i>  Cannabis (Marijuana/Pot/Weed) </li>
-                                        <li> <i class="fa-solid fa-circle"></i> Cocaine (Coke/Crack) </li>
-                                        <li> <i class="fa-solid fa-circle"></i> Hallucinogens </li>
-                                    </ul>
-                                </div>
-                                <hr>
-
-                                <!-------------- Age ----------------->
-                                <div class="age">
-                                    <span class="title"> <i class="fa-solid fa-user"></i> Patient Age : </span>
-                                    <span>  47 Years Old </span>
-                                </div>
-                                <hr>
-
-                                <!-------------- gender  ----------------->
-                                <div class="gender ">
-                                    <span class="title"> <i class="fa-solid fa-venus-mars"></i> Patient Gender  : </span>
-                                    <span>  Male </span>
-                                </div>
-                                <hr>
-
-                                <!-------------- Date ----------------->
-                                <div class="date">
-                                    <span class="title"> <i class="fa-solid fa-clock d-inline"></i> Prescription Upload Date : </span>
-                                    <span>  1st Monday Aug 2021 </span>
-                                </div>
-                                <hr>
-
-                                <!-------------- Validation ----------------->
-                                <div class="validation">
-                                    <span class="title"> <i class="fa-solid fa-list-check"></i> Prescription Validation : </span>
-                                    <span class="pendding "> <i class="fa-solid fa-spinner"></i> Pendding </span>
-                                    <span class="valid d-none"> <i class="fa-solid fa-check"></i> Valid </span>
-                                    <span class="not-valid d-none"> <i class="fa-solid fa-xmark"></i> Not valid </span>
-                                </div>
-                                <hr>
-
-                                <!-------------- Schedule ----------------->
-                                <div class="schedule  d-flex align-items-center">
-                                    <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
-                                    <div class="toggle-btn">
-                                        <input type="checkbox" class="cb-value"/>
-                                        <span class="round-btn"></span>
-                                    </div>
-                                </div>
-                                <hr>
-
-
-                                <!-------------- Buttons ----------------->
-                                <div class="buttons text-right">
-                                    <a href="#" class="btn btn-close"> <i class="fa-solid fa-xmark"></i> Delete Prescription </a>
-                                </div>
-
-                                
-                            </div>
-                        </div>
+            <!--------------- Prescriptions --------------->
+            @if ($prescriptions->isEmpty())
+                <div class="row">
+                    <div class="col-md-8 offset-2 d-flex justify-content-center align-content-center">
+                        <p> Not prescriptions to show</p>
                     </div>
                 </div>
+            @else
+                <div class="accordion" id="accordionExample">
 
 
-                <div class="card mt-2">
-                    <div class="card-header text-left" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="true">
-                        <span class="title text-left"> PRESCRIPTION ID <span class="text-primary font-weight-bold">#82346</span>
-                        </span>
+                    @foreach ( $prescriptions as $key => $prescription )
+
+                        <div class="card mt-2">
+                            <div class="card-header text-left" data-toggle="collapse" data-target="#collapse-{{$key}}"
+                                aria-expanded="true">
+                                <span class="title text-left"> PRESCRIPTION ID <span class="text-primary font-weight-bold">#{{ $prescription->id }}</span>
+                                </span>
 
 
-                            <a href="#" class="btn btn-green create-by-prescription"> <i class="fa-solid fa-cart-shopping"></i> Order Products </a>
+                                    <a href="#" class="btn btn-green create-by-prescription"> <i class="fa-solid fa-cart-shopping"></i> Order Products </a>
 
-                            <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
-                    </div>
-                    <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
-                        <div class="card-body row text-left">
-
-                            
-                            <div class="col-md-6 prescriptions-img">
-                                <img src="{{ asset("images/prescriptions/prescription.jpg") }}" class="img-fluid" alt="prescription">
+                                    <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
                             </div>
-                            
-                            <div class="col-md-6 prescriptions-info mt-5">
+                            <div id="collapse-{{$key}}" class="collapse {{ $key == 0 ? 'show' : ''}}" data-parent="#accordionExample">
+                                <div class="card-body row text-left">
 
-                                <!-------------- Description ---------------->
-                                <div class="description">
-                                    <h4 class="title"> <i class="fa-solid fa-align-left"></i> Aditional Details </h4>
-                                    <p> 
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem doloribus ea 
-                                        earum ducimus neque debitis sapiente. Voluptatibus deleniti blanditiis aspernatur
-                                        accusantium officiis dolor exercitationem, ratione corrupti odit, saepe voluptas numquam!
-                                    </p>
-                                </div>
-                                <hr>
+                                    
+                                    <div class="col-md-6 d-flex justify-content-center align-content-between">
+                                        <img src="{{ asset("images/prescriptions/".$prescription->img) }}" class="prescription-img" class="img-fluid" alt="prescription-image">
+                                    </div>
+                                    
+                                    <div class="col-md-6 prescriptions-info mt-5">
 
-                                <!-------------- Medicine ----------------->
-                                <div class="medicine">
-                                    <h4 class="title"> <i class="fa-solid fa-capsules"></i> Prescription Medicine </h4>
-                                    <ul class = "list-unstyled">
-                                        <li> <i class="fa-solid fa-circle"></i>  Ayahuasca </li>
-                                        <li> <i class="fa-solid fa-circle"></i>  Cannabis (Marijuana/Pot/Weed) </li>
-                                        <li> <i class="fa-solid fa-circle"></i> Cocaine (Coke/Crack) </li>
-                                        <li> <i class="fa-solid fa-circle"></i> Hallucinogens </li>
-                                    </ul>
-                                </div>
-                                <hr>
+                                        <!-------------- description ----------------->
+                                        <div class="description">
+                                            <span class="title"> <i class="fa-solid fa-align-left"></i> Aditional Details :  </span>
+                                            @if ( $prescription->additional_details != Null )
+                                                <p> 
+                                                    {{ $prescription->additional_details }} 
+                                                </p>
+                                            @else
+                                               <span> <i class="fa-solid fa-circle-question"></i> </span> 
+                                            @endif
+                                        </div>
+                                        <hr>
 
-                                <!-------------- Age ----------------->
-                                <div class="age">
-                                    <span class="title"> <i class="fa-solid fa-user"></i> Patient Age : </span>
-                                    <span>  47 Years Old </span>
-                                </div>
-                                <hr>
+                                        <!-------------- Medicine ----------------->
+                                        <div class="medicine">
+                                            <span class="title"> <i class="fa-solid fa-capsules"></i> Prescription Medicine :  </span>
+                                            @if ( $prescription->medicine != Null )
+                                                <ul>
+                                                    @foreach ( $prescription->medicine as $medicine )
+                                                            <li> {{ $medicine }} </li>
+                                                    @endforeach
+                                                </ul>
 
-                                <!-------------- gender  ----------------->
-                                <div class="gender ">
-                                    <span class="title"> <i class="fa-solid fa-venus-mars"></i> Patient Gender  : </span>
-                                    <span>  Male </span>
-                                </div>
-                                <hr>
+                                            @else
+                                               <span> <i class="fa-solid fa-circle-question"></i> </span> 
+                                            @endif
+                                        </div>
+                                        <hr>
 
-                                <!-------------- Date ----------------->
-                                <div class="date">
-                                    <span class="title"> <i class="fa-solid fa-clock d-inline"></i> Prescription Upload Date : </span>
-                                    <span>  1st Monday Aug 2021 </span>
-                                </div>
-                                <hr>
+                                        <!-------------- Age ----------------->
+                                        <div class="age">
+                                            <span class="title"> <i class="fa-solid fa-user"></i> Patient Age : </span>
+                                            <span>  {{ $prescription->age }}  Years Old </span>
+                                        </div>
+                                        <hr>
 
-                                <!-------------- Validation ----------------->
-                                <div class="validation">
-                                    <span class="title"> <i class="fa-solid fa-list-check"></i> Prescription Validation : </span>
-                                    <span class="pendding "> <i class="fa-solid fa-spinner"></i> Pendding </span>
-                                    <span class="valid d-none"> <i class="fa-solid fa-check"></i> Valid </span>
-                                    <span class="not-valid d-none"> <i class="fa-solid fa-xmark"></i> Not valid </span>
-                                </div>
-                                <hr>
+                                        <!-------------- gender  ----------------->
+                                        <div class="gender">
+                                            <span class="title"> <i class="fa-solid fa-venus-mars"></i> Patient Gender  : </span>
+                                            <span> {{ ucfirst($prescription->gender) }} </span>
+                                        </div>
+                                        <hr>
 
-                                <!-------------- Schedule ----------------->
-                                <div class="schedule  d-flex align-items-center">
-                                    <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
-                                    <div class="toggle-btn">
-                                        <input type="checkbox" class="cb-value"/>
-                                        <span class="round-btn"></span>
+                                        <!-------------- Date ----------------->
+                                        <div class="date">
+                                            <span class="title"> <i class="fa-solid fa-clock d-inline"></i> Prescription Upload Date : </span>
+                                            <span>  {{ $prescription->created_at->format('d M Y') }} </span>
+                                        </div>
+                                        <hr>
+
+                                        <!-------------- Validation ----------------->
+                                        <div class="validation">
+                                            <span class="title"> <i class="fa-solid fa-list-check"></i> Prescription Validation : </span>
+                                            @if ($prescription->validation == '0')
+                                                <span class="not-valid"> <i class="fa-solid fa-xmark"></i> Not valid </span>
+                                            @elseif($prescription->validation == '1' )
+                                                <span class="pendding "> <i class="fa-solid fa-spinner"></i> Pendding </span>
+                                            @elseif( $prescription->validation == '2' )
+                                                <span class="valid"> <i class="fa-solid fa-check"></i> Valid </span>
+                                            @endif
+                                        </div>
+                                        <hr>
+
+                                        <!-------------- Schedule ----------------->
+                                        <div class="schedule  d-flex align-items-center">
+                                            <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
+                                            <div class="toggle-btn">
+                                                <input type="checkbox" class="cb-value"/>
+                                                <span class="round-btn"></span>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+
+                                        <!-------------- Buttons ----------------->
+                                        <div class="buttons text-right">
+                                            <a href="#" class="btn btn-danger delete-prescription-btn"> <i class="fa-solid fa-xmark"></i> Delete Prescription </a>
+                                        </div>
+
+                                        
                                     </div>
                                 </div>
-                                <hr>
-
-
-                                <!-------------- Buttons ----------------->
-                                <div class="buttons text-right">
-                                    <a href="#" class="btn btn-close"> <i class="fa-solid fa-xmark"></i> Delete Prescription </a>
-                                </div>
-
-                                
                             </div>
                         </div>
-                    </div>
+
+                    @endforeach
+                    
                 </div>
-
-
-              
-                
-
-                
-                
-
-
-
-            </div>
-
+            @endif
 
 
 

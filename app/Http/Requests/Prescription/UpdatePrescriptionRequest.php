@@ -26,8 +26,8 @@ class UpdatePrescriptionRequest extends FormRequest
     {
         return [
             'user_id'           =>  ['required' , 'numeric' ],
-            'age'               =>  ['nullable' , 'string' , 'max:55'],
-            'gender'            =>  ['nullable' , 'string' , 'max:55'],
+            'age'               =>  ['required' , 'string' , 'max:55'],
+            'gender'            =>  ['required' , 'string' , 'max:55'],
             'medicine'          =>  ['required' , 'array' ,  'max:1000'],
             'medicine.*'        =>  ['required' , 'string' , 'distinct'],
             'additional_details'=>  ['nullable' , 'string' , 'max:1000'],

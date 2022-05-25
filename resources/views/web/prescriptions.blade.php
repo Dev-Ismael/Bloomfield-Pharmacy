@@ -6,10 +6,34 @@
             <h4 class="title text-bloder"> <i class="fa-solid fa-file-prescription"></i> My Prescription </h1>
 
 
+            <!--------------- Session Alert ----------------->
+            @if (session()->has('success'))
+                <script>
+                    window.addEventListener('load', (event) => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Your Prescription Saved',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    });
+                </script>
+            @elseif(session()->has('failed'))
+                <script>
+                    window.addEventListener('load', (event) => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'Error At Save Prescription',
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    });
+                </script>
+            @endif
 
             <div class="accordion" id="accordionExample">
-
-
 
                 <div class="card mt-2">
                     <div class="card-header text-left" data-toggle="collapse" data-target="#collapseOne"

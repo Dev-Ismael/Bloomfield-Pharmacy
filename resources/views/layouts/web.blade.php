@@ -103,8 +103,13 @@
                             </li>
 
                             <li><a href="{{ route('about') }}"> About Us</a></li>
-                            <li><a href="{{ route('order_prescription') }}"> Order a
-                                    Prescription</a></li>
+                            <li>
+                                @auth
+                                    <a href="{{ route('order_prescription') }}"> Order a Prescription </a>
+                                @else
+                                    <a href="#" data-toggle="modal" data-target="#login">Order a Prescription</a>
+                                @endauth
+                            </li>
 
 
                         </ul>
@@ -174,8 +179,13 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li><a href="{{ route('order_prescription') }}"> Order a
-                                            Prescription</a></li>
+                                    <li>
+                                        @auth
+                                            <a href="{{ route('order_prescription') }}"> Order a Prescription </a>
+                                        @else
+                                            <a href="#" data-toggle="modal" data-target="#login">Order a Prescription</a>
+                                        @endauth
+                                    </li>
                                     <li><a href="{{ route('about') }}"> About Us</a>
                                     </li>
                                 </ul>

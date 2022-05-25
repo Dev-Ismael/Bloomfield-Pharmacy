@@ -25,12 +25,14 @@
                 <div class="col-md-6 col-sm-12 col-xs-12 ">
 
 
-                    <form action="#" method="post">
+                    <form action="{{ route("upload_prescription") }}" method="POST" enctype="multipart/form-data">
+                        
+                        @csrf
+                        
                         <!-- Upload Area -->
 
-                        <label for="prescription"> <i class="fa-solid fa-images"></i> Upload Your Prescription image
-                        </label>
-                        <div id="uploadArea" class="upload-area mb-4">
+                        <label for="prescription"> <i class="fa-solid fa-images"></i> Upload Your Prescription image </label>
+                        <div id="uploadArea" class="upload-area @error('img') is-invalid @enderror mb-2">
                             <!-- Header -->
                             <div class="upload-area__header">
                                 <p class="upload-area__paragraph">
@@ -52,7 +54,7 @@
                                 <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
                                 <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image"
                                     draggable="false">
-                                <input type="file" id="prescriptionFile" class="drop-zoon__file-input" accept="image/*">
+                                <input type="file" name="img" id="prescriptionFile" class="drop-zoon__file-input" accept="image/*" required/>
                             </div>
                             <!-- End Drop Zoon -->
 
@@ -74,6 +76,9 @@
                             </div>
                             <!-- End File Details -->
                         </div>
+                        @error('img')
+                            <small class="text-danger">{{$message }}</small> 
+                        @enderror
 
                         <!-- End Upload Area -->
 
@@ -87,30 +92,40 @@
 
                         <!------------ patient Age ----------------->
                         <div class="form-group text-left">
-                            <label for="age" class="text-black"> <i class="fa-solid fa-user"></i> Patient Age (optional)
+                            <label for="age" class="text-black"> <i class="fa-solid fa-user"></i> Patient Age
                             </label>
-                            <input type="text" class="form-control" id="age" placeholder="Type Patient Age...">
+                            <input type="number" name="age" class="form-control" value="{{ old("age") }}" id="age" placeholder="Type Patient Age..." required/>
+                            @error('age')
+                                <small class="text-danger">{{$message }}</small> 
+                            @enderror
                         </div>
 
 
                         <!------------ patient gender ----------------->
                         <div class="form-group text-left">
                             <label for="gender" class="text-black"> <i class="fa-solid fa-venus-mars"></i> Patient
-                                gender (optional) </label>
-                            <select class="form-control" id="gender"  class="form-control" placeholder="Type Patient gender...">
-                                <option class="d-none">Choose patient Gender...</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Other</option>
+                                gender </label>
+                            <select class="form-control" name="gender" id="gender" placeholder="Type Patient gender..."  required>
+                                <option value="" class="d-none">Choose Patient Gender...</option>
+                                <option value="male"   {{ old('gender') == 'male' ? "selected" : "" }}>Male</option>
+                                <option value="female" {{ old('gender') == 'female' ? "selected" : "" }}>Female</option>
+                                <option value="other"  {{ old('gender') == 'other' ? "selected" : "" }}>Other</option>
                             </select>
+                            @error('gender')
+                                <small class="text-danger">{{$message }}</small> 
+                            @enderror
                         </div>
+
 
 
                         <!------------ Additional Details ----------------->
                         <div class="form-group text-left">
                             <label for="details" class="text-black"> <i class="fa-solid fa-align-left"></i> Additional
                                 Details (optional) </label>
-                            <textarea type="text" class="form-control" rows="5" id="details" placeholder="Type Additional Details..."></textarea>
+                            <textarea type="text" name="additional_details" class="form-control" rows="5" id="details" placeholder="Type Additional Details...">{{ old("additional_details") }}</textarea>
+                            @error('additional_details')
+                                <small class="text-danger">{{$message }}</small> 
+                            @enderror
                         </div>
 
 
@@ -137,21 +152,28 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div id="newRow"></div>
+
+
+                            @error('medicine') <!--------- if isset array Validation ------------>
+                                <small class="text-danger">{{$message }}</small>
+                            @enderror
+                            @error('medicine.*') <!--------- if isset items array Validation ------------>
+                                <small class="text-danger">medicine field is not valid</small>
+                            @enderror
 
                         </div>
 
+                       
 
 
 
 
 
 
-
-                        <button class="btn btn-green profile-button mb-5 mt-5 float-right" type="button">
+                        <button type="submit" class="btn btn-green profile-button mb-5 mt-5 float-right upload-prescription-btn">
                             <i class="fa-solid fa-cloud-arrow-up"></i> Upload
-                        </button>
+                        </button> 
 
                     </form>
 

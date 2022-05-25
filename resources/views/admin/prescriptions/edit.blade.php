@@ -63,7 +63,7 @@
                                             <input type="number" name="age" id="age"
                                                 class="form-control @error('age') is-invalid @enderror"
                                                 value="{{ $prescription->age }}" aria-describedby="emailHelp"
-                                                placeholder="Type Prescription Title..." autocomplete="nope" />
+                                                placeholder="Type Prescription Title..." autocomplete="nope" required/>
                                             @error('age')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
@@ -71,7 +71,7 @@
 
                                         <div class="mb-4 input-content">
                                             <label for="gender" class="capitalize"> <i class="fa-solid fa-venus-mars"></i> Gender </label>
-                                                <select class="form-select form-control @error('gender') is-invalid @enderror" name="gender" id="gender"  aria-label="Default select example">
+                                                <select class="form-select form-control @error('gender') is-invalid @enderror" name="gender" id="gender"  aria-label="Default select example" required>
                                                     <option value="" selected="selected" class="d-none">Choose Patient Gender...</option>
                                                     <option value="male"   {{ $user->gender == 'male' ? "selected" : "" }}>Male</option>
                                                     <option value="female" {{ $user->gender == 'female' ? "selected" : "" }}>Female</option>

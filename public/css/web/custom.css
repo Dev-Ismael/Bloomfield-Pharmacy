@@ -38,6 +38,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+/*============= invalid input class =============*/
+input.is-invalid, 
+select.is-invalid, 
+textarea.is-invalid,  
+.upload-area.is-invalid{  
+    border: 1px solid #e5443f !important;
+}
+
 /*============= Pagination =============*/
 .page-item.active .page-link{
     background-color: #2e8345;
@@ -567,9 +575,6 @@ body::-webkit-scrollbar-thumb {
 /*====================================================
 =================== Login Form =======================
 ====================================================*/
-form#user-login .is-invalid {
-    border: 1px solid #e5443f;
-}
 
 form#user-login input {
     border-radius: 3px;
@@ -601,9 +606,7 @@ form#user-login input::placeholder {
 /*====================================================
 =================== Register Form ====================
 ====================================================*/
-form#user-register-form .is-invalid {
-    border: 1px solid #e5443f;
-}
+
 
 form#user-register-form .group-header input {
     border-radius: 3px;

@@ -22,7 +22,7 @@
         ================= Remove text danger Inputs ==============================
         =========================================================================*/
         function removeInValidClass() {
-            $('form input , form textarea').on("click", function(){
+            $('form input , form textarea , form select , .upload-area').on("click", function(){
                 // get Attr name=['']
                 var attr_name = $(this).attr('name');
                 // remove class is-invalid
@@ -32,7 +32,6 @@
             });
         }
         removeInValidClass();
-
         /*========================================================================
         ================= Register ===============================================
         =========================================================================*/
@@ -162,7 +161,7 @@
                 error: function(response){
                     alert("error at connection");
                 }
-            })
+            });
 
 
 
@@ -709,7 +708,7 @@
             var html = '';
             html += '<div id="inputFormRow">';
                 html += '<div class="input-group">';
-                    html += '<input type="text" name="title[]" class="form-control m-input" placeholder="Type Medicine..." autocomplete="off">';
+                    html += '<input type="text" name="medicine[]" class="form-control m-input" placeholder="Type Medicine..." autocomplete="off">';
                     html += '<div class="input-group-append">';
                         html += '<button type="button" class="btn btn-green add-field"> <i class="fa-solid fa-plus"></i> </button>';
                         html += '<button type="button" class="btn btn-green remove-field"> <i class="fa-solid fa-trash"></i> </button>';

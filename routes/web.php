@@ -62,19 +62,23 @@ Route::get('/category/{categorySlug}/{subCategorySlug}', [App\Http\Controllers\W
 // offeredProducts                            
 Route::get('/offered_products', [App\Http\Controllers\Web\OfferedProductsController::class, 'index'])->name('offered_products');
 
-// order_prescription                            
-Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
-
-
 Route::group([ 'middleware'=> 'auth'  ] , function(){
+
+    // order_prescription                            
+    Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
+    // upload_prescription                            
+    Route::post('/upload_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'upload_prescription'])->name('upload_prescription');
+    // prescriptions                            
+    Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::class, 'index'])->name('prescriptions');
+
+    
+    
     // Profile                            
     Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile');
     // Orders                            
     Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index'])->name('orders');
     // wishlist                            
     Route::get('/wishlist', [App\Http\Controllers\Web\WishlistController::class, 'index'])->name('wishlist');
-    // prescriptions                            
-    Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::class, 'index'])->name('prescriptions');
     // Cart                            
     Route::get('/cart', [App\Http\Controllers\Web\CartController::class, 'index'])->name('cart');
 });

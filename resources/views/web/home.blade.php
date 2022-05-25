@@ -139,7 +139,11 @@
                 <p>ORDER YOUR</p>
                 <h1>PRESCRIPTION</h1>
                 <h2>Now you can upload your prescription in here and it will<br> be translated items in your cart</h2>
-                <a href="{{ route("order_prescription") }}"><span>Order Now </span></a>
+                @auth
+                    <a href="{{ route('order_prescription') }}"> <span>Order Now </span> </a>
+                @else
+                    <a href="#" data-toggle="modal" data-target="#login"><span>Order Now </span></a>
+                @endauth
             </div>
 
         </div>

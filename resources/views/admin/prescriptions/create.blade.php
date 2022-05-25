@@ -60,7 +60,7 @@
                                             <input type="number" name="age" id="age"
                                                 class="form-control @error('age') is-invalid @enderror"
                                                 value="{{ old('age') }}" aria-describedby="emailHelp"
-                                                placeholder="Type Prescription Title..." autocomplete="nope" />
+                                                placeholder="Type Prescription Title..." autocomplete="nope" required/>
                                             @error('age')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
@@ -68,15 +68,16 @@
 
                                         <div class="mb-4 input-content">
                                             <label for="gender" class="capitalize"> <i class="fa-solid fa-venus-mars"></i> Gender </label>
-                                            <input type="text" name="gender" id="gender"
-                                                class="form-control @error('gender') is-invalid @enderror"
-                                                value="{{ old('gender') }}" aria-describedby="emailHelp"
-                                                placeholder="Type Prescription Title..." autocomplete="nope"  />
+                                                <select class="form-select form-control @error('gender') is-invalid @enderror" name="gender" id="gender"  aria-label="Default select example" required>
+                                                    <option value="" selected="selected" class="d-none">Choose Patient Gender...</option>
+                                                    <option value="male"   {{ old('gender') == 'male' ? "selected" : "" }}>Male</option>
+                                                    <option value="female" {{ old('gender') == 'female' ? "selected" : "" }}>Female</option>
+                                                    <option value="other"  {{ old('gender') == 'other' ? "selected" : "" }}>Other</option>
+                                                </select>
                                             @error('gender')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
-
                                         <!------------ Prescription Medicine ----------------->
                                         <div class="mb-4 input-content dynamic-inputs">
                                             <label for="medicine" class="capitalize"> 

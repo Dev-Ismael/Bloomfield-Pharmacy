@@ -44,4 +44,9 @@ class User extends Authenticatable
         return  $this -> hasMany("App\Models\Prescription") ;  
     }
     
+
+    public function wishlist(){
+        return  $this -> belongsTo("App\Models\Wishlist") ;  
+    }
+
 }

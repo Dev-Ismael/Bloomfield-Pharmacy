@@ -26,4 +26,10 @@ class Product extends Model
     public function subcategory(){
         return  $this -> belongsTo("App\Models\Subcategory") ;  
     }
+
+    
+    public function wishlist(){
+        return  $this -> belongsTo("App\Models\Wishlist") ;  
+    }
+    
 }

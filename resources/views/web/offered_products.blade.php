@@ -11,14 +11,17 @@
     
     
                     <div class="gategory-grids remove-padding row">
-                        <div class="col-xs-12 col-md-9 col-sm-8">
+                        <div class="col-xs-12">
     
     
                             <!--------------- Products ---------------->
                             @if ($products->isEmpty())
-                                <div class="col-md-8 offset-2">
-                                    <p> Not products to show</p>
+                            <div class="row no-data-section">
+                                <div class="col-md-8 offset-md-2">
+                                    <img src="{{ asset("images/no_products.png") }}" class="no_products img-fluid" alt="no_products">
+                                    <p class="big-text"> Sorry we don't have any offers today.. </p>
                                 </div>
+                            </div>
                             @else
                                 <div class="row">
                                     @foreach ( $products as $product )

@@ -68,6 +68,8 @@ Route::group([ 'middleware'=> 'auth'  ] , function(){
     Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
     // upload_prescription                            
     Route::post('/upload_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'upload_prescription'])->name('upload_prescription');
+    // upload_prescription                            
+    Route::post('/delete_prescription/{id}', [App\Http\Controllers\Web\PrescriptionController::class, 'delete_prescription'])->name('delete_prescription');
     // prescriptions                            
     Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::class, 'index'])->name('prescriptions');
 

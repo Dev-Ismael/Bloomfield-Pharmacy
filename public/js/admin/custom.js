@@ -157,7 +157,7 @@
                     <input type="text" name="medicine[]" id="medicine"
                         class="form-control"
                         aria-describedby="emailHelp"
-                        placeholder="Type Medicine Title..." autocomplete="nope" required/>
+                        placeholder="Type Medicine Title..." autocomplete="nope"/>
                     <!---------- Buttons ----------->
                     <div class="input-group-append position-relative">
                         <button type="button" class="btn btn-primary add-field">

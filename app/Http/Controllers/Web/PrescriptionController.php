@@ -14,7 +14,7 @@ class PrescriptionController extends Controller
         // Get User ID
         $user_id = Auth::id();
 
-        $prescriptions = Prescription::where("user_id", $user_id)->get();
+        $prescriptions = Prescription::where("user_id", $user_id)->orderBy('id', 'DESC')->get();
         return view('web.prescriptions', compact('prescriptions'));
     }
 
@@ -57,6 +57,15 @@ class PrescriptionController extends Controller
         // Add user ID in Request Variable
         $requestData += ['user_id' => $user_id];
 
+        // Filter emptyFields 
+        $requestData['medicine'] = array_filter($requestData['medicine']);
+
+        // if medicine is empety array 
+        if ($requestData['medicine'] == []) {
+            $requestData['medicine'] = Null;
+        }
+
+        // return $requestData['medicine'];
 
         // Store in DB
         try {
@@ -67,5 +76,46 @@ class PrescriptionController extends Controller
         } catch (\Exception $e) {
             return redirect()->route("prescriptions")->with(["failed" => "Error at added opration"]);
         }
+    }
+
+    public function delete_prescription($id)
+    {
+
+        // Find in DB
+        $prescription = Prescription::find($id);
+
+        // If Find fails
+        if (!$prescription) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "delete operation failed",
+            ]);
+        }
+
+        // Get User ID
+        $user_id = Auth::id();
+
+        // check if not auth user
+        if ($prescription->user_id != $user_id) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "delete operation failed",
+            ]);
+        }
+
+        // Delete Record
+        $delete = $prescription->delete();
+        if (!$delete) {  // If update work fails
+            return response()->json([
+                "status" => 'error',
+                "msg" => "delete operation failed",
+            ]);
+        }
+
+        return response()->json([
+            "status" => 'success',
+            "msg" => "delete operation successfully",
+        ]);
+
     }
 }

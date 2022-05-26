@@ -83,7 +83,7 @@
                                         <!-------------- Medicine ----------------->
                                         <div class="medicine">
                                             <span class="title"> <i class="fa-solid fa-capsules"></i> Prescription Medicine :  </span>
-                                            @if ( $prescription->medicine != Null )
+                                            @if ( $prescription->medicine != Null  )
                                                 <ul>
                                                     @foreach ( $prescription->medicine as $medicine )
                                                             <li> {{ $medicine }} </li>
@@ -143,7 +143,7 @@
 
                                         <!-------------- Buttons ----------------->
                                         <div class="buttons text-right">
-                                            <a href="#" class="btn btn-danger delete-prescription-btn"> <i class="fa-solid fa-xmark"></i> Delete Prescription </a>
+                                            <a href="#" class="btn btn-danger delete-prescription-btn" prescription_id="{{ $prescription->id }}"> <i class="fa-solid fa-xmark"></i> Delete Prescription </a>
                                         </div>
 
                                         

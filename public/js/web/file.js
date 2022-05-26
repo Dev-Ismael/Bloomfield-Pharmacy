@@ -168,6 +168,60 @@
 
         });
 
+        /*========================================================================
+        ================= Delete Prescription ====================================
+        =========================================================================*/
+        $("#prescriptions-page .delete-prescription-btn").on( 'click' ,function (e){
+
+            e.preventDefault();
+            var prescription_id = $(this).attr('prescription_id');
+
+            // Sweet alert Confirm
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Delete this prescription from your account!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, do it!'
+            }).then((result) => {
+                // If confirm Yes
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: '/delete_prescription/' + prescription_id,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function ( response ) {
+                            
+                            
+                            if( response.status == 'error' ){
+                                Swal.fire( response.status , response.msg , response.status )
+                            }
+                            else if( response.status == 'success' ){
+                                Swal.fire( response.status , response.msg , response.status )
+                                .then((value) => {
+                                    window.location.href = "/prescriptions";
+                                });
+        
+                            }
+            
+            
+                        },
+                        error: function(response){
+                            alert("error at connection");
+                        }
+                    });
+
+
+                }
+            })
+        });
+
+
 
         /*========================================================================
         ================= mobile menu ============================================

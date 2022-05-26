@@ -52,8 +52,10 @@
                                 <span class="title text-left"> PRESCRIPTION ID <span class="text-primary font-weight-bold">#{{ $prescription->id }}</span>
                                 </span>
 
-
-                                    <a href="#" class="btn btn-green create-by-prescription"> <i class="fa-solid fa-cart-shopping"></i> Order Products </a>
+                                    <!--------- Check Prescription Valid/Pending ----------->
+                                    @if ( $prescription->validation != '0'  )
+                                        <a href="#" class="btn btn-green create-by-prescription"> <i class="fa-solid fa-cart-shopping"></i> Order Products </a>
+                                    @endif
 
                                     <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
                             </div>
@@ -130,17 +132,21 @@
                                         </div>
                                         <hr>
 
-                                        <!-------------- Schedule ----------------->
-                                        <div class="schedule  d-flex align-items-center">
-                                            <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
-                                            <div class="toggle-btn {{ $prescription->schedule_orders == '1' ? 'active' : '' }}">
-                                                <input type="checkbox" class="cb-value" 
-                                                    schedule_status="{{ $prescription->schedule_orders == '1' ? 'open' : 'close' }}"
-                                                    prescription_id="{{ $prescription->id }}"/>
-                                                <span class="round-btn"></span>
+                                        <!--------- Check Prescription Valid/Pending ----------->
+                                        @if ( $prescription->validation != '0'  )
+                                            <!-------------- Schedule ----------------->
+                                            <div class="schedule  d-flex align-items-center">
+                                                <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
+                                                <div class="toggle-btn {{ $prescription->schedule_orders == '1' ? 'active' : '' }}">
+                                                    <input type="checkbox" class="cb-value" 
+                                                        schedule_status="{{ $prescription->schedule_orders == '1' ? 'open' : 'close' }}"
+                                                        prescription_id="{{ $prescription->id }}"/>
+                                                    <span class="round-btn"></span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <hr>
+                                            <hr>
+                                        @endif
+                                        
 
 
                                         <!-------------- Buttons ----------------->

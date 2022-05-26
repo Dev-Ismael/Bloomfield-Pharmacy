@@ -165,4 +165,50 @@ class PrescriptionController extends Controller
         ]);
         
     }
+
+    public function stop_prescription_schedule($id)
+    {
+
+
+        // Find in DB
+        $prescription = Prescription::find($id);
+
+        // If Find fails
+        if (!$prescription) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        // Get User ID
+        $user_id = Auth::id();
+
+        // check if not auth user
+        if ($prescription->user_id != $user_id) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        // Update Record
+        $update = $prescription->update([
+            'schedule_orders' => '0' ,   
+            'scheduled_start' => Null, 
+        ]);
+
+        if (!$update) {  
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        return response()->json([
+            "status" => 'success',
+            "msg" => "update operation successfully",
+        ]);
+        
+    }
 }

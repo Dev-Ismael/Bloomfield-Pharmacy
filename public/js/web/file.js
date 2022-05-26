@@ -232,7 +232,7 @@
 
 
                 // Sweet alert Confirm
-                Swal.fire({
+                 Swal.fire({
                     title: 'Are you sure?',
                     text: "Close Schedule Orders With this prescription period",
                     icon: 'warning',
@@ -244,32 +244,30 @@
                     // If confirm Yes
                     if (result.isConfirmed) {
 
-
-                        // $(this).parent('.toggle-btn').toggleClass("active");
-
-                        // $.ajax({
-                        //     type: "POST",
-                        //     url: '/delete_prescription/' + prescription_id,
-                        //     headers: {
-                        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        //     },
-                        //     success: function ( response ) {
+                        $.ajax({
+                            type: "POST",
+                            url: '/stop_prescription_schedule/' + prescription_id,
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function ( response ) {
                                 
-                        //         if( response.status == 'error' ){
-                        //             Swal.fire( response.status , response.msg , response.status )
-                        //         }
-                        //         else if( response.status == 'success' ){
-                        //             Swal.fire( response.status , response.msg , response.status )
-                        //             .then((value) => {
-                        //                 window.location.href = "/prescriptions";
-                        //             });
-                        //         }
-
-                        //     },
-                        //     error: function(response){
-                        //         alert("error at connection");
-                        //     }
-                        // });
+                                if( response.status == 'error' ){
+                                    Swal.fire( response.status , response.msg , response.status )
+                                }
+                                else if( response.status == 'success' ){
+                                    $(this).parent('.toggle-btn').toggleClass("active");
+                                    Swal.fire( response.status , response.msg , response.status )
+                                    .then((value) => {
+                                        window.location.href = "/prescriptions";
+                                    });
+                                }
+                
+                            },
+                            error: function(response){
+                                alert("error at connection");
+                            }
+                        });
 
                     }
                 });
@@ -291,9 +289,6 @@
                     // If confirm Yes
                     if (result.isConfirmed) {
 
-
-                        // $(this).parent('.toggle-btn').toggleClass("active");
-
                         $.ajax({
                             type: "POST",
                             url: '/start_prescription_schedule/' + prescription_id,
@@ -306,6 +301,7 @@
                                     Swal.fire( response.status , response.msg , response.status )
                                 }
                                 else if( response.status == 'success' ){
+                                    $(this).parent('.toggle-btn').toggleClass("active");
                                     Swal.fire( response.status , response.msg , response.status )
                                     .then((value) => {
                                         window.location.href = "/prescriptions";

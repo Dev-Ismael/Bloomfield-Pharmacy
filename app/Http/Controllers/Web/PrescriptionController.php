@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Prescription;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -117,5 +118,51 @@ class PrescriptionController extends Controller
             "msg" => "delete operation successfully",
         ]);
 
+    }
+
+    public function start_prescription_schedule($id)
+    {
+
+
+        // Find in DB
+        $prescription = Prescription::find($id);
+
+        // If Find fails
+        if (!$prescription) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        // Get User ID
+        $user_id = Auth::id();
+
+        // check if not auth user
+        if ($prescription->user_id != $user_id) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        // Update Record
+        $update = $prescription->update([
+            'schedule_orders' => '1' ,   
+            'scheduled_start' => Carbon::now(), 
+        ]);
+
+        if (!$update) {  
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        return response()->json([
+            "status" => 'success',
+            "msg" => "update operation successfully",
+        ]);
+        
     }
 }

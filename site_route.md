@@ -29,3 +29,5 @@ problems  :
 
 - focus inputs at admin 
 - multi select javascript
+- array of medicine
+- hidden delete-prescription-btn 

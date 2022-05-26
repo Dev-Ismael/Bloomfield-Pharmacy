@@ -70,6 +70,10 @@ Route::group([ 'middleware'=> 'auth'  ] , function(){
     Route::post('/upload_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'upload_prescription'])->name('upload_prescription');
     // upload_prescription                            
     Route::post('/delete_prescription/{id}', [App\Http\Controllers\Web\PrescriptionController::class, 'delete_prescription'])->name('delete_prescription');
+    // start_prescription_schedule                            
+    Route::post('/start_prescription_schedule/{id}', [App\Http\Controllers\Web\PrescriptionController::class, 'start_prescription_schedule'])->name('start_prescription_schedule');
+    // schedule_action                            
+    Route::post('/stop_prescription_schedule/{id}', [App\Http\Controllers\Web\PrescriptionController::class, 'stop_prescription_schedule'])->name('stop_prescription_schedule');
     // prescriptions                            
     Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::class, 'index'])->name('prescriptions');
 

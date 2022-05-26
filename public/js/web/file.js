@@ -197,7 +197,6 @@
                         },
                         success: function ( response ) {
                             
-                            
                             if( response.status == 'error' ){
                                 Swal.fire( response.status , response.msg , response.status )
                             }
@@ -206,9 +205,7 @@
                                 .then((value) => {
                                     window.location.href = "/prescriptions";
                                 });
-        
                             }
-            
             
                         },
                         error: function(response){
@@ -216,12 +213,120 @@
                         }
                     });
 
-
                 }
-            })
+            });
         });
 
+        /*========================================================================
+        ================= Start Schedule time =========================================
+        =========================================================================*/
+        $("#prescriptions-page .schedule .toggle-btn input").on( 'click' ,function (e){
 
+            e.preventDefault();
+            var schedule_status = $(this).attr('schedule_status');
+            var prescription_id = $(this).attr('prescription_id');
+
+
+            // Schedule Status Open
+            if(schedule_status == "open"){
+
+
+                // Sweet alert Confirm
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Close Schedule Orders With this prescription period",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, do it!'
+                }).then((result) => {
+                    // If confirm Yes
+                    if (result.isConfirmed) {
+
+
+                        // $(this).parent('.toggle-btn').toggleClass("active");
+
+                        // $.ajax({
+                        //     type: "POST",
+                        //     url: '/delete_prescription/' + prescription_id,
+                        //     headers: {
+                        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        //     },
+                        //     success: function ( response ) {
+                                
+                        //         if( response.status == 'error' ){
+                        //             Swal.fire( response.status , response.msg , response.status )
+                        //         }
+                        //         else if( response.status == 'success' ){
+                        //             Swal.fire( response.status , response.msg , response.status )
+                        //             .then((value) => {
+                        //                 window.location.href = "/prescriptions";
+                        //             });
+                        //         }
+
+                        //     },
+                        //     error: function(response){
+                        //         alert("error at connection");
+                        //     }
+                        // });
+
+                    }
+                });
+
+
+
+            }else{
+
+                // Sweet alert Confirm
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Open Schedule Orders With this prescription period",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, do it!'
+                }).then((result) => {
+                    // If confirm Yes
+                    if (result.isConfirmed) {
+
+
+                        // $(this).parent('.toggle-btn').toggleClass("active");
+
+                        $.ajax({
+                            type: "POST",
+                            url: '/start_prescription_schedule/' + prescription_id,
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function ( response ) {
+                                
+                                if( response.status == 'error' ){
+                                    Swal.fire( response.status , response.msg , response.status )
+                                }
+                                else if( response.status == 'success' ){
+                                    Swal.fire( response.status , response.msg , response.status )
+                                    .then((value) => {
+                                        window.location.href = "/prescriptions";
+                                    });
+                                }
+                
+                            },
+                            error: function(response){
+                                alert("error at connection");
+                            }
+                        });
+
+                    }
+                });
+
+
+
+
+            }
+            
+        });
 
         /*========================================================================
         ================= mobile menu ============================================
@@ -246,13 +351,13 @@
         });
 
 
-        /*========================================================================
-        ================= Trun On / Off button  Switching ========================
-        =========================================================================*/
-        $('#prescriptions-page .cb-value').click(function(e) {
-            e.stopPropagation();
-            $(this).parent('.toggle-btn').toggleClass("active");
-        })
+        // /*========================================================================
+        // ================= Trun On / Off button  Switching ========================
+        // =========================================================================*/
+        // $('#prescriptions-page .cb-value').click(function(e) {
+        //     e.stopPropagation();
+        //     $(this).parent('.toggle-btn').toggleClass("active");
+        // })
 
         /*========================================================================
         ================= Create Order Button By Prescription ====================

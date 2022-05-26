@@ -133,8 +133,10 @@
                                         <!-------------- Schedule ----------------->
                                         <div class="schedule  d-flex align-items-center">
                                             <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
-                                            <div class="toggle-btn">
-                                                <input type="checkbox" class="cb-value"/>
+                                            <div class="toggle-btn {{ $prescription->schedule_orders == '1' ? 'active' : '' }}">
+                                                <input type="checkbox" class="cb-value" 
+                                                    schedule_status="{{ $prescription->schedule_orders == '1' ? 'open' : 'close' }}"
+                                                    prescription_id="{{ $prescription->id }}"/>
                                                 <span class="round-btn"></span>
                                             </div>
                                         </div>

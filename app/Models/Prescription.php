@@ -13,7 +13,6 @@ class Prescription extends Model
 
     protected $casts = [
         'medicine' => 'array',
-        // 'scheduled_start' => 'datetime',
     ];
 
     ############################## Relations ################################

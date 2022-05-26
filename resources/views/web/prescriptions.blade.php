@@ -3,7 +3,7 @@
 @section('content')
     <div id="prescriptions-page">
         <div class="section container text-center faq-main section-h2 margin-t-100 ">
-            <h4 class="title text-bloder"> <i class="fa-solid fa-file-prescription"></i> My Prescription </h1>
+            <h4 class="title text-bloder"> <i class="fa-solid fa-file-prescription"></i> My Prescriptions </h1>
 
 
             <!--------------- Session Alert ----------------->
@@ -35,9 +35,10 @@
 
             <!--------------- Prescriptions --------------->
             @if ($prescriptions->isEmpty())
-                <div class="row">
-                    <div class="col-md-8 offset-2 d-flex justify-content-center align-content-center">
-                        <p> Not prescriptions to show</p>
+                <div class="row no-data-section">
+                    <div class="col-md-8 offset-md-2">
+                        <img src="{{ asset("images/no_prescriptions.png") }}" class="no_prescriptions img-fluid" alt="no_prescriptions">
+                        <p class="big-text"> You don't have any prescription yet... <a href="{{ route('order_prescription') }}">Upload Now!</a> </p>
                     </div>
                 </div>
             @else

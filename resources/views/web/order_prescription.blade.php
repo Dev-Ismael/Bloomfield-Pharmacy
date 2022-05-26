@@ -15,8 +15,8 @@
                                 <li> <i class="fa-solid fa-circle"></i> Don’t crop out any part of the image </li>
                                 <li> <i class="fa-solid fa-circle"></i> Avoid blurred image </li>
                                 <li> <i class="fa-solid fa-circle"></i> Medicines will be dispensed as per prescription </li>
-                                <li> <i class="fa-solid fa-circle"></i> Supported files type: jpeg , jpg , png , pdf </li>
-                                <li> <i class="fa-solid fa-circle"></i> Maximum allowed file size: 5MB </li>
+                                <li> <i class="fa-solid fa-circle"></i> Supported files type: jpeg , jpg , png  </li>
+                                <li> <i class="fa-solid fa-circle"></i> Maximum allowed file size: 2MB </li>
                             </ul>
                         </div>
                     </div>

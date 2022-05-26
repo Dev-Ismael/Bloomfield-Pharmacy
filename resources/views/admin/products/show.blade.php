@@ -77,7 +77,7 @@
                                         @if ( $product->has_offer == '1')
                                             <tr>
                                                 <td class="text-capitalize">  <i class="fa-solid fa-percent"></i> Offer Percentage </td>
-                                                <td> {{ $product->offer_percentage != "" ? $product->offer_percentage : '-'  }}% </td>
+                                                <td> {{ $product->offer_percentage != "" ? $product->offer_percentage : '0'  }}% </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-capitalize"> <i class="fa-solid fa-money-bill-1"></i> Final Price </td>

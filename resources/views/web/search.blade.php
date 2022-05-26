@@ -56,8 +56,12 @@
 
                                 <!--------------- Products ---------------->
                                 @if ($products->isEmpty())
-                                    <div class="col-md-8 offset-2">
-                                        <p> Not products to show</p>
+                                    <div class="row no-data-section">
+                                        <div class="col-md-8 offset-md-2">
+                                            <img src="{{ asset("images/no_results.jpg") }}" class="no_results img-fluid" alt="no_results">
+                                            <p class="big-text"> We couldn’t find what you were looking for </p>
+                                            <p class="small-text"> Keep calm and search again. We have SO many other products that you will like! </p>
+                                        </div>
                                     </div>
                                 @else
                                     <div class="row">

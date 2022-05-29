@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,9 @@ class CartController extends Controller
 {
     public function index()
     {
-        return view('web.cart');
+        $user = User::find(Auth::id())->with('cart_products')->first();
+        $cart_products = $user->cart_products;
+        return view('web.cart',compact("cart_products"));
     }
 
     public function add_cart($id)

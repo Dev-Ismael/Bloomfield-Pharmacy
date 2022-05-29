@@ -13,9 +13,7 @@ class WishlistController extends Controller
 {
     public function index()
     {
-
         $user = User::find(Auth::id())->with('wishlist_products')->first();
-
         $wishlist_products = $user->wishlist_products;
         return view('web.wishlist',compact("wishlist_products"));
     }

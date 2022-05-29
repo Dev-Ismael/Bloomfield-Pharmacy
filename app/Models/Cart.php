@@ -11,12 +11,4 @@ class Cart extends Model
     protected $fillable = [ 'user_id', 'product_id'];
 
 
-    
-    ############################## Relations ################################
-    public function users(){
-        return  $this -> hasMany("App\Models\User") ;  
-    }
-    public function products(){
-        return  $this -> hasMany("App\Models\Product") ;  
-    }
 }

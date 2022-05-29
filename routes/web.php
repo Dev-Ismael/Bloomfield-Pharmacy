@@ -78,12 +78,15 @@ Route::group([ 'middleware'=> 'auth'  ] , function(){
     Route::get('/prescriptions', [App\Http\Controllers\Web\PrescriptionController::class, 'index'])->name('prescriptions');
 
     
-    // wishlist                            
+    // wishlists                            
     Route::get('/wishlist', [App\Http\Controllers\Web\WishlistController::class, 'index'])->name('wishlist');
     // add wishlist                            
     Route::post('/add_wishlist/{id}', [App\Http\Controllers\Web\WishlistController::class, 'add_wishlist'])->name('add_wishlist');
     // remove wishlist                            
     Route::post('/remove_wishlist/{id}', [App\Http\Controllers\Web\WishlistController::class, 'remove_wishlist'])->name('remove_wishlist');
+        
+    // Carts
+    Route::get('/cart', [App\Http\Controllers\Web\CartController::class, 'index'])->name('cart');
     // add cart
     Route::post('/add_cart/{id}', [App\Http\Controllers\Web\CartController::class, 'add_cart'])->name('add_cart');
 
@@ -92,8 +95,6 @@ Route::group([ 'middleware'=> 'auth'  ] , function(){
     Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile');
     // Orders                            
     Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index'])->name('orders');
-    // Cart                            
-    Route::get('/cart', [App\Http\Controllers\Web\CartController::class, 'index'])->name('cart');
 });
 
 

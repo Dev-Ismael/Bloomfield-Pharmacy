@@ -466,91 +466,84 @@
             =========================================================================*/
 
 
-            // var check = false;
+            var check = false;
 
-            // function changeVal(el) {
-            //     var qt = parseFloat(el.parent().children(".qt").html());
-            //     var price = parseFloat(el.parent().children(".price").html());
-            //     var eq = Math.round(price * qt * 100) / 100;
+            function changeVal(el) {
+                var qt = parseFloat(el.parent().children(".qt").html());
+                var price = parseFloat(el.parent().children(".price").html());
+                var eq = Math.round(price * qt * 100) / 100;
+                el.parent().children(".full-price").html(eq + "$");
+                changeTotal();
+            }
 
-            //     el.parent().children(".full-price").html(eq + "$");
+            function changeTotal() {
+                var price = 0;
+                $(".full-price").each(function (index) {
+                    price += parseFloat($(".full-price").eq(index).html());
+                });
+                price = Math.round(price * 100) / 100;
+                var tax = Math.round(price * 0.05 * 100) / 100
+                var shipping = parseFloat($(".shipping span").html());
+                var fullPrice = Math.round((price + tax + shipping) * 100) / 100;
+                if (price == 0) {
+                    fullPrice = 0;
+                }
+                $(".subtotal span").html(price);
+                $(".tax span").html(tax);
+                $(".total span").html(fullPrice);
+            }
 
-            //     changeTotal();
-            // }
+            $(document).ready(function () {
 
-            // function changeTotal() {
+                $(".fa-xmark , button.add-cart").click(function () {
+                    var el = $(this);
+                    el.parent().parent().addClass("removed");
+                    window.setTimeout( function () {
+                        el.parent().parent().slideUp('fast', function () {
+                            el.parent().parent().remove();
+                            if ($(".product").length == 0) {
+                                if (check) {
+                                    // if product checkout successfully
+                                } else {
+                                    var noProductContent = `
+                                        <div class="row no-data-section">
+                                            <div class="col-md-8 offset-md-2">
+                                                <img src="/images/no_products.png" class="no_products img-fluid"
+                                                    alt="no_products">
+                                                <p class="big-text"> You don't have products in your Cart... </p>
+                                            </div>
+                                        </div>`;
+                                    $("#cart").html(noProductContent);
+                                }
+                            }
+                            changeTotal();
+                        });
+                    }, 200);
+                });
 
-            //     var price = 0;
+                $(".qt-plus").click(function () {
+                    $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
+                    $(this).parent().children(".full-price").addClass("added");
+                    var el = $(this);
+                    window.setTimeout(function () { el.parent().children(".full-price").removeClass("added"); changeVal(el); }, 150);
+                });
 
-            //     $(".full-price").each(function (index) {
-            //         price += parseFloat($(".full-price").eq(index).html());
-            //     });
+                $(".qt-minus").click(function () {
+                    child = $(this).parent().children(".qt");
+                    if (parseInt(child.html()) > 1) {
+                        child.html(parseInt(child.html()) - 1);
+                    }
+                    $(this).parent().children(".full-price").addClass("minused");
+                    var el = $(this);
+                    window.setTimeout(function () { el.parent().children(".full-price").removeClass("minused"); changeVal(el); }, 150);
+                });
 
-            //     price = Math.round(price * 100) / 100;
-            //     var tax = Math.round(price * 0.05 * 100) / 100
-            //     var shipping = parseFloat($(".shipping span").html());
-            //     var fullPrice = Math.round((price + tax + shipping) * 100) / 100;
-
-            //     if (price == 0) {
-            //         fullPrice = 0;
-            //     }
-
-            //     $(".subtotal span").html(price);
-            //     $(".tax span").html(tax);
-            //     $(".total span").html(fullPrice);
-            // }
-
-            // $(document).ready(function () {
-
-            //     $(".fa-xmark , button.add-cart").click(function () {
-            //         var el = $(this);
-            //         el.parent().parent().addClass("removed");
-            //         window.setTimeout(
-            //             function () {
-            //                 el.parent().parent().slideUp('fast', function () {
-            //                     el.parent().parent().remove();
-            //                     if ($(".product").length == 0) {
-            //                         if (check) {
-            //                             // if product checkout successfully
-            //                         } else {
-            //                             $("#cart").html("<h1>No products!</h1>");
-            //                         }
-            //                     }
-            //                     changeTotal();
-            //                 });
-            //             }, 200);
-            //     });
-
-            //     $(".qt-plus").click(function () {
-            //         $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
-
-            //         $(this).parent().children(".full-price").addClass("added");
-
-            //         var el = $(this);
-            //         window.setTimeout(function () { el.parent().children(".full-price").removeClass("added"); changeVal(el); }, 150);
-            //     });
-
-            //     $(".qt-minus").click(function () {
-
-            //         child = $(this).parent().children(".qt");
-
-            //         if (parseInt(child.html()) > 1) {
-            //             child.html(parseInt(child.html()) - 1);
-            //         }
-
-            //         $(this).parent().children(".full-price").addClass("minused");
-
-            //         var el = $(this);
-            //         window.setTimeout(function () { el.parent().children(".full-price").removeClass("minused"); changeVal(el); }, 150);
-            //     });
-
-            //     window.setTimeout(function () { $(".is-open").removeClass("is-open") }, 1200);
-
-            //     $(".btn").click(function () {
-            //         check = true;
-            //         $(".remove").click();
-            //     });
-            // });
+                window.setTimeout(function () { $(".is-open").removeClass("is-open") }, 1200);
+                $(".btn").click(function () {
+                    check = true;
+                    $(".remove").click();
+                });
+            });
 
             /*========================================================================
             ================= mobile menu ============================================

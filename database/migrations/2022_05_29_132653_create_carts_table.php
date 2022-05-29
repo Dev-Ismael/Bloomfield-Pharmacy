@@ -28,6 +28,6 @@ class CreateCartsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('withlist');
+        Schema::dropIfExists('carts');
     }
 }

@@ -897,16 +897,6 @@ form#user-register-form input {
 .product-item {
     height: 370px;
 }
-.product-item button {
-    transition: all 0.5s ease-out;
-    margin: 10px 0px;
-    background-color: #2e8345;
-    color: #fff;
-    border: 1px solid #2e8345;
-    font-size: 12px;
-    border-radius: 3px;
-    padding: 5px 8px;
-}
 
 
 .product-item a,
@@ -931,7 +921,6 @@ form#user-register-form input {
 
 .product-item .price{
     font-size: 16px;
-    font-family: myFont-bold;
     color: #f1563f;
     float: left;
     padding: 0px 10px;
@@ -940,12 +929,25 @@ form#user-register-form input {
     color: #a1a1a1ad;
     text-decoration: line-through;
 }
-.product-item button:hover {
+.product-item .product-buttons button, 
+.product-item .product-buttons p {
+    transition: all 0.5s ease-out;
+    margin: 10px 0px;
+    background-color: #2e8345;
+    color: #fff;
+    border: 1px solid #2e8345;
+    font-size: 12px;
+    border-radius: 3px;
+    padding: 5px 8px;
+    text-transform: capitalize;
+    margin-right: 5px;
+}
+.product-item .product-buttons button:hover,
+.product-item .product-buttons p {
     background-color: #fff;
     border: 1px solid #2e8345;
     color: #2e8345;
 }
-
 @media (max-width: 575.98px) {
     .product-container {
         width: 60%;

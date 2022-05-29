@@ -329,9 +329,8 @@
         ================= Add to withlist ========================================
         =========================================================================*/
         $(".product-item button.add-wishlist").on( 'click' ,function (e){
-
             var product_id = $(this).attr("product_id");
-
+            var wishlistBtn = $(this);
             $.ajax({
                 type: "POST",
                 url: '/add_wishlist/' + product_id,
@@ -339,7 +338,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function ( response ) {
-                    
+
                     if( response.status == 'error' ){
                         Swal.fire({
                             position: 'top-end',
@@ -347,7 +346,7 @@
                             title: response.msg,
                             showConfirmButton: false,
                             timer: 2000
-                        });     
+                        });  
                     }
                     else if( response.status == 'success' ){
                         Swal.fire({
@@ -357,24 +356,23 @@
                             showConfirmButton: false,
                             timer: 2000
                         });
-                    }
+                        wishlistBtn.parent().append('<p> <i class="fa-solid fa-check"></i> Wishlist  </p>');
+                        wishlistBtn.remove();
 
-    
+                    }
                 },
                 error: function(response){
                     alert("error at connection");
                 }
             });
-
         });
 
         /*========================================================================
         ================= Add to Cart ========================================
         =========================================================================*/
         $(".product-item button.add-cart").on( 'click' ,function (e){
-
             var product_id = $(this).attr("product_id");
-
+            var cartBtn = $(this);
             $.ajax({
                 type: "POST",
                 url: '/add_cart/' + product_id,
@@ -382,7 +380,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function ( response ) {
-                    
+
                     if( response.status == 'error' ){
                         Swal.fire({
                             position: 'top-end',
@@ -390,7 +388,7 @@
                             title: response.msg,
                             showConfirmButton: false,
                             timer: 2000
-                        });     
+                        });  
                     }
                     else if( response.status == 'success' ){
                         Swal.fire({
@@ -400,15 +398,14 @@
                             showConfirmButton: false,
                             timer: 2000
                         });
+                        cartBtn.parent().append('<p> <i class="fa-solid fa-check"></i> Cart  </p>');
+                        cartBtn.remove();
                     }
-
-    
                 },
                 error: function(response){
                     alert("error at connection");
                 }
             });
-
         });
         /*========================================================================
         ================= mobile menu ============================================

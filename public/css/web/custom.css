@@ -1552,7 +1552,7 @@ input::placeholder {
     bottom: 0px;
 }
 
-.wishlist-products footer.content button {
+.wishlist-products footer.content button{
     height: 40px;
     background-color: #2e8345;
     color: #fff;
@@ -1568,6 +1568,19 @@ input::placeholder {
     background-color: #1c502a;
 }
 
+.wishlist-products footer.content p {
+    height: 40px;
+    padding: 8px;
+    text-align: center;
+    background-color: #fff;
+    color: #2e8345;
+    border: 1px solid #2e8345;
+    font-size: 16px;
+    border-radius: 3px;
+    position: absolute;
+    right: 0px;
+    box-shadow: 2px 0px 53px 0px #dadada;
+}
 /*====================================================
 ============ Category Page ===========================
 ====================================================*/

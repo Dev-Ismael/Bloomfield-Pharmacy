@@ -370,7 +370,7 @@
         /*========================================================================
         ================= Add to Cart ========================================
         =========================================================================*/
-        $(".product-item button.add-cart").on( 'click' ,function (e){
+        $(".product-item button.add-cart , article.product button.add-cart").on( 'click' ,function (e){
             var product_id = $(this).attr("product_id");
             var cartBtn = $(this);
             $.ajax({

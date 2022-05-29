@@ -5,180 +5,66 @@
         <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
             <h4 class="title text-bloder"> <i class="fa-solid fa-heart"></i> My Wishlist </h1>
 
-            <div class="container">
-                <div class="row wishlist-products">
-
-                    <div class="col-lg-8 offset-lg-2 box-left">
-                        
+                <div class="container">
 
 
 
-
-
-
-                        <article class="product">
-                            <header>
-                                <a href="{{ route("product") }}" class="product-link">
-                                    <img src="{{ asset("images/products/product.png") }}"
-                                        class="img-fluid" alt="">
-    
-                                    <h3><i class="fa-solid fa-eye"></i> Show </h3>
-                                </a>
-                            </header>
-    
-                            <div class="content product-info">
-                                <h1> Newclav 642.9 Mg / 5 Ml 100 Ml suspension </h1>
-                                <p>Mup (Medical Union Pharma)</p>
-                                <p> 14 tab </p>
+                    <!--------------- Products ---------------->
+                    @if ($products->isEmpty())
+                        <div class="row no-data-section">
+                            <div class="col-md-8 offset-md-2">
+                                <img src="{{ asset('images/no_products.png') }}" class="no_products img-fluid"
+                                    alt="no_products">
+                                <p class="big-text"> You don't have products in your wishlist... </p>
                             </div>
-                            <div class="icon-close">
-                                <i class="fa-solid fa-xmark"></i>
+                        </div>
+                    @else
+                        <div class="row wishlist-products">
+
+                            <div class="col-lg-8 offset-lg-2 box-left">
+
+                                @foreach ($products as $product)
+                                    <article class="product">
+                                        <header>
+                                            <a href="{{ route('product', $product->slug) }}" class="product-link">
+                                                <img src="{{ asset('images/products/' . $product->img) }}"
+                                                    class="img-fluid" alt="">
+
+                                                <h3><i class="fa-solid fa-eye"></i> Show </h3>
+                                            </a>
+                                        </header>
+                                        <div class="content product-info">
+                                            <h1> {{ $product->title }} </h1>
+                                            <p> {{ $product->brand }} </p>
+                                            <p> {{ $product->measurement }} </p>
+                                        </div>
+                                        <div class="icon-close">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </div>
+                                        <footer class="content">
+                                            @php
+                                                $cart = App\Models\Cart::where("user_id", Auth::id())->where("product_id", $product->id)->first();
+                                            @endphp
+                                            <div class="cart">
+                                                @if ( $cart != Null )
+                                                    <p> <i class="fa-solid fa-check"></i> Added to cart  </p>
+                                                @else
+                                                    <button href="#" class="add-cart" product_id="{{ $product->id }}"> <i class="fa-solid fa-cart-shopping"></i> Cart </button>
+                                                @endif
+                                            </div>
+                                        </footer>
+                                    </article>
+                                @endforeach
                             </div>
-                            <footer class="content">
-                                <button class="add-cart"> <i class="fa-solid fa-cart-shopping"></i> Add To Cart </button>
-                            </footer>
-                        </article>
-    
+                        </div>
+                    @endif
 
 
 
-
-                        <article class="product">
-                            <header>
-                                <a href="{{ route("product") }}" class="product-link">
-                                    <img src="{{ asset("images/products/product.png") }}"
-                                        class="img-fluid" alt="">
-    
-                                    <h3><i class="fa-solid fa-eye"></i> Show </h3>
-                                </a>
-                            </header>
-    
-                            <div class="content product-info">
-                                <h1> Newclav 642.9 Mg / 5 Ml 100 Ml suspension </h1>
-                                <p>Mup (Medical Union Pharma)</p>
-                                <p> 14 tab </p>
-                            </div>
-                            <div class="icon-close">
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-                            <footer class="content">
-                                <button class="add-cart"> <i class="fa-solid fa-cart-shopping"></i> Add To Cart </button>
-                            </footer>
-                        </article>
-    
-
-
-
-
-                        <article class="product">
-                            <header>
-                                <a href="{{ route("product") }}" class="product-link">
-                                    <img src="{{ asset("images/products/product.png") }}"
-                                        class="img-fluid" alt="">
-    
-                                    <h3><i class="fa-solid fa-eye"></i> Show </h3>
-                                </a>
-                            </header>
-    
-                            <div class="content product-info">
-                                <h1> Newclav 642.9 Mg / 5 Ml 100 Ml suspension </h1>
-                                <p>Mup (Medical Union Pharma)</p>
-                                <p> 14 tab </p>
-                            </div>
-                            <div class="icon-close">
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-                            <footer class="content">
-                                <button class="add-cart"> <i class="fa-solid fa-cart-shopping"></i> Add To Cart </button>
-                            </footer>
-                        </article>
-    
-
-                        <article class="product">
-                            <header>
-                                <a href="{{ route("product") }}" class="product-link">
-                                    <img src="{{ asset("images/products/product.png") }}"
-                                        class="img-fluid" alt="">
-    
-                                    <h3><i class="fa-solid fa-eye"></i> Show </h3>
-                                </a>
-                            </header>
-    
-                            <div class="content product-info">
-                                <h1> Newclav 642.9 Mg / 5 Ml 100 Ml suspension </h1>
-                                <p>Mup (Medical Union Pharma)</p>
-                                <p> 14 tab </p>
-                            </div>
-                            <div class="icon-close">
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-                            <footer class="content">
-                                <button class="add-cart"> <i class="fa-solid fa-cart-shopping"></i> Add To Cart </button>
-                            </footer>
-                        </article>
-    
-
-
-
-
-                        <article class="product">
-                            <header>
-                                <a href="{{ route("product") }}" class="product-link">
-                                    <img src="{{ asset("images/products/product.png") }}"
-                                        class="img-fluid" alt="">
-    
-                                    <h3><i class="fa-solid fa-eye"></i> Show </h3>
-                                </a>
-                            </header>
-    
-                            <div class="content product-info">
-                                <h1> Newclav 642.9 Mg / 5 Ml 100 Ml suspension </h1>
-                                <p>Mup (Medical Union Pharma)</p>
-                                <p> 14 tab </p>
-                            </div>
-                            <div class="icon-close">
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-                            <footer class="content">
-                                <button class="add-cart"> <i class="fa-solid fa-cart-shopping"></i> Add To Cart </button>
-                            </footer>
-                        </article>
-    
-
-
-
-
-                        <article class="product">
-                            <header>
-                                <a href="{{ route("product") }}" class="product-link">
-                                    <img src="{{ asset("images/products/product.png") }}"
-                                        class="img-fluid" alt="">
-    
-                                    <h3><i class="fa-solid fa-eye"></i> Show </h3>
-                                </a>
-                            </header>
-    
-                            <div class="content product-info">
-                                <h1> Newclav 642.9 Mg / 5 Ml 100 Ml suspension </h1>
-                                <p>Mup (Medical Union Pharma)</p>
-                                <p> 14 tab </p>
-                            </div>
-                            <div class="icon-close">
-                                <i class="fa-solid fa-xmark"></i>
-                            </div>
-                            <footer class="content">
-                                <button class="add-cart"> <i class="fa-solid fa-cart-shopping"></i> Add To Cart </button>
-                            </footer>
-                        </article>
-    
-
-
-
-                        
-                    </div>
                 </div>
-            </div>
-
         </div>
+    </div>
+
+    </div>
     </div>
 @endsection

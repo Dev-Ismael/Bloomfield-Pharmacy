@@ -13,7 +13,7 @@ class Product extends Model
     protected $fillable = [ 'subcategory_id', 'title', 'slug', 'img' , 'price' , 'quantity'   , 'has_offer'   , 'offer_percentage'   , 'final_price'   , 'brand'   , 'measurement'  , 'description' ];
 
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [
@@ -24,7 +24,7 @@ class Product extends Model
 
     ############################## Relations ################################
     public function subcategory(){
-        return  $this -> belongsTo("App\Models\Subcategory") ;  
+        return  $this -> belongsTo("App\Models\Subcategory") ;
     }
 
 }

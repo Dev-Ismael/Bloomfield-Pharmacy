@@ -5,7 +5,7 @@
         <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
             <h4 class="title text-bloder"> <i class="fa-solid fa-heart"></i> My Wishlist </h1>
 
-            <div class="container">
+            <div class="container wishlist-container">
 
 
 

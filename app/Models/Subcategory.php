@@ -13,7 +13,7 @@ class Subcategory extends Model
     protected $fillable = [ 'title', 'slug', 'category_id' ];
 
 
-    public function sluggable()
+    public function sluggable(): array
     {
         return [
             'slug' => [
@@ -24,11 +24,11 @@ class Subcategory extends Model
 
     ############################## Relations ################################
     public function category(){
-        return  $this -> belongsTo("App\Models\Category") ;  
+        return  $this -> belongsTo("App\Models\Category") ;
     }
 
     public function products(){
-        return  $this -> hasMany("App\Models\Product") ;  
+        return  $this -> hasMany("App\Models\Product") ;
     }
 
 }

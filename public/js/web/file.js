@@ -436,23 +436,23 @@
                         });
                     }
                     else if (response.status == 'success') {
-                        // Animation remove element
                         productItem.addClass("removed");
                         window.setTimeout(function () {
                             productItem.slideUp('fast', function () {
                                 productItem.remove();
+                                if ($("article.product").length == 0) {
+                                    var noProductContent = `
+                                        <div class="row no-data-section">
+                                            <div class="col-md-8 offset-md-2">
+                                                <img src="/images/no_products.png" class="no_products img-fluid"
+                                                    alt="no_products">
+                                                <p class="big-text"> You don't have products in your cart... </p>
+                                            </div>
+                                        </div>`;
+                                    $(".wishlist-container").html(noProductContent);
+                                }
                             });
                         }, 200);
-                        // Animation remove element
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: response.status,
-                            title: response.msg,
-                            showConfirmButton: false,
-                            timer: 2000
-                        }).then((value) => {
-                            window.location.href = "/wishlist";
-                        });
                     }
                 },
                 error: function (response) {
@@ -844,7 +844,7 @@
         // Loading Text
         const loadingText = document.querySelector('#loadingText');
 
-        // Slect File Input 
+        // Slect File Input
         const fileInput = document.querySelector('#prescriptionFile');
 
         // Select Preview Image
@@ -882,24 +882,24 @@
         // Append Images Types Array Inisde Tooltip Data
         toolTipData.innerHTML = [...imagesTypes].join(', .');
 
-        // When (drop-zoon) has (dragover) Event 
+        // When (drop-zoon) has (dragover) Event
         dropZoon.addEventListener('dragover', function (event) {
-            // Prevent Default Behavior 
+            // Prevent Default Behavior
             event.preventDefault();
 
             // Add Class (drop-zoon--over) On (drop-zoon)
             dropZoon.classList.add('drop-zoon--over');
         });
 
-        // When (drop-zoon) has (dragleave) Event 
+        // When (drop-zoon) has (dragleave) Event
         dropZoon.addEventListener('dragleave', function (event) {
             // Remove Class (drop-zoon--over) from (drop-zoon)
             dropZoon.classList.remove('drop-zoon--over');
         });
 
-        // When (drop-zoon) has (drop) Event 
+        // When (drop-zoon) has (drop) Event
         dropZoon.addEventListener('drop', function (event) {
-            // Prevent Default Behavior 
+            // Prevent Default Behavior
             event.preventDefault();
 
             // Remove Class (drop-zoon--over) from (drop-zoon)
@@ -912,13 +912,13 @@
             uploadFile(file);
         });
 
-        // When (drop-zoon) has (click) Event 
+        // When (drop-zoon) has (click) Event
         dropZoon.addEventListener('click', function (event) {
             // Click The (fileInput)
             fileInput.click();
         });
 
-        // When (fileInput) has (change) Event 
+        // When (fileInput) has (change) Event
         fileInput.addEventListener('change', function (event) {
             // Select The Chosen File
             const file = event.target.files[0];
@@ -931,9 +931,9 @@
         function uploadFile(file) {
             // FileReader()
             const fileReader = new FileReader();
-            // File Type 
+            // File Type
             const fileType = file.type;
-            // File Size 
+            // File Size
             const fileSize = file.size;
 
             // If File Is Passed from the (File Validation) Function
@@ -951,9 +951,9 @@
                 // Remove Class (uploaded-file__info--active) from (uploadedFileInfo)
                 uploadedFileInfo.classList.remove('uploaded-file__info--active');
 
-                // After File Reader Loaded 
+                // After File Reader Loaded
                 fileReader.addEventListener('load', function () {
-                    // After Half Second 
+                    // After Half Second
                     setTimeout(function () {
                         // Add Class (upload-area--open) On (uploadArea)
                         uploadArea.classList.add('upload-area--open');
@@ -981,7 +981,7 @@
                     progressMove();
                 });
 
-                // Read (file) As Data Url 
+                // Read (file) As Data Url
                 fileReader.readAsDataURL(file);
             } else { // Else
 
@@ -995,11 +995,11 @@
             // Counter Start
             let counter = 0;
 
-            // After 600ms 
+            // After 600ms
             setTimeout(() => {
                 // Every 100ms
                 let counterIncrease = setInterval(() => {
-                    // If (counter) is equle 100 
+                    // If (counter) is equle 100
                     if (counter === 100) {
                         // Stop (Counter Increase)
                         clearInterval(counterIncrease);
@@ -1024,7 +1024,7 @@
                 // Add Inisde (uploadedFileIconText) The (jpg) Value
                 uploadedFileIconText.innerHTML = 'jpg';
             } else { // else
-                // Add Inisde (uploadedFileIconText) The Uploaded File Type 
+                // Add Inisde (uploadedFileIconText) The Uploaded File Type
                 uploadedFileIconText.innerHTML = isImage[0];
             };
 
@@ -1036,7 +1036,7 @@
                 } else { // Else File Size
                     return alert('Please Your File Should be 2 Megabytes or Less');
                 };
-            } else { // Else File Type 
+            } else { // Else File Type
                 return alert('Please make sure to upload An Image File Type');
             };
         };

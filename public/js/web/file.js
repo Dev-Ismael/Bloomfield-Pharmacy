@@ -324,6 +324,49 @@
             
         });
 
+
+        /*========================================================================
+        ================= Add to withlist ========================================
+        =========================================================================*/
+        $(".product-item button.add-wishlist").on( 'click' ,function (e){
+
+            var product_id = $(this).attr("product_id");
+
+            $.ajax({
+                type: "POST",
+                url: '/add_wishlist/' + product_id,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function ( response ) {
+                    
+                    if( response.status == 'error' ){
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: response.status ,
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });     
+                    }
+                    else if( response.status == 'success' ){
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: response.status ,
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+
+    
+                },
+                error: function(response){
+                    alert("error at connection");
+                }
+            });
+
+        });
         /*========================================================================
         ================= mobile menu ============================================
         =========================================================================*/

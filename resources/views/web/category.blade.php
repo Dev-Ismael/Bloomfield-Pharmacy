@@ -66,8 +66,8 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-xs-12 add-cart-main text-center">
-                                                    <button href="#" > <i class="fa-solid fa-cart-shopping"></i> Cart </button>
-                                                    <button href="#" > <i class="fa-solid fa-heart"></i> Wishlist </button>
+                                                    <button href="#" product_id="{{ $product->id }}"> <i class="fa-solid fa-cart-shopping"></i> Cart </button>
+                                                    <button href="#" class="add-wishlist" product_id="{{ $product->id }}" > <i class="fa-solid fa-heart"></i> Wishlist </button>
                                                 </div>
                                             </div>
                                         </div>

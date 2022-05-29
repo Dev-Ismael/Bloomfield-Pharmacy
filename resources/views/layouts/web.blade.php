@@ -143,7 +143,7 @@
                                         <div class="container shop-down remove-padding">
                                             <div class="shop-down-main">
                                                 @php
-                                                    $categories = App\Models\Category::with('subcategories')->get();  
+                                                    $categories = App\Models\Category::with('subcategories')->get();
                                                 @endphp
                                                 <div class="container shop-icons-perant remove-padding">
                                                     @foreach ( $categories as $key => $category )
@@ -159,7 +159,7 @@
                                                 </div>
                                                 <div class="container remove-padding tabs-main">
 
-                                                    
+
                                                     @foreach ( $categories as $key => $category )
                                                         <div class="col-xs-12 remove-padding" id="tab-{{$key + 1}}">
                                                             <div class="col-md-12 row">
@@ -171,9 +171,9 @@
                                                                     </div>
                                                                 @endforeach
                                                             </div>
-                                                        </div> 
+                                                        </div>
                                                     @endforeach
-                                                    
+
 
                                                 </div>
                                             </div>
@@ -218,12 +218,27 @@
                                             @endif
                                         </a>
                                     </li>
+
                                     <li>
-                                        <a href="{{ route('cart') }}" class="cart-main text-center"
-                                            id="cart-button">
-                                            <p>Cart</p>
-                                            <span> 0 </span>
-                                        </a>
+                                        @auth
+                                            {{-- @php
+                                                $user = App\Models\User::find(Auth::id())->with('cart_products')->first();
+                                                $cart_products = count($user->cart_products);
+                                                if( $cart_products > 9 ){
+                                                    $cart_products = '+9';
+                                                }
+                                            @endphp --}}
+                                            <a href="{{ route('cart') }}" class="cart-main text-center" id="cart-button">
+                                                <p>Cart</p>
+                                                {{-- <span> {{ $cart_products }} </span> --}}
+                                                <span> +9 </span>
+                                            </a>
+                                        @else
+                                            <a href="#" data-toggle="modal" data-target="#login" class="cart-main text-center" id="cart-button">
+                                                <p>Cart</p>
+                                                <span> 0 </span>
+                                            </a>
+                                        @endauth
                                     </li>
                                 </ul>
                             </div>
@@ -268,14 +283,14 @@
                     <a href="{{ route('orders') }}"> <i class="fa-solid fa-list-check"></i> My Subscribed Orders </a>
                     <a href="{{ route('wishlist') }}"> <i class="fa-solid fa-heart"></i> My Wishlist </a>
                     <a href="{{ route('prescriptions') }}"> <i class="   fa-solid fa-file-prescription"></i> My Prescriptions </a>
-                </div> 
+                </div>
             @else
                 <div class="col-xs-12 pro-icons-main disable-icons">
                     <a href="#"> <i class="fa-solid fa-address-card"></i> My Profile </a>
                     <a href="#"> <i class="fa-solid fa-list-check"></i> My Subscribed Orders </a>
                     <a href="#"> <i class="fa-solid fa-heart"></i> My Wishlist </a>
                     <a href="#"> <i class="   fa-solid fa-file-prescription"></i> My Prescriptions </a>
-                </div> 
+                </div>
             @endif
         </div>
 
@@ -328,14 +343,14 @@
                                         <div class="item-list">
                                             <h3>Or log in with...</h3>
                                             <ul class="hybridauth-widget">
-                                                <li> 
+                                                <li>
                                                     <a href="#">
-                                                        <img src="{{ asset("images/google.png") }}" alt="google">    
+                                                        <img src="{{ asset("images/google.png") }}" alt="google">
                                                     </a>
                                                 </li>
-                                                <li> 
+                                                <li>
                                                     <a href="#">
-                                                        <img src="{{ asset("images/facebook.png") }}" alt="facebook">    
+                                                        <img src="{{ asset("images/facebook.png") }}" alt="facebook">
                                                     </a>
                                                 </li>
                                             </ul>
@@ -457,14 +472,14 @@
                                         <div class="item-list">
                                             <h3>Or log in with...</h3>
                                             <ul class="hybridauth-widget">
-                                                <li> 
+                                                <li>
                                                     <a href="#">
-                                                        <img src="{{ asset("images/google.png") }}" alt="google">    
+                                                        <img src="{{ asset("images/google.png") }}" alt="google">
                                                     </a>
                                                 </li>
-                                                <li> 
+                                                <li>
                                                     <a href="#">
-                                                        <img src="{{ asset("images/facebook.png") }}" alt="facebook">    
+                                                        <img src="{{ asset("images/facebook.png") }}" alt="facebook">
                                                     </a>
                                                 </li>
                                             </ul>

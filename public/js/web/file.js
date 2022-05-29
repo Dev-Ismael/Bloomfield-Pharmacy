@@ -370,6 +370,15 @@
         /*========================================================================
         ================= Add to Cart ========================================
         =========================================================================*/
+        function increaseCartCount(){
+            var nextCartCount = parseInt( $(".head-icon-main a.cart-main span").text() ) + 1 ;
+            if( nextCartCount > 9 ){
+                $(".head-icon-main a.cart-main span").text('+9');
+            }else{
+                $(".head-icon-main a.cart-main span").text( nextCartCount );
+            }
+        }
+
         $(".product-item button.add-cart , article.product button.add-cart").on('click', function (e) {
             var product_id = $(this).attr("product_id");
             var cartBtn = $(this);
@@ -400,6 +409,7 @@
                         });
                         cartBtn.parent().append('<p> <i class="fa-solid fa-check"></i> Cart  </p>');
                         cartBtn.remove();
+                        increaseCartCount();
                     }
                 },
                 error: function (response) {
@@ -466,6 +476,14 @@
         =================== Remove Cart ==========================================
         =========================================================================*/
 
+        function decreaseCartCount(){
+            var CartCount = $("article.product").length;
+            if( CartCount > 9 ){
+                $(".head-icon-main a.cart-main span").text('+9');
+            }else{
+                $(".head-icon-main a.cart-main span").text( CartCount );
+            }
+        }
 
         $(".cart-products .fa-xmark").click(function () {
 
@@ -494,22 +512,19 @@
                         window.setTimeout(function () {
                             productItem.slideUp('fast', function () {
                                 productItem.remove();
-                                if ($(".product").length == 0) {
-                                    if (check) {
-                                        // if product checkout successfully
-                                    } else {
-                                        var noProductContent = `
-                                            <div class="row no-data-section">
-                                                <div class="col-md-8 offset-md-2">
-                                                    <img src="/images/no_products.png" class="no_products img-fluid"
-                                                        alt="no_products">
-                                                    <p class="big-text"> You don't have products in your cart... </p>
-                                                </div>
-                                            </div>`;
-                                        $("#cart").html(noProductContent);
-                                    }
+                                if ($("article.product").length == 0) {
+                                    var noProductContent = `
+                                        <div class="row no-data-section">
+                                            <div class="col-md-8 offset-md-2">
+                                                <img src="/images/no_products.png" class="no_products img-fluid"
+                                                    alt="no_products">
+                                                <p class="big-text"> You don't have products in your cart... </p>
+                                            </div>
+                                        </div>`;
+                                    $("#cart").html(noProductContent);
                                 }
                                 changeTotal();
+                                decreaseCartCount();
                             });
                         }, 200);
                     }
@@ -569,7 +584,7 @@
             var el = $(this);
             window.setTimeout(function () { el.parent().children(".full-price").removeClass("minused"); changeVal(el); }, 150);
         });
-        
+
         /*========================================================================
         ================= mobile menu ============================================
         =========================================================================*/

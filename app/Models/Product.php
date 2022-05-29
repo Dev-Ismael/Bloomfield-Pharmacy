@@ -27,13 +27,8 @@ class Product extends Model
         return  $this -> belongsTo("App\Models\Subcategory") ;  
     }
 
-    
-    public function wishlist(){
-        return  $this -> belongsTo("App\Models\Wishlist") ;  
-    }
-    
-
-    public function cart(){
-        return  $this -> belongsTo("App\Models\Cart") ;  
+        
+    public function wishlist_users(){
+        return  $this -> belongsToMany("App\Models\User", "wishlists") ;  
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\User;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,15 +13,14 @@ class WishlistController extends Controller
 {
     public function index()
     {
-        $products = Product::with(["wishlist" => function($q){
-            $q->where('user_id', '=', Auth::id() );
-        }])->get();
-        return view('web.wishlist',compact("products"));
+
+        $user = User::find(Auth::id())->with('wishlist_products')->first();
+        $wishlist_products = $user->wishlist_products;
+        return view('web.wishlist',compact("wishlist_products"));
     }
 
     public function add_wishlist($id)
-    {
-        
+    {        
 
         // Find in DB
         $product = Product::find($id);

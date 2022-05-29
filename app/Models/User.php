@@ -44,13 +44,16 @@ class User extends Authenticatable
         return  $this -> hasMany("App\Models\Prescription") ;  
     }
     
-
-    public function wishlist(){
-        return  $this -> belongsTo("App\Models\Wishlist") ;  
+        
+        
+    public function wishlist_products(){
+        return  $this -> belongsToMany("App\Models\Product", "wishlists") ;  
+    }
+        
+        
+    public function cart_products(){
+        return  $this -> belongsToMany("App\Models\Cart", "carts") ;  
     }
 
-    public function cart(){
-        return  $this -> belongsTo("App\Models\Cart") ;  
-    }
 
 }

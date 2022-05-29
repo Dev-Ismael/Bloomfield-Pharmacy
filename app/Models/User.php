@@ -38,21 +38,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
+
     ############################## Relations ################################
     public function prescriptions(){
-        return  $this -> hasMany("App\Models\Prescription") ;  
-    }
-        
-        
-    public function wishlist_products(){
-        return  $this -> belongsToMany("App\Models\Product", "wishlists") ;  
-    }
-        
-     
-    public function cart_products(){
-        return  $this -> belongsToMany("App\Models\Product", "carts") ;  
+        return  $this -> hasMany("App\Models\Prescription") ;
     }
 
+
+    public function wishlist_products(){
+        return  $this -> belongsToMany("App\Models\Product", "wishlists") ;
+    }
+
+
+    public function cart_products(){
+        return  $this -> belongsToMany("App\Models\Product", "carts") ;
+    }
+
+    public function orders(){
+        return  $this -> hasMany("App\Models\Order") ;
+    }
 
 }

@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="category-page" class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
-        <h4 class="title text-bloder d-flex justify-content-center align-items-center"> 
+        <h4 class="title text-bloder d-flex justify-content-center align-items-center">
             <img src="{{ asset("images/categories/".$category->icon) }}" alt="category-icon">
             <p> {{ $category->title }} </p>
         </h1>
@@ -18,11 +18,11 @@
                             <p> <i class="fa-solid fa-bars-staggered"></i> Categories </p>
                             <ul>
                                 @foreach ( $category->subcategories as $subcategory )
-                                    <li><a  
-                                        href="{{ route('category' , [  $category->slug , $subcategory->slug ]) }}" 
+                                    <li><a
+                                        href="{{ route('category' , [  $category->slug , $subcategory->slug ]) }}"
                                         class=" {{ Request::is('category/'. $category->slug .'/'. $subcategory->slug) ? 'active' : '' }}">
                                         {{ $subcategory->title }}
-                                    </a></li> 
+                                    </a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -46,7 +46,7 @@
                                         <div class="col-xs-12">
                                             <div class="col-xs-12 remove-padding product-item">
                                                 <a href="{{ route('product',$product->slug) }}" class="item-img" tabindex="0">
-                                                    <img  
+                                                    <img
                                                         src="{{ asset('images/products/'.$product->img) }}"
                                                         width="220" height="220" alt="">
                                                     @if( $product->has_offer == '1')
@@ -58,11 +58,11 @@
                                                 <div class="product-txt-container"> <p> {{ $product->measurement }} </p></div>
                                                 <div class="price">
                                                     {{ $product->final_price }}$
-                                                    
+
                                                     @if( $product->has_offer == '1')
                                                         <span class="uc-price">
                                                             {{ $product->price }}$
-                                                        </span> 
+                                                        </span>
                                                     @endif
                                                 </div>
                                                 <div class="col-xs-12 product-buttons d-flex justify-content-center align-content-center text-center">

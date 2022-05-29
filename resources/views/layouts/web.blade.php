@@ -221,17 +221,16 @@
 
                                     <li>
                                         @auth
-                                            {{-- @php
+                                            @php
                                                 $user = App\Models\User::find(Auth::id())->with('cart_products')->first();
                                                 $cart_products = count($user->cart_products);
                                                 if( $cart_products > 9 ){
                                                     $cart_products = '+9';
                                                 }
-                                            @endphp --}}
+                                            @endphp
                                             <a href="{{ route('cart') }}" class="cart-main text-center" id="cart-button">
                                                 <p>Cart</p>
-                                                {{-- <span> {{ $cart_products }} </span> --}}
-                                                <span> +9 </span>
+                                                <span> {{ $cart_products }} </span>
                                             </a>
                                         @else
                                             <a href="#" data-toggle="modal" data-target="#login" class="cart-main text-center" id="cart-button">

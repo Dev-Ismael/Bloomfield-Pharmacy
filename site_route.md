@@ -16,7 +16,7 @@
     - Wishlist ==>  ( product_id , user_id )
     - Messege  ==>  ( full Name , email , Subject , Messege )
     - Prescription  ( img , age , gender , additional_details , medicine , validation , schedule_orders(0,1)  time_schedule )
-    - prescription_orders ==> ( user_id , prescription_id , , address )
+    - prescription_orders ==> ( user_id , prescription_id ,  address )
     - Orders   ==> ( user_id , array[ product , quntity , price ] , Total price , address , status )
 
 

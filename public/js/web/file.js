@@ -412,16 +412,54 @@
         =========================================================================*/
 
 
-            // $(".wishlist-products .fa-xmark ").click(function () {
-            //     var el = $(this);
-            //     el.parent().parent().addClass("removed");
-            //     window.setTimeout(
-            //     function () {
-            //         el.parent().parent().slideUp('fast', function () {
-            //             el.parent().parent().remove();
-            //         });
-            //     }, 200);
-            // });
+        $(".wishlist-products .fa-xmark").click(function () {
+                        
+            var xmarkBtn = $(this);
+            var productItem = xmarkBtn.parent().parent();
+            var product_id = productItem.attr("product_id");
+
+            $.ajax({
+                type: "POST",
+                url: '/remove_wishlist/' + product_id,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+
+                    if (response.status == 'error') {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: response.status,
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                    }
+                    else if (response.status == 'success') {
+                        // Animation remove element
+                        productItem.addClass("removed");
+                        window.setTimeout( function () {
+                            productItem.slideUp('fast', function () {
+                                productItem.remove();
+                            });
+                        }, 200);
+                        // Animation remove element
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: response.status,
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 2000
+                        })                    .then((value) => {
+                            window.location.href = "/wishlist";
+                        });
+                    }
+                },
+                error: function (response) {
+                    alert("error at connection");
+                }
+            });
+        });
 
             /*========================================================================
             =================== Cart =================================================

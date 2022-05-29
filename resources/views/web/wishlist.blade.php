@@ -10,7 +10,7 @@
 
 
                 <!--------------- Products ---------------->
-                @if ($products->isEmpty())
+                @if ($wishlist_products->isEmpty())
                     <div class="row no-data-section">
                         <div class="col-md-8 offset-md-2">
                             <img src="{{ asset('images/no_products.png') }}" class="no_products img-fluid"
@@ -23,7 +23,7 @@
 
                         <div class="col-lg-8 offset-lg-2 box-left">
 
-                            @foreach ($products as $product)
+                            @foreach ($wishlist_products as $product)
                                 <article class="product" product_id="{{$product->id}}">
                                     <header>
                                         <a href="{{ route('product', $product->slug) }}" class="product-link">
@@ -49,11 +49,10 @@
                                         @endphp
                                         <div class="cart">
                                             @if ($cart != null)
-                                                <p> <i class="fa-solid fa-check"></i> Added to cart </p>
+                                                <p> <i class="fa-solid fa-check"></i> Cart </p>
                                             @else
                                                 <button href="#" class="add-cart"
-                                                    product_id="{{ $product->id }}"> <i
-                                                        class="fa-solid fa-cart-shopping"></i> Cart </button>
+                                                    product_id="{{ $product->id }}"> <i class="fa-solid fa-cart-shopping"></i> Cart </button>
                                             @endif
                                         </div>
                                     </footer>

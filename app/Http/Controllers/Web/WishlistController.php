@@ -15,6 +15,7 @@ class WishlistController extends Controller
     {
 
         $user = User::find(Auth::id())->with('wishlist_products')->first();
+
         $wishlist_products = $user->wishlist_products;
         return view('web.wishlist',compact("wishlist_products"));
     }
@@ -67,4 +68,52 @@ class WishlistController extends Controller
         }
     }
 
+
+    public function remove_wishlist($id)
+    {  
+
+        // Find in DB
+        $product = Product::find($id);
+
+        // If Find fails
+        if (!$product) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        // Get User ID
+        $user_id = Auth::id();
+
+
+        try {
+
+            // Get Record
+            $wishlist = Wishlist::where("user_id", $user_id )->where("product_id", $product->id)->first();
+            // Delete Record
+            $delete = $wishlist->delete();
+            if (!$delete) {  
+                return response()->json([
+                    "status" => 'error',
+                    "msg" => "error at operation",
+                ]);
+            }
+
+            return response()->json([
+                "status" => 'success',
+                "msg" => "Product removed to your wishlist",
+            ]);   
+
+        }catch (\Exception $e) {
+            
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+
+        }
+
+
+    }
 }

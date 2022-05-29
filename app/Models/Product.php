@@ -27,8 +27,4 @@ class Product extends Model
         return  $this -> belongsTo("App\Models\Subcategory") ;  
     }
 
-        
-    public function wishlist_users(){
-        return  $this -> belongsToMany("App\Models\User", "wishlists") ;  
-    }
 }

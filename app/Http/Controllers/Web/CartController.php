@@ -14,13 +14,12 @@ class CartController extends Controller
     public function index()
     {
         $user = User::find(Auth::id())->with('cart_products')->first();
-        $cart_products = $user->cart_products;
-        return view('web.cart',compact("cart_products"));
+        return view('web.cart',compact("user"));
     }
 
     public function add_cart($id)
     {
-        
+
 
         // Find in DB
         $product = Product::find($id);
@@ -40,12 +39,12 @@ class CartController extends Controller
         try {
 
             // create Record
-            $cart = Cart::create([   
-                'user_id' => $user_id ,   
-                'product_id' =>  $product->id ,   
+            $cart = Cart::create([
+                'user_id' => $user_id ,
+                'product_id' =>  $product->id ,
             ]);
 
-            if (!$cart) {  
+            if (!$cart) {
                 return response()->json([
                     "status" => 'error',
                     "msg" => "error at operation",
@@ -55,10 +54,10 @@ class CartController extends Controller
             return response()->json([
                 "status" => 'success',
                 "msg" => "Product added to your cart",
-            ]);   
+            ]);
 
         }catch (\Exception $e) {
-            
+
             return response()->json([
                 "status" => 'error',
                 "msg" => "error at operation",
@@ -68,10 +67,10 @@ class CartController extends Controller
     }
 
 
-    
+
 
     public function remove_cart($id)
-    {  
+    {
 
         // Find in DB
         $product = Product::find($id);
@@ -94,7 +93,7 @@ class CartController extends Controller
             $cart = Cart::where("user_id", $user_id )->where("product_id", $product->id)->first();
             // Delete Record
             $delete = $cart->delete();
-            if (!$delete) {  
+            if (!$delete) {
                 return response()->json([
                     "status" => 'error',
                     "msg" => "error at operation",
@@ -104,10 +103,10 @@ class CartController extends Controller
             return response()->json([
                 "status" => 'success',
                 "msg" => "Product removed to your cart",
-            ]);   
+            ]);
 
         }catch (\Exception $e) {
-            
+
             return response()->json([
                 "status" => 'error',
                 "msg" => "error at operation",

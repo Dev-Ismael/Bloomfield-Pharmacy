@@ -53,10 +53,10 @@ body::-webkit-scrollbar-thumb {
     text-decoration: underline;
 }
 /*============= invalid input class =============*/
-input.is-invalid, 
-select.is-invalid, 
-textarea.is-invalid,  
-.upload-area.is-invalid{  
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid,
+.upload-area.is-invalid{
     border: 1px solid #e5443f !important;
 }
 
@@ -929,7 +929,7 @@ form#user-register-form input {
     color: #a1a1a1ad;
     text-decoration: line-through;
 }
-.product-item .product-buttons button, 
+.product-item .product-buttons button,
 .product-item .product-buttons p {
     transition: all 0.5s ease-out;
     margin: 10px 0px;
@@ -1106,7 +1106,7 @@ input::placeholder {
 }
 
 .product-d .product-brand {
-    padding-bottom: 20px !important; 
+    padding-bottom: 20px !important;
 
 }
 
@@ -1538,7 +1538,16 @@ input::placeholder {
         padding: 0 10px;
     }
 }
-
+/*=================*/
+#cart-page .additional_details{
+    margin-top: 35px;
+}
+#cart-page .additional_details h4{
+    font-size: 20px;
+}
+#cart-page .additional_details h4 i {
+    color: #2e8345;
+}
 /*====================================================
 ============ Wishlist Page ===========================
 ====================================================*/
@@ -1628,7 +1637,7 @@ input::placeholder {
 #category-page .gategory-grids .category-branches a.active{
     background-color: #2e83458c;
     color: #fff;
-} 
+}
 
 
 
@@ -1641,7 +1650,7 @@ input::placeholder {
 #category-page .title img{
     margin-right: 10px;
     width: 35px;
-    filter: invert(43%) sepia(13%) saturate(2068%) hue-rotate(84deg) brightness(93%) contrast(87%); 
+    filter: invert(43%) sepia(13%) saturate(2068%) hue-rotate(84deg) brightness(93%) contrast(87%);
 }
 /*====================================================
 ============ Orders Page =============================

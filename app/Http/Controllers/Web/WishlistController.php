@@ -51,7 +51,7 @@ class WishlistController extends Controller
 
             return response()->json([
                 "status" => 'success',
-                "msg" => "product add to your wishlist",
+                "msg" => "Product added to your wishlist",
             ]);   
 
         }catch (\Exception $e) {

@@ -68,7 +68,7 @@ Route::group([ 'middleware'=> 'auth'  ] , function(){
     Route::get('/order_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'order_prescription'])->name('order_prescription');
     // upload_prescription                            
     Route::post('/upload_prescription', [App\Http\Controllers\Web\PrescriptionController::class, 'upload_prescription'])->name('upload_prescription');
-    // upload_prescription                            
+    // delete_prescription                            
     Route::post('/delete_prescription/{id}', [App\Http\Controllers\Web\PrescriptionController::class, 'delete_prescription'])->name('delete_prescription');
     // start_prescription_schedule                            
     Route::post('/start_prescription_schedule/{id}', [App\Http\Controllers\Web\PrescriptionController::class, 'start_prescription_schedule'])->name('start_prescription_schedule');
@@ -89,6 +89,8 @@ Route::group([ 'middleware'=> 'auth'  ] , function(){
     Route::get('/cart', [App\Http\Controllers\Web\CartController::class, 'index'])->name('cart');
     // add cart
     Route::post('/add_cart/{id}', [App\Http\Controllers\Web\CartController::class, 'add_cart'])->name('add_cart');
+    // remove cart
+    Route::post('/remove_cart/{id}', [App\Http\Controllers\Web\CartController::class, 'remove_cart'])->name('remove_cart');
 
     
     // Profile                            

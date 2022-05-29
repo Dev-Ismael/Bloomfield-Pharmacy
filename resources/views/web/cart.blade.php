@@ -7,7 +7,7 @@
 
 
             <div class="container">
-                <div class="row">
+                <div class="row  cart-products">
                     <div class="col-lg-8 box-left">
                         <section id="cart">
 
@@ -17,7 +17,7 @@
                                     <div class="col-md-8 offset-md-2">
                                         <img src="{{ asset('images/no_products.png') }}" class="no_products img-fluid"
                                             alt="no_products">
-                                        <p class="big-text"> You don't have products in your wishlist... </p>
+                                        <p class="big-text"> You don't have products in your cart... </p>
                                     </div>
                                 </div>
                             @else

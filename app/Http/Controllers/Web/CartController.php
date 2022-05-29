@@ -67,4 +67,55 @@ class CartController extends Controller
         }
     }
 
+
+    
+
+    public function remove_cart($id)
+    {  
+
+        // Find in DB
+        $product = Product::find($id);
+
+        // If Find fails
+        if (!$product) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        // Get User ID
+        $user_id = Auth::id();
+
+
+        try {
+
+            // Get Record
+            $cart = Cart::where("user_id", $user_id )->where("product_id", $product->id)->first();
+            // Delete Record
+            $delete = $cart->delete();
+            if (!$delete) {  
+                return response()->json([
+                    "status" => 'error',
+                    "msg" => "error at operation",
+                ]);
+            }
+
+            return response()->json([
+                "status" => 'success',
+                "msg" => "Product removed to your cart",
+            ]);   
+
+        }catch (\Exception $e) {
+            
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+
+        }
+
+
+    }
+
 }

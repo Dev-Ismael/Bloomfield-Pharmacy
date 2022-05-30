@@ -75,6 +75,21 @@ class ForgienKey extends Migration
             ->onDelete("cascade")
             ->onUpdate("cascade");
         });
+        ################ Prescription_Orders ###################
+        Schema::table('prescription_orders', function (Blueprint $table) {
+            $table->foreign("user_id")
+            ->references('id')
+            ->on("users")
+            ->onDelete("cascade")
+            ->onUpdate("cascade");
+        });
+        Schema::table('prescription_orders', function (Blueprint $table) {
+            $table->foreign("prescription_id")
+            ->references('id')
+            ->on("prescriptions")
+            ->onDelete("cascade")
+            ->onUpdate("cascade");
+        });
     }
 
     /**

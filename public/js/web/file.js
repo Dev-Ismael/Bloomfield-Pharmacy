@@ -666,7 +666,7 @@
 
 
         /*========================================================================
-        =================== Update Profile =======================================
+        =================== create order =======================================
         =========================================================================*/
 
         $("#cart-page a.create-order-btn").click(function () {
@@ -683,7 +683,8 @@
                 contentType: false,
                 cache: false,
                 success: function (response) {
-
+                    $("form#create-order small.text-danger." + key ).text(val[0]);
+                    $('form#create-order input[name="'+ key +'"]').addClass("is-invalid");
                 },
                 error: function (response) {
                     alert("error at connection");

@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('cart' , 2000 );
             $table->smallInteger('price');
             $table->string('address' , 255 );
+            $table->string('phone' , 55 );
             $table->string('status' , 1 )->default('1'); // 1 => Processed ; 2 => Shipped ; 3 => Arrived
             $table->timestamps();
         });

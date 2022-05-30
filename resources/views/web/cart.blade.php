@@ -76,7 +76,7 @@
                                                     @foreach ( $userAddress as $key => $address)
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio" name="address"
-                                                                id="address-{{$key}}" value="{{ $address }}" {{ $key == 0 ? 'checked' : '' }} />
+                                                                id="address-{{$key}}" value="{{ $address }}" />
                                                             <label class="form-check-label" for="address-{{$key}}">
                                                                 {{ $address }}
                                                             </label>
@@ -96,6 +96,7 @@
                                                     <input type="text" name="another_address" class="form-control" id="address" placeholder="Type Address Details...">
                                                 </div>
                                             @endif
+                                            <small class="text-danger address"> </small>
                                         </div>
 
 
@@ -131,6 +132,7 @@
                                                     <input type="text" name="another_phone" class="form-control" id="phone" placeholder="Type Phone Number...">
                                                 </div>
                                             @endif
+                                            <small class="text-danger phone"> </small>
                                         </div>
 
 

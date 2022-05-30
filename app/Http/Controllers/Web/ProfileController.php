@@ -14,7 +14,7 @@ class ProfileController extends Controller
     {
         // Get User ID
         $user_id = Auth::id();
-        $user = User::find( $user_id )->first(); 
+        $user = User::find( $user_id )->first();
         return view('web.profile',compact('user'));
         // return $user;
     }
@@ -39,7 +39,7 @@ class ProfileController extends Controller
                 'status' => 'error',
                 'msg'    => 'validation error',
                 'errors' => $validator->getMessageBag()->toArray()
-            ]); 
+            ]);
         }
 
         // Get User ID
@@ -54,7 +54,7 @@ class ProfileController extends Controller
             // Update Record
             $update = $user->update($request->all());
 
-            if (!$update) {  
+            if (!$update) {
                 return response()->json([
                     "status" => 'error',
                     "msg" => "error at operation",
@@ -64,10 +64,10 @@ class ProfileController extends Controller
             return response()->json([
                 "status" => 'success',
                 "msg" => "your info saved successfully",
-            ]);   
+            ]);
 
         }catch (\Exception $e) {
-            
+
             return response()->json([
                 "status" => 'error',
                 "msg" => "error at operation",

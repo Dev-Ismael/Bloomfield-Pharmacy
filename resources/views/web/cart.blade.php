@@ -33,7 +33,7 @@
                                             </header>
 
                                             <div class="content product-info">
-                                                <h1> {{ $product->title }} </h1>
+                                                <h1>{{ $product->title }} </h1>
                                                 <p> {{ $product->brand }} </p>
                                                 <p> {{ $product->measurement }} </p>
                                             </div>

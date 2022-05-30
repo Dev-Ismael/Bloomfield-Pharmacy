@@ -13,7 +13,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        $user = User::find(Auth::id())->with('cart_products')->first();
+        $user = User::where( 'id' , Auth::id() )->with('cart_products')->first();
         return view('web.cart',compact("user"));
     }
 

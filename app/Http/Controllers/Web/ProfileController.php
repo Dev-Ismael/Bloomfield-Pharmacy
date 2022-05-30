@@ -63,7 +63,7 @@ class ProfileController extends Controller
 
             return response()->json([
                 "status" => 'success',
-                "msg" => "Product added to your wishlist",
+                "msg" => "your info saved successfully",
             ]);   
 
         }catch (\Exception $e) {

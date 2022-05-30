@@ -222,7 +222,7 @@
                                     <li>
                                         @auth
                                             @php
-                                                $user = App\Models\User::find(Auth::id())->with('cart_products')->first();
+                                                $user = App\Models\User::where('id' , Auth::id() )->with('cart_products')->first();
                                                 $cart_products = count($user->cart_products);
                                                 if( $cart_products > 9 ){
                                                     $cart_products = '+9';

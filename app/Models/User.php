@@ -49,6 +49,7 @@ class User extends Authenticatable
 
     public function wishlist_products(){
         return  $this -> belongsToMany("App\Models\Product", "wishlists") ;
+        // return  $this -> belongsToMany("App\Models\Product") ;
     }
 
 

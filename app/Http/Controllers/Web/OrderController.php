@@ -11,4 +11,16 @@ class OrderController extends Controller
     {
         return view('web.orders');
     }
+
+
+    public function create_order(Request $request)
+    {
+        
+        
+        return response()->json([
+            "request" => $request->all(),
+        ]);
+
+
+    }
 }

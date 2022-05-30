@@ -49,14 +49,14 @@
                                             <label for="phone_1" class="text-black"> <i
                                                     class="fa-solid fa-phone-volume"></i> Phone </label>
                                             <input type="text" name="phone[]" class="form-control" id="phone_1"
-                                                placeholder="Type Phone Number..." value="{{ $user->phone[0] }}"/>
+                                                placeholder="Type Phone Number..." value="{{ isset($user->phone[0] ) ? $user->phone[0] : '' }}"/>
                                             <small class="text-danger phone_1"> </small>
                                         </div>
                                         <div class="col-md-6 form-group text-left">
                                             <label for="phone_2" class="text-black"> <i
                                                     class="fa-solid fa-phone-volume"></i> Second Phone (optional) </label>
                                             <input type="text" name="phone[]" class="form-control" id="phone_2"
-                                                placeholder="Type Phone Number..." value="{{ $user->phone[1] }}"/>
+                                                placeholder="Type Phone Number..." value="{{ isset($user->phone[1]) ? $user->phone[1] : ''  }}"/>
                                             <small class="text-danger phone_2"> </small>
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                                             <label for="address_1" class="text-black"> <i
                                                     class="fa-solid fa-location-dot"></i> Address </label>
                                             <input type="text"  name="address[]"  class="form-control" id="address_1"
-                                                placeholder="Type Address Details..."  value="{{ $user->address[0] }}"/>
+                                                placeholder="Type Address Details..."  value="{{ isset($user->address[0]) ? $user->address[0] : '' }}"/>
                                                 <small class="text-danger address_1"> </small>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                             <label for="address_2" class="text-black"> <i
                                                     class="fa-solid fa-location-dot"></i> Second Address (optional) </label>
                                             <input type="text" name="address[]" class="form-control" id="address_2"
-                                                placeholder="Type Address Details..."  value="{{ $user->address[1] }}"/>
+                                                placeholder="Type Address Details..."  value="{{ isset($user->address[1]) ? $user->address[1] : '' }}"/>
                                                 <small class="text-danger address_2"> </small>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                                             <label for="address_3" class="text-black"> <i
                                                     class="fa-solid fa-location-dot"></i> Third Address (optional) </label>
                                             <input type="text" name="address[]" class="form-control" id="address_3"
-                                                placeholder="Type Address Details..."  value="{{ $user->address[2] }}"/>
+                                                placeholder="Type Address Details..."  value="{{ isset($user->address[2]) ? $user->address[2] : '' }}"/>
                                                 <small class="text-danger address_3"> </small>
                                         </div>
                                     </div>

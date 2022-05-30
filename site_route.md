@@ -52,6 +52,7 @@ tasks :
 
 problems  :
 
+- convert search to 'Get' method
 - focus inputs at admin 
 - multi select javascript
 - array of medicine

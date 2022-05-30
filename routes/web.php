@@ -101,6 +101,9 @@ Route::group([ 'middleware'=> 'auth'  ] , function(){
 
     // Orders                            
     Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index'])->name('orders');
+    // Create Order                            
+    Route::post('/create_order', [App\Http\Controllers\Web\OrderController::class, 'create_order'])->name('create_order');
+
 });
 
 

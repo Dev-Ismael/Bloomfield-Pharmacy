@@ -22,9 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('email_2' , 55)->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('phone' , 100 )->nullable();
+            $table->string('phone' , 100 )->default('[]'); // default ==> empty array
             $table->string('state' , 55 )->nullable();
-            $table->string('address' , 750 )->nullable();
+            $table->string('address' , 750 )->default('[]');  // default ==> empty array
             $table->string('role', 1 )->default('3'); // 1=> admin  ,  2=> moderator  ,  3=> user
             $table->rememberToken();
             $table->timestamps();

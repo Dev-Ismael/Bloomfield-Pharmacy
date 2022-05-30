@@ -660,6 +660,35 @@
         });
 
 
+
+        /*========================================================================
+        =================== Update Profile =======================================
+        =========================================================================*/
+
+        $("#cart-page a.create-order-btn").click(function () {
+
+            var orderFormData = new FormData($("#cart-page form#create-order")[0]);
+            $.ajax({
+                type: "POST",
+                url: '/create_order',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: orderFormData,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (response) {
+
+                },
+                error: function (response) {
+                    alert("error at connection");
+                }
+            });
+        });
+
+
+
         /*========================================================================
         ================= mobile menu ============================================
         =========================================================================*/

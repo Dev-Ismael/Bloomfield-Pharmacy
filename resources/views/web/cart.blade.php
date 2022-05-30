@@ -5,6 +5,7 @@
         <div class="section container remove-padding text-center faq-main section-h2 margin-t-100 ">
             <h4 class="title text-bloder"> <i class="fa-solid fa-cart-shopping"></i> Shipping Cart </h1>
 
+            <form id="create-order" method="post" enctype="multipart/form-data">
 
                 <div class="container">
                     <div class="row  cart-products">
@@ -58,58 +59,38 @@
                                     <!--------- Select Address -------->
                                     <div class="row additional_details text-left">
 
-                                        @if( $user->address == null )
+                                        <!--- Filter Null valuesin address array --->
+                                        @php $userAddress = array_filter( $user->address )  @endphp
+
+                                        <!-- if every value not empty -->
+                                        @if( $userAddress != null )
+                                            <div class="additional_details text-left">
+                                                <h5> <i class="fa-solid fa-location-dot"></i> Shipping Adress</h5>
+                                                @foreach ( $userAddress as $key => $address)
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="address"
+                                                            id="address-{{$key}}" value="{{ $address }}" {{ $key == 1 ? 'checked' : ''  }} />
+                                                        <label class="form-check-label" for="address-{{$key}}">
+                                                            {{ $address }}
+                                                        </label>
+                                                    </div>
+                                                @endforeach
+                                                
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="address"
+                                                        id="typeAddress">
+                                                    <label class="form-check-label" for="typeAddress">
+                                                        <input type="text" class="form-control" id="address" placeholder="Type Address Details...">
+                                                    </label>
+                                                </div>
+                                            </div> 
+                                        @else
                                             <div class="col-md-8 form-group text-left">
                                                 <label for="address" class="text-black"> <i class="fa-solid fa-location-dot"></i> Shipping Adress </label>
                                                 <input type="text" class="form-control" id="address" placeholder="Type Address Details...">
                                             </div>
-                                        @else
-
-                                            <div class="additional_details text-left">
-                                                <h5> <i class="fa-solid fa-address-card"></i> Shipping Adress</h5>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                        id="flexRadioDefault1">
-                                                    <label class="form-check-label" for="flexRadioDefault1">
-                                                        Default radio
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                        id="flexRadioDefault2" checked>
-                                                    <label class="form-check-label" for="flexRadioDefault2">
-                                                        Default checked radio
-                                                    </label>
-                                                </div>
-                                            </div> 
-
                                         @endif
-                                    </div>
-                                    <!--------- Select Phone -------->
-                                    {{--
-                                    <div class="additional_details text-left">
-                                        <h4> <i class="fa-solid fa-phone"></i> Phone Number</h4>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Default radio
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault2" checked>
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                                Default checked radio
-                                            </label>
-                                        </div>
-                                    </div>
-                                    --}}
-                                    <div class="row additional_details text-left">
-                                        <div class="col-md-8 form-group text-left">
-                                            <label for="address" class="text-black"> <i class="fa-solid fa-phone"></i> Phone Number </label>
-                                            <input type="text" class="form-control" id="address" placeholder="Type Phone Number...">
-                                        </div>
+                                            
                                     </div>
                                 @endif
                             </section>
@@ -127,14 +108,15 @@
                                 </div>
                                 <div class="text-center">
                                     <h1 class="total">Total: <span>0</span>$</h1>
-                                    <a class="btn"> <i class="fa-solid fa-basket-shopping"></i> Checkout </a>
+                                    <a class="btn create-order-btn"> <i class="fa-solid fa-basket-shopping"></i> Checkout </a>
                                 </div>
                             </footer>
                         </div>
                     </div>
                 </div>
 
-
+                    
+            </form>
 
 
         </div>

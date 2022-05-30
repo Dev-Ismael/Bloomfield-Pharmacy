@@ -1539,12 +1539,13 @@ input::placeholder {
     }
 }
 /*======== additional_details Orders =========*/
-#cart-page .additional_details h5 {
-    font-weight: bolder;
+#cart-page .additional_details .form-check.another_info label::after{
+    top: 10px;
 }
-#cart-page .additional_details label i, 
-#cart-page .additional_details h5 i 
-{
+#cart-page .additional_details .form-check.another_info label::before{
+    top: 7px;
+}
+#cart-page label i{
     color: #2e8345;
 }
 /*====================================================

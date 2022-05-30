@@ -568,15 +568,19 @@
         // At Click (+) Btn
         $(".qt-plus").click(function () {
             $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
+            $(this).parent().children("[name='quantity[]']").val(parseInt($(this).parent().children("[name='quantity[]']").val()) + 1);
             $(this).parent().children(".full-price").addClass("added");
             var el = $(this);
             window.setTimeout(function () { el.parent().children(".full-price").removeClass("added"); changeVal(el); }, 150);
         });
         // At Click (-) Btn
         $(".qt-minus").click(function () {
-            child = $(this).parent().children(".qt");
-            if (parseInt(child.html()) > 1) {
-                child.html(parseInt(child.html()) - 1);
+            // child = $(this).parent().children(".qt");
+            if (parseInt($(this).parent().children(".qt").html()) > 1) {
+                $(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) - 1);
+            }
+            if (parseInt($(this).parent().children("[name='quantity[]']").val()) > 1) {
+                $(this).parent().children("[name='quantity[]']").val(parseInt($(this).parent().children("[name='quantity[]']").val()) - 1);
             }
             $(this).parent().children(".full-price").addClass("minused");
             var el = $(this);

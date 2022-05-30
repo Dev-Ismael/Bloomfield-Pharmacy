@@ -24,6 +24,8 @@
                                 @else
                                     @foreach ($user->cart_products as $product)
                                         <article class="product" product_id="{{ $product->id }}">
+                                            <!------- Product id ------->
+                                            <input type="hidden" class="product_id" value="{{ $product->id }}" name="product_id[]">
                                             <header>
                                                 <a href="{{ route('product', $product->slug) }}" class="product-link">
                                                     <img src="{{ asset('images/products/' . $product->img) }}"
@@ -42,6 +44,10 @@
                                                 <i class="fa-solid fa-xmark"></i>
                                             </div>
                                             <footer class="content">
+
+                                                <!------- Quantitiy ------->
+                                                <input type="hidden" class="quantity" value="1" name="quantity[]">
+
                                                 <span class="qt-minus">-</span>
                                                 <span class="qt">1</span>
                                                 <span class="qt-plus">+</span>
@@ -56,42 +62,81 @@
                                             </footer>
                                         </article>
                                     @endforeach
-                                    <!--------- Select Address -------->
-                                    <div class="row additional_details text-left">
+                                    <div class="container">
 
-                                        <!--- Filter Null valuesin address array --->
-                                        @php $userAddress = array_filter( $user->address )  @endphp
 
-                                        <!-- if every value not empty -->
-                                        @if( $userAddress != null )
-                                            <div class="additional_details text-left">
-                                                <h5> <i class="fa-solid fa-location-dot"></i> Shipping Adress</h5>
-                                                @foreach ( $userAddress as $key => $address)
-                                                    <div class="form-check">
+                                        <!--------- Select Address -------->
+                                        <div class="row shiping-address">
+                                            <!--- Filter Null valuesin address array --->
+                                            @php $userAddress = array_filter( $user->address )  @endphp
+                                            <!-- if every value not empty -->
+                                            @if( $userAddress != null )
+                                                <div class="additional_details col-md-6 text-left">
+                                                    <label for="address" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-location-dot"></i> Shipping Adress </label>
+                                                    @foreach ( $userAddress as $key => $address)
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="address"
+                                                                id="address-{{$key}}" value="{{ $address }}" {{ $key == 0 ? 'checked' : '' }} />
+                                                            <label class="form-check-label" for="address-{{$key}}">
+                                                                {{ $address }}
+                                                            </label>
+                                                        </div>
+                                                    @endforeach
+                                                    <div class="form-check another_info">
                                                         <input class="form-check-input" type="radio" name="address"
-                                                            id="address-{{$key}}" value="{{ $address }}" {{ $key == 1 ? 'checked' : ''  }} />
-                                                        <label class="form-check-label" for="address-{{$key}}">
-                                                            {{ $address }}
+                                                            id="typeAddress" value="another_address">
+                                                        <label class="form-check-label w-100" for="typeAddress">
+                                                            <input type="text" name="another_address" class="form-control" id="address" placeholder="Type Another Shiping Address ...">
                                                         </label>
                                                     </div>
-                                                @endforeach
-                                                
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="address"
-                                                        id="typeAddress">
-                                                    <label class="form-check-label" for="typeAddress">
-                                                        <input type="text" class="form-control" id="address" placeholder="Type Address Details...">
-                                                    </label>
                                                 </div>
-                                            </div> 
-                                        @else
-                                            <div class="col-md-8 form-group text-left">
-                                                <label for="address" class="text-black"> <i class="fa-solid fa-location-dot"></i> Shipping Adress </label>
-                                                <input type="text" class="form-control" id="address" placeholder="Type Address Details...">
-                                            </div>
-                                        @endif
-                                            
+                                            @else
+                                                <div class="col-md-6 form-group text-left">
+                                                    <label for="address" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-location-dot"></i> Shipping Adress </label>
+                                                    <input type="text" name="another_address" class="form-control" id="address" placeholder="Type Address Details...">
+                                                </div>
+                                            @endif
+                                        </div>
+
+
+
+                                        <!--------- Select Phone -------->
+                                        <div class="row shiping-phone">
+                                            <!--- Filter Null valuesin phone array --->
+                                            @php $userPhone = array_filter( $user->phone )  @endphp
+                                            <!-- if every value not empty -->
+                                            @if( $userPhone != null )
+                                                <div class="additional_details col-md-6 text-left">
+                                                    <label class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Phone Number </label>
+                                                    @foreach ( $userPhone as $key => $phone)
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="phone"
+                                                                id="phone-{{$key}}" value="{{ $phone }}"  {{ $key == 0 ? 'checked' : '' }} />
+                                                            <label class="form-check-label" for="phone-{{$key}}">
+                                                                {{ $phone }}
+                                                            </label>
+                                                        </div>
+                                                    @endforeach
+                                                    <div class="form-check another_info">
+                                                        <input class="form-check-input" type="radio" name="phone"
+                                                            id="typePhone" value="another_phone">
+                                                        <label class="form-check-label w-100" for="typePhone">
+                                                            <input type="text" name="another_phone" class="form-control" id="phone" placeholder="Type Another Phone Number ...">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <div class="col-md-6 form-group text-left">
+                                                    <label for="phone" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Phone Number </label>
+                                                    <input type="text" name="another_phone" class="form-control" id="phone" placeholder="Type Phone Number...">
+                                                </div>
+                                            @endif
+                                        </div>
+
+
                                     </div>
+
+
                                 @endif
                             </section>
                         </div>
@@ -115,7 +160,7 @@
                     </div>
                 </div>
 
-                    
+
             </form>
 
 

@@ -6,7 +6,7 @@
         - SMS Messeges.
         - Excel File To products Table
         - Schedule Orders With prescription
-
+        - corona vaccine
 
     - Users    ==> (  )
     - Categories ==> ( title , img )
@@ -18,6 +18,32 @@
     - Prescription  ( img , age , gender , additional_details , medicine , validation , schedule_orders(0,1)  time_schedule )
     - prescription_orders ==> ( user_id , prescription_id ,  address )
     - Orders   ==> ( user_id , array[ product , quntity , price ] , Total price , address , status )
+
+
+
+
+
+
+tasks : 
+--------------
+- add categories data
+- add products data
+- finsh orders opration
+- update profile info
+- dashboard stats
+- fix carts & wishlist page
+- google sites notification
+
+
+
+
+
+
+
+
+
+
+
 
 
 

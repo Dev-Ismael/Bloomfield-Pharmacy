@@ -95,6 +95,10 @@ Route::group([ 'middleware'=> 'auth'  ] , function(){
     
     // Profile                            
     Route::get('/profile', [App\Http\Controllers\Web\ProfileController::class, 'index'])->name('profile');
+    // Update Profile                            
+    Route::post('/update_profile', [App\Http\Controllers\Web\ProfileController::class, 'update_profile'])->name('update_profile');
+
+
     // Orders                            
     Route::get('/orders', [App\Http\Controllers\Web\OrderController::class, 'index'])->name('orders');
 });

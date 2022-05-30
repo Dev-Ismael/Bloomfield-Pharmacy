@@ -56,24 +56,37 @@
                                         </article>
                                     @endforeach
                                     <!--------- Select Address -------->
-                                    <div class="additional_details text-left">
-                                        <h4> <i class="fa-solid fa-address-card"></i> Shipping Adress</h4>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Default radio
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault2" checked>
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                                Default checked radio
-                                            </label>
-                                        </div>
+                                    <div class="row additional_details text-left">
+
+                                        @if( $user->address == null )
+                                            <div class="col-md-8 form-group text-left">
+                                                <label for="address" class="text-black"> <i class="fa-solid fa-location-dot"></i> Shipping Adress </label>
+                                                <input type="text" class="form-control" id="address" placeholder="Type Address Details...">
+                                            </div>
+                                        @else
+
+                                            <div class="additional_details text-left">
+                                                <h5> <i class="fa-solid fa-address-card"></i> Shipping Adress</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault1">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        Default radio
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                        id="flexRadioDefault2" checked>
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        Default checked radio
+                                                    </label>
+                                                </div>
+                                            </div> 
+
+                                        @endif
                                     </div>
                                     <!--------- Select Phone -------->
+                                    {{--
                                     <div class="additional_details text-left">
                                         <h4> <i class="fa-solid fa-phone"></i> Phone Number</h4>
                                         <div class="form-check">
@@ -89,6 +102,13 @@
                                             <label class="form-check-label" for="flexRadioDefault2">
                                                 Default checked radio
                                             </label>
+                                        </div>
+                                    </div>
+                                    --}}
+                                    <div class="row additional_details text-left">
+                                        <div class="col-md-8 form-group text-left">
+                                            <label for="address" class="text-black"> <i class="fa-solid fa-phone"></i> Phone Number </label>
+                                            <input type="text" class="form-control" id="address" placeholder="Type Phone Number...">
                                         </div>
                                     </div>
                                 @endif

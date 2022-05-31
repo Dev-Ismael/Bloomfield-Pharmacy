@@ -15,7 +15,8 @@ class OrderController extends Controller
 {
     public function index()
     {
-        return view('web.orders');
+        $orders = Order::where( "user_id" , Auth::id() )->orderBy('id', 'DESC')->get();
+        return view('web.orders' , compact('orders'));
     }
 
 

@@ -19,11 +19,11 @@ class CreateOrdersTable extends Migration
             $table->string('cart' , 1000 );
             $table->string('address' , 255 );
             $table->string('phone' , 55 );
-            $table->smallInteger('subtotal');
-            $table->smallInteger('taxes_percentage');
-            $table->smallInteger('taxes');
-            $table->smallInteger('shiping');
-            $table->smallInteger('total');
+            $table->float('subtotal', 8, 2);
+            $table->tinyInteger('taxes_percentage');
+            $table->float('taxes', 8, 2);
+            $table->tinyInteger('shiping');
+            $table->float('total', 8, 2);
             $table->string('status' , 1 )->default('1'); // 1 => Processed ; 2 => Shipped ; 3 => Arrived
             $table->timestamps();
         });

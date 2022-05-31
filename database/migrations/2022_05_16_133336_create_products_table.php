@@ -19,11 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('title' , 55)->index();
             $table->string('slug');
             $table->string('img')->default("product.png");
-            $table->smallInteger('price');
+            $table->float('price', 8, 2);
             $table->tinyInteger('quantity');
             $table->string('has_offer' , 1 )->default("0");  // 0 ==> Not Has offer ; 1 ==> Has Offer ; 
             $table->tinyInteger('offer_percentage')->nullable();
-            $table->smallInteger('final_price');
+            $table->float('final_price', 8, 2);
             $table->string('brand' , 55);
             $table->string('measurement' , 55);
             $table->string('description', 1000);

@@ -1551,12 +1551,12 @@ input::placeholder {
 #cart-page .text-danger{
     margin-left: 40px;
 }
-#cart-page input[name="another_address"],
-#cart-page input[name="another_phone"]{ 
+#cart-page input[name="address"],
+#cart-page input[name="phone"]{ 
     margin-left: 40px;
 }
-#cart-page .form-group input[name="another_address"],
-#cart-page .form-group input[name="another_phone"]{ 
+#cart-page .form-group input[name="address"],
+#cart-page .form-group input[name="phone"]{ 
     width: calc(100% - 40px );
 }
 #cart-page .another_info input{

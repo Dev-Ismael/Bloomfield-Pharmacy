@@ -1548,6 +1548,24 @@ input::placeholder {
 #cart-page label i{
     color: #2e8345;
 }
+#cart-page .text-danger{
+    margin-left: 40px;
+}
+#cart-page input[name="another_address"],
+#cart-page input[name="another_phone"]{ 
+    margin-left: 40px;
+}
+#cart-page .form-group input[name="another_address"],
+#cart-page .form-group input[name="another_phone"]{ 
+    width: calc(100% - 40px );
+}
+#cart-page .another_info input{
+    margin-left: 0px;
+}
+#cart-page .form-group{
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+}
 /*====================================================
 ============ Wishlist Page ===========================
 ====================================================*/

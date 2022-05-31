@@ -8,7 +8,7 @@
             <form id="create-order" method="post" enctype="multipart/form-data">
 
                 <div class="container">
-                    <div class="row  cart-products">
+                    <div class="row cart-products">
                         <div class="col-lg-8 box-left">
                             <section id="cart">
 
@@ -62,81 +62,88 @@
                                             </footer>
                                         </article>
                                     @endforeach
-                                    <div class="container">
 
 
                                         <!--------- Select Address -------->
-                                        <div class="row shiping-address">
+                                        <div class=" shiping-address">
                                             <!--- Filter Null valuesin address array --->
                                             @php $userAddress = array_filter( $user->address )  @endphp
                                             <!-- if every value not empty -->
                                             @if( $userAddress != null )
-                                                <div class="additional_details col-md-6 text-left">
-                                                    <label for="address" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-location-dot"></i> Shipping Adress </label>
-                                                    @foreach ( $userAddress as $key => $address)
-                                                        <div class="form-check">
+                                                <div class="row">
+                                                    <div class="additional_details col-md-10 text-left">
+                                                        <label for="address" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-location-dot"></i> Shipping Adress </label>
+                                                        @foreach ( $userAddress as $key => $address)
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="address"
+                                                                    id="address-{{$key}}" value="{{ $address }}" />
+                                                                <label class="form-check-label" for="address-{{$key}}">
+                                                                    {{ $address }}
+                                                                </label>
+                                                            </div>
+                                                        @endforeach
+                                                        <div class="form-check another_info">
                                                             <input class="form-check-input" type="radio" name="address"
-                                                                id="address-{{$key}}" value="{{ $address }}" />
-                                                            <label class="form-check-label" for="address-{{$key}}">
-                                                                {{ $address }}
+                                                                id="typeAddress" value="another_address">
+                                                            <label class="form-check-label w-100" for="typeAddress">
+                                                                <input type="text" name="another_address" class="form-control" id="address" placeholder="Type Another Shiping Address ...">
                                                             </label>
                                                         </div>
-                                                    @endforeach
-                                                    <div class="form-check another_info">
-                                                        <input class="form-check-input" type="radio" name="address"
-                                                            id="typeAddress" value="another_address">
-                                                        <label class="form-check-label w-100" for="typeAddress">
-                                                            <input type="text" name="another_address" class="form-control" id="address" placeholder="Type Another Shiping Address ...">
-                                                        </label>
                                                     </div>
                                                 </div>
+                                                    
                                             @else
-                                                <div class="col-md-6 form-group text-left">
-                                                    <label for="address" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-location-dot"></i> Shipping Adress </label>
-                                                    <input type="text" name="another_address" class="form-control" id="address" placeholder="Type Address Details...">
+                                                <div class="row">
+                                                    <div class="col-md-10 form-group text-left">
+                                                        <label for="address" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-location-dot"></i> Shipping Adress </label>
+                                                        <input type="text" name="another_address" class="form-control" id="address" placeholder="Type Address Details...">
+                                                    </div>
                                                 </div>
                                             @endif
-                                            <small class="text-danger address"> </small>
+                                            <small class="text-danger address text-left d-block">  </small>
                                         </div>
 
 
 
                                         <!--------- Select Phone -------->
-                                        <div class="row shiping-phone">
+                                        <div class=" shiping-phone">
                                             <!--- Filter Null valuesin phone array --->
                                             @php $userPhone = array_filter( $user->phone )  @endphp
                                             <!-- if every value not empty -->
                                             @if( $userPhone != null )
-                                                <div class="additional_details col-md-6 text-left">
-                                                    <label class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Phone Number </label>
-                                                    @foreach ( $userPhone as $key => $phone)
-                                                        <div class="form-check">
+                                                <div class="row">
+                                                    <div class="additional_details col-md-10 text-left">
+                                                        <label class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Phone Number </label>
+                                                        @foreach ( $userPhone as $key => $phone)
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="phone"
+                                                                    id="phone-{{$key}}" value="{{ $phone }}"/>
+                                                                <label class="form-check-label" for="phone-{{$key}}">
+                                                                    {{ $phone }}
+                                                                </label>
+                                                            </div>
+                                                        @endforeach
+                                                        <div class="form-check another_info">
                                                             <input class="form-check-input" type="radio" name="phone"
-                                                                id="phone-{{$key}}" value="{{ $phone }}"  {{ $key == 0 ? 'checked' : '' }} />
-                                                            <label class="form-check-label" for="phone-{{$key}}">
-                                                                {{ $phone }}
+                                                                id="typePhone" value="another_phone">
+                                                            <label class="form-check-label w-100" for="typePhone">
+                                                                <input type="text" name="another_phone" class="form-control" id="phone" placeholder="Type Another Phone Number ...">
                                                             </label>
                                                         </div>
-                                                    @endforeach
-                                                    <div class="form-check another_info">
-                                                        <input class="form-check-input" type="radio" name="phone"
-                                                            id="typePhone" value="another_phone">
-                                                        <label class="form-check-label w-100" for="typePhone">
-                                                            <input type="text" name="another_phone" class="form-control" id="phone" placeholder="Type Another Phone Number ...">
-                                                        </label>
                                                     </div>
                                                 </div>
                                             @else
-                                                <div class="col-md-6 form-group text-left">
-                                                    <label for="phone" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Phone Number </label>
-                                                    <input type="text" name="another_phone" class="form-control" id="phone" placeholder="Type Phone Number...">
+                                                <div class="row">
+                                                    <div class="col-md-10 form-group text-left">
+                                                        <label for="phone" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Phone Number </label>
+                                                        <input type="text" name="another_phone" class="form-control" id="phone" placeholder="Type Phone Number...">
+                                                    </div>
                                                 </div>
                                             @endif
-                                            <small class="text-danger phone"> </small>
+                                            <small class="text-danger phone text-left d-block">  </small>
                                         </div>
 
 
-                                    </div>
 
 
                                 @endif

@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('cart' , 1000 );
+            $table->string('cart' , 255 );
             $table->string('address' , 255 );
             $table->string('phone' , 55 );
             $table->float('subtotal', 8, 2);

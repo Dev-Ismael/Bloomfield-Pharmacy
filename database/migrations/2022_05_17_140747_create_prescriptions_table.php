@@ -20,7 +20,7 @@ class CreatePrescriptionsTable extends Migration
             $table->string('age' , 55);
             $table->string('gender', 55);
             $table->string('additional_details' ,  1000 )->nullable();
-            $table->string('medicine' , 1000 )->nullable();
+            $table->string('medicine' , 1000 )->default('[]');
             $table->string('validation' , 1 )->default("1");  // not valid = 0 , pending = 1 , valid = 2  
             $table->string('schedule_orders' , 1 )->default("0");  // not schedule = 0 ,  schedule = 1 
             $table->tinyInteger('scheduled_days')->nullable();  

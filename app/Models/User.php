@@ -59,4 +59,8 @@ class User extends Authenticatable
         return  $this -> hasMany("App\Models\Order") ;
     }
 
+    public function prescription_orders(){
+        return  $this -> hasMany("App\Models\PrescriptionOrder") ;
+    }
+    
 }

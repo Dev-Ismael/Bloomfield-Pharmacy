@@ -74,7 +74,7 @@
                                                         <div class="show-img-container">
                                                             <img src="{{ asset("images/products/".$product->img) }}" alt="product-img" class="img-fluid">
                                                         </div>
-                                                        <div class="row my-auto flex-column flex-md-row">
+                                                        <div class="row my-auto flex-column flex-md-row m-1">
                                                             <span> <span class="font-wieght-bold"> Product Name: </span> {{ $product->title }} </span>
                                                             <span> <span class="font-wieght-bold"> price: </span> {{ $product->final_price }}$ </span>
                                                             <span> <span class="font-wieght-bold"> Qty: </span> {{ $quantity }} </span>

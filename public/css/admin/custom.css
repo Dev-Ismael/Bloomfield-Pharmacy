@@ -47,7 +47,9 @@ body::-webkit-scrollbar-thumb {
 .text-primary:hover {
     color: var(--green) !important;
 }
-
+.font-wieght-bold{
+    font-weight: bolder;
+}
 /*=========== Buttons ===========*/
 .btn-primary {
     background-color: var(--green) !important;

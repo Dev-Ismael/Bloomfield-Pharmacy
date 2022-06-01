@@ -17,6 +17,7 @@ class CreatePrescriptionOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('prescription_id');
+            $table->string('status' , 1 )->default('0'); // 0 => Pending ; 1 => done
             $table->timestamps();
         });
     }

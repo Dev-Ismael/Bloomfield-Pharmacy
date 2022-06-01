@@ -54,7 +54,7 @@
                                 </span>
 
                                     <!--------- Check Prescription Valid/Pending ----------->
-                                    @if ( $prescription->validation != '0'  )
+                                    @if ( $prescription->validation == '2' )
                                         <a href="#" class="btn btn-green create-by-prescription"> <i class="fa-solid fa-cart-shopping"></i> Order Products </a>
                                     @endif
 
@@ -134,7 +134,7 @@
                                         <hr>
 
                                         <!--------- Check Prescription Valid/Pending ----------->
-                                        @if ( $prescription->validation != '0'  )
+                                        @if ( $prescription->validation == '2' )
                                             <!-------------- Schedule ----------------->
                                             <div class="schedule  d-flex align-items-center">
                                                 <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>

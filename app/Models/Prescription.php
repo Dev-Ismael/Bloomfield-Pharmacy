@@ -20,4 +20,8 @@ class Prescription extends Model
         return  $this -> belongsTo("App\Models\User") ;  
     }
 
+
+    public function prescription_orders(){
+        return  $this -> hasMany("App\Models\PrescriptionOrder") ;
+    }
 }

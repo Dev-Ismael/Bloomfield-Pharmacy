@@ -147,8 +147,10 @@ class OrderController extends Controller
     {
         $users = User::get();
         // find id in Db With Error 404
+        $products = Product::get();
+
         $order = Order::findOrFail($id);  
-        return view("admin.orders.edit" , compact("order","users") ) ;
+        return view("admin.orders.edit" , compact("order","users","products") ) ;
     }
 
     /**
@@ -158,38 +160,71 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePrescriptionRequest $request, $id)
+    public function update(OrderRequest $request, $id)
     {
         
+        // set var request Address / Phone
+        $shipping_address = $request->address;
+        $shipping_phone = $request->phone;
+
+
+        // get product_id
+        $product_id = $request->product_id;
+
+        // get Product Price by product_id
+        $products_prices = Product::whereIn('id', $product_id)->pluck('final_price')->toArray();
+
+        // get quantity
+        $quantity = $request->quantity;
+
+        // create Calc array
+        $calcArray = array_combine($products_prices, $quantity);
+
+        // create cart array
+        $cartArray = array_combine($product_id, $quantity);
+
+        // New array has multiplicate (product_id * quantity)
+        $multiplicateCalcArray = [];
+        foreach($calcArray as $products_prices => $quantity){
+            array_push($multiplicateCalcArray, ($products_prices * $quantity) );
+        }
+
+        // SubTotal
+        $subTotal = array_sum($multiplicateCalcArray);
+
+        // taxes Var
+        $taxes_percentage = 5;
+        $taxes = ( $taxes_percentage / 100 )* $subTotal;
+
+        // shiping shiping fees
+        $shiping = 5 ;
+
+        // Total price
+        $total = $subTotal + $taxes + $shiping ;
 
         // find id in Db With Error 404
         $order = Order::findOrFail($id); 
-        $requestData = $request->all();
 
-        
-        // Check If There img Uploaded
-        if( $request-> hasFile("img") ){
-            //  Upload image & Create name img
-            $file_extention = $request->img -> getClientOriginalExtension();
-            $file_name = time() . "." . $file_extention;   // name => 3628.png
-            $path = "images/orders" ;
-            $request->img -> move( $path , $file_name );
-        }else{
-            $file_name = $order->img;
-        }
-        
-        $requestData = $request->all();
-        $requestData['img'] = $file_name;
-
-
-        // Update Record in DB
+        // Store in DB
         try {
-            $update = $order-> update( $requestData );
-                return redirect() -> route("admin.orders.index") -> with( [ "success" => " Order updated successfully"] ) ;
-            if(!$update) 
-                return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            $update = $order->update([
+                'user_id'         => Auth::id(),
+                'address'         => $shipping_address,
+                'phone'           => $shipping_phone,
+                'cart'            => $cartArray,
+                'subtotal'        => $subTotal,
+                'taxes_percentage'=> $taxes_percentage,
+                'taxes'           => $taxes,
+                'shiping'         => $shiping,
+                'total'           => $total,
+                'status'          => $request->status,
+            ]);
+            if (!$update) {
+                return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at added opration"] ) ;
+            }
+            return redirect() -> route("admin.orders.index") -> with( [ "success" => " Order Updated successfully"] ) ;
         } catch (\Exception $e) {
-            return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
 
     }

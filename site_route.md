@@ -19,7 +19,7 @@
     - prescription_orders ==> ( user_id , prescription_id ,  address )
     - Orders   ==> ( user_id , array[ product , quntity ] , Total price , address , status )
     - messeges ==> name , email , subject , messege
-    - notification ==> user_id , content , as_read
+    - notification ==> link , content , as_read
 
 
 
@@ -29,10 +29,7 @@ tasks :
 --------------
 - add categories data
 - add products data
-- finsh orders opration
-- update profile info
 - dashboard stats
-- fix carts & wishlist page
 - google sites notification
 
 
@@ -52,12 +49,11 @@ tasks :
 
 
 problems  :
-
+-----------------------------
 - convert search to 'Get' method
 - focus inputs at admin 
 - multi select javascript
 - select option user by search  
-- array of medicine
 - hidden delete-prescription-btn 
 - fixed css footer 
 - Organize js files

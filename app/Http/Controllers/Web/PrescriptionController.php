@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Prescription;
+use App\Models\PrescriptionOrder;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -130,6 +131,14 @@ class PrescriptionController extends Controller
             ]);
         }
 
+        //  prescription must valid
+        if ( $prescription->validation != '2' ) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
         // Get User ID
         $user_id = Auth::id();
 
@@ -143,11 +152,11 @@ class PrescriptionController extends Controller
 
         // Update Record
         $update = $prescription->update([
-            'schedule_orders' => '1' ,   
-            'scheduled_start' => Carbon::now(), 
+            'schedule_orders' => '1' ,
+            'scheduled_start' => Carbon::now(),
         ]);
 
-        if (!$update) {  
+        if (!$update) {
             return response()->json([
                 "status" => 'error',
                 "msg" => "error at operation",
@@ -158,7 +167,7 @@ class PrescriptionController extends Controller
             "status" => 'success',
             "msg" => "update operation successfully",
         ]);
-        
+
     }
 
     public function stop_prescription_schedule($id)
@@ -176,6 +185,14 @@ class PrescriptionController extends Controller
             ]);
         }
 
+        // prescription must valid
+        if ( $prescription->validation != '2' ) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
         // Get User ID
         $user_id = Auth::id();
 
@@ -189,11 +206,11 @@ class PrescriptionController extends Controller
 
         // Update Record
         $update = $prescription->update([
-            'schedule_orders' => '0' ,   
-            'scheduled_start' => Null, 
+            'schedule_orders' => '0' ,
+            'scheduled_start' => Null,
         ]);
 
-        if (!$update) {  
+        if (!$update) {
             return response()->json([
                 "status" => 'error',
                 "msg" => "error at operation",
@@ -204,6 +221,72 @@ class PrescriptionController extends Controller
             "status" => 'success',
             "msg" => "update operation successfully",
         ]);
-        
+
     }
+
+    public function create_prescription_orders($id)
+    {
+
+
+        // Find in DB
+        $prescription = Prescription::find($id);
+
+        // If Find fails
+        if (!$prescription) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        // prescription must valid
+        if ( $prescription->validation != '2' ) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        // Get User ID
+        $user_id = Auth::id();
+
+        // check if not auth user
+        if ($prescription->user_id != $user_id) {
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+        }
+
+        try {
+
+            // create Record
+            $prescription_order = PrescriptionOrder::create([
+                'user_id'          => $user_id ,
+                'prescription_id' =>  $id ,
+            ]);
+
+            if (!$prescription_order) {
+                return response()->json([
+                    "status" => 'error',
+                    "msg" => "error at operation",
+                ]);
+            }
+
+            return response()->json([
+                "status" => 'success',
+                "msg" => "Orders request sent successfully!",
+            ]);
+
+        }catch (\Exception $e) {
+
+            return response()->json([
+                "status" => 'error',
+                "msg" => "error at operation",
+            ]);
+
+        }
+
+    }
+
 }

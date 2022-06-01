@@ -55,7 +55,7 @@
 
                                     <!--------- Check Prescription Valid/Pending ----------->
                                     @if ( $prescription->validation == '2' )
-                                        <a href="#" class="btn btn-green create-by-prescription"> <i class="fa-solid fa-cart-shopping"></i> Order Products </a>
+                                        <a href="#" class="btn btn-green create_prescription_orders" prescription_id="{{$prescription->id}}"> <i class="fa-solid fa-cart-shopping"></i> Order Products </a>
                                     @endif
 
                                     <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
@@ -63,22 +63,22 @@
                             <div id="collapse-{{$key}}" class="collapse {{ $key == 0 ? 'show' : ''}}" data-parent="#accordionExample">
                                 <div class="card-body row text-left">
 
-                                    
+
                                     <div class="col-md-6 d-flex justify-content-center align-content-between">
                                         <img src="{{ asset("images/prescriptions/".$prescription->img) }}" class="prescription-img" class="img-fluid" alt="prescription-image">
                                     </div>
-                                    
+
                                     <div class="col-md-6 prescriptions-info mt-5">
 
                                         <!-------------- description ----------------->
                                         <div class="description">
                                             <span class="title"> <i class="fa-solid fa-align-left"></i> Aditional Details :  </span>
                                             @if ( $prescription->additional_details != Null )
-                                                <p> 
-                                                    {{ $prescription->additional_details }} 
+                                                <p>
+                                                    {{ $prescription->additional_details }}
                                                 </p>
                                             @else
-                                               <span> <i class="fa-solid fa-circle-question"></i> </span> 
+                                               <span> <i class="fa-solid fa-circle-question"></i> </span>
                                             @endif
                                         </div>
                                         <hr>
@@ -96,7 +96,7 @@
                                                     @endforeach
                                                 </ul>
                                             @else
-                                               <span> <i class="fa-solid fa-circle-question"></i> </span> 
+                                               <span> <i class="fa-solid fa-circle-question"></i> </span>
                                             @endif
                                         </div>
                                         <hr>
@@ -141,7 +141,7 @@
                                             <div class="schedule  d-flex align-items-center">
                                                 <h4 class="title"> <i class="fa-solid fa-calendar"></i> Schedule Orders : </h4>
                                                 <div class="toggle-btn {{ $prescription->schedule_orders == '1' ? 'active' : '' }}">
-                                                    <input type="checkbox" class="cb-value" 
+                                                    <input type="checkbox" class="cb-value"
                                                         schedule_status="{{ $prescription->schedule_orders == '1' ? 'open' : 'close' }}"
                                                         prescription_id="{{ $prescription->id }}"/>
                                                     <span class="round-btn"></span>
@@ -149,7 +149,7 @@
                                             </div>
                                             <hr>
                                         @endif
-                                        
+
 
 
                                         <!-------------- Buttons ----------------->
@@ -157,14 +157,14 @@
                                             <a href="#" class="btn btn-danger delete-prescription-btn" prescription_id="{{ $prescription->id }}"> <i class="fa-solid fa-xmark"></i> Delete Prescription </a>
                                         </div>
 
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                     @endforeach
-                    
+
                 </div>
             @endif
 

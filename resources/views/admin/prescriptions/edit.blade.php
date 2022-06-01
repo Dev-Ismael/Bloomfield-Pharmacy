@@ -53,7 +53,7 @@
                                                 @endforeach
                                             </select>
                                             @error('user_id')
-                                                <small class="form-text text-danger">{{$message }}</small> 
+                                                <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
                                         </div>
 
@@ -73,9 +73,9 @@
                                             <label for="gender" class="capitalize"> <i class="fa-solid fa-venus-mars"></i> Gender </label>
                                                 <select class="form-select form-control @error('gender') is-invalid @enderror" name="gender" id="gender"  aria-label="Default select example" required>
                                                     <option value="" selected="selected" class="d-none">Choose Patient Gender...</option>
-                                                    <option value="male"   {{ $user->gender == 'male' ? "selected" : "" }}>Male</option>
-                                                    <option value="female" {{ $user->gender == 'female' ? "selected" : "" }}>Female</option>
-                                                    <option value="other"  {{ $user->gender == 'other' ? "selected" : "" }}>Other</option>
+                                                    <option value="male"   {{ $prescription->gender == 'male' ? "selected" : "" }}>Male</option>
+                                                    <option value="female" {{ $prescription->gender == 'female' ? "selected" : "" }}>Female</option>
+                                                    <option value="other"  {{ $prescription->gender == 'other' ? "selected" : "" }}>Other</option>
                                                 </select>
                                             @error('gender')
                                                 <small class="form-text text-danger">{{ $message }}</small>
@@ -84,14 +84,14 @@
 
                                         <!------------ Prescription Medicine ----------------->
                                         <div class="mb-4 input-content dynamic-inputs">
-                                            <label for="medicine" class="capitalize"> 
-                                                <i class="fa-solid fa-capsules"></i> Medicines 
+                                            <label for="medicine" class="capitalize">
+                                                <i class="fa-solid fa-capsules"></i> Medicines
                                                 <button type="button" class="btn btn-primary add-field">
                                                     <i class="fa-solid fa-plus" style="color: #fff"></i>
                                                 </button>
                                             </label>
 
-                                            
+
                                                 <!--- Filter Null valuesin address array --->
                                                 @php $prescriptionMedicine = array_filter( $prescription->medicine )  @endphp
                                                 <!-- if every value not empty -->
@@ -137,10 +137,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                @endif 
-                                           
-                                            
-                                            
+                                                @endif
+
+
+
 
                                             <div id="newRowsContainer"></div>
                                             @error('medicine') <!--------- if isset array Validation ------------>
@@ -151,7 +151,7 @@
                                             @enderror
                                         </div>
 
-                                        
+
                                         <div class="mb-4 input-content">
                                             <label for="validation" class="capitalize"> <i class="fa-solid fa-list-check"></i> Validation </label>
                                             <select class="form-select form-control @error('validation') is-invalid @enderror" name="validation" id="validation"  aria-label="Default select example" required>
@@ -161,10 +161,10 @@
                                                 <option value="3" {{ $prescription->validation == "3" ? "selected" : "" }}> Not Valid </option>
                                             </select>
                                             @error('validation')
-                                                <small class="form-text text-danger">{{$message }}</small> 
+                                                <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
                                         </div>
-                                        
+
 
                                         <div class="mb-4 input-content">
                                             <label for="schedule_orders" class="capitalize"> <i class="fa-solid fa-calendar-check"></i> Schedule Orders Automatically</label>
@@ -174,7 +174,7 @@
                                                 <option value="1" {{ $prescription->schedule_orders == "1" ? "selected" : "" }}> ON </option>
                                             </select>
                                             @error('schedule_orders')
-                                                <small class="form-text text-danger">{{$message }}</small> 
+                                                <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
                                         </div>
 
@@ -189,24 +189,24 @@
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
-                                        
+
                                         <div class="mb-4 input-content">
                                             <label for="additional_details" class="capitalize"> <i class="fa-solid fa-align-left"></i> Additional Details </label>
                                             <textarea type="text" name="additional_details" id="additional_details" rows="5" class="form-control @error('additional_details') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type Prescription descreption..." autocomplete="nope"/>{{ $prescription->additional_details }}</textarea>
                                             @error('additional_details')
-                                                <small class="form-text text-danger">{{$message }}</small> 
+                                                <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
                                         </div>
 
                                         <div class="mb-3 input-content">
-                                            <label for="img" class="form-label d-flex align-items-center"> 
-                                                <i class="fa-solid fa-image"></i> &nbsp; Prescription Image 
+                                            <label for="img" class="form-label d-flex align-items-center">
+                                                <i class="fa-solid fa-image"></i> &nbsp; Prescription Image
                                                 <div class="show-img-container">
                                                     <a href="{{ asset("images/categories/".$prescription->img) }}"  target="_blank">
                                                         <img src="{{ asset("images/prescriptions/".$prescription->img) }}" alt="prescription-img">
                                                     </a>
                                                 </div>
-                                            </label> 
+                                            </label>
                                             <input name="img" type="file" class="form-control @error('img') is-invalid @enderror" id="img"  />
                                             @error('img')
                                                 <small class="form-text text-danger">{{ $message }}</small>
@@ -215,7 +215,7 @@
 
 
                                         <button type="submit" class="btn btn-primary float-right" > <i class="fa-solid fa-floppy-disk"></i> Save </button>
-                            
+
                                     </form>
                                 </div>
                             </div>

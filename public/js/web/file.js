@@ -324,6 +324,55 @@
 
 
         /*========================================================================
+        ================= Delete Prescription ====================================
+        =========================================================================*/
+        $("#prescriptions-page .create_prescription_orders").on('click', function (e) {
+
+            e.preventDefault();
+            var prescription_id = $(this).attr('prescription_id');
+
+            // Sweet alert Confirm
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Create orders with contents of this prescription ",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, do it!'
+            }).then((result) => {
+                // If confirm Yes
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: '/create_prescription_orders/' + prescription_id,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function (response) {
+
+                            if (response.status == 'error') {
+                                Swal.fire(response.status, response.msg, response.status)
+                            }
+                            else if (response.status == 'success') {
+                                Swal.fire(response.status, response.msg, response.status)
+                                .then((value) => {
+                                    window.location.href = "/prescriptions";
+                                });
+                            }
+
+                        },
+                        error: function (response) {
+                            alert("error at connection");
+                        }
+                    });
+
+                }
+            });
+        });
+
+        /*========================================================================
         ================= Add to withlist ========================================
         =========================================================================*/
         $(".product-item button.add-wishlist").on('click', function (e) {
@@ -703,13 +752,13 @@
                             $("form#create-order small.text-danger." + key ).text(val[0]);
                             $('form#create-order input[name='+ key +']').addClass("is-invalid");
                             $('form#create-order input[name=another_'+ key +']').addClass("is-invalid");
-    
+
                             // another_address validation
                             if ( key == 'another_address' ){
                                 $("form#create-order small.text-danger.address").text(val[0]);
                                 $('form#create-order input[name="another_address"]').addClass("is-invalid");
                             }
-    
+
                             // another_phone validation
                             if ( key == 'another_phone' ){
                                 $("form#create-order small.text-danger.phone").text(val[0]);
@@ -738,7 +787,7 @@
                             window.location.href = "/orders";
                         });
                     }
-                        
+
 
                 },
                 error: function (response) {

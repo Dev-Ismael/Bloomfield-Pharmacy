@@ -370,3 +370,11 @@ table.show-data td span.badge {
 table.show-data td span.badge i {
     padding-right: 3px;
 }
+/*============ order-products ====*/
+table.show-data  .order-products{
+    display: flex;
+    margin-bottom: 10px;
+}
+table.show-data  .order-products img{
+    width: 120px;
+}

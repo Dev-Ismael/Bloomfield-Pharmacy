@@ -191,6 +191,52 @@
                         </a>
                     </li>
 
+                    
+                    <li class="nav-item">
+                        <span class="nav-link d-flex justify-content-between align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#orders" aria-expanded="false">
+                            <span>
+                                <span class="sidebar-icon"> <i class="fa-solid fa-dolly"></i> </span>
+                                <span class="sidebar-text"> Orders </span>
+                            </span>
+                            <span class="link-arrow">
+                                <svg class="icon icon-sm" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                        </span>
+                        <div class="multi-level collapse" role="list" id="orders" aria-expanded="false" style="">
+                            <ul class="flex-column nav">
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Request::is('*/orders*') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">
+                                        <span class="sidebar-text-contracted">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </span>
+                                        <span class="sidebar-text">
+                                            <i class="fa-solid fa-cart-shopping me-0"></i>
+                                            Subscriped Orders
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Request::is('*/subcategories*') ? 'active' : '' }}" href="{{ route('admin.subcategories.index') }}">
+                                        <span class="sidebar-text-contracted">
+                                            <i class="fa-solid fa-file-prescription"></i>
+                                        </span>
+                                        <span class="sidebar-text">
+                                            <i class="fa-solid fa-file-prescription me-2"></i>
+                                            Prescription Orders
+                                        </span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </li>
+
+
                 </ul>
             </div>
         </nav>

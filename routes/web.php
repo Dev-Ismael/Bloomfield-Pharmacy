@@ -154,12 +154,22 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
 
 
     
-    // Prescription
+    // Prescriptions
     Route::get('prescriptions/perPage/{num}' , [App\Http\Controllers\Admin\PrescriptionController::class, 'perPage'])->name("prescriptions.perPage");
     Route::post('prescriptions/search' , [App\Http\Controllers\Admin\PrescriptionController::class, 'search'])->name("prescriptions.search");
     Route::post('prescriptions/multiAction' , [App\Http\Controllers\Admin\PrescriptionController::class, 'multiAction'])->name("prescriptions.multiAction");
     Route::resource('prescriptions', App\Http\Controllers\Admin\PrescriptionController::class);
     Route::get('prescriptions/destroy/{id}' , [App\Http\Controllers\Admin\PrescriptionController::class, 'destroy'] )->name("prescriptions.destroy");
+
+    
+    
+    // Orders
+    Route::get('orders/perPage/{num}' , [App\Http\Controllers\Admin\OrderController::class, 'perPage'])->name("orders.perPage");
+    Route::post('orders/search' , [App\Http\Controllers\Admin\OrderController::class, 'search'])->name("orders.search");
+    Route::post('orders/multiAction' , [App\Http\Controllers\Admin\OrderController::class, 'multiAction'])->name("orders.multiAction");
+    Route::resource('orders', App\Http\Controllers\Admin\OrderController::class);
+    Route::get('orders/destroy/{id}' , [App\Http\Controllers\Admin\OrderController::class, 'destroy'] )->name("orders.destroy");
+
 
 });
 

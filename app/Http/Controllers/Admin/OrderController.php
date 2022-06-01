@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Order;
-use App\Http\Requests\Order\CreatePrescriptionRequest;
-use App\Http\Requests\Order\UpdatePrescriptionRequest;
+use App\Http\Requests\OrderRequest;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
@@ -48,7 +49,8 @@ class OrderController extends Controller
     public function create()
     {
         $users = User::get();
-        return view("admin.orders.create" , compact("users"));
+        $products = Product::get();
+        return view("admin.orders.create" , compact("users","products"));
     }
 
     /**
@@ -57,29 +59,65 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreatePrescriptionRequest $request)
+    public function store(OrderRequest $request)
     {
 
+        // set var request Address / Phone
+        $shipping_address = $request->address;
+        $shipping_phone = $request->phone;
 
 
-        //  Upload image & Create name img
-        $file_extention = $request->img -> getClientOriginalExtension();
-        $file_name = time() . "." . $file_extention;   // name => 3628.png
-        $path = "images/orders" ;
-        $request -> img -> move( $path , $file_name );
+        // get product_id
+        $product_id = $request->product_id;
 
+        // get Product Price by product_id
+        $products_prices = Product::whereIn('id', $product_id)->pluck('final_price')->toArray();
 
-        $requestData = $request->all();
-        $requestData['img'] = $file_name;
+        // get quantity
+        $quantity = $request->quantity;
 
+        // create Calc array
+        $calcArray = array_combine($products_prices, $quantity);
 
+        // create cart array
+        $cartArray = array_combine($product_id, $quantity);
+
+        // New array has multiplicate (product_id * quantity)
+        $multiplicateCalcArray = [];
+        foreach($calcArray as $products_prices => $quantity){
+            array_push($multiplicateCalcArray, ($products_prices * $quantity) );
+        }
+
+        // SubTotal
+        $subTotal = array_sum($multiplicateCalcArray);
+
+        // taxes Var
+        $taxes_percentage = 5;
+        $taxes = ( $taxes_percentage / 100 )* $subTotal;
+
+        // shiping shiping fees
+        $shiping = 5 ;
+
+        // Total price
+        $total = $subTotal + $taxes + $shiping ;
 
         // Store in DB
         try {
-            $order = Order::create( $requestData );
-                return redirect() -> route("admin.orders.index") -> with( [ "success" => " Order added successfully"] ) ;
-            if(!$order) 
+            $order = Order::create([
+                'user_id'         => Auth::id(),
+                'address'         => $shipping_address,
+                'phone'           => $shipping_phone,
+                'cart'            => $cartArray,
+                'subtotal'        => $subTotal,
+                'taxes_percentage'=> $taxes_percentage,
+                'taxes'           => $taxes,
+                'shiping'         => $shiping,
+                'total'           => $total,
+            ]);
+            if (!$order) {
                 return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at added opration"] ) ;
+            }
+            return redirect() -> route("admin.orders.index") -> with( [ "success" => " Order added successfully"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }

@@ -177,7 +177,7 @@ select.form-select option {
     margin-top: 0;
 }
 
-.dynamic-inputs #inputFormRow input {
+.dynamic-inputs #inputFormRow input[id="medicine"] {
     width: calc(100% - 100px);
 }
 

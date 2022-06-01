@@ -144,7 +144,7 @@
 
     
     /*========================================================================
-    ===================  Daynamic input Order Prescription ====================
+    ===================  Daynamic input medicine Prescription ====================
     =========================================================================*/
     // Jquery Code
     $(document).ready(function(){
@@ -176,6 +176,56 @@
 
         // remove field
         $(document).on('click', 'button.remove-field', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+
+    });
+    
+    /*========================================================================
+    ===================  Daynamic input Prodcut Prescription =================
+    =========================================================================*/
+    // Jquery Code
+    $(document).ready(function(){
+        // remove field
+        $(document).on("click", "button.add-product-field" , function() {
+
+            var productsOtions = $('select#product_id').html();
+            var html = `
+                    <div id="inputFormRow">
+                        <div class="input-group">
+                            <!---------- Input ----------->
+                            <div class="container" style="padding: 0">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <select name="product_id[]" id="product_id" class="form-control" required>
+                                            `+ productsOtions +`
+                                        </select>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" class="form-control" name="quantity[]" id="quantity" placeholder="Quantity" required/>
+                                    </div>
+                                    <div class="col-3">
+                                        <!---------- Buttons ----------->
+                                        <div class="input-group-append position-relative">
+                                            <button type="button" class="btn btn-primary add-product-field">
+                                                <i class="fa-solid fa-plus" style="color: #fff"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-primary remove-product-field">
+                                                <i class="fa-solid fa-trash" style="color: #fff"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            `;
+
+            $('#newRowsContainer').append(html);
+        });
+
+        // remove field
+        $(document).on('click', 'button.remove-product-field', function () {
             $(this).closest('#inputFormRow').remove();
         });
 

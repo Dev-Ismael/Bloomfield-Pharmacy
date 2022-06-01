@@ -138,8 +138,9 @@
                             aria-label="Message select example" style="display:inline">
                             <option value="" selected="selected" style="display: none"> Choose Action </option>
                             <option value="delete"> Delete </option>
-                            <option value="vaild"> Valid </option>
-                            <option value="not_vaild"> Not Valid </option>
+                            <option value="status_shipped"> Set status => Shipped </option>
+                            <option value="status_enRoute"> Set status => En Route </option>
+                            <option value="status_arrived"> Set status => Arrived </option>
                         </select>
                         <button type="submit" id="multi-alert-btn" class="btn btn-sm px-3 btn-primary ms-3 multi-alert"
                             disabled> <i class="fa-solid fa-list-check"></i> Apply</button>

@@ -308,10 +308,10 @@ class OrderController extends Controller
             }
         }
             
-        // If Action is Vaild
-        if( $request->action == "vaild" ){
+        // If status shipped
+        if( $request->action == "status_shipped" ){
             try {
-                $vaild = Order::whereIn('id', $request->id )->update([ 'validation' => '2' ]);
+                $vaild = Order::whereIn('id', $request->id )->update([ 'status' => '2' ]);
                     return redirect() -> route("admin.orders.index") -> with( [ "success" => " Orders updated successfully"] ) ;
                 if(!$vaild) 
                     return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
@@ -320,10 +320,22 @@ class OrderController extends Controller
             }
         }
             
-        // If Action is Not Vaild
-        if( $request->action == "not_vaild" ){
+        // If Action status EnRoute
+        if( $request->action == "status_enRoute" ){
             try {
-                $not_vaild = Order::whereIn('id', $request->id )->update([ 'validation' => '0' ]);
+                $not_vaild = Order::whereIn('id', $request->id )->update([ 'status' => '3' ]);
+                    return redirect() -> route("admin.orders.index") -> with( [ "success" => " Orders updated successfully"] ) ;
+                if(!$not_vaild) 
+                    return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            } catch (\Exception $e) {
+                return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            }
+        }
+            
+        // If Action status_arrived
+        if( $request->action == "status_arrived" ){
+            try {
+                $not_vaild = Order::whereIn('id', $request->id )->update([ 'status' => '4' ]);
                     return redirect() -> route("admin.orders.index") -> with( [ "success" => " Orders updated successfully"] ) ;
                 if(!$not_vaild) 
                     return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;

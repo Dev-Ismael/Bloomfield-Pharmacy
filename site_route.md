@@ -17,8 +17,9 @@
     - Messege  ==>  ( full Name , email , Subject , Messege )
     - Prescription  ( img , age , gender , additional_details , medicine , validation , schedule_orders(0,1)  time_schedule )
     - prescription_orders ==> ( user_id , prescription_id ,  address )
-    - Orders   ==> ( user_id , array[ product , quntity , price ] , Total price , address , status )
-
+    - Orders   ==> ( user_id , array[ product , quntity ] , Total price , address , status )
+    - messeges ==> name , email , subject , messege
+    - notification ==> user_id , content , as_read
 
 
 
@@ -55,5 +56,8 @@ problems  :
 - convert search to 'Get' method
 - focus inputs at admin 
 - multi select javascript
+- select option user by search  
 - array of medicine
 - hidden delete-prescription-btn 
+- fixed css footer 
+- Organize js files

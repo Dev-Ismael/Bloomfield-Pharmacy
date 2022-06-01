@@ -112,7 +112,7 @@
                                         @if( $userPhone != null )
                                             <div class="row">
                                                 <div class="additional_details col-md-10 text-left">
-                                                    <label for="phone" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Shipping Phone </label>
+                                                    <label for="phone" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Phone </label>
                                                     @foreach ( $userPhone as $key => $phone)
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio" name="phone"
@@ -135,7 +135,7 @@
                                         @else
                                             <div class="row">
                                                 <div class="col-md-10 form-group text-left">
-                                                    <label for="phone" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Shipping Phone </label>
+                                                    <label for="phone" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Phone </label>
                                                     <input type="text" name="phone" class="form-control" id="phone" placeholder="Type Phone Details...">
                                                 </div>
                                             </div>

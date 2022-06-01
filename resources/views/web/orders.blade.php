@@ -84,7 +84,7 @@
                                                                 <div>
                                                                     <p class="mb-0">
                                                                         <span class="h4 font-weight-bold">
-                                                                            <i class="fa-solid fa-location-dot"></i> Shipping Address
+                                                                            <i class="fa-solid fa-location-dot"></i> Shipping Address:
                                                                         </span>
                                                                         <span class="pl-2">
                                                                             {{ $order->address }}
@@ -95,7 +95,7 @@
                                                                 <div class="text-end">
                                                                     <p class="mb-0">
                                                                         <span class="h4 font-weight-bold">
-                                                                            <i class="fa-solid fa-phone-volume"></i> Phone
+                                                                            <i class="fa-solid fa-phone-volume"></i> Phone:
                                                                         </span>
                                                                         <span class="pl-2">
                                                                             {{ $order->phone }}
@@ -108,10 +108,14 @@
                                                             <div class="order-setps">
                                                                 <ul id="progressbar-2"
                                                                     class="d-flex justify-content-between mx-0 mt-0 mb-5 px-0 pt-0 pb-2">
-                                                                    <li class="step0 active text-center" id="{{ $order->status == '1' ? 'step1' : 'step4' }}"></li>
-                                                                    <li class="step0 active text-center" id="{{ $order->status == '2' ? 'step1' : 'step4' }}"></li>
-                                                                    <li class="step0 text-muted text-end" id="{{ $order->status == '3' ? 'step1' : 'step4' }}"></li>
-                                                                    <li class="step0 text-muted text-end" id="{{ $order->status == '4' ? 'step1' : 'step4' }}"></li>
+                                                                    @php
+                                                                        // convert orderStatus to intger 
+                                                                        $orderStatus = (int)$order->status;
+                                                                    @endphp
+                                                                    <li class="step0 {{ $orderStatus >= 1 ? 'active text-center' : 'text-muted text-end' }} {{ $orderStatus == 1 ? 'last-setp' : '' }}" ></li>
+                                                                    <li class="step0 {{ $orderStatus >= 2 ? 'active text-center' : 'text-muted text-end' }} {{ $orderStatus == 2 ? 'last-setp' : '' }}" ></li>
+                                                                    <li class="step0 {{ $orderStatus >= 3 ? 'active text-center' : 'text-muted text-end' }} {{ $orderStatus == 3 ? 'last-setp' : '' }}" ></li>
+                                                                    <li class="step0 {{ $orderStatus >= 4 ? 'active text-center' : 'text-muted text-end' }} {{ $orderStatus == 4 ? 'last-setp' : '' }}" ></li>
                                                                 </ul>
 
                                                                 <div class="d-flex justify-content-between">

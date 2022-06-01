@@ -1690,41 +1690,6 @@ input::placeholder {
     float: left;
     position: relative;
 }
-
-#orders-page #progressbar-2 #step1:before {
-    content: '\f058';
-    font-family: "Font Awesome 5 Free";
-    color: #fff;
-    width: 37px;
-    margin-left: 0px;
-    padding-left: 0px;
-}
-
-#orders-page #progressbar-2 #step2:before {
-    content: '\f058';
-    font-family: "Font Awesome 5 Free";
-    color: #fff;
-    width: 37px;
-}
-
-#orders-page #progressbar-2 #step3:before {
-    content: '\f058';
-    font-family: "Font Awesome 5 Free";
-    color: #fff;
-    width: 37px;
-    margin-right: 0;
-    text-align: center;
-}
-
-#orders-page #progressbar-2 #step4:before {
-    content: '\f111';
-    font-family: "Font Awesome 5 Free";
-    color: #fff;
-    width: 37px;
-    margin-right: 0;
-    text-align: center;
-}
-
 #orders-page #progressbar-2 li:before {
     line-height: 37px;
     display: block;
@@ -1743,37 +1708,44 @@ input::placeholder {
     right: 0%;
     top: 15px;
     z-index: -1;
-}
-
-#orders-page #progressbar-2 li:nth-child(1):after {
     left: 1%;
     width: 100%
 }
-
-#orders-page #progressbar-2 li:nth-child(2):after {
-    left: 1%;
-    width: 100%;
-}
-
-#orders-page #progressbar-2 li:nth-child(3):after {
-    left: 1%;
-    width: 100%;
-    background: #c5cae9 !important;
-}
-
-#orders-page #progressbar-2 li:nth-child(4) {
-    left: 0;
+#orders-page #progressbar-2 li:last-of-type{
     width: 37px;
 }
-
-#orders-page #progressbar-2 li:nth-child(4):after {
-    left: 0;
-    width: 0;
+#orders-page #progressbar-2 li:last-of-type:after {
+    left: 1%;
+    width: 0%;
+}
+/*== Active class ==*/
+#orders-page #progressbar-2 li:before {
+    content: '\f111';
+    font-family: "Font Awesome 5 Free";
+    color: #fff;
+    width: 37px;
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
-#orders-page #progressbar-2 li.active:before,
-#orders-page #progressbar-2 li.active:after {
+#orders-page #progressbar-2 li.active:before {
+    content: '\f058';
+    font-family: "Font Awesome 5 Free";
+    color: #fff;
+    width: 37px;
+    margin-right: 0;
+    text-align: center;
     background: #2e8345;
+}
+#orders-page #progressbar-2 li.active:after{ 
+    background: #2e8345;
+}
+#orders-page #progressbar-2 li.active:last-of-type:after{ 
+    background: #c5cae9;
+}
+
+#orders-page #progressbar-2 li.active.last-setp:after{ 
+    background: #c5cae9;
 }
 
 @media (max-width: 575.98px) {

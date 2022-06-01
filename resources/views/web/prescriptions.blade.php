@@ -86,13 +86,15 @@
                                         <!-------------- Medicine ----------------->
                                         <div class="medicine">
                                             <span class="title"> <i class="fa-solid fa-capsules"></i> Prescription Medicine :  </span>
-                                            @if ( $prescription->medicine != Null  )
+                                            <!--- Filter Null valuesin address array --->
+                                            @php $prescriptionMedicine = array_filter( $prescription->medicine )  @endphp
+                                            <!-- if every value not empty -->
+                                            @if ( $prescriptionMedicine != Null  )
                                                 <ul>
-                                                    @foreach ( $prescription->medicine as $medicine )
-                                                            <li> {{ $medicine }} </li>
+                                                    @foreach ( $prescriptionMedicine as $key => $medicine)
+                                                        <li> {{ $medicine }} </li>
                                                     @endforeach
                                                 </ul>
-
                                             @else
                                                <span> <i class="fa-solid fa-circle-question"></i> </span> 
                                             @endif

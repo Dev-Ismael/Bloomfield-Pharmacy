@@ -66,15 +66,18 @@
                                         <tr>
                                             <td class="text-capitalize" style="vertical-align: top;"> <i class="fa-solid fa-capsules"></i> Medicine </td>
                                             <td>
-                                                @if ( $prescription->medicine == '')
-                                                    -
-                                                @else 
+                                                <!--- Filter Null valuesin address array --->
+                                                @php $prescriptionMedicine = array_filter( $prescription->medicine )  @endphp
+                                                <!-- if every value not empty -->
+                                                @if ( $prescriptionMedicine != Null  )
                                                     <ul style="padding-left: 1rem; margin-bottom:0px">
                                                         @foreach ( $prescription->medicine as $medicine )
                                                             <li> {{ $medicine }} </li>
                                                         @endforeach
                                                     </ul>
-                                                @endif 
+                                                @else
+                                                    -
+                                                @endif
                                             </td>
                                         </tr>
                                         <tr>

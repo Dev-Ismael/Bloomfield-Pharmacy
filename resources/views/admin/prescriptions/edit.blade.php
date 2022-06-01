@@ -92,27 +92,56 @@
                                             </label>
 
                                             
-                                            @for ( $i = 0 ; $i < count($prescription->medicine) ; $i++ )
-                                                <div id="inputFormRow">
-                                                    <div class="input-group">
-                                                        <!---------- Input ----------->
-                                                        <input type="text" name="medicine[]" id="medicine"
-                                                            class="form-control"
-                                                            value="{{ $prescription->medicine[$i] }}"
-                                                            aria-describedby="emailHelp"
-                                                            placeholder="Type Medicine Title..." autocomplete="nope" required/>
-                                                        <!---------- Buttons ----------->
-                                                        <div class="input-group-append position-relative">
-                                                            <button type="button" class="btn btn-primary add-field">
-                                                                <i class="fa-solid fa-plus" style="color: #fff"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary remove-field">
-                                                                <i class="fa-solid fa-trash" style="color: #fff"></i>
-                                                            </button>
+                                                <!--- Filter Null valuesin address array --->
+                                                @php $prescriptionMedicine = array_filter( $prescription->medicine )  @endphp
+                                                <!-- if every value not empty -->
+                                                @if ( $prescriptionMedicine != Null  )
+                                                    @for ( $i = 0 ; $i < count($prescription->medicine) ; $i++ )
+                                                        <div id="inputFormRow">
+                                                            <div class="input-group">
+                                                                <!---------- Input ----------->
+                                                                <input type="text" name="medicine[]" id="medicine"
+                                                                    class="form-control"
+                                                                    value="{{ $prescription->medicine[$i] }}"
+                                                                    aria-describedby="emailHelp"
+                                                                    placeholder="Type Medicine Title..." autocomplete="nope" required/>
+                                                                <!---------- Buttons ----------->
+                                                                <div class="input-group-append position-relative">
+                                                                    <button type="button" class="btn btn-primary add-field">
+                                                                        <i class="fa-solid fa-plus" style="color: #fff"></i>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary remove-field">
+                                                                        <i class="fa-solid fa-trash" style="color: #fff"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endfor
+                                                @else
+                                                    <div id="inputFormRow">
+                                                        <div class="input-group">
+                                                            <!---------- Input ----------->
+                                                            <input type="text" name="medicine[]" id="medicine"
+                                                                class="form-control"
+                                                                value=""
+                                                                aria-describedby="emailHelp"
+                                                                placeholder="Type Medicine Title..." autocomplete="nope" required/>
+                                                            <!---------- Buttons ----------->
+                                                            <div class="input-group-append position-relative">
+                                                                <button type="button" class="btn btn-primary add-field">
+                                                                    <i class="fa-solid fa-plus" style="color: #fff"></i>
+                                                                </button>
+                                                                <button type="button" class="btn btn-primary remove-field">
+                                                                    <i class="fa-solid fa-trash" style="color: #fff"></i>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            @endfor
+                                                @endif 
+                                           
+                                            
+                                            
+
                                             <div id="newRowsContainer"></div>
                                             @error('medicine') <!--------- if isset array Validation ------------>
                                                 <small class="form-text text-danger">{{$message }}</small>

@@ -58,15 +58,10 @@ class PrescriptionController extends Controller
         // Add user ID in Request Variable
         $requestData += ['user_id' => $user_id];
 
-        // Filter emptyFields 
-        $requestData['medicine'] = array_filter($requestData['medicine']);
-
-        // if medicine is empety array 
-        if ($requestData['medicine'] == []) {
-            $requestData['medicine'] = Null;
+        // if null field insert empty array
+        if( $request->medicine == [null] ){
+            $requestData['medicine'] = [] ;
         }
-
-        // return $requestData['medicine'];
 
         // Store in DB
         try {

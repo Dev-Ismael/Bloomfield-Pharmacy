@@ -9,7 +9,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Notification extends Model
 {
 
-    protected $fillable = [ 'link', 'content', 'as_read' ];
+    protected $fillable = [ 'user_id' , 'link', 'content', 'as_read' ];
 
 
 

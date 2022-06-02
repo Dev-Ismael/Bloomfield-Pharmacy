@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Notification;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -150,6 +151,20 @@ class OrderController extends Controller
             // Delete Carts
             $delete_carts = Cart::destroy( $carts_ids );
             if (!$delete_carts) {
+                return response()->json([
+                    "status" => 'error',
+                    "msg" => "error at operation",
+                ]);
+            }
+
+            // Create Notification 
+            $notification = Notification::create([
+                'user_id'  => Auth::id(),
+                'link'     => route('admin.orders.show', $order->id),
+                'content'  => "create_order" ,
+            ]);
+
+            if (!$notification) {
                 return response()->json([
                     "status" => 'error',
                     "msg" => "error at operation",

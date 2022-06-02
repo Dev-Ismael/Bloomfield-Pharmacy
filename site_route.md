@@ -18,8 +18,8 @@
     - Prescription  ( img , age , gender , additional_details , medicine , validation , schedule_orders(0,1)  time_schedule )
     - prescription_orders ==> ( user_id , prescription_id ,  address )
     - Orders   ==> ( user_id , array[ product , quntity ] , Total price , address , status )
-    - notification ==> link , content , as_read  ( use at => user_create_order ,  user_upload_prescriotion , request_prescription_order , messege_sent )
-    - messeges ==> name , email , subject , messege
+    - notification ==> user_id , link , content , as_read  ( use at => create_order ,  user_upload_prescriotion , create_prescription_order , messege_sent )
+    - Messeges ==> name , email , subject , messege
 
 
 
@@ -58,3 +58,4 @@ problems  :
 - fixed css footer 
 - Organize js files
 - edit address & phone array in  admin panal
+- fix redirect after error !prescription 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use App\Models\Prescription;
 use App\Models\PrescriptionOrder;
 use Carbon\Carbon;
@@ -66,10 +67,23 @@ class PrescriptionController extends Controller
 
         // Store in DB
         try {
+
             $prescription = Prescription::create($requestData);
-            return redirect()->route("prescriptions")->with(["success" => " Prescription added successfully"]);
             if (!$prescription)
                 return redirect()->route("prescriptions")->with(["failed" => "Error at added opration"]);
+
+            // Create Notification 
+            $notification = Notification::create([
+                'user_id'  => Auth::id(),
+                'link'     => route('admin.prescriptions.show', $prescription->id),
+                'content'  => "upload_prescriotion" ,
+            ]);
+            if (!$notification) 
+                return redirect()->route("prescriptions")->with(["failed" => "Error at added opration"]);
+            
+
+            return redirect()->route("prescriptions")->with(["success" => " Prescription added successfully"]);
+
         } catch (\Exception $e) {
             return redirect()->route("prescriptions")->with(["failed" => "Error at added opration"]);
         }
@@ -267,6 +281,21 @@ class PrescriptionController extends Controller
             ]);
 
             if (!$prescription_order) {
+                return response()->json([
+                    "status" => 'error',
+                    "msg" => "error at operation",
+                ]);
+            }
+
+
+            // Create Notification 
+            $notification = Notification::create([
+                'user_id'  => Auth::id(),
+                'link'     => route('admin.orders.show', $prescription_order->id),
+                'content'  => "create_prescription_order" ,
+            ]);
+
+            if (!$notification) {
                 return response()->json([
                     "status" => 'error',
                     "msg" => "error at operation",

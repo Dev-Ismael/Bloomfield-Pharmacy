@@ -291,7 +291,7 @@ class PrescriptionController extends Controller
             // Create Notification 
             $notification = Notification::create([
                 'user_id'  => Auth::id(),
-                'link'     => route('admin.orders.show', $prescription_order->id),
+                'link'     => route('admin.prescription_orders.show', $prescription_order->id),
                 'content'  => "create_prescription_order" ,
             ]);
 

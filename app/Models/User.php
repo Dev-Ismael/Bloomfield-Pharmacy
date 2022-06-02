@@ -62,5 +62,9 @@ class User extends Authenticatable
     public function prescription_orders(){
         return  $this -> hasMany("App\Models\PrescriptionOrder") ;
     }
-    
+
+    public function notifications(){
+        return  $this -> hasMany("App\Models\Notification") ;
+    }
+
 }

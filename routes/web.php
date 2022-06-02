@@ -184,6 +184,11 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
 
 
 
+    // Prescription Orders
+    Route::get('notifications/perPage/{num}' , [App\Http\Controllers\Admin\NotificationController::class, 'perPage'])->name("notifications.perPage");
+    Route::post('notifications/multiAction' , [App\Http\Controllers\Admin\NotificationController::class, 'multiAction'])->name("notifications.multiAction");
+    Route::resource('notifications', App\Http\Controllers\Admin\NotificationController::class);
+    Route::get('notifications/destroy/{id}' , [App\Http\Controllers\Admin\NotificationController::class, 'destroy'] )->name("notifications.destroy");
     Route::post('/read_notification/{id}', [App\Http\Controllers\Admin\NotificationController::class, 'read_notification'])->name('read_notification');
 
 });

@@ -68,7 +68,7 @@ table.show-data td.text-capitalize{
     color: #fff;
 }
 /*=========== notification ===========*/
-a.notification-item.not_seen{
+.dropdown-menu a.notification-link.not_seen{
     z-index: 1;
     color: #374151;
     text-decoration: none;
@@ -324,7 +324,12 @@ select.form-select option {
     to {
         background-color: #e6203a25;
     }
-  }
+}
+/*===== notification =========*/
+#admin table.index-table tr.not_seen{
+    --bs-table-accent-bg: var(--bs-table-hover-bg);
+    color: #374151;
+}
 /*==================================================================
 =================== Create form ====================================
 ==================================================================*/

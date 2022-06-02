@@ -235,7 +235,7 @@
     /*========================================================================
     ===================  set notification as read  ===========================
     =========================================================================*/
-    $("#admin a.notification-item").on('click', function (e) {
+    $("#admin a.notification-link").on('click', function (e) {
         var notification_id = $(this).attr("notification_id");
         $.ajax({
             type: "POST",

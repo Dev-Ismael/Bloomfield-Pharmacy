@@ -235,7 +235,15 @@
                             </ul>
                         </div>
                     </li>
-
+                    <li class="nav-item ">
+                        <a href="{{ route('admin.messeges.index') }}"
+                            class="nav-link {{ Request::is('*/messeges*') ? 'active' : '' }}">
+                            <span class="sidebar-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <span class="sidebar-text">Messeges</span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>

@@ -182,9 +182,17 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
     Route::get('prescription_orders/destroy/{id}' , [App\Http\Controllers\Admin\PrescriptionOrderController::class, 'destroy'] )->name("prescription_orders.destroy");
 
 
+    // Messeges
+    Route::get('messeges/perPage/{num}' , [App\Http\Controllers\Admin\MessegeController::class, 'perPage'])->name("messeges.perPage");
+    Route::post('messeges/search' , [App\Http\Controllers\Admin\MessegeController::class, 'search'])->name("messeges.search");
+    Route::post('messeges/multiAction' , [App\Http\Controllers\Admin\MessegeController::class, 'multiAction'])->name("messeges.multiAction");
+    Route::resource('messeges', App\Http\Controllers\Admin\MessegeController::class);
+    Route::get('messeges/destroy/{id}' , [App\Http\Controllers\Admin\MessegeController::class, 'destroy'] )->name("messeges.destroy");
 
 
-    // Prescription Orders
+
+
+    // Notifications
     Route::get('notifications/perPage/{num}' , [App\Http\Controllers\Admin\NotificationController::class, 'perPage'])->name("notifications.perPage");
     Route::post('notifications/multiAction' , [App\Http\Controllers\Admin\NotificationController::class, 'multiAction'])->name("notifications.multiAction");
     Route::resource('notifications', App\Http\Controllers\Admin\NotificationController::class);

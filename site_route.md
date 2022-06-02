@@ -52,10 +52,10 @@ problems  :
 - add messeges 
 - convert search to 'Get' method
 - focus inputs at admin 
-- multi select javascript
+- fix multi select javascript
 - select option user by search  
 - hidden delete-prescription-btn 
 - fixed css footer 
 - Organize js files
-- edit address & phone array in  admin panal
+- edit user address & phone array in  admin panal
 - fix redirect after error !prescription 

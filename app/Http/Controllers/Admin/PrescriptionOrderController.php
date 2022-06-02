@@ -47,7 +47,7 @@ class PrescriptionOrderController extends Controller
     public function show($id)
     {
         // find id in Db With Error 404
-        $prescription_order = PrescriptionOrder::with('user')->findOrFail($id);
+        $prescription_order = PrescriptionOrder::with('prescription')->findOrFail($id);
         return view("admin.prescription_orders.show" , compact("prescription_order") ) ;
     }
 
@@ -76,35 +76,16 @@ class PrescriptionOrderController extends Controller
     {
         
 
-        // find id in Db With Error 404
-        $prescription_order = PrescriptionOrder::findOrFail($id); 
-        $requestData = $request->all();
 
-        
-        // Check If There img Uploaded
-        if( $request-> hasFile("img") ){
-            //  Upload image & Create name img
-            $file_extention = $request->img -> getClientOriginalExtension();
-            $file_name = time() . "." . $file_extention;   // name => 3628.png
-            $path = "images/prescription_orders" ;
-            $request->img -> move( $path , $file_name );
-        }else{
-            $file_name = $prescription_order->img;
-        }
-        
-        $requestData = $request->all();
-        $requestData['img'] = $file_name;
-
-
-        // Update Record in DB
-        try {
-            $update = $prescription_order-> update( $requestData );
-                return redirect() -> route("admin.prescription_orders.index") -> with( [ "success" => " PrescriptionOrder updated successfully"] ) ;
-            if(!$update) 
-                return redirect() -> route("admin.prescription_orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
-        } catch (\Exception $e) {
-            return redirect() -> route("admin.prescription_orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
-        }
+        // // Update Record in DB
+        // try {
+        //     $update = $prescription_order-> update( $requestData );
+        //         return redirect() -> route("admin.prescription_orders.index") -> with( [ "success" => " PrescriptionOrder updated successfully"] ) ;
+        //     if(!$update) 
+        //         return redirect() -> route("admin.prescription_orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
+        // } catch (\Exception $e) {
+        //     return redirect() -> route("admin.prescription_orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
+        // }
 
     }
 

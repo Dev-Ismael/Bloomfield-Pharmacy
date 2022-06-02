@@ -282,9 +282,8 @@
                                         </a>
                                         @else
                                             @foreach ( $notifications as $notification )
-                                                <a href="{{$notification->link}}" class="list-group-item list-group-item-action border-bottom">
+                                                <a href="{{$notification->link}}" notification_id="{{$notification->id}}" class="notification-item {{$notification->as_read == '0' ? 'not_seen' : '' }} list-group-item list-group-item-action border-bottom">
                                                     <div class="row align-items-center">
-            
                                                         <div class="col ps-0 ms-2">
                                                             <div class="d-flex justify-content-between align-items-center">
                                                                 <div>

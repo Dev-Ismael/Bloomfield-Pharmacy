@@ -182,5 +182,9 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
     Route::get('prescription_orders/destroy/{id}' , [App\Http\Controllers\Admin\PrescriptionOrderController::class, 'destroy'] )->name("prescription_orders.destroy");
 
 
+
+
+    Route::post('/read_notification/{id}', [App\Http\Controllers\Admin\NotificationController::class, 'read_notification'])->name('read_notification');
+
 });
 

@@ -230,3 +230,18 @@
         });
 
     });
+
+
+    /*========================================================================
+    ===================  set notification as read  ===========================
+    =========================================================================*/
+    $("#admin a.notification-item").on('click', function (e) {
+        var notification_id = $(this).attr("notification_id");
+        $.ajax({
+            type: "POST",
+            url: '/admin/read_notification/' + notification_id,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        });
+    });

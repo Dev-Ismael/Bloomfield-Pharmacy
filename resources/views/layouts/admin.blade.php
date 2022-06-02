@@ -144,7 +144,7 @@
                                 </svg>
                             </span>
                         </span>
-                        <div class="multi-level collapse" role="list" id="submenu-app" aria-expanded="false" style="">
+                        <div class="multi-level collapse  {{ Request::is('*/categories*') || Request::is('*/subcategories*') ? 'show' : '' }}" role="list" id="submenu-app" aria-expanded="false" style="">
                             <ul class="flex-column nav">
                                 <li class="nav-item">
                                     <a class="nav-link {{ Request::is('*/categories*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
@@ -207,7 +207,7 @@
                                 </svg>
                             </span>
                         </span>
-                        <div class="multi-level collapse" role="list" id="orders" aria-expanded="false" style="">
+                        <div class="multi-level collapse {{ Request::is('*/orders*') || Request::is('*/prescription_orders*') ? 'show' : '' }}" role="list" id="orders" aria-expanded="false" style="">
                             <ul class="flex-column nav">
                                 <li class="nav-item">
                                     <a class="nav-link {{ Request::is('*/orders*') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">

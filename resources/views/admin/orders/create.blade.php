@@ -59,7 +59,7 @@
                                             <input type="text" name="address" id="address"
                                                 class="form-control @error('address') is-invalid @enderror"
                                                 value="{{ old('address') }}" aria-describedby="emailHelp"
-                                                placeholder="Type Prescription Title..." autocomplete="nope" required/>
+                                                placeholder="Type Address Shipping..." autocomplete="nope" required/>
                                             @error('address')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
@@ -71,7 +71,7 @@
                                             <input type="text" name="phone" id="phone"
                                                 class="form-control @error('phone') is-invalid @enderror"
                                                 value="{{ old('phone') }}" aria-describedby="emailHelp"
-                                                placeholder="Type Prescription Title..." autocomplete="nope" required/>
+                                                placeholder="Type Phone Shipping..." autocomplete="nope" required/>
                                             @error('phone')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
@@ -138,7 +138,7 @@
                                         <div class="mb-4 input-content">
                                             <label for="status" class="capitalize"> <i class="fa-solid fa-list-check"></i> Status </label>
                                             <select class="form-select form-control @error('status') is-invalid @enderror" name="status" id="status"  aria-label="Default select example" required>
-                                                <option value="" selected="selected" class="d-none">Choose Prescription status ...</option>
+                                                <option value="" selected="selected" class="d-none">Choose Order status ...</option>
                                                 <option value="1" {{ old('status') == '1' ? "selected" : "" }}> Processed </option>
                                                 <option value="2" {{ old('status') == '2' ? "selected" : "" }}> Shipped </option>
                                                 <option value="3" {{ old('status') == '3' ? "selected" : "" }}> En Route </option>

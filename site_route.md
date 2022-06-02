@@ -18,9 +18,8 @@
     - Prescription  ( img , age , gender , additional_details , medicine , validation , schedule_orders(0,1)  time_schedule )
     - prescription_orders ==> ( user_id , prescription_id ,  address )
     - Orders   ==> ( user_id , array[ product , quntity ] , Total price , address , status )
+    - notification ==> link , content , as_read  ( use at => user_create_order ,  user_upload_prescriotion , request_prescription_order , messege_sent )
     - messeges ==> name , email , subject , messege
-    - notification ==> link , content , as_read
-
 
 
 
@@ -50,6 +49,7 @@ tasks :
 
 problems  :
 -----------------------------
+- add messeges 
 - convert search to 'Get' method
 - focus inputs at admin 
 - multi select javascript

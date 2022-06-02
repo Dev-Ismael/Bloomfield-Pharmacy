@@ -221,7 +221,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('*/subcategories*') ? 'active' : '' }}" href="{{ route('admin.subcategories.index') }}">
+                                    <a class="nav-link {{ Request::is('*/prescription_orders*') ? 'active' : '' }}" href="{{ route('admin.prescription_orders.index') }}">
                                         <span class="sidebar-text-contracted">
                                             <i class="fa-solid fa-file-prescription"></i>
                                         </span>

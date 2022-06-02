@@ -58,7 +58,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize" style="vertical-align: top;"> <i class="fa-solid fa-image"></i> Background Image </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Background Image </td>
                                             <td class="category-img"> 
                                                 <a class="show-img-container" href="{{ asset('images/categories/'.$category->img) }}" target="_blank">
                                                     <img src="{{ asset('images/categories/'.$category->img) }}" alt="category-image">    

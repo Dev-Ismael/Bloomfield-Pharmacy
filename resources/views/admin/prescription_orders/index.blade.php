@@ -155,7 +155,7 @@
                                 </th>
                                 <th class="border-bottom">Prescription</th>
                                 <th class="border-bottom">User</th>
-                                <th class="border-bottom">Status</th>
+                                <th class="border-bottom">Orders</th>
                                 <th class="border-bottom">Date Uploaded</th>
                                 <th class="border-bottom">Action</th>
                             </tr>
@@ -181,8 +181,8 @@
                                     <td>
                                         @if ( $prescription_order->status == '0')
                                             <span class="badge super-badge bg-warning"> <i class="fa-solid fa-spinner"></i> Pending </span>
-                                        @elseif ( $prescription_order->validation == '1')
-                                            <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> Valid </span>
+                                        @elseif ( $prescription_order->status == '1')
+                                            <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> Compeleted </span>
                                         @endif  
                                     </td>
                                     <td><span class="fw-normal">{{ $prescription_order->created_at }}</span></td>

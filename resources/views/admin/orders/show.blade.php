@@ -64,7 +64,7 @@
                                             <td> {{ $order->phone != "" ? $order->phone : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"  style="vertical-align: top;"> <i class="fa-solid fa-box-open"></i> Products </td>
+                                            <td class="text-capitalize" > <i class="fa-solid fa-box-open"></i> Products </td>
                                             <td class="order-products-container"> 
                                                 @foreach ( $order->cart as $product_id => $quantity )
                                                     @php

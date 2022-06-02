@@ -64,7 +64,7 @@
                                             <td> {{ $prescription->gender != "" ? $prescription->gender : '-'}} </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize" style="vertical-align: top;"> <i class="fa-solid fa-capsules"></i> Medicine </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-capsules"></i> Medicine </td>
                                             <td>
                                                 <!--- Filter Null valuesin address array --->
                                                 @php $prescriptionMedicine = array_filter( $prescription->medicine )  @endphp

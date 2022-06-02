@@ -31,6 +31,9 @@
                                         <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> Prescription Order Details</h2>
                                     </div>
                                     <div class="col text-end">
+                                        <a href="{{ route('admin.orders.create') }}" class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i> &nbsp;
+                                            Create Order Now!
+                                        </a>
                                         <a href="{{ route("admin.prescription_orders.edit" , $prescription_order->id) }}" class="btn btn-sm btn-primary"> 
                                             <i class="fa-solid fa-pen-to-square"></i> Edit
                                         </a>
@@ -56,7 +59,17 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Image </td>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-list-check"></i> Orders </td>
+                                            <td> 
+                                                @if ( $prescription_order->status == '0')
+                                                    <span class="badge super-badge bg-warning"> <i class="fa-solid fa-spinner"></i> Pending </span>
+                                                @elseif ( $prescription_order->status == '1')
+                                                    <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> Compeleted </span>
+                                                @endif    
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Prescription Image </td>
                                             <td class="product-image"> 
                                                 <a class="show-img-container" href="{{ asset('images/prescriptions/'.$prescription_order->prescription->img) }}" target="_blank">
                                                     <img src="{{ asset('images/prescriptions/'.$prescription_order->prescription->img) }}" alt="prescription-image">    

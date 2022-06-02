@@ -39,6 +39,10 @@ body::-webkit-scrollbar-thumb {
     right: -10px
 }
 
+/*=========== table ===========*/
+table.show-data td.text-capitalize{
+    vertical-align: top;
+}
 /*=========== txt ===========*/
 .text-primary {
     color: var(--green) !important;

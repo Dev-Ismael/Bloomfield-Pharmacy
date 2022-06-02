@@ -329,8 +329,10 @@
         $("#prescriptions-page .create_prescription_orders").on('click', function (e) {
 
             e.preventDefault();
-            var prescription_id = $(this).attr('prescription_id');
+            e.stopPropagation();
 
+            var prescription_id = $(this).attr('prescription_id');
+            var create_prescription_orders_btn = $(this);
             // Sweet alert Confirm
             Swal.fire({
                 title: 'Are you sure?',
@@ -357,9 +359,7 @@
                             }
                             else if (response.status == 'success') {
                                 Swal.fire(response.status, response.msg, response.status)
-                                .then((value) => {
-                                    window.location.href = "/prescriptions";
-                                });
+                                create_prescription_orders_btn.remove();
                             }
 
                         },
@@ -819,13 +819,6 @@
         $(".mob-shop-link").click(function () {
             $(this).siblings('.mob-shop-drop-dowm').slideToggle("slow");
         });
-
-        /*========================================================================
-        ================= Create Order Button By Prescription ====================
-        =========================================================================*/
-        $('#prescriptions-page .create-by-prescription').click(function (e) {
-            e.stopPropagation();
-        })
 
         /*========================================================================
         =================== Shipping & delivery ==================================

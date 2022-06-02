@@ -2410,7 +2410,7 @@ input::placeholder {
     background-color: #dc3545
 }
 
-#prescriptions-page .create-by-prescription {
+#prescriptions-page .create_prescription_orders {
     position: absolute;
     top: 22px;
     right: 65px;
@@ -2421,7 +2421,7 @@ input::placeholder {
         font-size: 14px;
     }
 
-    #prescriptions-page .create-by-prescription {
+    #prescriptions-page .create_prescription_orders {
         right: 40px;
         padding: 7px 4px;
         font-size: 14px;

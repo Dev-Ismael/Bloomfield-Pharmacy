@@ -138,7 +138,7 @@
 
                                         <div class="mb-4 input-content">
                                             <label for="address" class="capitalize"> <i class="fa-solid fa-location-dot"></i> Address </label>
-                                            <textarea type="text" name="address[]" id="address" rows="5" class="form-control @error('address.0') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Address..." autocomplete="nope"/> {{ isset($user->address[0]) ? $user->address[0] : ''  }} </textarea>
+                                            <textarea type="text" name="address[]" id="address" rows="5" class="form-control @error('address.0') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Address..." autocomplete="nope"/>{{ isset($user->address[0]) ? $user->address[0] : '' }}</textarea>
                                             @error('address')
                                                 <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
@@ -150,7 +150,7 @@
 
                                         <div class="mb-4 input-content">
                                             <label for="address_2" class="capitalize"> <i class="fa-solid fa-location-dot"></i> Second Address </label>
-                                            <textarea type="text" name="address[]" id="address_2" rows="5" class="form-control @error('address.1') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Second Address..." autocomplete="nope"/> {{ isset($user->address[1]) ? $user->address[1] : ''  }} </textarea>
+                                            <textarea type="text" name="address[]" id="address_2" rows="5" class="form-control @error('address.1') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Second Address..." autocomplete="nope"/>{{ isset($user->address[1]) ? $user->address[1] : '' }}</textarea>
                                             @error('address.1')
                                                 <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
@@ -159,7 +159,7 @@
 
                                         <div class="mb-4 input-content">
                                             <label for="address_3" class="capitalize"> <i class="fa-solid fa-location-dot"></i> Third Address </label>
-                                            <textarea type="text" name="address[]" id="address_3" rows="5" class="form-control @error('address.2') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Third Address..." autocomplete="nope"/> {{ isset($user->address[2]) ? $user->address[2] : ''  }} </textarea>
+                                            <textarea type="text" name="address[]" id="address_3" rows="5" class="form-control @error('address.2') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Type User Third Address..." autocomplete="nope"/>{{ isset($user->address[2]) ? $user->address[2] : '' }}</textarea>
                                             @error('address.2')
                                                 <small class="form-text text-danger">{{$message }}</small>
                                             @enderror

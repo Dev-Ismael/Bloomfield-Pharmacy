@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Input;
 
 class NotificationController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -48,13 +48,13 @@ class NotificationController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $notification = Notification::findOrFail($id); 
-        
+        $notification = Notification::findOrFail($id);
+
         // Delete Record from DB
         try {
             $delete = $notification->delete();
                 return redirect() -> route("admin.notifications.index") -> with( [ "success" => " Notification deleted successfully"] ) ;
-            if(!$delete) 
+            if(!$delete)
                 return redirect() -> route("admin.notifications.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.notifications.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -65,26 +65,6 @@ class NotificationController extends Controller
 
 
 
-    /**
-     * search in record.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function search(Request $request)
-    {
-        // validate search and redirect back
-        $this->validate($request, [
-            'search'     =>  ['required', 'string', 'max:55'],
-        ]);
-
-        $notifications = Notification::where('title', 'like', "%{$request->search}%")->paginate( 10 );
-        return view("admin.notifications.index",compact("notifications"));
-         
-    }
-
-
-
     public function multiAction(Request $request)
     {
 
@@ -92,7 +72,7 @@ class NotificationController extends Controller
         $validator = Validator::make($request->all(),[
             "action" => 'required | string',
         ]);
-        
+
         // Check If request->id exist
         if ($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
@@ -102,38 +82,38 @@ class NotificationController extends Controller
             $validator->getMessageBag()->add('action', 'Pease select rows..');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-            
+
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
                 $delete = Notification::destroy( $request->id );
                     return redirect() -> route("admin.notifications.index") -> with( [ "success" => " Notifications deleted successfully"] ) ;
-                if(!$delete) 
+                if(!$delete)
                     return redirect() -> route("admin.notifications.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.notifications.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             }
         }
 
-            
+
         // If Action is as_read
         if( $request->action == "as_read" ){
             try {
                 $out_of_stock = Notification::whereIn('id', $request->id )->update([ 'as_read' => '1' ]);
                     return redirect() -> route("admin.notifications.index") -> with( [ "success" => " notifications updated successfully"] ) ;
-                if(!$out_of_stock) 
+                if(!$out_of_stock)
                     return redirect() -> route("admin.notifications.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.notifications.index") -> with( [ "failed" => "Error at update opration"] ) ;
             }
         }
     }
-    
+
     public function read_notification($id)
     {
         // Find in DB
         $notification = Notification::find($id);
-        
+
         // Update Record
         $notification->update([
             'as_read' => '1' ,

@@ -26,25 +26,36 @@
                 <div class="personal-info remove-padding">
 
 
-                    <form>
+                    <form id="messege-form" method="POST">
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Full Name <span class="form-required" title="This field is required.">*</span> </label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" >
+                            <label for="name">Full Name <span class="form-required" >*</span> </label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Type Your Name..."
+                                @auth
+                                    value="{{ Auth::user()->name }}"
+                                @endauth
+                            />
+                            <small class="text-danger text-left d-block name"> </small>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address <span class="form-required" title="This field is required.">*</span> </label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                >
+                            <label for="email">Email Address <span class="form-required" >*</span> </label>
+                            <input type="email" name="email"  class="form-control" id="email" placeholder="Type Email Address..."
+                                @auth
+                                    value="{{ Auth::user()->email }}"
+                                @endauth
+                            />
+                            <small class="text-danger text-left d-block email"> </small>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Subject <span class="form-required" title="This field is required.">*</span> </label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" >
+                            <label for="subject">Subject <span class="form-required" >*</span> </label>
+                            <input type="text" name="subject"  class="form-control" id="subject" placeholder="Type Messege Subject..."/>
+                            <small class="text-danger text-left d-block  subject"> </small>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1"> Messege <span class="form-required" title="This field is required.">*</span>  </label>
-                            <textarea name="messege" class="form-control" cols="100" rows="10"></textarea>
+                            <label for="messge"> Messege <span class="form-required" >*</span>  </label>
+                            <textarea name="messege"  name="messege" class="form-control" cols="100" rows="10" placeholder="Type Messege Content..."></textarea>
+                            <small class="text-danger text-left d-block messege"> </small>
                         </div>
-                        <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-location-arrow"></i> Submit </button>
+                        <button type="submit" class="btn btn-primary send-messege-btn"> <i class="fa-solid fa-location-arrow"></i> Submit </button>
                     </form>
 
                 </div>

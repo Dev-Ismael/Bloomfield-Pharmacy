@@ -17,8 +17,8 @@ class CreateMessegesTable extends Migration
             $table->id();
             $table->string('name', 55);
             $table->string('email', 55);
-            $table->string('subject', 55);
-            $table->string('messege', 1000);
+            $table->string('subject', 100);
+            $table->string('messege', 4000);
             $table->timestamps();
         });
     }

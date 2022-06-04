@@ -65,7 +65,7 @@
 
 
                                     <div class="col-md-6 d-flex justify-content-center align-content-between">
-                                        <img src="{{ asset("images/prescriptions/".$prescription->img) }}" class="prescription-img" class="img-fluid" alt="prescription-image">
+                                        <img src="{{ asset("images/prescriptions/".$prescription->img) }}" class="prescription-img img-fluid" alt="prescription-image">
                                     </div>
 
                                     <div class="col-md-6 prescriptions-info mt-5">

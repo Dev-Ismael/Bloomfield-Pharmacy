@@ -40,14 +40,17 @@ Route::post("/login" , [App\Http\Controllers\Auth\CustomAuthController::class , 
 Route::get('/', [App\Http\Controllers\Web\HomeController::class, 'index'])->name('home');
 // About Us
 Route::get('/about', [App\Http\Controllers\Web\AboutController::class, 'index'])->name('about');
-// Contact Us
-Route::get('/contact', [App\Http\Controllers\Web\ContactController::class, 'index'])->name('contact');
 // SHIPPING & DELIVERY
 Route::get('/shipping', [App\Http\Controllers\Web\ShippingController::class, 'index'])->name('shipping');
 // RETURNS & EXCHANGE
 Route::get('/returns', [App\Http\Controllers\Web\ReturnsController::class, 'index'])->name('returns');
 // Privacy
 Route::get('/privacy', [App\Http\Controllers\Web\PrivacyController::class, 'index'])->name('privacy');
+
+// Contact Us
+Route::get('/contact', [App\Http\Controllers\Web\ContactController::class, 'index'])->name('contact');
+Route::post('/send_messege', [App\Http\Controllers\Web\ContactController::class, 'send_messege'])->name('send_messege');
+
 
 // Search
 Route::post('/search', [App\Http\Controllers\Web\SearchController::class, 'search'])->name('search');

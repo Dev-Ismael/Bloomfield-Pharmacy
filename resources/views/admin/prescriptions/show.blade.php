@@ -31,11 +31,11 @@
                                         <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> Prescription Details</h2>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="{{ route("admin.prescriptions.edit" , $prescription->id) }}" class="btn btn-sm btn-primary"> 
+                                        <a href="{{ route("admin.prescriptions.edit" , $prescription->id) }}" class="btn btn-sm btn-primary">
                                             <i class="fa-solid fa-pen-to-square"></i> Edit
                                         </a>
                                         <a href="{{ route('admin.prescriptions.destroy', $prescription->id) }}" class="btn btn-sm btn-danger delete-record">
-                                            <i class="fa-solid fa-trash-can"></i> Delete 
+                                            <i class="fa-solid fa-trash-can"></i> Delete
                                         </a>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-user"></i> User </td>
-                                            <td> 
+                                            <td>
                                                 <a href="{{ route('admin.users.show', $prescription->user->id) }}" class="text-decoration-underline">
                                                     {{ $prescription->user->name }}
                                                 </a>
@@ -71,7 +71,7 @@
                                                 <!-- if every value not empty -->
                                                 @if ( $prescriptionMedicine != Null  )
                                                     <ul style="padding-left: 1rem; margin-bottom:0px">
-                                                        @foreach ( $prescription->medicine as $medicine )
+                                                        @foreach ( $prescriptionMedicine as $medicine )
                                                             <li> {{ $medicine }} </li>
                                                         @endforeach
                                                     </ul>
@@ -82,24 +82,24 @@
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-list-check"></i> Validation </td>
-                                            <td> 
+                                            <td>
                                                 @if ( $prescription->validation == '0')
                                                     <span class="badge super-badge bg-danger"> <i class="fa-solid fa-x"></i> Not Valid </span>
                                                 @elseif ( $prescription->validation == '1')
                                                     <span class="badge super-badge bg-warning"> <i class="fa-solid fa-spinner"></i> Pending </span>
                                                 @elseif ( $prescription->validation == '2')
                                                     <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> Valid </span>
-                                                @endif    
+                                                @endif
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-calendar"></i> Schedule Orders </td>
-                                            <td> 
+                                            <td>
                                                 @if ( $prescription->schedule_orders == '0')
                                                     <span class="badge super-badge bg-danger"> <i class="fa-solid fa-x"></i> OFF </span>
                                                 @elseif ( $prescription->schedule_orders == '1')
                                                     <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> ON </span>
-                                                @endif    
+                                                @endif
                                             </td>
                                         </tr>
                                         <tr>
@@ -107,24 +107,24 @@
                                             <td>
                                                 @if ( $prescription->scheduled_days == '')
                                                     -
-                                                @else 
+                                                @else
                                                     Renew every {{ $prescription->scheduled_days }} day
-                                                @endif 
+                                                @endif
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-align-left"></i> Additional Details </td>
-                                            <td class="product-desc"> 
+                                            <td class="product-desc">
                                                 <div>
-                                                    {{ $prescription->additional_details != "" ? $prescription->additional_details : '-'  }} 
+                                                    {{ $prescription->additional_details != "" ? $prescription->additional_details : '-'  }}
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-image"></i> Image </td>
-                                            <td class="product-image"> 
+                                            <td class="product-image">
                                                 <a class="show-img-container" href="{{ asset('images/prescriptions/'.$prescription->img) }}" target="_blank">
-                                                    <img src="{{ asset('images/prescriptions/'.$prescription->img) }}" alt="product-image">    
+                                                    <img src="{{ asset('images/prescriptions/'.$prescription->img) }}" alt="product-image">
                                                 </a>
                                             </td>
                                         </tr>

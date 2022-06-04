@@ -32,12 +32,11 @@ class UpdateUserRequest extends FormRequest
             'email_2'              =>  ['nullable', 'string', 'email', 'max:55', Rule::unique('users', 'email')->ignore($this->user)],
             'password'             =>  ['nullable', 'string', 'min:8', 'confirmed'],
             'password_confirmation'=>  ['nullable', 'string', 'min:8'],
-            'phone'                =>  ['nullable', 'string', 'max:55'],
-            'phone_2'              =>  ['nullable', 'string', 'max:55'],
+            'phone'                =>  ['nullable', 'array', 'max:100'],
+            'phone.*'              =>  ['nullable', 'string', 'max:45'],
             'state'                =>  ['nullable', 'string', 'max:55'],
-            'address'              =>  ['nullable', 'string', 'max:255'],
-            'address_2'            =>  ['nullable', 'string', 'max:255'],
-            'address_3'            =>  ['nullable', 'string', 'max:255'],
+            'address'              =>  ['nullable', 'array', 'max:750'],
+            'address.*'            =>  ['nullable', 'string', 'max:240'],
             'role'                 =>  ['required', 'string', 'max:1'],
         ];
     }

@@ -31,11 +31,11 @@
                                         <h2 class="fs-5 fw-bold mb-0"> <i class="fa-solid fa-eye text-primary"></i> User Details</h2>
                                     </div>
                                     <div class="col text-end">
-                                        <a href="{{ route("admin.users.edit" , $user->id) }}" class="btn btn-sm btn-primary"> 
+                                        <a href="{{ route("admin.users.edit" , $user->id) }}" class="btn btn-sm btn-primary">
                                             <i class="fa-solid fa-pen-to-square"></i> Edit
                                         </a>
                                         <a href="{{ route('admin.users.destroy', $user->id) }}" class="btn btn-sm btn-danger delete-record">
-                                            <i class="fa-solid fa-trash-can"></i> Delete 
+                                            <i class="fa-solid fa-trash-can"></i> Delete
                                         </a>
                                     </div>
                                 </div>
@@ -67,13 +67,23 @@
                                             <td class="text-capitalize"> <i class="fa-solid fa-envelope"></i> Second Email </td>
                                             <td> {{ $user->email_2 != "" ? $user->email_2 : '-'  }} </td>
                                         </tr>
+
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-phone-volume"></i> Phone </td>
-                                            <td> {{ $user->phone != "" ? $user->phone : '-'  }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize">  <i class="fa-solid fa-phone-volume"></i> Second Phone  </td>
-                                            <td> {{ $user->phone_2 != "" ? $user->phone_2 : '-' }} </td>
+                                            <td>
+                                                <!--- Filter Null valuesin address array --->
+                                                @php $userPhone = array_filter( $user->phone )  @endphp
+                                                <!-- if every value not empty -->
+                                                @if ( $userPhone != Null  )
+                                                    <ul style="padding-left: 1rem; margin-bottom:0px">
+                                                        @foreach ( $userPhone as $phone )
+                                                            <li> {{ $phone }} </li>
+                                                        @endforeach
+                                                    </ul>
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-flag-usa"></i> State </td>
@@ -81,15 +91,20 @@
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Address </td>
-                                            <td> {{ $user->address != "" ? $user->address : '-' }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Second Address  </td>
-                                            <td> {{ $user->address_2 != "" ? $user->address_2 : '-' }} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-capitalize"> <i class="fa-solid fa-location-dot"></i> Third address </td>
-                                            <td> {{ $user->address_3 != "" ? $user->address_3 : '-' }} </td>
+                                            <td>
+                                                <!--- Filter Null valuesin address array --->
+                                                @php $userAddress = array_filter( $user->address )  @endphp
+                                                <!-- if every value not empty -->
+                                                @if ( $userAddress != Null  )
+                                                    <ul style="padding-left: 1rem; margin-bottom:0px">
+                                                        @foreach ( $userAddress as $address )
+                                                            <li> {{ $address }} </li>
+                                                        @endforeach
+                                                    </ul>
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-clock"></i> Created At </td>
@@ -101,7 +116,7 @@
                                         </tr>
                                         <tr>
                                             <td class="text-capitalize"> <i class="fa-solid fa-shield-halved"></i> Role </td>
-                                            <td> 
+                                            <td>
                                                 @if ( $user->role == '1' )
                                                     Admin
                                                 @elseif( $user->role == '2')

@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Orders</li>
                     </ol>
                 </nav>
-                <h2 class="h4"> <i class="fa-solid fa-file-order text-primary"></i> Orders List</h2>
+                <h2 class="h4"> <i class="fa-solid fa-cart-shopping text-primary"></i> Orders List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <!--------------- If No Users hide create btn --------------->
@@ -186,7 +186,7 @@
                                             <span class="badge super-badge bg-warning"> <i class="fas fa-shipping-fast"></i> En Route </span>
                                         @elseif ( $order->status == '4')
                                             <span class="badge super-badge bg-success"> <i class="fas fa-home"></i> Arrived </span>
-                                        @endif  
+                                        @endif
                                     </td>
                                     <td><span class="fw-normal">{{ $order->created_at }}</span></td>
                                     <td class="actions">

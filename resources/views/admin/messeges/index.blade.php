@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Messeges</li>
                     </ol>
                 </nav>
-                <h2 class="h4"> <i class="fa-solid fa-list text-primary"></i> Messeges List</h2>
+                <h2 class="h4"> <i class="fa-solid fa-envelope text-primary"></i> Messeges List </h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0">
@@ -153,13 +153,17 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.messeges.show', $messege->id) }}" class="d-flex align-items-center messege-link" notification_id="{{ $messege->id }}">
-                                            {{  substr($messege->messege , 0 , 30) . '...' }}
+                                        <a href="{{ route('admin.messeges.show', $messege->id) }}" class="d-flex align-items-center messege-link" messege_id="{{ $messege->id }}">
+                                                @if ( strlen($messege->messege) > 30 )
+                                                    {{  substr($messege->messege , 0 , 30) . '....' }}
+                                                @else
+                                                    {{ $messege->messege }}
+                                            @endif
                                         </a>
                                     </td>
                                     <td><span class="fw-normal">{{ $messege->created_at }}</span></td>
                                     <td class="actions">
-                                        <a href="{{ route('admin.messeges.show', $messege->id) }}" notification_id="{{ $messege->id }}"
+                                        <a href="{{ route('admin.messeges.show', $messege->id) }}" messege_id="{{ $messege->id }}"
                                             class="text-tertiary messege-link"> <i class="fa-solid fa-eye fa-lg"></i> </a>
                                         <a href="{{ route('admin.messeges.destroy', $messege->id) }}"
                                             class="text-info delete-record">

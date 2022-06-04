@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Prescription Orders</li>
                     </ol>
                 </nav>
-                <h2 class="h4"> <i class="fa-solid fa-file-prescription_order text-primary"></i> Prescription Orders List</h2>
+                <h2 class="h4"> <i class="fa-solid fa-file-prescription text-primary"></i> Prescription Orders List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
 
@@ -181,7 +181,7 @@
                                             <span class="badge super-badge bg-warning"> <i class="fa-solid fa-spinner"></i> Pending </span>
                                         @elseif ( $prescription_order->status == '1')
                                             <span class="badge super-badge bg-success"> <i class="fa-solid fa-check"></i> Compeleted </span>
-                                        @endif  
+                                        @endif
                                     </td>
                                     <td><span class="fw-normal">{{ $prescription_order->created_at }}</span></td>
                                     <td class="actions">

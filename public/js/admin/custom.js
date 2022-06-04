@@ -16,7 +16,7 @@
     ================ Scroll To Top
     =====================================================*/
     const scrollBtn = document.getElementById("button-scroll-up");
-    
+
     // visibility function
     const btnVisibility = () => {
         if (window.scrollY > 400) {
@@ -41,7 +41,7 @@
     scrollBtn.addEventListener('click', event => {
         scrollToTop();
     });
-   
+
 
     /*==================================================
     ================ input Check
@@ -77,7 +77,7 @@
 
             event.preventDefault();
             Swal.fire({
-                
+
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
                 icon: 'warning',
@@ -94,10 +94,10 @@
                     );
                     setTimeout(function () {
                         window.location = dangerBtn.getAttribute('href');
-                    }, 1000); 
+                    }, 1000);
                 }
             })
-            
+
         });
 
     }
@@ -126,7 +126,7 @@
                     multiActionForm.submit();
                 }
             })
-            
+
         });
 
     }
@@ -135,14 +135,14 @@
     ================ if Isset Multible option
     =====================================================*/
     const selectAction = document.getElementById('select-action');
-    
+
     if(selectAction){
         selectAction.addEventListener('change', function handleChange(event) {
             multiAlertBtn.removeAttribute("disabled");
         });
     }
 
-    
+
     /*========================================================================
     ===================  Daynamic input medicine Prescription ====================
     =========================================================================*/
@@ -180,7 +180,7 @@
         });
 
     });
-    
+
     /*========================================================================
     ===================  Daynamic input orders Prodcuts  =====================
     =========================================================================*/
@@ -240,6 +240,35 @@
         $.ajax({
             type: "POST",
             url: '/admin/read_notification/' + notification_id,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        });
+    });
+
+
+    /*========================================================================
+    ===================  set notification as read  ===========================
+    =========================================================================*/
+    $("#admin a.notification-link").on('click', function (e) {
+        var notification_id = $(this).attr("notification_id");
+        $.ajax({
+            type: "POST",
+            url: '/admin/read_notification/' + notification_id,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+        });
+    });
+
+    /*========================================================================
+    ===================  set messege as read  ===========================
+    =========================================================================*/
+    $("#admin a.messege-link").on('click', function (e) {
+        var messege_id = $(this).attr("messege_id");
+        $.ajax({
+            type: "POST",
+            url: '/admin/read_messege/' + messege_id,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },

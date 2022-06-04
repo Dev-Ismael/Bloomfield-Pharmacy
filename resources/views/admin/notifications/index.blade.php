@@ -21,7 +21,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Notifications</li>
                     </ol>
                 </nav>
-                <h2 class="h4"> <i class="fa-solid fa-list text-primary"></i> Notifications List</h2>
+                <h2 class="h4"> <i class="fa-solid fa-bell text-primary"></i> Notifications List</h2>
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0">
@@ -157,9 +157,15 @@
                                             @if ( $notification->content == "create_order")
                                                 New order has been created by {{ $notification->user->name }}
                                             @elseif ( $notification->content == "upload_prescriotion")
-                                            New prescription has been upload by &nbsp; <span class="font-wieght-bold"> {{ $notification->user->name }} </span>  
+                                                New prescription has been upload by &nbsp; <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
                                             @elseif ( $notification->content == "create_prescription_order")
                                                 There is new request for prescription medicines
+                                            @elseif ( $notification->content == "messege_sent")
+                                                @if ( $notification->user_id == 0 )
+                                                    New messege has been sent by &nbsp;<span class="font-wieght-bold">  Unregisted User </span>
+                                                @else
+                                                    New messege has been sent by &nbsp;<span class="font-wieght-bold"> {{ $notification->user->name }} </span>
+                                                @endif
                                             @endif
                                         </a>
                                     </td>

@@ -9,7 +9,6 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Messege extends Model
 {
 
-    protected $fillable = [ 'name' , 'email', 'subject', 'messege' ];
-
+    protected $fillable = [ 'name' , 'email', 'subject', 'messege' , 'as_read' ];
 
 }

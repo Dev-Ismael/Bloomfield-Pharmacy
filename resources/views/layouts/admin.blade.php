@@ -149,10 +149,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link {{ Request::is('*/categories*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
                                         <span class="sidebar-text-contracted">
-                                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>       
+                                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>
                                         </span>
                                         <span class="sidebar-text">
-                                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg> 
+                                            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>
                                             Main Categories
                                         </span>
                                     </a>
@@ -168,7 +168,7 @@
                                         </span>
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </li>
@@ -191,7 +191,7 @@
                         </a>
                     </li>
 
-                    
+
                     <li class="nav-item">
                         <span class="nav-link d-flex justify-content-between align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#orders" aria-expanded="false">
                             <span>
@@ -231,7 +231,7 @@
                                         </span>
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </li>
@@ -276,6 +276,7 @@
                                         </path>
                                     </svg>
                                 </a>
+                                <!------ Notification ------>
                                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-center mt-2 py-0">
                                     <div class="list-group list-group-flush">
                                         <a href="#" class="text-center text-primary fw-bold border-bottom border-light py-3">Notifications</a>
@@ -295,7 +296,13 @@
                                                         <div class="col ps-0 ms-2">
                                                             <div class="d-flex justify-content-between align-items-center">
                                                                 <div>
-                                                                    <h4 class="h6 mb-0 text-small">{{ $notification->user->name }}</h4>
+                                                                    <h4 class="h6 mb-0 text-small">
+                                                                        @if ( $notification->user_id == 0 )
+                                                                            Unregisted User
+                                                                        @else
+                                                                            {{ $notification->user->name }}
+                                                                        @endif
+                                                                    </h4>
                                                                 </div>
                                                                 <div class="text-end">
                                                                     <small class="text-danger"> {{ $notification->created_at->format('d M Y') }} </small>
@@ -305,9 +312,15 @@
                                                                 @if ( $notification->content == "create_order")
                                                                     New order has been created by {{ $notification->user->name }}
                                                                 @elseif ( $notification->content == "upload_prescriotion")
-                                                                    New prescription has been upload by <span class="font-wieght-bold"> {{ $notification->user->name }} </span>  
+                                                                    New prescription has been upload by <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
                                                                 @elseif ( $notification->content == "create_prescription_order")
                                                                     There is new request for prescription medicines
+                                                                @elseif ( $notification->content == "messege_sent")
+                                                                    @if ( $notification->user_id == 0 )
+                                                                        New messege has been sent by <span class="font-wieght-bold">  Unregisted User </span>
+                                                                    @else
+                                                                        New messege has been sent by <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
+                                                                    @endif
                                                                 @endif
                                                             </p>
                                                         </div>
@@ -341,7 +354,7 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1">
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <a class="dropdown-item d-flex align-items-center"  href="{{ route("profile") }}">
                                         <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
                                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
@@ -350,7 +363,7 @@
                                         </svg>
                                         My Profile
                                     </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                    {{-- <a class="dropdown-item d-flex align-items-center" href="#">
                                         <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
                                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
@@ -358,8 +371,8 @@
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                         Settings
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                    </a> --}}
+                                    <a class="dropdown-item d-flex align-items-center" href="{{ route("admin.messeges.index") }}">
                                         <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
                                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"

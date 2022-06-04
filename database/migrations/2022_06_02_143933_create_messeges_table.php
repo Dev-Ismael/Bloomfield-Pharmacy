@@ -19,6 +19,7 @@ class CreateMessegesTable extends Migration
             $table->string('email', 55);
             $table->string('subject', 100);
             $table->string('messege', 4000);
+            $table->string('as_read' , 1 )->default('0'); // 0 => not seen ; 1 => seen ;
             $table->timestamps();
         });
     }

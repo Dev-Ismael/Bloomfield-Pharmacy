@@ -187,10 +187,10 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
 
     // Messeges
     Route::get('messeges/perPage/{num}' , [App\Http\Controllers\Admin\MessegeController::class, 'perPage'])->name("messeges.perPage");
-    Route::post('messeges/search' , [App\Http\Controllers\Admin\MessegeController::class, 'search'])->name("messeges.search");
     Route::post('messeges/multiAction' , [App\Http\Controllers\Admin\MessegeController::class, 'multiAction'])->name("messeges.multiAction");
     Route::resource('messeges', App\Http\Controllers\Admin\MessegeController::class);
     Route::get('messeges/destroy/{id}' , [App\Http\Controllers\Admin\MessegeController::class, 'destroy'] )->name("messeges.destroy");
+    Route::post('/read_messege/{id}', [App\Http\Controllers\Admin\MessegeController::class, 'read_messege'])->name('read_messege');
 
 
 

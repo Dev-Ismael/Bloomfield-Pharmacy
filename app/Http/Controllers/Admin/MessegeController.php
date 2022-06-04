@@ -125,7 +125,31 @@ class MessegeController extends Controller
             }
         }
 
+
+        // If Action is as_read
+        if( $request->action == "as_read" ){
+            try {
+                $out_of_stock = Messege::whereIn('id', $request->id )->update([ 'as_read' => '1' ]);
+                    return redirect() -> route("admin.messeges.index") -> with( [ "success" => " messeges updated successfully"] ) ;
+                if(!$out_of_stock)
+                    return redirect() -> route("admin.messeges.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            } catch (\Exception $e) {
+                return redirect() -> route("admin.messeges.index") -> with( [ "failed" => "Error at update opration"] ) ;
+            }
+        }
+
     }
 
+    public function read_messege($id)
+    {
+        // Find in DB
+        $messege = Messege::find($id);
+
+        // Update Record
+        $messege->update([
+            'as_read' => '1' ,
+        ]);
+
+    }
 
 }

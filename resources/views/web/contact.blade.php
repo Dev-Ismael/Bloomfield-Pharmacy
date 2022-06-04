@@ -51,7 +51,7 @@
                             <small class="text-danger text-left d-block  subject"> </small>
                         </div>
                         <div class="form-group">
-                            <label for="messge"> Messege <span class="form-required" >*</span>  </label>
+                            <label for="messege"> Messege <span class="form-required" >*</span>  </label>
                             <textarea name="messege"  name="messege" class="form-control" cols="100" rows="10" placeholder="Type Messege Content..."></textarea>
                             <small class="text-danger text-left d-block messege"> </small>
                         </div>

@@ -155,16 +155,16 @@
                                     <td>
                                         <a href="{{ $notification->link }}" class="d-flex align-items-center notification-link" notification_id="{{ $notification->id }}">
                                             @if ( $notification->content == "create_order")
-                                                New order has been created by {{ $notification->user->name }}
+                                                New order has been created by&nbsp; <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
                                             @elseif ( $notification->content == "upload_prescriotion")
-                                                New prescription has been upload by &nbsp; <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
+                                                New prescription has been upload by&nbsp; <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
                                             @elseif ( $notification->content == "create_prescription_order")
-                                                There is new request for prescription medicines
+                                                There is new request for prescription medicines for&nbsp; <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
                                             @elseif ( $notification->content == "messege_sent")
                                                 @if ( $notification->user_id == 0 )
-                                                    New messege has been sent by &nbsp;<span class="font-wieght-bold">  Unregisted User </span>
+                                                    New messege has been sent by&nbsp;<span class="font-wieght-bold">  Unregisted User </span>
                                                 @else
-                                                    New messege has been sent by &nbsp;<span class="font-wieght-bold"> {{ $notification->user->name }} </span>
+                                                    New messege has been sent by&nbsp;<span class="font-wieght-bold"> {{ $notification->user->name }} </span>
                                                 @endif
                                             @endif
                                         </a>

@@ -40,9 +40,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*=========== table ===========*/
-table.show-data td.text-capitalize{
+table.show-data td.text-capitalize {
     vertical-align: top;
 }
+
 /*=========== txt ===========*/
 .text-primary {
     color: var(--green) !important;
@@ -51,9 +52,11 @@ table.show-data td.text-capitalize{
 .text-primary:hover {
     color: var(--green) !important;
 }
-.font-wieght-bold{
+
+.font-wieght-bold {
     font-weight: bolder;
 }
+
 /*=========== Buttons ===========*/
 .btn-primary {
     background-color: var(--green) !important;
@@ -67,13 +70,15 @@ table.show-data td.text-capitalize{
     border: 1px solid var(--green_dark) !important;
     color: #fff;
 }
+
 /*=========== notification ===========*/
-.dropdown-menu a.notification-link.not_seen{
+.dropdown-menu a.notification-link.not_seen {
     z-index: 1;
     color: #374151;
     text-decoration: none;
     background-color: #f2f4f6;
 }
+
 /*=========== checkbox ==============*/
 .form-check-input:checked {
     background-color: var(--green);
@@ -285,6 +290,69 @@ select.form-select option {
 }
 
 /*==================================================================
+=================== Dashboard ====================================
+==================================================================*/
+
+.main-content {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.stat-card {
+	background: #fff;
+	padding: 25px;
+	margin-bottom: 25px;
+	border-radius: 5px;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	transition: all 0.2s;
+}
+.stat-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.stat-card__icon-circle {
+	height: 60px;
+	width: 60px;
+	border-radius: 60px;
+	background: rgba(0, 123, 255, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.stat-card__icon-circle i {
+	font-size: 30px;
+	color: #007bff;
+}
+.stat-card__icon.stat-card__icon--success .stat-card__icon-circle {
+	background: rgba(40, 167, 69, 0.2);
+}
+.stat-card__icon.stat-card__icon--success .stat-card__icon-circle i {
+	color: #28a745;
+}
+.stat-card__icon.stat-card__icon--danger .stat-card__icon-circle {
+	background: rgba(220, 53, 69, 0.2);
+}
+.stat-card__icon.stat-card__icon--danger .stat-card__icon-circle i {
+	color: #dc3545;
+}
+.stat-card__icon.stat-card__icon--warning .stat-card__icon-circle {
+	background: rgba(255, 193, 7, 0.2);
+}
+.stat-card__icon.stat-card__icon--warning .stat-card__icon-circle i {
+	color: #ffc107;
+}
+.stat-card__icon.stat-card__icon--primary .stat-card__icon-circle {
+	background: rgba(0, 123, 255, 0.2);
+}
+.stat-card__icon.stat-card__icon--primary .stat-card__icon-circle i {
+	color: #007bff;
+}
+
+
+/*==================================================================
 =================== table index ====================================
 ==================================================================*/
 #admin table.index-table td.actions i {
@@ -310,26 +378,32 @@ select.form-select option {
 #admin table.index-table td span.badge i {
     padding-right: 3px;
 }
-#admin table.index-table .user-link{
+
+#admin table.index-table .user-link {
     text-decoration: underline;
 }
+
 /*===== Animation =========*/
-#admin table.index-table tr.pending{
+#admin table.index-table tr.pending {
     animation: pendingBg 1s infinite;
 }
+
 @keyframes pendingBg {
     from {
         background-color: #e6203a10;
     }
+
     to {
         background-color: #e6203a25;
     }
 }
+
 /*===== notification =========*/
-#admin table.index-table tr.not_seen{
+#admin table.index-table tr.not_seen {
     --bs-table-accent-bg: var(--bs-table-hover-bg);
     color: #374151;
 }
+
 /*==================================================================
 =================== Create form ====================================
 ==================================================================*/
@@ -387,11 +461,13 @@ table.show-data td span.badge {
 table.show-data td span.badge i {
     padding-right: 3px;
 }
+
 /*============ order-products ====*/
-table.show-data  .order-products{
+table.show-data .order-products {
     display: flex;
     margin-bottom: 10px;
 }
-table.show-data  .order-products img{
+
+table.show-data .order-products img {
     width: 120px;
 }

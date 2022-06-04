@@ -121,7 +121,7 @@ class OrderController extends Controller
         } catch (\Exception $e) {
             return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
-        
+
     }
 
     /**
@@ -149,7 +149,7 @@ class OrderController extends Controller
         // find id in Db With Error 404
         $products = Product::get();
 
-        $order = Order::findOrFail($id);  
+        $order = Order::findOrFail($id);
         return view("admin.orders.edit" , compact("order","users","products") ) ;
     }
 
@@ -162,7 +162,7 @@ class OrderController extends Controller
      */
     public function update(OrderRequest $request, $id)
     {
-        
+
         // set var request Address / Phone
         $shipping_address = $request->address;
         $shipping_phone = $request->phone;
@@ -203,7 +203,7 @@ class OrderController extends Controller
         $total = $subTotal + $taxes + $shiping ;
 
         // find id in Db With Error 404
-        $order = Order::findOrFail($id); 
+        $order = Order::findOrFail($id);
 
         // Store in DB
         try {
@@ -238,13 +238,13 @@ class OrderController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $order = Order::findOrFail($id); 
-        
+        $order = Order::findOrFail($id);
+
         // Delete Record from DB
         try {
             $delete = $order->delete();
                 return redirect() -> route("admin.orders.index") -> with( [ "success" => " Order deleted successfully"] ) ;
-            if(!$delete) 
+            if(!$delete)
                 return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -271,9 +271,9 @@ class OrderController extends Controller
         $userId = User::where('email', 'like', "%{$request->search}%")->first()->id;
         // return $userId;
         $orders = Order::where('user_id', $userId)->paginate(10);
-        // return $orders; 
+        // return $orders;
         return view("admin.orders.index",compact("orders"));
-         
+
     }
 
 
@@ -285,59 +285,59 @@ class OrderController extends Controller
         $validator = Validator::make($request->all(),[
             "action" => 'required | string',
         ]);
-        
+
         // Check If request->id exist
         if ($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
 
         // Check If request->id exist & add validation Msg
         if( !$request->has('id') ){
-            $validator->getMessageBag()->add('action', 'Pease select rows..');
+            $validator->getMessageBag()->add('action', 'Please select rows..');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-            
+
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
                 $delete = Order::destroy( $request->id );
                     return redirect() -> route("admin.orders.index") -> with( [ "success" => " Orders deleted successfully"] ) ;
-                if(!$delete) 
+                if(!$delete)
                     return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             }
         }
-            
+
         // If status shipped
         if( $request->action == "status_shipped" ){
             try {
                 $vaild = Order::whereIn('id', $request->id )->update([ 'status' => '2' ]);
                     return redirect() -> route("admin.orders.index") -> with( [ "success" => " Orders updated successfully"] ) ;
-                if(!$vaild) 
+                if(!$vaild)
                     return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
             }
         }
-            
+
         // If Action status EnRoute
         if( $request->action == "status_enRoute" ){
             try {
                 $not_vaild = Order::whereIn('id', $request->id )->update([ 'status' => '3' ]);
                     return redirect() -> route("admin.orders.index") -> with( [ "success" => " Orders updated successfully"] ) ;
-                if(!$not_vaild) 
+                if(!$not_vaild)
                     return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
             }
         }
-            
+
         // If Action status_arrived
         if( $request->action == "status_arrived" ){
             try {
                 $not_vaild = Order::whereIn('id', $request->id )->update([ 'status' => '4' ]);
                     return redirect() -> route("admin.orders.index") -> with( [ "success" => " Orders updated successfully"] ) ;
-                if(!$not_vaild) 
+                if(!$not_vaild)
                     return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.orders.index") -> with( [ "failed" => "Error at update opration"] ) ;
@@ -345,6 +345,6 @@ class OrderController extends Controller
         }
 
     }
-    
+
 
 }

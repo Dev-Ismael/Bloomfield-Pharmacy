@@ -92,12 +92,12 @@ class ProductController extends Controller
         try {
             $product = Product::create( $requestData );
                 return redirect() -> route("admin.products.index") -> with( [ "success" => " Product added successfully"] ) ;
-            if(!$product) 
+            if(!$product)
                 return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at added opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
-        
+
     }
 
     /**
@@ -123,7 +123,7 @@ class ProductController extends Controller
     {
         $subcategories = Subcategory::get();
         // find id in Db With Error 404
-        $product = Product::findOrFail($id);  
+        $product = Product::findOrFail($id);
         return view("admin.products.edit" , compact("product","subcategories") ) ;
     }
 
@@ -136,13 +136,13 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, $id)
     {
-        
-        
+
+
         // find id in Db With Error 404
-        $product = Product::findOrFail($id); 
+        $product = Product::findOrFail($id);
         $requestData = $request->all();
 
-        
+
         // Check If There img Uploaded
         if( $request-> hasFile("img") ){
             //  Upload image & Create name img
@@ -176,7 +176,7 @@ class ProductController extends Controller
         try {
             $update = $product-> update( $requestData );
                 return redirect() -> route("admin.products.index") -> with( [ "success" => " Product updated successfully"] ) ;
-            if(!$update) 
+            if(!$update)
                 return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
@@ -193,13 +193,13 @@ class ProductController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $product = Product::findOrFail($id); 
-        
+        $product = Product::findOrFail($id);
+
         // Delete Record from DB
         try {
             $delete = $product->delete();
                 return redirect() -> route("admin.products.index") -> with( [ "success" => " Product deleted successfully"] ) ;
-            if(!$delete) 
+            if(!$delete)
                 return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -225,7 +225,7 @@ class ProductController extends Controller
 
         $products = Product::where('title', 'like', "%{$request->search}%")->paginate( 10 );
         return view("admin.products.index",compact("products"));
-         
+
     }
 
 
@@ -237,35 +237,35 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(),[
             "action" => 'required | string',
         ]);
-        
+
         // Check If request->id exist
         if ($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
 
         // Check If request->id exist & add validation Msg
         if( !$request->has('id') ){
-            $validator->getMessageBag()->add('action', 'Pease select rows..');
+            $validator->getMessageBag()->add('action', 'Please select rows..');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-            
+
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
                 $delete = Product::destroy( $request->id );
                     return redirect() -> route("admin.products.index") -> with( [ "success" => " Products deleted successfully"] ) ;
-                if(!$delete) 
+                if(!$delete)
                     return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             }
         }
-            
+
         // If Action is Delete
         if( $request->action == "out_of_stock" ){
             try {
                 $out_of_stock = Product::whereIn('id', $request->id )->update([ 'quantity' => 0 ]);
                     return redirect() -> route("admin.products.index") -> with( [ "success" => " Products updated successfully"] ) ;
-                if(!$out_of_stock) 
+                if(!$out_of_stock)
                     return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.products.index") -> with( [ "failed" => "Error at update opration"] ) ;
@@ -273,6 +273,6 @@ class ProductController extends Controller
         }
 
     }
-    
+
 
 }

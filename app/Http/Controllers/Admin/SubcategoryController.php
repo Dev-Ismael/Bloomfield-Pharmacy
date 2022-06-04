@@ -70,12 +70,12 @@ class SubcategoryController extends Controller
         try {
             $subcategory = Subcategory::create( $requestData );
                 return redirect() -> route("admin.subcategories.index") -> with( [ "success" => " Subcategory added successfully"] ) ;
-            if(!$subcategory) 
+            if(!$subcategory)
                 return redirect() -> route("admin.subcategories.index") -> with( [ "failed" => "Error at added opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.subcategories.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
-        
+
     }
 
     /**
@@ -101,7 +101,7 @@ class SubcategoryController extends Controller
     {
         $categories = Category::get();
         // find id in Db With Error 404
-        $subcategory = Subcategory::findOrFail($id);  
+        $subcategory = Subcategory::findOrFail($id);
         return view("admin.subcategories.edit" , compact("subcategory","categories") ) ;
     }
 
@@ -114,10 +114,10 @@ class SubcategoryController extends Controller
      */
     public function update(SubcategoryRequest $request, $id)
     {
-        
-        
+
+
         // find id in Db With Error 404
-        $subcategory = Subcategory::findOrFail($id); 
+        $subcategory = Subcategory::findOrFail($id);
         $requestData = $request->all();
 
 
@@ -129,7 +129,7 @@ class SubcategoryController extends Controller
         try {
             $update = $subcategory-> update( $requestData );
                 return redirect() -> route("admin.subcategories.index") -> with( [ "success" => " Subcategory updated successfully"] ) ;
-            if(!$update) 
+            if(!$update)
                 return redirect() -> route("admin.subcategories.index") -> with( [ "failed" => "Error at update opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.subcategories.index") -> with( [ "failed" => "Error at update opration"] ) ;
@@ -147,13 +147,13 @@ class SubcategoryController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $subcategory = Subcategory::findOrFail($id); 
-        
+        $subcategory = Subcategory::findOrFail($id);
+
         // Delete Record from DB
         try {
             $delete = $subcategory->delete();
                 return redirect() -> route("admin.subcategories.index") -> with( [ "success" => " Subcategory deleted successfully"] ) ;
-            if(!$delete) 
+            if(!$delete)
                 return redirect() -> route("admin.subcategories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.subcategories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -179,7 +179,7 @@ class SubcategoryController extends Controller
 
         $subcategories = Subcategory::where('title', 'like', "%{$request->search}%")->paginate( 10 );
         return view("admin.subcategories.index",compact("subcategories"));
-         
+
     }
 
 
@@ -191,23 +191,23 @@ class SubcategoryController extends Controller
         $validator = Validator::make($request->all(),[
             "action" => 'required | string',
         ]);
-        
+
         // Check If request->id exist
         if ($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
 
         // Check If request->id exist & add validation Msg
         if( !$request->has('id') ){
-            $validator->getMessageBag()->add('action', 'Pease select rows..');
+            $validator->getMessageBag()->add('action', 'Please select rows..');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-            
+
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
                 $delete = Subcategory::destroy( $request->id );
                     return redirect() -> route("admin.subcategories.index") -> with( [ "success" => " Subcategories deleted successfully"] ) ;
-                if(!$delete) 
+                if(!$delete)
                     return redirect() -> route("admin.subcategories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.subcategories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -215,6 +215,6 @@ class SubcategoryController extends Controller
         }
 
     }
-    
+
 
 }

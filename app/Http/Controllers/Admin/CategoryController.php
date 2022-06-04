@@ -54,11 +54,11 @@ class CategoryController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        
+
         // Create img name
         $img_extention = $request -> img -> getClientOriginalExtension();
         $img_name = rand(1000000,10000000) . "." . $img_extention;   // name => 32632.png
-        
+
         // Create icon name
         $icon_extention = $request -> icon -> getClientOriginalExtension();
         $icon_name = rand(1000000,10000000) . "." . $icon_extention;   // name => 3623628.png
@@ -72,9 +72,9 @@ class CategoryController extends Controller
 
         $requestData = $request->all();
 
-        // Add img name in request array 
+        // Add img name in request array
         $requestData['img'] = $img_name;
-        // Add icon name in request array 
+        // Add icon name in request array
         $requestData['icon'] = $icon_name;
 
 
@@ -85,12 +85,12 @@ class CategoryController extends Controller
         try {
             $category = Category::create( $requestData );
                 return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category added successfully"] ) ;
-            if(!$category) 
+            if(!$category)
                 return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
-        
+
     }
 
     /**
@@ -102,7 +102,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         // find id in Db With Error 404
-        $category = Category::findOrFail($id);  
+        $category = Category::findOrFail($id);
         return view("admin.categories.show" , compact("category") ) ;
     }
 
@@ -115,7 +115,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         // find id in Db With Error 404
-        $category = Category::findOrFail($id);  
+        $category = Category::findOrFail($id);
         return view("admin.categories.edit" , compact("category") ) ;
     }
 
@@ -128,10 +128,10 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, $id)
     {
-        
-        
+
+
         // find id in Db With Error 404
-        $category = Category::findOrFail($id); 
+        $category = Category::findOrFail($id);
         $requestData = $request->all();
 
 
@@ -155,10 +155,10 @@ class CategoryController extends Controller
         }else{
             $img_name = $category->img;
         }
-        
-        // Add icon name in request array 
+
+        // Add icon name in request array
         $requestData['icon'] = $icon_name;
-        // Add img name in request array 
+        // Add img name in request array
         $requestData['img'] = $img_name;
 
 
@@ -170,7 +170,7 @@ class CategoryController extends Controller
         try {
             $update = $category-> update( $requestData );
                 return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category updated successfully"] ) ;
-            if(!$update) 
+            if(!$update)
                 return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at update opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at update opration"] ) ;
@@ -188,13 +188,13 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $category = Category::findOrFail($id); 
-        
+        $category = Category::findOrFail($id);
+
         // Delete Record from DB
         try {
             $delete = $category->delete();
                 return redirect() -> route("admin.categories.index") -> with( [ "success" => " Category deleted successfully"] ) ;
-            if(!$delete) 
+            if(!$delete)
                 return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -220,7 +220,7 @@ class CategoryController extends Controller
 
         $categories = Category::where('title', 'like', "%{$request->search}%")->paginate( 10 );
         return view("admin.categories.index",compact("categories"));
-         
+
     }
 
 
@@ -232,23 +232,23 @@ class CategoryController extends Controller
         $validator = Validator::make($request->all(),[
             "action" => 'required | string',
         ]);
-        
+
         // Check If request->id exist
         if ($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
 
         // Check If request->id exist & add validation Msg
         if( !$request->has('id') ){
-            $validator->getMessageBag()->add('action', 'Pease select rows..');
+            $validator->getMessageBag()->add('action', 'Please select rows..');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-            
+
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
                 $delete = Category::destroy( $request->id );
                     return redirect() -> route("admin.categories.index") -> with( [ "success" => " Categories deleted successfully"] ) ;
-                if(!$delete) 
+                if(!$delete)
                     return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.categories.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -256,6 +256,6 @@ class CategoryController extends Controller
         }
 
     }
-    
+
 
 }

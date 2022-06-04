@@ -55,7 +55,7 @@ class UserController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        
+
         $requestData = $request->all();
         // Hash Password
         $requestData['password'] = Hash::make($request->password);
@@ -64,12 +64,12 @@ class UserController extends Controller
         try {
             $user = User::create( $requestData );
                 return redirect() -> route("admin.users.index") -> with( [ "success" => " User added successfully"] ) ;
-            if(!$user) 
+            if(!$user)
                 return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at added opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
-        
+
     }
 
     /**
@@ -81,7 +81,7 @@ class UserController extends Controller
     public function show($id)
     {
         // find id in Db With Error 404
-        $user = User::findOrFail($id);  
+        $user = User::findOrFail($id);
         return view("admin.users.show" , compact("user") ) ;
     }
 
@@ -94,7 +94,7 @@ class UserController extends Controller
     public function edit($id)
     {
         // find id in Db With Error 404
-        $user = User::findOrFail($id);  
+        $user = User::findOrFail($id);
         return view("admin.users.edit" , compact("user") ) ;
     }
 
@@ -108,7 +108,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, $id)
     {
         // find id in Db With Error 404
-        $user = User::findOrFail($id); 
+        $user = User::findOrFail($id);
         $requestData = $request->all();
 
         // Hash Password
@@ -122,7 +122,7 @@ class UserController extends Controller
         try {
             $update = $user-> update( $requestData );
                 return redirect() -> route("admin.users.index") -> with( [ "success" => " User updated successfully"] ) ;
-            if(!$update) 
+            if(!$update)
                 return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at update opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at update opration"] ) ;
@@ -138,13 +138,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $user = User::findOrFail($id); 
-        
+        $user = User::findOrFail($id);
+
         // Delete Record from DB
         try {
             $delete = $user->delete();
                 return redirect() -> route("admin.users.index") -> with( [ "success" => " User deleted successfully"] ) ;
-            if(!$delete) 
+            if(!$delete)
                 return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -170,7 +170,7 @@ class UserController extends Controller
 
         $users = User::where('email', 'like', "%{$request->search}%")->paginate( 10 );
         return view("admin.users.index",compact("users"));
-         
+
     }
 
 
@@ -182,23 +182,23 @@ class UserController extends Controller
         $validator = Validator::make($request->all(),[
             "action" => 'required | string',
         ]);
-        
+
         // Check If request->id exist
         if ($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
 
         // Check If request->id exist & add validation Msg
         if( !$request->has('id') ){
-            $validator->getMessageBag()->add('action', 'Pease select rows..');
+            $validator->getMessageBag()->add('action', 'Please select rows..');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-            
+
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
                 $delete = User::destroy( $request->id );
                     return redirect() -> route("admin.users.index") -> with( [ "success" => " Users deleted successfully"] ) ;
-                if(!$delete) 
+                if(!$delete)
                     return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.users.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -206,6 +206,6 @@ class UserController extends Controller
         }
 
     }
-    
+
 
 }

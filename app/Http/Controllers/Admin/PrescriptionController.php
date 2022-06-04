@@ -79,12 +79,12 @@ class PrescriptionController extends Controller
         try {
             $prescription = Prescription::create( $requestData );
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription added successfully"] ) ;
-            if(!$prescription) 
+            if(!$prescription)
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at added opration"] ) ;
         }
-        
+
     }
 
     /**
@@ -110,7 +110,7 @@ class PrescriptionController extends Controller
     {
         $users = User::get();
         // find id in Db With Error 404
-        $prescription = Prescription::findOrFail($id);  
+        $prescription = Prescription::findOrFail($id);
         return view("admin.prescriptions.edit" , compact("prescription","users") ) ;
     }
 
@@ -123,13 +123,13 @@ class PrescriptionController extends Controller
      */
     public function update(UpdatePrescriptionRequest $request, $id)
     {
-        
+
 
         // find id in Db With Error 404
-        $prescription = Prescription::findOrFail($id); 
+        $prescription = Prescription::findOrFail($id);
         $requestData = $request->all();
 
-        
+
         // Check If There img Uploaded
         if( $request-> hasFile("img") ){
             //  Upload image & Create name img
@@ -140,7 +140,7 @@ class PrescriptionController extends Controller
         }else{
             $file_name = $prescription->img;
         }
-        
+
         $requestData = $request->all();
         $requestData['img'] = $file_name;
 
@@ -149,7 +149,7 @@ class PrescriptionController extends Controller
         try {
             $update = $prescription-> update( $requestData );
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription updated successfully"] ) ;
-            if(!$update) 
+            if(!$update)
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
@@ -166,13 +166,13 @@ class PrescriptionController extends Controller
     public function destroy($id)
     {
         // find id in Db With Error 404
-        $prescription = Prescription::findOrFail($id); 
-        
+        $prescription = Prescription::findOrFail($id);
+
         // Delete Record from DB
         try {
             $delete = $prescription->delete();
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescription deleted successfully"] ) ;
-            if(!$delete) 
+            if(!$delete)
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at delete opration"] ) ;
         } catch (\Exception $e) {
             return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at delete opration"] ) ;
@@ -199,9 +199,9 @@ class PrescriptionController extends Controller
         $userId = User::where('email', 'like', "%{$request->search}%")->first()->id;
         // return $userId;
         $prescriptions = Prescription::where('user_id', $userId)->paginate(10);
-        // return $prescriptions; 
+        // return $prescriptions;
         return view("admin.prescriptions.index",compact("prescriptions"));
-         
+
     }
 
 
@@ -213,47 +213,47 @@ class PrescriptionController extends Controller
         $validator = Validator::make($request->all(),[
             "action" => 'required | string',
         ]);
-        
+
         // Check If request->id exist
         if ($validator->fails())
             return redirect()->back()->withErrors($validator)->withInput();
 
         // Check If request->id exist & add validation Msg
         if( !$request->has('id') ){
-            $validator->getMessageBag()->add('action', 'Pease select rows..');
+            $validator->getMessageBag()->add('action', 'Please select rows..');
             return redirect()->back()->withErrors($validator)->withInput();
         }
-            
+
         // If Action is Delete
         if( $request->action == "delete" ){
             try {
                 $delete = Prescription::destroy( $request->id );
                     return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescriptions deleted successfully"] ) ;
-                if(!$delete) 
+                if(!$delete)
                     return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at delete opration"] ) ;
             }
         }
-            
+
         // If Action is Vaild
         if( $request->action == "vaild" ){
             try {
                 $vaild = Prescription::whereIn('id', $request->id )->update([ 'validation' => '2' ]);
                     return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescriptions updated successfully"] ) ;
-                if(!$vaild) 
+                if(!$vaild)
                     return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
             }
         }
-            
+
         // If Action is Not Vaild
         if( $request->action == "not_vaild" ){
             try {
                 $not_vaild = Prescription::whereIn('id', $request->id )->update([ 'validation' => '0' ]);
                     return redirect() -> route("admin.prescriptions.index") -> with( [ "success" => " Prescriptions updated successfully"] ) ;
-                if(!$not_vaild) 
+                if(!$not_vaild)
                     return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
             } catch (\Exception $e) {
                 return redirect() -> route("admin.prescriptions.index") -> with( [ "failed" => "Error at update opration"] ) ;
@@ -261,6 +261,6 @@ class PrescriptionController extends Controller
         }
 
     }
-    
+
 
 }

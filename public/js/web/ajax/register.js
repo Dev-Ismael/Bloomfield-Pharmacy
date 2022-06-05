@@ -6,7 +6,6 @@ $(document).ready(function () {
     ================= Register ===============================================
     =========================================================================*/
     $("form#user-register-form button#signup-btn").on('click', function (e) {
-
         var btn = $(this);
         var loadingContent = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="width:14px;height:14px;"></span> Loading...';
         var btnOriginalContent = $(this).html();

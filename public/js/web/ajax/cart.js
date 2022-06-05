@@ -15,6 +15,7 @@ $(document).ready(function () {
     }
 
     $(".product-item button.add-cart , article.product button.add-cart , #product-page button.add-cart").on('click', function (e) {
+        e.preventDefault();
         var product_id = $(this).attr("product_id");
         var cartBtn = $(this);
         $.ajax({
@@ -67,7 +68,7 @@ $(document).ready(function () {
     }
 
     $(".cart-products .fa-xmark").click(function () {
-
+        e.preventDefault();
         var xmarkBtn = $(this);
         var productItem = xmarkBtn.parent().parent();
         var product_id = productItem.attr("product_id");

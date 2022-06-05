@@ -4,9 +4,6 @@ $(document).ready(function () {
     /*========================================================================
     ================= Add Active class =======================================
     =========================================================================*/
-    $(".shop-icons-child:first-of-type").addClass("current");
-    $(".tabs-main #tab-1").addClass("current");
-
     $(".shop-icons-child").on("click", function () {
         $(this).addClass('current').siblings().removeClass('current');
 
@@ -29,10 +26,6 @@ $(document).ready(function () {
         });
     }
     removeInValidClass();
-
-
-
-
 
 
     /*========================================================================

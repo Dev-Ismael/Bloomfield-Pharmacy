@@ -147,7 +147,7 @@
                                                 @endphp
                                                 <div class="container shop-icons-perant remove-padding">
                                                     @foreach ( $categories as $key => $category )
-                                                        <div class="shop-icons-child" data-tab="tab-{{$key + 1}}">
+                                                        <div class="shop-icons-child  {{ $key == 0 ? 'current' : '' }}" data-tab="tab-{{$key + 1}}">
                                                             <span class="icon category-icon category-{{$key + 1}}"
                                                                 style="background-image: url('/images/categories/{{$category->icon}}')">
                                                             </span>
@@ -161,7 +161,7 @@
 
 
                                                     @foreach ( $categories as $key => $category )
-                                                        <div class="col-xs-12 remove-padding" id="tab-{{$key + 1}}">
+                                                        <div class="col-xs-12 remove-padding  {{ $key == 0 ? 'current' : '' }}" id="tab-{{$key + 1}}">
                                                             <div class="col-md-12 row">
                                                                 @foreach ( $category->subcategories as $subcategory )
                                                                     <div class="col-md-6 col-lg-4">

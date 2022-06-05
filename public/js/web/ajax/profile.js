@@ -7,7 +7,7 @@ $(document).ready(function () {
 
         $("#profile-page button.update-profile").click(function () {
 
-
+            e.preventDefault();
             var profileFormData = new FormData($("#profile-page form#update-profile")[0]);
 
             // alert("good");

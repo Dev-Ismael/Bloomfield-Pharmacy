@@ -71,7 +71,7 @@
                                             <input type="number" name="price" id="price"
                                                 class="form-control @error('price') is-invalid @enderror"
                                                 value="{{ old('price') }}" aria-describedby="emailHelp"
-                                                placeholder="Type Product Title..." autocomplete="nope"  required/>
+                                                placeholder="Type Product Price..." autocomplete="nope"  required/>
                                             @error('price')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror
@@ -83,7 +83,7 @@
                                             <input type="number" name="quantity" id="quantity"
                                                 class="form-control @error('quantity') is-invalid @enderror"
                                                 value="{{ old('quantity') }}" aria-describedby="emailHelp"
-                                                placeholder="Type Product Title..." autocomplete="nope"  required/>
+                                                placeholder="Type Product Quantity..." autocomplete="nope"  required/>
                                             @error('quantity')
                                                 <small class="form-text text-danger">{{ $message }}</small>
                                             @enderror

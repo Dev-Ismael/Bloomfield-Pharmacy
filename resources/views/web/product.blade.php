@@ -33,11 +33,37 @@
                             <p>Remaining amount: <span class="quantity">{{  $product->quantity }}</span> item </p>
                             <p class="description"> {{ $product->description }} </p>
 
-                            <div class="col-xs-12 add-cart-main text-center">
-                                <button href="#" product_id="{{ $product->id }}"> <i class="fa-solid fa-cart-shopping"></i> Add To Cart </button>
-                                &nbsp;
-                                &nbsp;
-                                <button href="#" product_id="{{ $product->id }}"> <i class="fa-solid fa-heart"></i> Wishlist </button>
+                            <hr>
+
+                            <div class="col-xs-12 product-buttons d-flex justify-content-center align-content-center text-center">
+                                @auth
+                                    @php
+                                        $wishlist = App\Models\Wishlist::where("user_id", Auth::id())->where("product_id", $product->id)->first();
+                                        $cart     = App\Models\Cart::where("user_id", Auth::id())->where("product_id", $product->id)->first();
+                                    @endphp
+                                    <div class="cart">
+                                        @if ( $cart != Null )
+                                            <p> <i class="fa-solid fa-check"></i> Cart  </p>
+                                        @else
+                                            <button href="#" class="add-cart" product_id="{{ $product->id }}"> <i class="fa-solid fa-cart-shopping"></i> Cart </button>
+                                        @endif
+                                    </div>
+                                    &nbsp;
+                                    &nbsp;
+                                    <div class="wishlist">
+                                        @if ( $wishlist != Null )
+                                            <p> <i class="fa-solid fa-check"></i> Wishlist  </p>
+                                        @else
+                                            <button href="#" class="add-wishlist" product_id="{{ $product->id }}"> <i class="fa-solid fa-heart"></i> wishlist </button>
+                                        @endif
+                                    </div>
+                                <!------ if guest -------->
+                                @else
+                                    <button href="#" data-toggle="modal" data-target="#login"> <i class="fa-solid fa-cart-shopping"></i> Cart </button>
+                                    &nbsp;
+                                    &nbsp;
+                                    <button href="#" data-toggle="modal" data-target="#login" > <i class="fa-solid fa-heart"></i> Wishlist </button>
+                                @endauth
                             </div>
 
                         </div>

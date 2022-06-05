@@ -375,7 +375,7 @@
         /*========================================================================
         ================= Add to withlist ========================================
         =========================================================================*/
-        $(".product-item button.add-wishlist").on('click', function (e) {
+        $(".product-item button.add-wishlist , #product-page button.add-wishlist").on('click', function (e) {
             var product_id = $(this).attr("product_id");
             var wishlistBtn = $(this);
             $.ajax({
@@ -426,7 +426,7 @@
             }
         }
 
-        $(".product-item button.add-cart , article.product button.add-cart").on('click', function (e) {
+        $(".product-item button.add-cart , article.product button.add-cart , #product-page button.add-cart").on('click', function (e) {
             var product_id = $(this).attr("product_id");
             var cartBtn = $(this);
             $.ajax({

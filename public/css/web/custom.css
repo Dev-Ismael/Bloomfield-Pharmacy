@@ -1125,12 +1125,23 @@ input::placeholder {
     padding: 10px 15px;
 }
 
-#product-page button:hover {
+#product-page .product-buttons button:hover {
     background-color: #fff;
     border: 1px solid #2e8345;
     color: #2e8345;
 }
-
+#product-page .product-buttons p {
+    background-color: #fff;
+    border: 1px solid #2e8345;
+    color: #2e8345;
+    transition: all 0.5s ease-out;
+    margin: 10px 0px;
+    font-size: 15px;
+    border-radius: 3px;
+    padding: 10px 15px;
+    text-transform: capitalize;
+    margin-right: 5px;
+}
 /*====================================================
 ============ Cart Page ===============================
 ====================================================*/

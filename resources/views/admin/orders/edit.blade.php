@@ -128,13 +128,13 @@
                                                 <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
                                             @error('product_id.*') <!--------- if isset items array Validation ------------>
-                                                <small class="form-text text-danger">product field is not valid</small>
+                                                <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
                                             @error('quantity') <!--------- if isset array Validation ------------>
                                                 <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
                                             @error('quantity.*') <!--------- if isset items array Validation ------------>
-                                                <small class="form-text text-danger">quantity field is not valid</small>
+                                                <small class="form-text text-danger">{{$message }}</small>
                                             @enderror
                                         </div>
 

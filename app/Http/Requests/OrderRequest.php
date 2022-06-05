@@ -29,7 +29,7 @@ class OrderRequest extends FormRequest
             'address'      =>  [ 'required' , 'string' , 'max:250' ],
             'phone'        =>  [ 'required' , 'string' , 'max:55' ],
             'product_id'   =>  [ 'required' , 'array' ],
-            'product_id.*' =>  [ 'required' , 'numeric' ],
+            'product_id.*' =>  [ 'required' , 'numeric' , 'distinct' ],
             'quantity'     =>  [ 'required' , 'array'],
             'quantity.*'   =>  [ 'required' , 'numeric' , 'digits_between:1,2'],
             'status'       =>  [ 'required' , 'string' , 'max:1'],

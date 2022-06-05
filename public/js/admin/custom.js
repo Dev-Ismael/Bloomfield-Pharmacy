@@ -1,156 +1,156 @@
 
 
-    /*==================================================
-    ================ Remove invalid class
-    =====================================================*/
-    const inputs = document.querySelectorAll(".form-control");
+/*==================================================
+================ Remove invalid class
+=====================================================*/
+const inputs = document.querySelectorAll(".form-control");
 
-    for (var i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener('click', function(event) {
-            this.classList.remove("is-invalid");
-            var textDanger = this.parentElement.querySelector(".text-danger");
-            textDanger.style.display = "none";
-        });
-    }
-    /*==================================================
-    ================ Scroll To Top
-    =====================================================*/
-    const scrollBtn = document.getElementById("button-scroll-up");
-
-    // visibility function
-    const btnVisibility = () => {
-        if (window.scrollY > 400) {
-            scrollBtn.classList.add("show");
-        } else {
-            scrollBtn.classList.remove("show");
-        }
-    };
-
-    // scrollToTop function
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    }
-
-    document.addEventListener("scroll", () => {
-        btnVisibility();
+for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener('click', function (event) {
+        this.classList.remove("is-invalid");
+        var textDanger = this.parentElement.querySelector(".text-danger");
+        textDanger.style.display = "none";
     });
+}
+/*==================================================
+================ Scroll To Top
+=====================================================*/
+const scrollBtn = document.getElementById("button-scroll-up");
 
-    scrollBtn.addEventListener('click', event => {
-        scrollToTop();
+// visibility function
+const btnVisibility = () => {
+    if (window.scrollY > 400) {
+        scrollBtn.classList.add("show");
+    } else {
+        scrollBtn.classList.remove("show");
+    }
+};
+
+// scrollToTop function
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
+}
+
+document.addEventListener("scroll", () => {
+    btnVisibility();
+});
+
+scrollBtn.addEventListener('click', event => {
+    scrollToTop();
+});
 
 
-    /*==================================================
-    ================ input Check
-    =====================================================*/
-    const mainChecker = document.getElementById("main-checker");
-    const checkItems = document.querySelectorAll(".check-item");
+/*==================================================
+================ input Check
+=====================================================*/
+const mainChecker = document.getElementById("main-checker");
+const checkItems = document.querySelectorAll(".check-item");
 
-    if(mainChecker){
+if (mainChecker) {
 
-        mainChecker.addEventListener('click', event => {
-            if (mainChecker.checked == true) {
-                for (var i = 0; i < checkItems.length; i++) {
-                    checkItems[i].setAttribute("checked", "checked");
-                }
-            } else {
-                for (var i = 0; i < checkItems.length; i++) {
-                    checkItems[i].removeAttribute('checked');
-                }
+    mainChecker.addEventListener('click', event => {
+        if (mainChecker.checked == true) {
+            for (var i = 0; i < checkItems.length; i++) {
+                checkItems[i].setAttribute("checked", "checked");
             }
-        });
-    }
+        } else {
+            for (var i = 0; i < checkItems.length; i++) {
+                checkItems[i].removeAttribute('checked');
+            }
+        }
+    });
+}
 
 
-    /*==================================================
-    ================ Danger Alert
-    =====================================================*/
-    const dangerBtns = document.querySelectorAll(".delete-record");
+/*==================================================
+================ Danger Alert
+=====================================================*/
+const dangerBtns = document.querySelectorAll(".delete-record");
 
-    for (var i = 0; i < dangerBtns.length; i++) {
+for (var i = 0; i < dangerBtns.length; i++) {
 
-        const dangerBtn = dangerBtns[i];
-        dangerBtn.addEventListener('click', event => {
+    const dangerBtn = dangerBtns[i];
+    dangerBtn.addEventListener('click', event => {
 
-            event.preventDefault();
-            Swal.fire({
+        event.preventDefault();
+        Swal.fire({
 
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    );
-                    setTimeout(function () {
-                        window.location = dangerBtn.getAttribute('href');
-                    }, 1000);
-                }
-            })
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                );
+                setTimeout(function () {
+                    window.location = dangerBtn.getAttribute('href');
+                }, 1000);
+            }
+        })
 
-        });
+    });
 
-    }
+}
 
-    /*==================================================
-    ================ Multible btn Confimation
-    =====================================================*/
-    const multiAlertBtn = document.getElementById("multi-alert-btn");
-    const multiActionForm = document.getElementById("multi-action-form");
+/*==================================================
+================ Multible btn Confimation
+=====================================================*/
+const multiAlertBtn = document.getElementById("multi-alert-btn");
+const multiActionForm = document.getElementById("multi-action-form");
 
-    if(multiAlertBtn){
+if (multiAlertBtn) {
 
-        multiAlertBtn.addEventListener('click', event => {
+    multiAlertBtn.addEventListener('click', event => {
 
-            event.preventDefault();
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to back again!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, do it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    multiActionForm.submit();
-                }
-            })
+        event.preventDefault();
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to back again!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, do it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                multiActionForm.submit();
+            }
+        })
 
-        });
+    });
 
-    }
+}
 
-    /*==================================================
-    ================ if Isset Multible option
-    =====================================================*/
-    const selectAction = document.getElementById('select-action');
+/*==================================================
+================ if Isset Multible option
+=====================================================*/
+const selectAction = document.getElementById('select-action');
 
-    if(selectAction){
-        selectAction.addEventListener('change', function handleChange(event) {
-            multiAlertBtn.removeAttribute("disabled");
-        });
-    }
+if (selectAction) {
+    selectAction.addEventListener('change', function handleChange(event) {
+        multiAlertBtn.removeAttribute("disabled");
+    });
+}
 
 
-    /*========================================================================
-    ===================  Daynamic input medicine Prescription ====================
-    =========================================================================*/
-    // Jquery Code
-    $(document).ready(function(){
-        // remove field
-        $(document).on("click", "button.add-field" , function() {
-            var html = `
+/*========================================================================
+===================  Daynamic input medicine Prescription ====================
+=========================================================================*/
+// Jquery Code
+$(document).ready(function () {
+    // remove field
+    $(document).on("click", "button.add-field", function () {
+        var html = `
                 <div id="inputFormRow">
                 <div class="input-group">
                     <!---------- Input ----------->
@@ -171,26 +171,26 @@
             </div>
             `;
 
-            $('#newRowsContainer').append(html);
-        });
-
-        // remove field
-        $(document).on('click', 'button.remove-field', function () {
-            $(this).closest('#inputFormRow').remove();
-        });
-
+        $('#newRowsContainer').append(html);
     });
 
-    /*========================================================================
-    ===================  Daynamic input orders Prodcuts  =====================
-    =========================================================================*/
-    // Jquery Code
-    $(document).ready(function(){
-        // remove field
-        $(document).on("click", "button.add-product-field" , function() {
+    // remove field
+    $(document).on('click', 'button.remove-field', function () {
+        $(this).closest('#inputFormRow').remove();
+    });
 
-            var productsOtions = $('select#product_id').html();
-            var html = `
+});
+
+/*========================================================================
+===================  Daynamic input orders Prodcuts  =====================
+=========================================================================*/
+// Jquery Code
+$(document).ready(function () {
+    // remove field
+    $(document).on("click", "button.add-product-field", function () {
+
+        var productsOtions = $('select#product_id').html();
+        var html = `
                     <div id="inputFormRow">
                         <div class="input-group">
                             <!---------- Input ----------->
@@ -198,7 +198,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <select name="product_id[]" id="product_id" class="form-control" required>
-                                            `+ productsOtions +`
+                                            `+ productsOtions + `
                                         </select>
                                     </div>
                                     <div class="col-3">
@@ -221,20 +221,22 @@
                     </div>
             `;
 
-            $('#newRowsContainer').append(html);
-        });
-
-        // remove field
-        $(document).on('click', 'button.remove-product-field', function () {
-            $(this).closest('#inputFormRow').remove();
-        });
-
+        $('#newRowsContainer').append(html);
     });
 
+    // remove field
+    $(document).on('click', 'button.remove-product-field', function () {
+        $(this).closest('#inputFormRow').remove();
+    });
 
-    /*========================================================================
-    ===================  set notification as read  ===========================
-    =========================================================================*/
+});
+
+
+/*========================================================================
+===================  set notification as read  ===========================
+=========================================================================*/
+// Jquery Code
+$(document).ready(function () {
     $("#admin a.notification-link").on('click', function (e) {
         var notification_id = $(this).attr("notification_id");
         $.ajax({
@@ -245,11 +247,15 @@
             },
         });
     });
+});
 
 
-    /*========================================================================
-    ===================  set notification as read  ===========================
-    =========================================================================*/
+/*========================================================================
+===================  set notification as read  ===========================
+=========================================================================*/
+// Jquery Code
+$(document).ready(function () {
+
     $("#admin a.notification-link").on('click', function (e) {
         var notification_id = $(this).attr("notification_id");
         $.ajax({
@@ -260,10 +266,14 @@
             },
         });
     });
+});
 
-    /*========================================================================
-    ===================  set messege as read  ===========================
-    =========================================================================*/
+/*========================================================================
+===================  set messege as read  ===========================
+=========================================================================*/
+// Jquery Code
+$(document).ready(function () {
+
     $("#admin a.messege-link").on('click', function (e) {
         var messege_id = $(this).attr("messege_id");
         $.ajax({
@@ -274,3 +284,4 @@
             },
         });
     });
+});

@@ -38,6 +38,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 /*========= no-data-section ==========*/
+.text-bloder,
+.font-weight-bold{
+    font-family: myFont-bold !important;
+
+}
+/*========= no-data-section ==========*/
 .no-data-section img.no_prescriptions{
     width: 400px;
 }

@@ -173,7 +173,7 @@ class OrderController extends Controller
 
             return response()->json([
                 "status" => 'success',
-                "msg" => "Product added to your wishlist",
+                "msg" => "Order confirmed successfully",
             ]);
 
 

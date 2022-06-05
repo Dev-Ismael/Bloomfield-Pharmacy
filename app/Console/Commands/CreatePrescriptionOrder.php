@@ -43,7 +43,7 @@ class CreatePrescriptionOrder extends Command
     {
 
         // get opened prescription schedule
-        $prescriptions = Prescription::where('schedule_orders' , '1')->get();
+        $prescriptions = Prescription::where(['schedule_orders' , '1'],['validation' , '2'])->get();
 
         foreach( $prescriptions as $prescription ){
 

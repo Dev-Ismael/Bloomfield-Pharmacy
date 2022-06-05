@@ -635,6 +635,14 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!---------------- File.Js -------------------->
     <script src="{{ asset('js/web/file.js') }}"></script>
+    <!---------------- Ajax -------------------->
+    <script src="{{ asset('js/web/ajax/cart.js') }}"></script>
+    <script src="{{ asset('js/web/ajax/wishlist.js') }}"></script>
+    <script src="{{ asset('js/web/ajax/messege.js') }}"></script>
+    <script src="{{ asset('js/web/ajax/order.js') }}"></script>
+    <script src="{{ asset('js/web/ajax/prescription.js') }}"></script>
+    <script src="{{ asset('js/web/ajax/profile.js') }}"></script>
+    <script src="{{ asset('js/web/ajax/register.js') }}"></script>
 
 </body>
 

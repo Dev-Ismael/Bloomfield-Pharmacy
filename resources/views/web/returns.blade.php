@@ -129,12 +129,10 @@
                 <div class="col-xs-12 col-md-3 col-sm-4">
                     <div class="content col-xs-12 remove-padding  side-links-sub fillter-side-main p-5">
                         <h5>OTHER LINKS </h5>
-                        <a href="{{ route('about') }}">About Us</a>
-                        <a href="{{ route('contact') }}">Contact Us</a>
-                        <a href="/content/privacy-policy">Privacy Policy</a>
-                        <a href="/content/terms-conditions">Terms &amp; Conditions</a>
-                        <a href="/content/returns-exchange-policy">Return &amp; Exchange</a>
-                        <a href="/faq">FAQS</a>
+                        <a href="{{ route("about") }}">About Us</a>
+                        <a href="{{ route("contact") }}">Contact Us</a>
+                        <a href="{{ route("privacy") }}">Privacy Policy</a>
+                        <a href="{{ route("returns") }}">Return &amp; Exchange</a>
                     </div>
                 </div>
 

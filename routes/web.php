@@ -203,4 +203,3 @@ Route::group([ "prefix" => "admin" , 'middleware'=> 'admin' , "as" => "admin." ]
     Route::post('/read_notification/{id}', [App\Http\Controllers\Admin\NotificationController::class, 'read_notification'])->name('read_notification');
 
 });
-

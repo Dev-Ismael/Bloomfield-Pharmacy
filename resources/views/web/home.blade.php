@@ -24,13 +24,6 @@
 
 
 
-
-
-
-
-
-
-
         <!---------------------- OUR SERVICES ----------------------------->
         <div id="block-block-23" class="container section product-slider text-center remove-padding block block-block">
 

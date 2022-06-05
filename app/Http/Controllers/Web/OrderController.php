@@ -79,7 +79,7 @@ class OrderController extends Controller
         // CartArray Validation
         $validator = Validator::make($request->all(), [
             'product_id'   =>  ['required' , 'array' ],
-            'product_id.*' =>  ['required' , 'numeric' ],
+            'product_id.*' =>  ['required' , 'numeric' , 'distinct' ],
             'quantity'     =>  ['required' , 'array'],
             'quantity.*'   =>  ['required' , 'numeric' , 'digits_between:1,2'],
         ]);

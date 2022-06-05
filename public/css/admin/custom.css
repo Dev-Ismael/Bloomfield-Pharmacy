@@ -313,6 +313,9 @@ select.form-select option {
 	transform: translateY(-2px);
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
+.stat-card a.view-more{
+    text-decoration: underline;
+}
 .stat-card__icon-circle {
 	height: 60px;
 	width: 60px;
@@ -349,6 +352,36 @@ select.form-select option {
 }
 .stat-card__icon.stat-card__icon--primary .stat-card__icon-circle i {
 	color: #007bff;
+}
+.stat-card__icon.stat-card__icon--danger .stat-card__icon-circle {
+	background: #ff002b36
+}
+.stat-card__icon.stat-card__icon--danger .stat-card__icon-circle i {
+	color: #fc153b;
+}
+.stat-card__icon.stat-card__icon--info .stat-card__icon-circle {
+	background: #15b3fc21
+}
+.stat-card__icon.stat-card__icon--info .stat-card__icon-circle i {
+	color: #15b3fc;
+}
+.stat-card__icon.stat-card__icon--gray .stat-card__icon-circle {
+	background: #2c343828
+}
+.stat-card__icon.stat-card__icon--gray .stat-card__icon-circle i {
+	color: #2c3438;
+}
+.stat-card__icon.stat-card__icon--orange .stat-card__icon-circle {
+	background: #f78c212f
+}
+.stat-card__icon.stat-card__icon--orange .stat-card__icon-circle i {
+	color: #f78c21;
+}
+.stat-card__icon.stat-card__icon--purple .stat-card__icon-circle {
+	background: #851f922f
+}
+.stat-card__icon.stat-card__icon--purple .stat-card__icon-circle i {
+	color: #851f92;
 }
 
 

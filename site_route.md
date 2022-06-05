@@ -28,7 +28,6 @@ tasks :
 --------------
 - add categories data
 - add products data
-- dashboard stats
 - google sites notification
 
 
@@ -49,7 +48,6 @@ tasks :
 
 problems  :
 -----------------------------
-- add messeges 
 - convert search to 'Get' method
 - focus inputs at admin 
 - fix multi select javascript

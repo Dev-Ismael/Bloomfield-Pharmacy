@@ -27,7 +27,7 @@
                                 <p class="text-uppercase mb-1 text-muted">Users</p>
                                 <h2>{{ $users }}</h2>
                                 <div>
-                                    <span class="text-muted"> <a href="{{ route("admin.users.index") }}" class="text-underline"> View More </a></span>
+                                    <span class="text-muted"> <a href="{{ route("admin.users.index") }}" class="text-underline view-more"> View More </a></span>
                                 </div>
                             </div>
                             <div class="stat-card__icon stat-card__icon--primary">
@@ -45,12 +45,12 @@
                                 <p class="text-uppercase mb-1 text-muted">Categories</p>
                                 <h2>{{ $categories  }}</h2>
                                 <div>
-                                    <span class="text-muted"> <a href="{{ route("admin.categories.index") }}" class="text-underline"> View More </a></span>
+                                    <span class="text-muted"> <a href="{{ route("admin.categories.index") }}" class="text-underline view-more"> View More </a></span>
                                 </div>
                             </div>
                             <div class="stat-card__icon stat-card__icon--success">
                                 <div class="stat-card__icon-circle">
-                                    <i class="fa fa-suitcase"></i>
+                                    <i class="fa-solid fa-list-check"></i>
                                 </div>
                             </div>
                         </div>
@@ -62,12 +62,12 @@
                                 <p class="text-uppercase mb-1 text-muted">Sub Categories</p>
                                 <h2>{{ $subcategories  }}</h2>
                                 <div>
-                                    <span class="text-muted"> <a href="{{ route("admin.subcategories.index") }}" class="text-underline"> View More </a></span>
+                                    <span class="text-muted"> <a href="{{ route("admin.subcategories.index") }}" class="text-underline view-more"> View More </a></span>
                                 </div>
                             </div>
-                            <div class="stat-card__icon stat-card__icon--success">
+                            <div class="stat-card__icon stat-card__icon--warning">
                                 <div class="stat-card__icon-circle">
-                                    <i class="fa fa-suitcase"></i>
+                                    <i class="fa-solid fa-folder-tree"></i>
                                 </div>
                             </div>
                         </div>
@@ -79,12 +79,29 @@
                                 <p class="text-uppercase mb-1 text-muted">Products</p>
                                 <h2>{{ $products  }}</h2>
                                 <div>
-                                    <span class="text-muted"> <a href="{{ route("admin.products.index") }}" class="text-underline"> View More </a></span>
+                                    <span class="text-muted"> <a href="{{ route("admin.products.index") }}" class="text-underline view-more"> View More </a></span>
                                 </div>
                             </div>
-                            <div class="stat-card__icon stat-card__icon--success">
+                            <div class="stat-card__icon stat-card__icon--danger">
                                 <div class="stat-card__icon-circle">
                                     <i class="fa-solid fa-box-open"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="stat-card">
+                            <div class="stat-card__content">
+                                <p class="text-uppercase mb-1 text-muted">Uploaded Prescriptions</p>
+                                <h2>{{ $prescriptions  }}</h2>
+                                <div>
+                                    <span class="text-muted"> <a href="{{ route("admin.prescriptions.index") }}" class="text-underline view-more"> View More </a></span>
+                                </div>
+                            </div>
+                            <div class="stat-card__icon stat-card__icon--info">
+                                <div class="stat-card__icon-circle">
+                                    <i class="fa-solid fa-file-prescription"></i>
                                 </div>
                             </div>
                         </div>
@@ -96,10 +113,10 @@
                                 <p class="text-uppercase mb-1 text-muted">Orders</p>
                                 <h2>{{ $orders }}</h2>
                                 <div>
-                                    <span class="text-muted"> <a href="{{ route("admin.orders.index") }}" class="text-underline"> View More </a></span>
+                                    <span class="text-muted"> <a href="{{ route("admin.orders.index") }}" class="text-underline view-more"> View More </a></span>
                                 </div>
                             </div>
-                            <div class="stat-card__icon stat-card__icon--primary">
+                            <div class="stat-card__icon stat-card__icon--gray">
                                 <div class="stat-card__icon-circle">
                                     <i class="fa-solid fa-dolly"></i>
                                 </div>
@@ -107,19 +124,18 @@
                         </div>
                     </div>
 
-
                     <div class="col-sm-4">
                         <div class="stat-card">
                             <div class="stat-card__content">
-                                <p class="text-uppercase mb-1 text-muted">Prescriptions</p>
-                                <h2>{{ $prescriptions  }}</h2>
+                                <p class="text-uppercase mb-1 text-muted">Prescription Orders</p>
+                                <h2>{{ $prescription_orders }}</h2>
                                 <div>
-                                    <span class="text-muted"> <a href="{{ route("admin.prescriptions.index") }}" class="text-underline"> View More </a></span>
+                                    <span class="text-muted"> <a href="{{ route("admin.prescription_orders.index") }}" class="text-underline view-more"> View More </a></span>
                                 </div>
                             </div>
-                            <div class="stat-card__icon stat-card__icon--success">
+                            <div class="stat-card__icon stat-card__icon--orange">
                                 <div class="stat-card__icon-circle">
-                                    <i class="fa-solid fa-file-prescription"></i>
+                                    <i class="fa-solid fa-capsules"></i>
                                 </div>
                             </div>
                         </div>
@@ -131,34 +147,16 @@
                                 <p class="text-uppercase mb-1 text-muted">Messeges</p>
                                 <h2>{{ $messeges  }}</h2>
                                 <div>
-                                    <span class="text-muted"> <a href="{{ route("admin.messeges.index") }}" class="text-underline"> View More </a></span>
+                                    <span class="text-muted"> <a href="{{ route("admin.messeges.index") }}" class="text-underline view-more"> View More </a></span>
                                 </div>
                             </div>
-                            <div class="stat-card__icon stat-card__icon--success">
+                            <div class="stat-card__icon stat-card__icon--purple">
                                 <div class="stat-card__icon-circle">
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-sm-4">
-                        <div class="stat-card">
-                            <div class="stat-card__content">
-                                <p class="text-uppercase mb-1 text-muted">Products</p>
-                                <h2>{{ $products  }}</h2>
-                                <div>
-                                    <span class="text-muted"> <a href="{{ route("admin.products.index") }}" class="text-underline"> View More </a></span>
-                                </div>
-                            </div>
-                            <div class="stat-card__icon stat-card__icon--success">
-                                <div class="stat-card__icon-circle">
-                                    <i class="fa fa-suitcase"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
 
             </div>
         </div>

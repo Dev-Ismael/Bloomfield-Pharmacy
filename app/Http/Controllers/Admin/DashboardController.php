@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Messege;
 use App\Models\Order;
 use App\Models\Prescription;
+use App\Models\PrescriptionOrder;
 use App\Models\Product;
 use App\Models\Subcategory;
 use App\Models\User;
@@ -23,11 +24,12 @@ class DashboardController extends Controller
         $products = Product::count();
         $orders = Order::count();
         $prescriptions = Prescription::count();
+        $prescription_orders = PrescriptionOrder::count();
         $messeges = Messege::count();
 
         return view('admin.dashboard',
             compact('users', 'categories', 'subcategories',
-            'products', 'orders', 'prescriptions', 'messeges' ));
+            'products', 'orders', 'prescriptions','prescription_orders', 'messeges' ));
     }
 
 }

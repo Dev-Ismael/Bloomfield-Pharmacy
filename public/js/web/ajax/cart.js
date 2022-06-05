@@ -67,7 +67,7 @@ $(document).ready(function () {
         }
     }
 
-    $(".cart-products .fa-xmark").click(function () {
+    $(".cart-products .fa-xmark").click(function (e) {
         e.preventDefault();
         var xmarkBtn = $(this);
         var productItem = xmarkBtn.parent().parent();

@@ -4,7 +4,7 @@ $(document).ready(function () {
         =================== create order =======================================
         =========================================================================*/
 
-        $("#cart-page a.create-order-btn").click(function () {
+        $("#cart-page a.create-order-btn").click(function (e) {
             e.preventDefault();
             var orderFormData = new FormData($("#cart-page form#create-order")[0]);
             $.ajax({

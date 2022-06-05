@@ -5,7 +5,7 @@ $(document).ready(function () {
         =================== Update Profile =======================================
         =========================================================================*/
 
-        $("#profile-page button.update-profile").click(function () {
+        $("#profile-page button.update-profile").click(function (e) {
 
             e.preventDefault();
             var profileFormData = new FormData($("#profile-page form#update-profile")[0]);

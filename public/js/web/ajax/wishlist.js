@@ -47,7 +47,7 @@ $(document).ready(function () {
     =========================================================================*/
 
 
-    $(".wishlist-products .fa-xmark").click(function () {
+    $(".wishlist-products .fa-xmark").click(function (e) {
         e.preventDefault();
 
         var xmarkBtn = $(this);

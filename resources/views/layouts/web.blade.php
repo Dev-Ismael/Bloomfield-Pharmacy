@@ -426,7 +426,7 @@
                                                 <div class="form-item form-type-textfield form-item-mail">
                                                     <label for="edit-mail"> <i class="fa-solid fa-envelope"></i> E-mail address <span
                                                             class="form-required"></label>
-                                                    <input type="text" id="edit-mail" name="email"
+                                                    <input type="text"  name="email"
                                                         class="form-text required"  placeholder="Type Your Email..."  />
                                                     <small class="form-text text-danger p-0 border-0 email"> </small>
 
@@ -434,7 +434,7 @@
                                                 <div class="form-item form-type-textfield form-item-mail">
                                                     <label for="edit-mail"> <i class="fa-solid fa-key"></i> Password <span
                                                             class="form-required"></label>
-                                                    <input type="password" id="edit-mail" name="password"
+                                                    <input type="password"  name="password"
                                                         class="form-text required"  placeholder="Type Password..." />
                                                     <small class="form-text text-danger p-0 border-0 password">
                                                     </small>
@@ -443,7 +443,7 @@
                                                 <div class="form-item form-type-textfield form-item-mail">
                                                     <label for="edit-mail"> <i class="fa-solid fa-key"></i> Confirm Password <span
                                                             class="form-required"></label>
-                                                    <input type="password" id="edit-mail" name="password_confirmation"
+                                                    <input type="password"  name="password_confirmation"
                                                         class="form-text required" placeholder="Type Password Again..."  />
                                                     <small
                                                         class="form-text text-danger p-0 border-0 password_confirmation">

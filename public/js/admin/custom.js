@@ -135,7 +135,6 @@ if (multiAlertBtn) {
 ================ if Isset Multible option
 =====================================================*/
 const selectAction = document.getElementById('select-action');
-
 if (selectAction) {
     selectAction.addEventListener('change', function handleChange(event) {
         multiAlertBtn.removeAttribute("disabled");

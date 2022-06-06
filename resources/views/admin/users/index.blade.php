@@ -41,7 +41,8 @@
                             </svg>
                         </button>
                         @csrf
-                        <input type="email" name="search" class="form-control @error('search') is-invalid @enderror" placeholder="Search users by primary email" autocomplete="off" required/>
+                        <input type="email" name="search" class="form-control @error('search') is-invalid @enderror" 
+                        placeholder="Search users by primary email"  value='{{ Request::input('search') }}' autocomplete="off" maxlength="55" required/>
                         @error('search')
                             <div class="invalid-feedback" style="margin-left: 40px">{{$message }}.</div>
                         @enderror

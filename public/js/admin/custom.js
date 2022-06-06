@@ -119,16 +119,6 @@ $(document).ready(function () {
         placeholder: "Choose User...",
     });
 
-
-    var data = {
-        id: 1,
-        text: 'Barn owl'
-    };
-    $("select#user").select2( {
-        placeholder: "Choose User...",
-    });
-    var newOption = new Select(data.text, data.id, false, false);
-    $('#product_id').append(newOption).trigger('change');
     
 });
 /*==================================================

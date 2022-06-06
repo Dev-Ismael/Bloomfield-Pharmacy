@@ -50,7 +50,7 @@
                         </button>
                         @csrf
                         <input type="email" name="search" class="form-control @error('search') is-invalid @enderror"
-                            placeholder="Search order by user email" autocomplete="off" required />
+                            placeholder="Search order by user email"  value='{{ Request::input('search') }}' autocomplete="off" maxlength="55" required/>
                         @error('search')
                             <div class="invalid-feedback" style="margin-left: 40px">{{ $message }}.</div>
                         @enderror

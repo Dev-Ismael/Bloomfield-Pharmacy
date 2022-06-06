@@ -51,7 +51,7 @@
                         </button>
                         @csrf
                         <input type="text" name="search" class="form-control @error('search') is-invalid @enderror"
-                            placeholder="Search sub categories by title" autocomplete="off" required />
+                            placeholder="Search sub categories by title"  value='{{ Request::input('search') }}' autocomplete="off" maxlength="55" required/>
                         @error('search')
                             <div class="invalid-feedback" style="margin-left: 40px">{{ $message }}.</div>
                         @enderror

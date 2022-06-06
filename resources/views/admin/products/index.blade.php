@@ -25,9 +25,10 @@
                 <p class="mb-0">Your web analytics dashboard template.</p>
             </div>
             <!--------------- If No SubCategory hide create btn --------------->
-            @if ( isset($subcategoriesCount) && $subcategoriesCount > 0)
+            @if (isset($subcategoriesCount) && $subcategoriesCount > 0)
                 <div class="btn-toolbar mb-2 mb-md-0"><a href="{{ route('admin.products.create') }}"
-                        class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i> &nbsp;
+                        class="btn btn-sm btn-primary d-inline-flex align-items-center"> <i class="fa-solid fa-plus"></i>
+                        &nbsp;
                         New Product</a>
                 </div>
             @endif
@@ -37,9 +38,9 @@
             <div class="row justify-content-between align-items-center">
 
                 <!--------------- Search Form --------------->
-                <div class="col-9 col-lg-8 d-md-flex">
+                <div class="col-9 col-lg-8">
                     <form action="{{ route('admin.products.search') }}" method="POST"
-                        class="input-group me-2 me-lg-3 fmxw-300">
+                        class="input-group me-2 me-lg-3 fmxw-500">
                         <button type="submit" class="input-group-text">
                             <svg class="icon icon-xs" x-description="Heroicon name: solid/search"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -51,11 +52,23 @@
                         </button>
                         @csrf
                         <input type="text" name="search" class="form-control @error('search') is-invalid @enderror"
-                            placeholder="Search product by title" autocomplete="off" required />
-                        @error('search')
-                            <div class="invalid-feedback" style="margin-left: 40px">{{ $message }}.</div>
-                        @enderror
+                            placeholder="Search product by title" value='{{ Request::input('search') }}' autocomplete="off" maxlength="55" />
+
+                        &nbsp;
+                        <select class="form-select fmxw-200 d-none d-md-inline" name="category_filter" aria-label="Message select example 2">
+                            <option value="all" selected="selected">All</option>
+                            @foreach ( $subcategories as $subcategory )
+                                <option value="{{ $subcategory->id }}"
+                                    @if ( Request::input('category_filter')  == $subcategory->id )
+                                        selected
+                                    @endif
+                                > {{ $subcategory->title }} </option>
+                            @endforeach
+                        </select>
                     </form>
+                    @error('search')
+                        <div class="invalid-feedback d-block" style="margin-left: 40px;margin-top: -15px">{{ $message }}.</div>
+                    @enderror
                 </div>
                 <!------------------ Dynamic Pagination ------------------->
                 @if (preg_match('(search)', url()->current()) !== 1)
@@ -154,8 +167,7 @@
                             <tr>
                                 <th class="border-bottom">
                                     <div class="form-check dashboard-check">
-                                        <input  class="form-check-input checkbox-head" type="checkbox"
-                                            id="main-checker">
+                                        <input class="form-check-input checkbox-head" type="checkbox" id="main-checker">
                                         <label class="form-check-label" for="userCheck55"> </label>
                                     </div>
                                 </th>
@@ -177,9 +189,11 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.products.show', $product->id) }}" class="d-flex align-items-center">
+                                        <a href="{{ route('admin.products.show', $product->id) }}"
+                                            class="d-flex align-items-center">
                                             <div class="d-block index-table-img">
-                                                <img src="{{ asset("images/products/".$product->img) }}" height="50" alt="product-img">
+                                                <img src="{{ asset('images/products/' . $product->img) }}" height="50"
+                                                    alt="product-img">
                                             </div>
                                         </a>
                                     </td>

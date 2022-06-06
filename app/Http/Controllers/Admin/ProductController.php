@@ -22,9 +22,13 @@ class ProductController extends Controller
     {
         // Get Parent Rows Count
         $subcategoriesCount = Subcategory::count();
+
+        // Filter
+        $subcategories = Subcategory::get();
+
         // Dynamic pagination
         $products = Product::with('subcategory')->orderBy('id','desc')->paginate( $num );
-        return view("admin.products.index",compact("products","subcategoriesCount"));
+        return view("admin.products.index",compact("products","subcategoriesCount","subcategories"));
     }
 
 
@@ -37,8 +41,10 @@ class ProductController extends Controller
     {
         // Get Parent Rows Count
         $subcategoriesCount = Subcategory::count();
+        // Filter
+        $subcategories = Subcategory::get();
         $products = Product::with('subcategory')->orderBy('id','desc')->paginate( 10 );
-        return view("admin.products.index",compact("products","subcategoriesCount"));
+        return view("admin.products.index",compact("products","subcategoriesCount","subcategories"));
     }
 
     /**
@@ -220,11 +226,20 @@ class ProductController extends Controller
     {
         // validate search and redirect back
         $this->validate($request, [
-            'search'     =>  ['required', 'string', 'max:55'],
+            'search'          =>  [ 'max:55' ],
+            'category_filter' =>  [ 'required' , 'string' , 'max:55'],
         ]);
 
-        $products = Product::where('title', 'like', "%{$request->search}%")->paginate( 10 );
-        return view("admin.products.index",compact("products"));
+        if( $request->category == 'all'){
+            $products = Product::where('title', 'like', "%{$request->search}%")->paginate( 10 );
+        }else{
+            $products = Product::where([ ['subcategory_id' , '=' , $request->category_filter] , ['title', 'like', "%{$request->search}%"] ])->paginate( 10 );
+        }
+
+        // get Category for Filter
+        $subcategories = Subcategory::get();
+
+        return view("admin.products.index",compact("products",'subcategories'));
 
     }
 

@@ -235,7 +235,7 @@ class ProductController extends Controller
         
         if( $request->search == '' &&  $request->category_filter == 'all' ){
 
-            return Redirect::back(); 
+            return redirect() -> route("admin.products.index");
 
         }elseif ( $request->search != '' &&  $request->category_filter == 'all' ) {
 
@@ -243,7 +243,7 @@ class ProductController extends Controller
 
         }elseif ( $request->search == '' &&  $request->category_filter != 'all' ) {
 
-            $products = Product::where( 'title', 'like', "%{$request->search}%" )->paginate( 10 );
+            $products = Product::where( 'subcategory_id' , '=' , $request->category_filter )->paginate( 10 );
 
         }elseif ( $request->search != '' &&  $request->category_filter != 'all' ) {
 

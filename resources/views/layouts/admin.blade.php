@@ -131,24 +131,27 @@
                     </li>
 
                     <li class="nav-item">
-                        <span class="nav-link d-flex justify-content-between align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#submenu-app" aria-expanded="false">
+                        <span class="nav-link d-flex justify-content-between align-items-center collapsed"
+                            data-bs-toggle="collapse" data-bs-target="#submenu-app" aria-expanded="false">
                             <span>
                                 <span class="sidebar-icon"> <i class="fa-solid fa-list"></i> </span>
                                 <span class="sidebar-text">Categories</span>
                             </span>
                             <span class="link-arrow">
-                                <svg class="icon icon-sm" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </span>
                         </span>
-                        <div class="multi-level collapse  {{ Request::is('*/categories*') || Request::is('*/subcategories*') ? 'show' : '' }}" role="list" id="submenu-app" aria-expanded="false" style="">
+                        <div class="multi-level collapse  {{ Request::is('*/categories*') || Request::is('*/subcategories*') ? 'show' : '' }}"
+                            role="list" id="submenu-app" aria-expanded="false" style="">
                             <ul class="flex-column nav">
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('*/categories*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
+                                    <a class="nav-link {{ Request::is('*/categories*') ? 'active' : '' }}"
+                                        href="{{ route('admin.categories.index') }}">
                                         <span class="sidebar-text-contracted">
                                             <i class="fa-solid fa-list-check"></i>
                                         </span>
@@ -159,7 +162,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('*/subcategories*') ? 'active' : '' }}" href="{{ route('admin.subcategories.index') }}">
+                                    <a class="nav-link {{ Request::is('*/subcategories*') ? 'active' : '' }}"
+                                        href="{{ route('admin.subcategories.index') }}">
                                         <span class="sidebar-text-contracted">
                                             <i class="fa-solid fa-folder-tree"></i>
                                         </span>
@@ -194,24 +198,27 @@
 
 
                     <li class="nav-item">
-                        <span class="nav-link d-flex justify-content-between align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#orders" aria-expanded="false">
+                        <span class="nav-link d-flex justify-content-between align-items-center collapsed"
+                            data-bs-toggle="collapse" data-bs-target="#orders" aria-expanded="false">
                             <span>
                                 <span class="sidebar-icon"> <i class="fa-solid fa-dolly"></i> </span>
                                 <span class="sidebar-text"> Orders </span>
                             </span>
                             <span class="link-arrow">
-                                <svg class="icon icon-sm" fill="currentColor"
-                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </span>
                         </span>
-                        <div class="multi-level collapse {{ Request::is('*/orders*') || Request::is('*/prescription_orders*') ? 'show' : '' }}" role="list" id="orders" aria-expanded="false" style="">
+                        <div class="multi-level collapse {{ Request::is('*/orders*') || Request::is('*/prescription_orders*') ? 'show' : '' }}"
+                            role="list" id="orders" aria-expanded="false" style="">
                             <ul class="flex-column nav">
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('*/orders*') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">
+                                    <a class="nav-link {{ Request::is('*/orders*') ? 'active' : '' }}"
+                                        href="{{ route('admin.orders.index') }}">
                                         <span class="sidebar-text-contracted">
                                             <i class="fa-solid fa-cart-shopping"></i>
                                         </span>
@@ -222,7 +229,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {{ Request::is('*/prescription_orders*') ? 'active' : '' }}" href="{{ route('admin.prescription_orders.index') }}">
+                                    <a class="nav-link {{ Request::is('*/prescription_orders*') ? 'active' : '' }}"
+                                        href="{{ route('admin.prescription_orders.index') }}">
                                         <span class="sidebar-text-contracted">
                                             <i class="fa-solid fa-file-prescription"></i>
                                         </span>
@@ -280,25 +288,65 @@
                                 <!------ Notification ------>
                                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-center mt-2 py-0">
                                     <div class="list-group list-group-flush">
-                                        <a href="#" class="text-center text-primary fw-bold border-bottom border-light py-3">Notifications</a>
+                                        <a href="#"
+                                            class="text-center text-primary fw-bold border-bottom border-light py-3">Notifications</a>
                                         @php
-                                            $notifications = App\Models\Notification::with('user')->orderBy('id','desc')->take(5)->get();
+                                            $notifications = App\Models\Notification::with('user')
+                                                ->orderBy('id', 'desc')
+                                                ->take(5)
+                                                ->get();
                                         @endphp
                                         @if ($notifications->isEmpty())
-                                        <a href="#" class="list-group-item list-group-item-action border-bottom">
-                                            <div class="row align-items-center text-center">
-                                                <p style="padding: 0px; margin: 0.5rem;">No Notifications!</p>
-                                            </div>
-                                        </a>
+                                            <a href="#" class="list-group-item list-group-item-action border-bottom">
+                                                <div class="row align-items-center text-center">
+                                                    <p style="padding: 0px; margin: 0.5rem;">No Notifications!</p>
+                                                </div>
+                                            </a>
                                         @else
-                                            @foreach ( $notifications as $notification )
-                                                <a href="{{$notification->link}}" notification_id="{{$notification->id}}" class="notification-link {{$notification->as_read == '0' ? 'not_seen' : '' }} list-group-item list-group-item-action border-bottom">
+                                            @php
+                                                function time_elapsed_string($datetime, $full = false)
+                                                {
+                                                    $now = new DateTime();
+                                                    $ago = new DateTime($datetime);
+                                                    $diff = $now->diff($ago);
+                                                
+                                                    $diff->w = floor($diff->d / 7);
+                                                    $diff->d -= $diff->w * 7;
+                                                
+                                                    $string = [
+                                                        'y' => 'year',
+                                                        'm' => 'month',
+                                                        'w' => 'week',
+                                                        'd' => 'day',
+                                                        'h' => 'hour',
+                                                        'i' => 'minute',
+                                                        's' => 'second',
+                                                    ];
+                                                    foreach ($string as $k => &$v) {
+                                                        if ($diff->$k) {
+                                                            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+                                                        } else {
+                                                            unset($string[$k]);
+                                                        }
+                                                    }
+                                                
+                                                    if (!$full) {
+                                                        $string = array_slice($string, 0, 1);
+                                                    }
+                                                    return $string ? implode(', ', $string) . ' ago' : 'just now';
+                                                }
+                                            @endphp
+                                            @foreach ($notifications as $notification)
+                                                <a href="{{ $notification->link }}"
+                                                    notification_id="{{ $notification->id }}"
+                                                    class="notification-link {{ $notification->as_read == '0' ? 'not_seen' : '' }} list-group-item list-group-item-action border-bottom">
                                                     <div class="row align-items-center">
                                                         <div class="col ps-0 ms-2">
-                                                            <div class="d-flex justify-content-between align-items-center">
+                                                            <div
+                                                                class="d-flex justify-content-between align-items-center">
                                                                 <div>
                                                                     <h4 class="h6 mb-0 text-small">
-                                                                        @if ( $notification->user_id == 0 )
+                                                                        @if ($notification->user_id == 0)
                                                                             Unregisted User
                                                                         @else
                                                                             {{ $notification->user->name }}
@@ -306,21 +354,33 @@
                                                                     </h4>
                                                                 </div>
                                                                 <div class="text-end">
-                                                                    <small class="text-danger"> {{ $notification->created_at->format('d M Y') }} </small>
+                                                                    <small class="text-danger">
+                                                                        {{ time_elapsed_string($notification->created_at) }}
+                                                                    </small>
                                                                 </div>
                                                             </div>
                                                             <p class="font-small mt-1 mb-0">
-                                                                @if ( $notification->content == "create_order")
-                                                                    New order has been created by&nbsp; <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
-                                                                @elseif ( $notification->content == "upload_prescriotion")
-                                                                    New prescription has been upload by&nbsp; <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
-                                                                @elseif ( $notification->content == "create_prescription_order")
-                                                                    There is new request for prescription medicines for&nbsp; <span class="font-wieght-bold"> {{ $notification->user->name }} </span>
-                                                                @elseif ( $notification->content == "messege_sent")
-                                                                    @if ( $notification->user_id == 0 )
-                                                                        New messege has been sent by&nbsp;<span class="font-wieght-bold">  Unregisted User </span>
+                                                                @if ($notification->content == 'create_order')
+                                                                    New order has been created by&nbsp; <span
+                                                                        class="font-wieght-bold">
+                                                                        {{ $notification->user->name }} </span>
+                                                                @elseif ($notification->content == 'upload_prescriotion')
+                                                                    New prescription has been upload by&nbsp; <span
+                                                                        class="font-wieght-bold">
+                                                                        {{ $notification->user->name }} </span>
+                                                                @elseif ($notification->content == 'create_prescription_order')
+                                                                    There is new request for prescription medicines
+                                                                    for&nbsp; <span class="font-wieght-bold">
+                                                                        {{ $notification->user->name }} </span>
+                                                                @elseif ($notification->content == 'messege_sent')
+                                                                    @if ($notification->user_id == 0)
+                                                                        New messege has been sent by&nbsp;<span
+                                                                            class="font-wieght-bold"> Unregisted User
+                                                                        </span>
                                                                     @else
-                                                                        New messege has been sent by&nbsp;<span class="font-wieght-bold"> {{ $notification->user->name }} </span>
+                                                                        New messege has been sent by&nbsp;<span
+                                                                            class="font-wieght-bold">
+                                                                            {{ $notification->user->name }} </span>
                                                                     @endif
                                                                 @endif
                                                             </p>
@@ -330,7 +390,8 @@
                                             @endforeach
                                         @endif
 
-                                        <a href="{{ route('admin.notifications.index') }}" class="dropdown-item text-center fw-bold rounded-bottom py-3">
+                                        <a href="{{ route('admin.notifications.index') }}"
+                                            class="dropdown-item text-center fw-bold rounded-bottom py-3">
                                             <svg class="icon icon-xxs text-gray-400 me-1" fill="currentColor"
                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
@@ -355,7 +416,8 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1">
-                                    <a class="dropdown-item d-flex align-items-center"  href="{{ route("profile") }}">
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="{{ route('profile') }}">
                                         <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
                                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
@@ -373,7 +435,8 @@
                                         </svg>
                                         Settings
                                     </a> --}}
-                                    <a class="dropdown-item d-flex align-items-center" href="{{ route("admin.messeges.index") }}">
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="{{ route('admin.messeges.index') }}">
                                         <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
                                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd"
@@ -383,7 +446,9 @@
                                         Messages
                                     </a>
                                     <div role="separator" class="dropdown-divider my-1"></div>
-                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
                                         <svg class="dropdown-icon text-danger me-2" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -392,6 +457,10 @@
                                         </svg>
                                         Logout
                                     </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                         </ul>
@@ -440,7 +509,8 @@
     <script src="{{ asset('js/admin/Sortable.min.js') }}"></script>
     <script async defer="defer" src="{{ asset('js/admin/buttons.js') }}"></script>
     <script src="{{ asset('js/admin/volt.js') }}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
     <script src="{{ asset('js/admin/custom.js') }}"></script>
     <script src="{{ asset('js/admin/select2.min.js') }}"></script>
 

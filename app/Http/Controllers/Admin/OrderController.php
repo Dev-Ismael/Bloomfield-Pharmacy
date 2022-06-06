@@ -104,7 +104,7 @@ class OrderController extends Controller
         // Store in DB
         try {
             $order = Order::create([
-                'user_id'         => Auth::id(),
+                'user_id'         => $request->user_id,
                 'address'         => $shipping_address,
                 'phone'           => $shipping_phone,
                 'cart'            => $cartArray,
@@ -208,7 +208,7 @@ class OrderController extends Controller
         // Store in DB
         try {
             $update = $order->update([
-                'user_id'         => Auth::id(),
+                'user_id'         => $request->user_id,
                 'address'         => $shipping_address,
                 'phone'           => $shipping_phone,
                 'cart'            => $cartArray,

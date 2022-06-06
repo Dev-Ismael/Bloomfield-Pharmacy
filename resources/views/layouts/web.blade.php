@@ -424,7 +424,7 @@
 
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
-                                                    <label for="edit-mail"> <i class="fa-solid fa-envelope"></i> E-mail address <span
+                                                    <label for="email"> <i class="fa-solid fa-envelope"></i> E-mail address <span
                                                             class="form-required"></label>
                                                     <input type="text"  name="email"
                                                         class="form-text required"  placeholder="Type Your Email..."  />
@@ -432,7 +432,7 @@
 
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
-                                                    <label for="edit-mail"> <i class="fa-solid fa-key"></i> Password <span
+                                                    <label for="password"> <i class="fa-solid fa-key"></i> Password <span
                                                             class="form-required"></label>
                                                     <input type="password"  name="password"
                                                         class="form-text required"  placeholder="Type Password..." />
@@ -441,7 +441,7 @@
 
                                                 </div>
                                                 <div class="form-item form-type-textfield form-item-mail">
-                                                    <label for="edit-mail"> <i class="fa-solid fa-key"></i> Confirm Password <span
+                                                    <label for="password_confirmation"> <i class="fa-solid fa-key"></i> Confirm Password <span
                                                             class="form-required"></label>
                                                     <input type="password"  name="password_confirmation"
                                                         class="form-text required" placeholder="Type Password Again..."  />

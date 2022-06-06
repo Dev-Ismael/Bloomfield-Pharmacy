@@ -37,6 +37,7 @@
     <link type="text/css" href="{{ asset('css/admin/choices.min.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('css/admin/leaflet.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('css/admin/volt.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('css/admin/select2.min.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('css/admin/custom.css') }}" rel="stylesheet">
 
 
@@ -441,7 +442,7 @@
     <script src="{{ asset('js/admin/volt.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/admin/custom.js') }}"></script>
-
+    <script src="{{ asset('js/admin/select2.min.js') }}"></script>
 
 </body>
 

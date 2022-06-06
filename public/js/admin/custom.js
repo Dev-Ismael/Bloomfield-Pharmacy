@@ -103,6 +103,35 @@ for (var i = 0; i < dangerBtns.length; i++) {
 }
 
 /*==================================================
+================ Select 2 Libaray
+=====================================================*/
+$(document).ready(function () {
+    // Main Category 
+    $("select#main-category").select2( {
+        placeholder: "Choose Main Category...",
+    });
+    // Sub Category 
+    $("select#sub-category").select2( {
+        placeholder: "Choose Category...",
+    });
+    // User  
+    $("select#user").select2( {
+        placeholder: "Choose User...",
+    });
+
+
+    var data = {
+        id: 1,
+        text: 'Barn owl'
+    };
+    $("select#user").select2( {
+        placeholder: "Choose User...",
+    });
+    var newOption = new Select(data.text, data.id, false, false);
+    $('#product_id').append(newOption).trigger('change');
+    
+});
+/*==================================================
 ================ Multible btn Confimation
 =====================================================*/
 const multiAlertBtn = document.getElementById("multi-alert-btn");

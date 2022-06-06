@@ -44,8 +44,8 @@
                                             
                                         <div class="mb-4 input-content">
                                             <label for="user_id" class="capitalize"> <i class="fa-solid fa-user"></i> User </label>
-                                            <select class="form-select form-control @error('user_id') is-invalid @enderror" name="user_id" id="user_id"  aria-label="Default select example" required>
-                                                <option value="" selected="selected" class="d-none">Choose User...</option>
+                                            <select class="form-select form-control @error('user_id') is-invalid @enderror" name="user_id" id="user"  aria-label="Default select example" required>
+                                                <option></option>
                                                 @foreach ( $users as $user )
                                                     <option value="{{ $user->id }}"  {{ $order->user_id == $user->id ? "selected" : "" }}>{{ $user->email }}</option>
                                                 @endforeach

@@ -49,7 +49,7 @@ class OrderController extends Controller
     public function create()
     {
         $users = User::get();
-        $products = Product::get();
+        $products = Product::orderBy('title','asc')->get();
         return view("admin.orders.create" , compact("users","products"));
     }
 
@@ -147,7 +147,7 @@ class OrderController extends Controller
     {
         $users = User::get();
         // find id in Db With Error 404
-        $products = Product::get();
+        $products = Product::orderBy('title','asc')->get();
 
         $order = Order::findOrFail($id);
         return view("admin.orders.edit" , compact("order","users","products") ) ;

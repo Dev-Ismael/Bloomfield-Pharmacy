@@ -54,8 +54,8 @@
 
                                         <div class="mb-4 input-content">
                                             <label for="subcategory_id" class="capitalize"> <i class="fa-solid fa-list"></i> Category </label>
-                                            <select class="form-select form-control @error('subcategory_id') is-invalid @enderror" name="subcategory_id" id="subcategory_id"  aria-label="Default select example" required>
-                                                <option value="" selected="selected" class="d-none">Choose Category...</option>
+                                            <select class="form-select form-control @error('subcategory_id') is-invalid @enderror" name="subcategory_id" id="sub-category"  aria-label="Default select example" required>
+                                                <option></option>
                                                 @foreach ( $subcategories as $subcategory )
                                                     <option value="{{ $subcategory->id }}"  {{ old('subcategory_id') == $subcategory->id ? "selected" : "" }} >{{ $subcategory->title }}</option>
                                                 @endforeach

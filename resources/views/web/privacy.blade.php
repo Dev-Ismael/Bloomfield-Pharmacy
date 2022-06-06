@@ -9,7 +9,7 @@
 
                 <p>Effective date: April 10, 2019</p>
 
-                <p>Bloomfiled Pharmacy pharmacy company LLC ("us", "we", or "our") operates the http://www.Bloomfiled Pharmacy.com website and the Bloomfiled Pharmacy
+                <p>Bloomfiled Pharmacy  company LLC ("us", "we", or "our") operates the http://www.Bloomfiled Pharmacy.com website and the Bloomfiled Pharmacy
                     mobile application (the "Service").</p>
 
                 <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when
@@ -72,7 +72,7 @@
 
                 <h2>Use of Data</h2>
 
-                <p>Bloomfiled Pharmacy pharmacy company LLC uses the collected data for various purposes:</p>
+                <p>Bloomfiled Pharmacy  company LLC uses the collected data for various purposes:</p>
                 <ul>
                     <li>To provide and maintain the Service</li>
                     <li>To notify you about changes to our Service</li>
@@ -91,7 +91,7 @@
                     the data, including Personal Data, to Egypt and process it there.</p>
                 <p>Your consent to this Privacy Policy followed by your submission of such information represents your
                     agreement to that transfer.</p>
-                <p>Bloomfiled Pharmacy pharmacy company LLC will take all steps reasonably necessary to ensure that your data is treated
+                <p>Bloomfiled Pharmacy  company LLC will take all steps reasonably necessary to ensure that your data is treated
                     securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take
                     place to an organization or a country unless there are adequate controls in place including the security
                     of your data and other personal information.</p>
@@ -99,11 +99,11 @@
                 <h2>Disclosure Of Data</h2>
 
                 <h4>Legal Requirements</h4>
-                <p>Bloomfiled Pharmacy pharmacy company LLC may disclose your Personal Data in the good faith belief that such action is
+                <p>Bloomfiled Pharmacy  company LLC may disclose your Personal Data in the good faith belief that such action is
                     necessary to:</p>
                 <ul>
                     <li>To comply with a legal obligation</li>
-                    <li>To protect and defend the rights or property of Bloomfiled Pharmacy pharmacy company LLC</li>
+                    <li>To protect and defend the rights or property of Bloomfiled Pharmacy  company LLC</li>
                     <li>To prevent or investigate possible wrongdoing in connection with the Service</li>
                     <li>To protect the personal safety of users of the Service or the public</li>
                     <li>To protect against legal liability</li>

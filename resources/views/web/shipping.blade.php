@@ -30,7 +30,7 @@
                             <div class="content col-xs-12 remove-padding" style="text-align: justify;">
                                 <ul>
                                     <li>First Range:
-                                        Bloomfiled Pharmacy pharmacies deliver orders through the delivery team who is working in our
+                                        Bloomfiled Pharmacy  deliver orders through the delivery team who is working in our
                                         diffuse branches within this range; and this process starts as soon as the order is
                                         submitted to our online portal, this process takes a time ranging from minutes to
                                         few hours usually during the same day except in some cases as follow:
@@ -68,7 +68,7 @@
                                         will be able to know the value of shipping charges before the completion of the
                                         purchase.
                                     </li>
-                                    <li>Bloomfiled Pharmacy pharmacies are keen to deliver the orders to you as soon as possible at the
+                                    <li>Bloomfiled Pharmacy  are keen to deliver the orders to you as soon as possible at the
                                         lowest cost and highest quality and therefore we rely on many policies and methods
                                         to achieve this goal as follows:
                                     </li>
@@ -94,7 +94,7 @@
                         <h3 class="slide-side-fillter links-colapsed">Receipt of shipments</h3>
                         <div class="col-xs-12 remove-padding links-main-fillter-side" style="display: none">
                             <div class="content col-xs-12 remove-padding" style="text-align: justify;">
-                                <li>Bloomfiled Pharmacy pharmacies are keen to deliver orders to customers at a time that suits them. We
+                                <li>Bloomfiled Pharmacy  are keen to deliver orders to customers at a time that suits them. We
                                     work 24 hours a day 7 days a week to provide the best service that suit your needs.</li>
                                 <li>Bloomfiled Pharmacy team will contact the customer prior to delivering the order to ensure that it
                                     will be delivered when the customer is available and ready to receive it.</li>
@@ -115,7 +115,7 @@
                         <h3 class="slide-side-fillter links-colapsed">Products that not suitable for shipping</h3>
                         <div class="col-xs-12 remove-padding links-main-fillter-side" style="display: none">
                             <div class="content col-xs-12 remove-padding" style="text-align: justify;">
-                                <li>Bloomfiled Pharmacy pharmacy keen to deliver the products in the best condition, so we exclude some
+                                <li>Bloomfiled Pharmacy  keen to deliver the products in the best condition, so we exclude some
                                     items which are not suitable for shipping conditions as:</li>
                                 <ul>
                                     <li>Products which needs to be stored in the refrigerator.</li>

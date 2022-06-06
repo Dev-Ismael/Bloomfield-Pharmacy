@@ -73,7 +73,7 @@
                                     <form action="{{ route('search') }}" method="POST">
                                         <div>
                                             @csrf
-                                            <input type="text" name="searchQuery" class="form-control @error('search') is-invalid @enderror" placeholder="Search Products" autocomplete="off" minlength="3" required/>
+                                            <input type="text" name="searchQuery" class="form-control @error('search') is-invalid @enderror" placeholder="Search Products..." autocomplete="off" minlength="3" maxlength="55"required/>
                                             <button type="submit" class="btn icon-search"></button>
                                         </div>
                                     </form>
@@ -200,7 +200,7 @@
                                 <form action="{{ route('search') }}" method="POST">
                                     <div>
                                         @csrf
-                                        <input type="text" name="searchQuery" class="form-control @error('search') is-invalid @enderror" placeholder="Search Products" autocomplete="off" minlength="3" required/>
+                                        <input type="text" name="searchQuery" class="form-control @error('search') is-invalid @enderror" placeholder="Search Products..." autocomplete="off" minlength="3" maxlength="55"required/>
                                         <button type="submit" class="btn icon-search"></button>
                                     </div>
                                 </form>

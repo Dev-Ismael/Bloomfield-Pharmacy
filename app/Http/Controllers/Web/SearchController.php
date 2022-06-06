@@ -24,13 +24,11 @@ class SearchController extends Controller
                 ['title', 'like', "%{$request->searchQuery}%"],
                 ['has_offer' , '=' , '1' ]
             ])->paginate( 30 );
-            $offer_filter = '1';
-            return view("web.search",compact("products","searchQuery","offer_filter"));
+            return view("web.search",compact("products","searchQuery"));
         }
 
-        $offer_filter = '0';
         $products = Product::where('title', 'like', "%{$request->searchQuery}%")->paginate( 30 );
-        return view("web.search",compact("products","searchQuery","offer_filter"));
+        return view("web.search",compact("products","searchQuery"));
     }
 
 }

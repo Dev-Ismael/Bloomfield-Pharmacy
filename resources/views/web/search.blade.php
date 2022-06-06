@@ -24,14 +24,14 @@
                                                 <fieldset class="text-left">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio" name="offer_filter"
-                                                            id="all_products" value="0"  {{ $offer_filter == '0' ? "checked" : "" }}>
+                                                            id="all_products" value="0"  {{ Request::input('offer_filter') == '0' ? "checked" : "" }}>
                                                         <label class="form-check-label" for="all_products">
                                                             All Product
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio" name="offer_filter"
-                                                            id="offer_products" value="1" {{ $offer_filter == '1' ? "checked" : "" }}>
+                                                            id="offer_products" value="1" {{ Request::input('offer_filter') == '1' ? "checked" : "" }}>
                                                         <label class="form-check-label" for="offer_products">
                                                             Only Offered Products
                                                         </label>

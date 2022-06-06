@@ -10,6 +10,7 @@ use App\Http\Requests\Product\CreateProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
 use Illuminate\Support\Facades\Validator;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -230,15 +231,28 @@ class ProductController extends Controller
             'category_filter' =>  [ 'required' , 'string' , 'max:55'],
         ]);
 
-        if( $request->category == 'all'){
+
+        
+        if( $request->search == '' &&  $request->category_filter == 'all' ){
+
+            return Redirect::back(); 
+
+        }elseif ( $request->search != '' &&  $request->category_filter == 'all' ) {
+
             $products = Product::where('title', 'like', "%{$request->search}%")->paginate( 10 );
-        }else{
+
+        }elseif ( $request->search == '' &&  $request->category_filter != 'all' ) {
+
+            $products = Product::where( 'title', 'like', "%{$request->search}%" )->paginate( 10 );
+
+        }elseif ( $request->search != '' &&  $request->category_filter != 'all' ) {
+
             $products = Product::where([ ['subcategory_id' , '=' , $request->category_filter] , ['title', 'like', "%{$request->search}%"] ])->paginate( 10 );
+
         }
 
         // get Category for Filter
         $subcategories = Subcategory::get();
-
         return view("admin.products.index",compact("products",'subcategories'));
 
     }

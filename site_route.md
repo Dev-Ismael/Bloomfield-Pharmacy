@@ -26,8 +26,6 @@
 
 tasks : 
 --------------
-- add categories data
-- add products data
 - google sites notification
 
 

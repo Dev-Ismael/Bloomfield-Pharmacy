@@ -63,7 +63,7 @@
                         <h3 class="slide-side-fillter links-colapsed">Return process:</h3>
                         <div class="content col-xs-12 remove-padding  links-main-fillter-side" style="display: none">
                             <div class="content col-xs-12 remove-padding ">
-                                <p>Fouda pharmacies are keen to facilitate the return process and make it documented by time
+                                <p>Bloomfiled Pharmacy pharmacies are keen to facilitate the return process and make it documented by time
                                     and
                                     date to protect the rights of customers. <br>
                                     If you want to make a return, please follow these steps: <br>
@@ -83,7 +83,7 @@
                         <div class="content col-xs-12 remove-padding  links-main-fillter-side" style="display: none">
                             <div class="content col-xs-12 remove-padding ">
                                 <p> The customer can deliver the orders or products that he wishes to return to the nearest
-                                    branch of Fouda pharmacies, which located in Cairo and Giza. In this case, the return
+                                    branch of Bloomfiled Pharmacy pharmacies, which located in Cairo and Giza. In this case, the return
                                     will
                                     be made immediately if the return complies with the conditions mentioned in the return
                                     policy without any fees. </p>
@@ -95,7 +95,7 @@
                         <h3 class="slide-side-fillter links-colapsed">Return from home:</h3>
                         <div class="content col-xs-12 remove-padding  links-main-fillter-side" style="display: none">
                             <div class="content col-xs-12 remove-padding ">
-                                <p>To facilitate for our customers; Fouda pharmacies provide exceptional service, which is
+                                <p>To facilitate for our customers; Bloomfiled Pharmacy pharmacies provide exceptional service, which is
                                     the
                                     possibility of receiving returns from home if the client wishes to do so, taking into
                                     consideration the following rules which applies only for return from home: <br>

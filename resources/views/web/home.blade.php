@@ -70,7 +70,7 @@
                         <img src="{{ asset('images/web/Prescriptions-logo.png') }}">
                         <h2>My Prescriptions</h2>
                         <p>From now and then you will not lose a prescription again! , You can keep all your prescriptions
-                            <span id="dots">...</span><span id="more" class="d-none"> you ordered from Fouda
+                            <span id="dots">...</span><span id="more" class="d-none"> you ordered from Bloomfiled Pharmacy
                                 pharmacies or
                                 through our website or
                                 mobile app. with full details of all medications and dosages in your profile; This will make

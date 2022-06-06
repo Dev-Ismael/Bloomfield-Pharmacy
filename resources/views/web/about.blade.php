@@ -7,7 +7,7 @@
             <h2 class="pt-5"><b>Wellness is you</b></h2>
             It is not just about being healthy, it is beyond.&nbsp;
             WELLNESS is a state of complete harmony &amp; integration of the body, mind and spirit.&nbsp;
-            In FOUDA everything we do, think, feel, and believe is dedicated to improve your state of well-being.
+            In Bloomfiled Pharmacy everything we do, think, feel, and believe is dedicated to improve your state of well-being.
             We are dedicated to do what beyond normal to bring wellness into your life.
 
             <h2 class="pt-5"><b>Vision</b></h2>

@@ -500,10 +500,8 @@
     <script src="{{ asset('js/admin/datepicker.min.js') }}"></script>
     <script src="{{ asset('js/admin/main.min.js') }}"></script>
     <script src="{{ asset('js/admin/dropzone.min.js') }}"></script>
-    <script src="{{ asset('js/admin/choices.min.js') }}"></script>
     <script src="{{ asset('js/admin/notyf.min.js') }}"></script>
     <script src="{{ asset('js/admin/leaflet.js') }}"></script>
-    <script src="{{ asset('js/admin/svg-pan-zoom.min.js') }}"></script>
     <script src="{{ asset('js/admin/svgMap.min.js') }}"></script>
     <script src="{{ asset('js/admin/simplebar.min.js') }}"></script>
     <script src="{{ asset('js/admin/Sortable.min.js') }}"></script>

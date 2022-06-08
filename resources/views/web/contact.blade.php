@@ -55,7 +55,7 @@
                             <textarea name="messege"  name="messege" class="form-control" cols="100" rows="10" placeholder="Type Messege Content..."></textarea>
                             <small class="text-danger text-left d-block messege"> </small>
                         </div>
-                        <button type="submit" class="btn btn-primary send-messege-btn"> <i class="fa-solid fa-location-arrow"></i> Submit </button>
+                        <a class="btn btn-green send-messege-btn"> <i class="fa-solid fa-location-arrow"></i> Submit </a>
                     </form>
 
                 </div>

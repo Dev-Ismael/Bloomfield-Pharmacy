@@ -541,8 +541,8 @@
                             </div>
                             <div id="newsletter-error"></div>
                             <br>
-                            <div id="subscribe"><input type="submit" id="edit-newsletter-submit" name="op"
-                                    value="Subscribe" class="form-submit" /></div>
+                            <div id="subscribe"><button type="submit" id="edit-newsletter-submit" name="op"
+                                    class="form-submit" >Subscribe</button></div>
                         </div>
                     </form>
                     <div class="suffix"></div>

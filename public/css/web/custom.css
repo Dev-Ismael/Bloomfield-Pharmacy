@@ -30,7 +30,9 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 100px;
 }
 
-
+a.btn,button.btn , button[type='submit']{
+    line-height: normal !important
+}
 @media (max-width: 767px) {
     .title {
         font-size: 35px;
@@ -215,9 +217,11 @@ textarea.is-invalid,
 }
 
 /*====== Hide navebar ===========*/
+/* 
 .container-fluid.head-main{
     display: none;
 }
+*/
 
 .slide-content {
     text-align: center;

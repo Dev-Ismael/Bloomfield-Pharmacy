@@ -15416,7 +15416,6 @@ a.cancel-btn-o {
     .mob-shop-drop-dowm a {
         margin-bottom: 10px;
         font-size: 14px;
-        font-family: light-font;
     }
     .mob-shop-drop-dowm a::before {
         font-family: "Categories icons";
@@ -15507,7 +15506,6 @@ a.cancel-btn-o {
         border-radius: 50%;
         width: 20px;
         height: 20px;
-        position: absolute;
         right: 10px;
         text-align: center;
         line-height: 20px;

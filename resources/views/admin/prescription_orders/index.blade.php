@@ -160,7 +160,7 @@
                         </thead>
                         <tbody>
                             @foreach ($prescription_orders as $prescription_order)
-                                <tr>
+                                <tr class="{{ $prescription_order->status == '0' ? 'pending' : '' }}">
                                     <td>
                                         <div class="form-check dashboard-check">
                                             <input name="id[]" value="{{ $prescription_order->id }}"

@@ -85,20 +85,20 @@
 
                             <li><a href="#" class="mob-shop-link"> <i class="fa-solid fa-list-ul"></i> Shop </a>
                                 <div class="mob-shop-drop-dowm">
-
-                                    <a href="fp/taxonomy/term/18671.html" class="shop1">Medications</a> <a
-                                        href="fp/taxonomy/term/18673.html" class="shop2">Medical Supplies</a>
-                                    <a href="fp/taxonomy/term/18675.html" class="shop3">Skin Care</a> <a
-                                        href="fp/taxonomy/term/18676.html" class="shop4">Hair Care</a> <a
-                                        href="fp/taxonomy/term/18674.html" class="shop5">Beaut</a> <a
-                                        href="fp/taxonomy/term/18679.html" class="shop6">Perfumes /
-                                        Deodorants</a>
-                                    <a href="fp/taxonomy/term/18678.html" class="shop7">Mother / Baby Care</a>
-                                    <a href="fp/taxonomy/term/18680.html" class="shop8">General Use</a> <a
-                                        href="fp/taxonomy/term/18677.html" class="shop9">Body / Personal
-                                        Care</a>
-                                    <a href="fp/taxonomy/term/18672.html" class="shop10">Supplements /
-                                        Vitamines</a>
+                                    @php
+                                        $categories = App\Models\Category::with('subcategories')->get();
+                                    @endphp
+                                    @foreach ( $categories as $key => $category )
+                                        <div class="link-box d-flex">
+                                            <span class="category-icon-sm" style="height: 30px ; background-image: url('/images/categories/{{$category->icon}}')">
+                                            </span>
+                                            @if ( isset( $category->subcategories[0] ) ) 
+                                                <a href="{{ route('category',[ $category->slug , $category->subcategories[0]->slug ]) }}"> {{ $category->title }} </a>
+                                                @else
+                                                <a href="#"> {{ $category->title }} </a>
+                                            @endif
+                                        </div>
+                                    @endforeach
                                 </div>
                             </li>
 
@@ -142,9 +142,7 @@
                                     <li class="shop-btn"><a href="#" class="shop">Shop</a>
                                         <div class="container shop-down remove-padding">
                                             <div class="shop-down-main">
-                                                @php
-                                                    $categories = App\Models\Category::with('subcategories')->get();
-                                                @endphp
+                                                
                                                 <div class="container shop-icons-perant remove-padding">
                                                     @foreach ( $categories as $key => $category )
                                                         <div class="shop-icons-child  {{ $key == 0 ? 'current' : '' }}" data-tab="tab-{{$key + 1}}">

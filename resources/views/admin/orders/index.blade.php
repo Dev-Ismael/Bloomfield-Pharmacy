@@ -168,7 +168,7 @@
                         </thead>
                         <tbody>
                             @foreach ($orders as $order)
-                                <tr class="{{ $order->validation == '1' ? 'pending' : '' }}">
+                                <tr class="{{ $order->status != '4' ? 'pending' : '' }}">
                                     <td>
                                         <div class="form-check dashboard-check">
                                             <input name="id[]" value="{{ $order->id }}"

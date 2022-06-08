@@ -48,14 +48,14 @@
                                         <div class="col-md-6 form-group text-left">
                                             <label for="phone_1" class="text-black"> <i
                                                     class="fa-solid fa-phone-volume"></i> Phone </label>
-                                            <input type="text" name="phone[]" class="form-control" id="phone_1"
+                                            <input type="number" name="phone[]" class="form-control" id="phone_1"
                                                 placeholder="Type Phone Number..." value="{{ isset($user->phone[0] ) ? $user->phone[0] : '' }}"/>
                                             <small class="text-danger phone_1"> </small>
                                         </div>
                                         <div class="col-md-6 form-group text-left">
                                             <label for="phone_2" class="text-black"> <i
                                                     class="fa-solid fa-phone-volume"></i> Second Phone (optional) </label>
-                                            <input type="text" name="phone[]" class="form-control" id="phone_2"
+                                            <input type="number" name="phone[]" class="form-control" id="phone_2"
                                                 placeholder="Type Phone Number..." value="{{ isset($user->phone[1]) ? $user->phone[1] : ''  }}"/>
                                             <small class="text-danger phone_2"> </small>
                                         </div>

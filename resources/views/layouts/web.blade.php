@@ -92,7 +92,7 @@
                                         <div class="link-box d-flex">
                                             <span class="category-icon-sm" style="height: 30px ; background-image: url('/images/categories/{{$category->icon}}')">
                                             </span>
-                                            @if ( isset( $category->subcategories[0] ) ) 
+                                            @if ( isset( $category->subcategories[0] ) )
                                                 <a href="{{ route('category',[ $category->slug , $category->subcategories[0]->slug ]) }}"> {{ $category->title }} </a>
                                                 @else
                                                 <a href="#"> {{ $category->title }} </a>
@@ -142,7 +142,7 @@
                                     <li class="shop-btn"><a href="#" class="shop">Shop</a>
                                         <div class="container shop-down remove-padding">
                                             <div class="shop-down-main">
-                                                
+
                                                 <div class="container shop-icons-perant remove-padding">
                                                     @foreach ( $categories as $key => $category )
                                                         <div class="shop-icons-child  {{ $key == 0 ? 'current' : '' }}" data-tab="tab-{{$key + 1}}">
@@ -341,7 +341,7 @@
                                             <h3>Or log in with...</h3>
                                             <ul class="hybridauth-widget">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{ route("google.redirect") }}">
                                                         <img src="{{ asset("images/google.png") }}" alt="google">
                                                     </a>
                                                 </li>
@@ -470,7 +470,7 @@
                                             <h3>Or log in with...</h3>
                                             <ul class="hybridauth-widget">
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{ route("google.redirect") }}">
                                                         <img src="{{ asset("images/google.png") }}" alt="google">
                                                     </a>
                                                 </li>

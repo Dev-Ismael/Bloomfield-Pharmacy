@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 /*===========================================================================
-=========== Route Pattern ======================================================
+=========== Route Pattern ===================================================
 ===========================================================================*/
 Route::pattern('num', '[0-9]+');
 Route::pattern('id', '[0-9]+');
@@ -30,6 +32,12 @@ Route::post("/register" , [App\Http\Controllers\Auth\CustomAuthController::class
 Route::post("/login" , [App\Http\Controllers\Auth\CustomAuthController::class , "login"])->name('login');
 
 
+/*===========================================================================
+=========== Soical Auth Routes ==============================================
+===========================================================================*/
+// Google
+Route::get('/auth/google/redirect', [App\Http\Controllers\Auth\SoicalController::class, 'googleRedirect'])->name('google.redirect');
+Route::get('/auth/google/callback', [App\Http\Controllers\Auth\SoicalController::class, 'googleCallback'])->name('google.callback');
 
 
 

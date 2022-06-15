@@ -346,7 +346,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{ route("facebook.redirect") }}">
                                                         <img src="{{ asset("images/facebook.png") }}" alt="facebook">
                                                     </a>
                                                 </li>
@@ -475,7 +475,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="#">
+                                                    <a href="{{ route("facebook.redirect") }}">
                                                         <img src="{{ asset("images/facebook.png") }}" alt="facebook">
                                                     </a>
                                                 </li>

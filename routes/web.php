@@ -38,6 +38,9 @@ Route::post("/login" , [App\Http\Controllers\Auth\CustomAuthController::class , 
 // Google
 Route::get('/auth/google/redirect', [App\Http\Controllers\Auth\SoicalController::class, 'googleRedirect'])->name('google.redirect');
 Route::get('/auth/google/callback', [App\Http\Controllers\Auth\SoicalController::class, 'googleCallback'])->name('google.callback');
+// Facebook
+Route::get('/auth/facebook/redirect', [App\Http\Controllers\Auth\SoicalController::class, 'facebookRedirect'])->name('facebook.redirect');
+Route::get('/auth/facebook/callback', [App\Http\Controllers\Auth\SoicalController::class, 'facebookCallback'])->name('facebook.callback');
 
 
 

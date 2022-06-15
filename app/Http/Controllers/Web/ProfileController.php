@@ -12,11 +12,8 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        // Get User ID
-        $user_id = Auth::id();
-        $user = User::find( $user_id )->first();
+        $user = User::where('id', Auth::id())->first();
         return view('web.profile',compact('user'));
-        // return $user;
     }
 
     public function update_profile(Request $request)
@@ -42,12 +39,7 @@ class ProfileController extends Controller
             ]);
         }
 
-        // Get User ID
-        $user_id = Auth::id();
-
-        // Get User info
-        $user = User::find($user_id)->first();
-
+        $user = User::where('id', Auth::id())->first();
 
         try {
 

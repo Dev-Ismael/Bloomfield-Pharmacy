@@ -26,6 +26,10 @@ class CreateUsersTable extends Migration
             $table->string('state' , 55 )->nullable();
             $table->string('address' , 750 )->default('[]');  // default ==> empty array
             $table->string('role', 1 )->default('3'); // 1=> admin  ,  2=> moderator  ,  3=> user
+            /*========== Oauth Columns ==========*/
+            $table->string('oauth_id')->nullable();
+            $table->string('oauth_type')->nullable();
+            /*====================================*/
             $table->rememberToken();
             $table->timestamps();
         });

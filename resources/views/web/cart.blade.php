@@ -126,7 +126,7 @@
                                                         <input class="form-check-input" type="radio" name="phone"
                                                             id="typePhone" value="another_phone">
                                                         <label class="form-check-label w-100" for="typePhone">
-                                                            <input type="text" name="another_phone" class="form-control" id="phone" placeholder="Type Another Shiping Phone ...">
+                                                            <input type="number" name="another_phone" class="form-control" id="phone" placeholder="Type Another Shiping Phone ...">
                                                         </label>
                                                     </div>
                                                 </div>
@@ -136,7 +136,7 @@
                                             <div class="row">
                                                 <div class="col-md-10 form-group text-left">
                                                     <label for="phone" class="text-black h4 font-weight-bold"> <i class="fa-solid fa-phone-volume"></i> Phone </label>
-                                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Type Phone Details...">
+                                                    <input type="number" name="phone" class="form-control" id="phone" placeholder="Type Shiping Phone...">
                                                 </div>
                                             </div>
                                         @endif
